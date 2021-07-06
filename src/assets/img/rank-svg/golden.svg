@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88.439" height="89.141" viewBox="0 0 88.439 89.141">
+  <g id="Group_24" data-name="Group 24" transform="matrix(0.966, -0.259, 0.259, 0.966, -2060.036, -2743.302)">
+    <path id="Subtraction_1" data-name="Subtraction 1" d="M85,73V0A36.51,36.51,0,0,1,99.031,69.992,36.249,36.249,0,0,1,85,73Z" transform="translate(1226 3201)" fill="#ffcc5b"/>
+    <path id="Subtraction_2" data-name="Subtraction 2" d="M0,0V72.993a36.248,36.248,0,0,0,14.032-3,36.4,36.4,0,0,0,11.441-7.848,36.378,36.378,0,0,0,7.7-11.546A36.278,36.278,0,0,0,36,36.5a36.276,36.276,0,0,0-2.823-14.1,36.379,36.379,0,0,0-7.7-11.546A36.4,36.4,0,0,0,14.032,3,36.249,36.249,0,0,0,0,0Z" transform="translate(1311 3273.997) rotate(180)" fill="#fdbc4b"/>
+    <path id="Path_1" data-name="Path 1" d="M1282.5,3235s-1,22.5,18,28.5" fill="none" stroke="#ec9922" stroke-width="2"/>
+    <path id="Path_2" data-name="Path 2" d="M1300.491,3263.5s1-22.5-18-28.5" transform="translate(37.5 -24)" fill="none" stroke="#ec9922" stroke-width="2"/>
+    <text id="_1" data-name="1" transform="translate(1296 3256)" fill="#ec9922" font-size="50" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+  </g>
+</svg>
