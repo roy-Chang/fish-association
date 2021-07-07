@@ -8,9 +8,11 @@ import '../assets/css/styled.css';
 function ActivityPage() {
   return (
     <>
-      <div className="activity-wrapper" style={{height: '1000px'}}>
-        <Firstpage/>
-        <Secondpage/>
+      <div className="activity-wrapper">
+        <div style={{height: '1000px'}}>
+          <Firstpage/>
+          <Secondpage/>
+        </div>
       </div>
     </>
   );
