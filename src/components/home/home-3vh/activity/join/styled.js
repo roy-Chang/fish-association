@@ -15,7 +15,6 @@ export const Square = styled.div`
  padding-left: 1vw;
  p {
      text-align: center;
-     color: white;
      font-weight: 900;
  }
 `

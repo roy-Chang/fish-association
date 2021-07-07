@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react'
 import { Navigation, Title, ActivityWrapper } from './styled'
 
-import Activity from './activity/Activity';
-//rank svg
-// import { ReactComponent as Golden } from '../../../images/rank-svg/golden.svg';
-
+import ActivityOne from './activity/ac-one/ActivityOne';
+import ActivityTwo from './activity/ac-two/ActivityTwo';
+import ActivityThree from './activity/ac-three/ActivityThree';
 
 
 export default class ThirdFloor extends PureComponent {
@@ -17,9 +16,9 @@ export default class ThirdFloor extends PureComponent {
                   <hr/>
               </Title>  
               <ActivityWrapper>
-                  <Activity />
-                  <Activity />
-                  <Activity />
+                  <ActivityOne />
+                  <ActivityTwo />
+                  <ActivityThree />
               </ActivityWrapper>  
                                   
             </>

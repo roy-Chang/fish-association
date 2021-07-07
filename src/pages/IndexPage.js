@@ -10,7 +10,8 @@ import {ScrollSection, ScrollContainer} from 'react-onepage-scroll'
 import FirstFloor from '../components/home/home-1vh/FirstFloor';
 import SecondFloor from '../components/home/home-2vh/SecondFloor';
 import ThirdFloor from '../components/home/home-3vh/ThirdFloor';
-  
+import FourFloor from '../components/home/home-4vh/FourFloor';  
+
 function App() {
   return (
     <ScrollContainer>
@@ -30,6 +31,7 @@ function App() {
       </ScrollSection>
 
       <ScrollSection pageId={3}>
+        <FourFloor />
         <FourBackground />
       </ScrollSection>
 

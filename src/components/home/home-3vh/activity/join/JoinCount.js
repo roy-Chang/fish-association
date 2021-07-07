@@ -5,8 +5,8 @@ export default class JoinCount extends PureComponent {
     render() {
         return (
             <Square>
-                <p>目前報名人數</p>
-                <p>19 / 20</p>
+                <p style={{color: 'white'}}>目前報名人數</p>
+                <p style={{color: 'white'}}>19 / 20</p>
             </Square>
         )
     }
