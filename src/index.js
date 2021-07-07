@@ -1,11 +1,3 @@
-//<<<<<<< HEAD
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import 'normalize.css';
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
-//=======
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -13,7 +5,6 @@ import App from "./App";
 import App2 from "./App2";
 import reportWebVitals from "./reportWebVitals";
 import "normalize.css";
-//>>>>>>> bfb2f670e9b97f407dce5049bbe1e8b3c3c270e2
 
 ReactDOM.render(
   <React.StrictMode>
