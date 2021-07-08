@@ -39,9 +39,7 @@ export default class ActivityThree extends PureComponent {
                             <span style={{color: "#8A8A8A"}}>(27459)</span>
                         </div>
                         <Money>
-                            <p>TWD <span>500</span> (成人)</p>
-                            <p>TWD <span>250</span> (成人)</p>
-                            
+                            <p>TWD <span>500</span> (成人) / <span>250</span> (小孩)</p>
                             <p>截止日期: 16/29</p>
                         </Money>
                         <BtnInfo>活動詳情</BtnInfo>

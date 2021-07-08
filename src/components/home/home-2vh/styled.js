@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 import secondBg from '../../../assets/img/2vh-bg.png';
 
-//title part css
+
+
 export const SecondBackground = styled.div`
   min-width: 100vw;
   min-height: 100vh;

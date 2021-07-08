@@ -49,6 +49,5 @@ export const BtnInfo = styled.button`
   border: none;
   padding: 10px 18px 10px 18px;
   border-radius: 8px;
-  margin-top: 1vh;
   cursor: pointer;
 `
