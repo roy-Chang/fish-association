@@ -5,9 +5,9 @@ import { BgGreen } from "./styled";
 function Firstpage() {
   return (
     <>
-      <nav style={{ height: "65px", background: "darkblue" }}>Nav Bar</nav>
+      <nav style={{ height: "65px", background: "darkblue" }}></nav>
       <BgGreen>
-        <header className="banner bg-flex">
+        <header className="banner d-flex">
           <Banner />
         </header>
       </BgGreen>

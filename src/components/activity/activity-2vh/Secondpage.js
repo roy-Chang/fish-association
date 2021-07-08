@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../../assets/css/styled.css";
 //import LocationInfo from "./LocationInfo";
 import {
   InfoSchedule,
@@ -10,10 +9,8 @@ import {
   RightLoc,
   Wrapper,
 } from "./styled";
-import "react-bootstrap"; //Toast
-import "bootstrap/dist/css/bootstrap.min.css";
-import ChenPin from "../../../assets/img/Chen-Pin2.jpg";
-import ChenPin2 from "../../../assets/img/Chen-Pin.jpg";
+import ChenPin from "../../../assets/img/Activity/Chen-Pin2.jpeg";
+import ChenPin2 from "../../../assets/img/Activity/Chen-Pin.jpeg";
 
 class Secondpage extends Component {
   constructor(props) {
@@ -23,7 +20,7 @@ class Secondpage extends Component {
     return (
       <>
         <Wrapper>
-          <LocationInfo className="wrapper bg-blue d-flex">
+          <LocationInfo className="wrapper activity-bg-blue d-flex">
             <LeftLoc>
               <img src={ChenPin} alt="Chen-Pin-Port" />
             </LeftLoc>

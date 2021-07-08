@@ -10,7 +10,7 @@ export const Slogan = styled.div`
   border-radius: 20px;
   background-color: rgba(250, 250, 250, 0.7);
   position: absolute;
-  left: 10%;
+  left: 5%;
   top: 50px;
   color: #1d3557;
   z-index: 1000;
