@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="93.091" height="69.579" viewBox="0 0 93.091 69.579">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.245" y1="0.729" x2="0.637" y2="0.4" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f2f2f2"/>
+      <stop offset="1" stop-color="#cfcfcf"/>
+    </linearGradient>
+  </defs>
+  <g id="rain" transform="translate(2.091 -29.147)">
+    <g id="rain-2" data-name="rain" transform="translate(-2.091 29.147)">
+      <path id="Path" d="M30.417,34.147c11.241,0,21.561,5.634,26.812,14.646a25.815,25.815,0,0,1,27.311,2.074c7.711,5.843,10.55,15.444,7.1,24S79.186,89.1,69.137,89.053l-38.806.094C13.58,89.147,0,76.834,0,61.647s13.58-27.5,30.331-27.5Z" transform="translate(0 -34.147)" fill="url(#linear-gradient)"/>
+      <path id="Path-2" data-name="Path" d="M48,134.41a5,5,0,0,1-10,0c0-4.289,4.032-8.263,5-8.263S48,130.094,48,134.41Z" transform="translate(-18.78 -69.726)" fill="#0baeff"/>
+      <path id="Path-3" data-name="Path" d="M48,134.41a5,5,0,0,1-10,0c0-4.289,4.032-8.263,5-8.263S48,130.094,48,134.41Z" transform="translate(2.045 -69.726)" fill="#0baeff"/>
+      <path id="Path-4" data-name="Path" d="M48,134.41a5,5,0,0,1-10,0c0-4.289,4.032-8.263,5-8.263S48,130.094,48,134.41Z" transform="translate(22.871 -69.726)" fill="#0baeff"/>
+    </g>
+  </g>
+</svg>
