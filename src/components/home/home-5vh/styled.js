@@ -18,6 +18,13 @@ export const FifthBackground = styled.div`
   background-size: cover;
   font-family: sans-serif;
   position: absolute;
+  h1 {
+    font-size: 3vw;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 20vh;
+
+  }
 `
 
 export const Navigation = styled.div`

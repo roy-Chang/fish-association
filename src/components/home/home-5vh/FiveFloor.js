@@ -8,8 +8,10 @@ export default class FiveFloor extends PureComponent {
         return (
             <div>
                 <Navigation></Navigation>
+               
                 <Wrapper>
                     <FifthBackground>
+                      <h1>已有 1000,000,000 人註冊</h1>
                     </FifthBackground>
                     <LoginCard>
                         <h1>加入會員即可獲得購物金3000元</h1>
