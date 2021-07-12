@@ -15,8 +15,7 @@ export const TitleWrapper = styled.div`
 `
 
 export const FigureLogo = styled.figure`
-  max-width: 113px;
-  max-height: 114px;
+  width: 6vw;
   overflow: hidden;
   margin: 0 20px 0 0;
   img {
@@ -27,7 +26,7 @@ export const FigureLogo = styled.figure`
 `
 
 export const Title = styled.div`
-  max-width: 387px;
+  width: 20vw;
   hr {
       margin: 0;
       width: 18vw;

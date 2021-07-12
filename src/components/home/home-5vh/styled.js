@@ -19,7 +19,7 @@ export const FifthBackground = styled.div`
   font-family: sans-serif;
   position: absolute;
   h1 {
-    font-size: 3vw;
+    font-size: 4vw;
     font-weight: 900;
     text-align: center;
     margin-top: 20vh;
