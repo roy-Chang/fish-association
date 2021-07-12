@@ -12,11 +12,12 @@ export default class DiscountCard extends PureComponent {
                 <h1 style={{fontSize: '1.6vw'}}>特惠公告</h1>
                 <ImageWrapper>
                     <figure>
-                        <ImageOne src={imageOne} alt="item1"/>
-                        <DiscoundCard/>
+                        <ImageOne src={imageOne} alt="item1"/>       
+                        <DiscoundCard>鯖魚 - 全館五折</DiscoundCard>
                     </figure>
                     <figure style={{borderRadius: '0 20px 20px 0'}}>
                         <ImageTwo src={imageTow} alt="item1"/>
+                        <DiscoundCard>草蝦 - 全館79折</DiscoundCard>
                     </figure>
                 </ImageWrapper>
             </Container>
