@@ -101,7 +101,16 @@ export const Refresh = styled.div`
   margin-left: 1vw;
   display: flex;
   align-items: flex-end;
+  @keyframes rotate {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
   svg {
+    animation: rotate infinite ${props => props.isLoading ? '1.5s' : '0s'} linear;
     margin-left: 0.5vw;
     width: 1.8vw;
     height: 1.8vh;
