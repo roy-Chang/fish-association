@@ -10,6 +10,7 @@ function FirstPage() {
       
       <WebPageTop className="d-flex">
         <Slide />
+        <TopRank />
       </WebPageTop>
     </>
   );
