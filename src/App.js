@@ -13,16 +13,12 @@ function App() {
         <li><Link to="/">index</Link></li>
         <li><Link to="/activity">activity</Link></li>
         <li><Link to="/item-single">item-single</Link></li>
-      </ul>
-      <Route path="/" exact component={IndexPage} />
-      <Route path="/activity" component={ActivityPage} />
-      <Route path="/item-single" exact component={ItemSingle} />
-
         <li><Link to="/travel-notes">travel-notes</Link></li>
       </ul>
       <Route path="/" exact component={IndexPage} />
       <Route path="/activity" component={ActivityPage} />
       <Route path="/travel-notes" component={TravelNotesPage} />
+      <Route path="/item-single" component={ItemSingle} />
 
     </Router>
     

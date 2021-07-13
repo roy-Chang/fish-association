@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 
 //title part css
+export const OutsideWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+`
+
 export const TestRed = styled.div`
   background: red;
 `;
@@ -20,7 +26,7 @@ export const AsideNav = styled.div`
   background-color: var(--main-color);
   border-radius: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   a {
     padding: 10px;
   }
