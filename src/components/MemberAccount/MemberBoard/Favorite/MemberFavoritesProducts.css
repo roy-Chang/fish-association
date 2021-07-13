@@ -1,0 +1,172 @@
+.MFPmemberBoard {
+  position: relative;
+  height: 750px;
+  width: 900px;
+  background: var(--main-color);
+  margin-top: 50px;
+  margin-left: 30px;
+  border-radius: 20px;
+}
+
+.MFPmemberBoard ul {
+  padding-left: 0;
+  display: flex;
+  list-style-type: none;
+  margin-top: 0;
+  background: var(--second-color);
+  border-radius: 20px 20px 0 0;
+}
+
+.MFPmemberBoard ul li {
+  display: inline;
+  font-size: 32px;
+  width: 450px;
+  height: 80px;
+  text-align: center;
+  color: var(--fontWhite);
+}
+
+.MFPmemberBoard ul li a {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+  line-height: 80px;
+  cursor: pointer;
+}
+
+.MFPleftBoardTitle {
+  border-radius: 20px 0 0 0;
+}
+
+.MFPrightBoardTitle {
+  border-radius: 0 20px 0 0;
+}
+
+.MFPactive {
+  background: var(--main-color) !important;
+  border-bottom: 2px solid var(--sixth-color);
+}
+.MFPactiveList {
+  color: white;
+}
+
+.MFPcommodityFavorites {
+  display: block;
+  height: 600px;
+  overflow-y: scroll;
+  /*要給高度 才能設置scroll 屬性*/
+}
+
+.MFPcommodityFavorites a:hover {
+  text-decoration: underline;
+}
+
+.MFPcommodityFavorites hr {
+  background: var(--blockLight);
+  width: 90%;
+}
+
+.MFPcommodityFavoritesList {
+  font-size: 24px;
+  color: var(--fontWhite);
+  display: flex;
+  /* justify-content: space-around; */
+  width: 90%;
+  align-items: center;
+  padding-top: 40px;
+  margin: 0px auto;
+}
+
+.MFPcommodityFavoritesList a {
+  color: var(--fontWhite);
+  text-decoration: none;
+  width: 300px;
+  margin: 0 20px;
+}
+
+.MFPcommodityPicture {
+  width: 160px;
+  height: 120px;
+  margin-left: 20px;
+}
+
+.MFPbtn {
+  background: var(--fifth-color);
+  color: var(--fontWhite);
+  width: 95px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.MFPbtn:hover {
+  background: rgb(255, 0, 0);
+}
+
+/* Title & List RWDcss*/
+.MFPList1240 {
+  display: none;
+}
+
+@media screen and (max-width: 1240px) {
+  .MFPmemberCentreTitle {
+    margin: 20px auto;
+  }
+
+  .MFPCentreTitle {
+    margin: 0px auto;
+    font-size: 70px;
+    font-weight: bold;
+    color: var(--main-color);
+    width: 280px;
+  }
+
+  .MFPmemberBoard {
+    margin: 0px auto;
+    max-width: 80vw;
+    height: 100%;
+  }
+
+  .MFPList1240 {
+    display: block;
+    width: 100%;
+  }
+
+  .MFPList1240 ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .MFPList1240 ul li {
+    margin: 0px auto;
+  }
+
+  .MFPList1240 ul li a {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+  }
+
+  .MFPList1240 ul li a img {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  .MFPmemberPage {
+    flex-direction: column;
+  }
+
+  .MFPcontainerList {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .MFPmemberBoard {
+    max-width: 80vw;
+    margin: 0 auto;
+  }
+  .MFParticle-content {
+    width: 300px;
+  }
+}
