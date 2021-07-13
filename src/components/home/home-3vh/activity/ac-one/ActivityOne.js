@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
+
 //icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+import { TiStarFullOutline, TiStarHalfOutline } from "react-icons/ti";
 //css
 import { Wrapper, Card, Money, BtnInfo } from './styled';
 //JoinCard component
@@ -18,6 +18,11 @@ const rankStyle = {
     top: '-5%',
 }
 
+const iconStyle = {
+    color: "#457B9D", 
+    fontSize: '1.2vw'
+}
+
 export default class ActivityOne extends PureComponent {
     render() {
         return (
@@ -31,11 +36,11 @@ export default class ActivityOne extends PureComponent {
                         <h2>海釣 | (正濱漁港/深澳漁港/龜吼漁港)</h2>
                         <p>遊覽各漁港當地特色 品嘗當地特色海鮮 海釣活動 </p>
                         <div>
-                            <FontAwesomeIcon icon={faStar} color="#457B9D"/>
-                            <FontAwesomeIcon icon={faStar} color="#457B9D"/>
-                            <FontAwesomeIcon icon={faStar} color="#457B9D"/>
-                            <FontAwesomeIcon icon={faStar} color="#457B9D"/>
-                            <FontAwesomeIcon icon={faStarHalfAlt} color="#457B9D"/>
+                            <TiStarFullOutline style={iconStyle}/>
+                            <TiStarFullOutline style={iconStyle}/>
+                            <TiStarFullOutline style={iconStyle}/>
+                            <TiStarFullOutline style={iconStyle}/>
+                            <TiStarHalfOutline style={iconStyle}/>
                             <span style={{color: "#8A8A8A"}}>(27459)</span>
                         </div>
                         <Money>

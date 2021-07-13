@@ -6,6 +6,16 @@ import { ReactComponent as DayCloudyIcon } from '../../../../assets/img/weather-
 import { ReactComponent as AirFlowIcon } from '../../../../assets/img/weather-svg/airFlow.svg';
 import { ReactComponent as RainIcon } from '../../../../assets/img/weather-svg/rain.svg';
 import { ReactComponent as RefreshIcon } from '../../../../assets/img/weather-svg/refresh.svg';
+import { ReactComponent as LoadingIcon } from '../../../../assets/img/weather-svg/loading.svg';
+
+
+import { connect } from 'react-redux'
+//action creator
+import { axiosWeather, updateWeather, axiosWeatherInfo } from '../../../../redux/actions/weather';
+//dayjs
+import dayjs from 'dayjs'
+
+
 
 const theme = {
     light: {
@@ -18,33 +28,50 @@ const theme = {
     }
 }
 
+
 class Weather extends PureComponent {
+    
+
+    componentDidMount() {
+        this.props.handleAxios()
+        this.props.handleAxiosWeatherInfo()
+    }
+
+
     render() {
+        const { locationName, description, temperature, windSpeed, rainPassibility, observationTime, handleClick, isLoading, comfortability } = this.props;
         return (
             
                 <Container>
                     <WeatherCard>
                         <Location>
-                        台北市
+                        {locationName}
                         <hr />
                         </Location>
-                        <Description>多雲</Description>
+                        <Description>{description}{' '}{comfortability}</Description>
                         <CurrentWeather>
                             <Temperature>
-                                23
+                                {Math.round(temperature)}
                             </Temperature>
                             <Celsius>°C</Celsius>
                             <DayCloudyIcon />
                         </CurrentWeather>
                         <AirFlow> 
-                            <AirFlowIcon/> 23 m/h 
+                            <AirFlowIcon/> {windSpeed} m/h 
                         </AirFlow>
                         <IconWrapper>
                             <Rain> 
-                                <RainIcon />48% 
+                                <RainIcon />{rainPassibility}% 
                             </Rain>
-                            <Refresh> 
-                                最後觀測時間: 上午 12:03 <RefreshIcon />
+                            <Refresh onClick={() => handleClick(isLoading)} isLoading={isLoading}> 
+                            最後觀測時間:
+                                {
+                                    new Intl.DateTimeFormat('zh-TW', {
+                                        hour: 'numeric',
+                                        minute: 'numeric'
+                                    }).format(dayjs(observationTime))
+                                }
+                                {isLoading ? <LoadingIcon/> : <RefreshIcon/>} 
                             </Refresh>
                         </IconWrapper>
                     </WeatherCard>
@@ -53,6 +80,43 @@ class Weather extends PureComponent {
             
         );
     }
+
+    
 }
 
-export default Weather
+const mapStateToProps = (state) => {
+    return {
+        locationName: state.weather.locationName,
+        description: state.weather.description,
+        comfortability: state.weather.comfortability,
+        windSpeed: state.weather.windSpeed,
+        temperature: state.weather.temperature,
+        rainPassibility: state.weather.rainPassibility,
+        observationTime: state.weather.observationTime,
+        isLoading: state.weather.isLoading
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleAxios() {
+            const action = axiosWeather();
+            dispatch(action);
+        },
+        handleAxiosWeatherInfo() {
+            const action = axiosWeatherInfo();
+            dispatch(action)
+        },
+        handleClick(state) {
+            const action = updateWeather();
+            dispatch(action)
+            if(state === false) {
+                const action = axiosWeather();
+                dispatch(action);
+            }
+        }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Weather);

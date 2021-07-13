@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 //icon
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+import { TiStarFullOutline, TiStarHalfOutline } from "react-icons/ti";
 //css
 import { Wrapper, Card, Money, BtnInfo } from './styled';
 //JoinCard component
@@ -18,6 +17,11 @@ const rankStyle = {
     top: '28.8%',
 }
 
+const iconStyle = {
+    color: "#457B9D", 
+    fontSize: '1.2vw'
+}
+
 export default class ActivityTwo extends PureComponent {
     render() {
         return (
@@ -31,11 +35,11 @@ export default class ActivityTwo extends PureComponent {
                         <h2>龍洞 | 浮淺</h2>
                         <p>探索海洋世界 享受穿梭於海底的涼夏感 </p>
                         <div>
-                            <FontAwesomeIcon icon={faStar} color="#457B9D"/>
-                            <FontAwesomeIcon icon={faStar} color="#457B9D"/>
-                            <FontAwesomeIcon icon={faStar} color="#457B9D"/>
-                            <FontAwesomeIcon icon={faStar} color="#457B9D"/>
-                            <FontAwesomeIcon icon={faStarHalfAlt} color="#457B9D"/>
+                            <TiStarFullOutline style={iconStyle}/>
+                            <TiStarFullOutline style={iconStyle}/>
+                            <TiStarFullOutline style={iconStyle}/>
+                            <TiStarFullOutline style={iconStyle}/>
+                            <TiStarHalfOutline style={iconStyle}/>
                             <span style={{color: "#8A8A8A"}}>(27459)</span>
                         </div>
                         <Money>

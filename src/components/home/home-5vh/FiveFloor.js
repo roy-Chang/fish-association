@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, useState } from 'react'
 import { Wrapper, Navigation, LoginCard, FifthBackground, RegisterBtn } from './styled'
-//import { FifthBackground } from '../components/home/home-5vh/styled';
+import Number from './jumping-number/Number'
 
 
 export default class FiveFloor extends PureComponent {
@@ -11,7 +11,7 @@ export default class FiveFloor extends PureComponent {
                
                 <Wrapper>
                     <FifthBackground>
-                      <h1>已有 1000,000,000 人註冊</h1>
+                            <h1>已有 <Number/> 人註冊</h1>
                     </FifthBackground>
                     <LoginCard>
                         <h1>加入會員即可獲得購物金3000元</h1>
@@ -25,3 +25,4 @@ export default class FiveFloor extends PureComponent {
         )
     }
 }
+

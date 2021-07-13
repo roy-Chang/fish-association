@@ -15,7 +15,7 @@ export const Container = styled.div`
       color: #000000;
       margin-bottom: 10px;
   }
-`
+` 
 
 export const ImageWrapper = styled.div`
   display: flex;
@@ -26,15 +26,33 @@ export const ImageWrapper = styled.div`
       border-radius: 20px 0 0 20px;
       overflow: hidden;
   }
+ 
   
 `
 
 export const ImageOne = styled.img`
   width: 100%;
+  filter: brightness(50%);
+  transition: all 0.5s;
+  :hover {
+    filter: brightness(100%);
+    cursor: pointer;
+  }
 `
 export const ImageTwo = styled.img`
   width: 100%;
+  filter: brightness(50%);
+  transition: all 0.5s;
+  :hover {
+    filter: brightness(100%);
+    cursor: pointer;
+  }
 `
 
 export const DiscoundCard = styled.div`
+  background: #6D695F;
+  color: white;
+  font-weight: 900;
+
 `
+
