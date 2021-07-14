@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./MemberJoin2.css";
+import Form from "react-bootstrap/Form";
+import { Button } from "react-bootstrap";
 
 function Step2(props) {
   const [selectYear, setSelectYear] = useState(null);
@@ -18,27 +20,28 @@ function Step2(props) {
   ];
   return (
     <>
-      <div className="ML2memberEnter">
-        <div className="ML2item">
-          <label className="ML2itemLabel" for="">
+      <Form.Group className="ML2memberEnter">
+        <Form.Group className="ML2item">
+          <Form.Text className="ML2itemLabel" for="">
             姓名
-          </label>
-          <input
+          </Form.Text>
+          <Form.Control
             className="ML2itemInput"
             type="text"
             name="name"
             value={props.getState("name", "")}
             onChange={props.handleChange}
           />
-        </div>
-        <div className="ML2item">
-          <label className="ML2itemLabel" for="">
+        </Form.Group>
+        <Form.Group className="ML2item">
+          <Form.Text className="ML2itemLabel" for="">
             性別
-          </label>
-          <div className="ML2itemContent">
-            <div className="ML2gender">
+          </Form.Text>
+          <Form.Group className="ML2itemContent">
+            <Form.Group className="ML2gender">
               <span>男</span>
-              <input
+              <Form.Check
+                inline
                 className="ML2itemCheck"
                 type="radio"
                 id="men"
@@ -46,27 +49,34 @@ function Step2(props) {
                 onChange={props.handleChange}
               />
               <span>女</span>
-              <input
+              <Form.Check
+                inline
                 className="ML2itemCheck"
                 type="radio"
                 id="women"
                 name="gender"
                 onChange={props.handleChange}
               />
-            </div>
-          </div>
-        </div>
-        <div className="ML2item">
-          <label className="ML2itemLabel" for="">
+            </Form.Group>
+          </Form.Group>
+        </Form.Group>
+        <Form.Group className="ML2item">
+          <Form.Text className="ML2itemLabel" for="">
             出生日期
-          </label>
-          <div className="ML2itemContent">
-            {/* <Select
+          </Form.Text>
+          <Form.Group className="ML2itemContent">
+            {/* <Form.Control as="select"
               defaultValue={selectYear}
               onChange={setSelectYear}
               options={years}
             /> */}
-            <select className="dateInput" name="" id="">
+            <Form.Control
+              as="select"
+              size="sm"
+              className="ML2dateInput"
+              name=""
+              id=""
+            >
               <option value="">1990</option>
               <option value="">1991</option>
               <option value="">1992</option>
@@ -78,9 +88,15 @@ function Step2(props) {
               <option value="">1998</option>
               <option value="">1999</option>
               <option value="">2000</option>
-            </select>
+            </Form.Control>
             年
-            <select className="ML2dateInput" name="" id="">
+            <Form.Control
+              as="select"
+              size="sm"
+              className="ML2dateInput"
+              name=""
+              id=""
+            >
               <option value="">1</option>
               <option value="">2</option>
               <option value="">3</option>
@@ -93,9 +109,15 @@ function Step2(props) {
               <option value="">10</option>
               <option value="">11</option>
               <option value="">12</option>
-            </select>
+            </Form.Control>
             月
-            <select className="ML2dateInput" name="" id="">
+            <Form.Control
+              as="select"
+              size="sm"
+              className="ML2dateInput"
+              name=""
+              id=""
+            >
               <option value="">1</option>
               <option value="">2</option>
               <option value="">3</option>
@@ -127,38 +149,38 @@ function Step2(props) {
               <option value="">29</option>
               <option value="">30</option>
               <option value="">31</option>
-            </select>
+            </Form.Control>
             日
-          </div>
-        </div>
-        <div className="ML2item">
-          <label className="ML2itemLabel" for="">
+          </Form.Group>
+        </Form.Group>
+        <Form.Group className="ML2item">
+          <Form.Text className="ML2itemLabel" for="">
             連絡電話
-          </label>
-          <input
+          </Form.Text>
+          <Form.Control
             className="ML2itemInput"
             type="text"
             name="phone"
             value={props.getState("phone", "")}
             onChange={props.handleChange}
           />
-        </div>
-        <div className="ML2item">
-          <label className="ML2itemLabel" for="">
+        </Form.Group>
+        <Form.Group className="ML2item">
+          <Form.Text className="ML2itemLabel" for="">
             地址
-          </label>
-          <input
+          </Form.Text>
+          <Form.Control
             className="ML2itemInput"
             type="text"
             name="address"
             value={props.getState("address", "")}
             onChange={props.handleChange}
           />
-        </div>
+        </Form.Group>
         <button className="ML2btn" type="submit">
           送出
         </button>
-      </div>
+      </Form.Group>
     </>
   );
 }

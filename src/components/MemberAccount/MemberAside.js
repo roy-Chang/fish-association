@@ -18,7 +18,6 @@ import MemberNotes from "./MemberBoard/MemberNotes";
 import MemberActivity from "./MemberBoard/MemberActivity";
 import MemberHistory from "./MemberBoard/MemberHistory";
 import MemberCoupon from "./MemberBoard/MemberCoupon";
-import { match } from "minimatch";
 
 function MemberAside(props) {
   const [change, setChange] = useState(0);

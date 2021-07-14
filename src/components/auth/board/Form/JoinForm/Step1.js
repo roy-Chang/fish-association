@@ -1,7 +1,7 @@
 // import React from "react";
 import React, { useState, useRef, useEffect } from "react";
-// import "../../assets/css/AuthCSS/Auth/MemberJoin.css";
-// import "../../assets/css/Auth/MemberJoin.css";
+import Form from "react-bootstrap/Form";
+import { Button } from "react-bootstrap";
 
 function Step1(props) {
   const inputAccountElement = useRef();
@@ -71,11 +71,11 @@ function Step1(props) {
 
   return (
     <>
-      <div className="AmemberEnter">
-        <div className="Aitem">
-          <label className="AitemLabel">會員帳號</label>
-          <div className="AitemContent">
-            <input
+      <Form.Text className="AmemberEnter">
+        <Form.Text className="Aitem">
+          <Form.Label className="AitemLabel">會員帳號</Form.Label>
+          <Form.Text className="AitemContent">
+            <Form.Control
               className="AitemInput"
               name="account"
               type="text"
@@ -85,14 +85,16 @@ function Step1(props) {
               ref={inputAccountElement}
             />
             {fieldsErrors.account !== "" && (
-              <div className="Acheck AcheckAccount">該帳號已創建</div>
+              <Form.Text className="Acheck AcheckAccount">
+                該帳號已創建
+              </Form.Text>
             )}
-          </div>
-        </div>
-        <div className="Aitem">
-          <label className="AitemLabel">信箱</label>
-          <div className="AitemContent">
-            <input
+          </Form.Text>
+        </Form.Text>
+        <Form.Text className="Aitem">
+          <Form.Label className="AitemLabel">信箱</Form.Label>
+          <Form.Text className="AitemContent">
+            <Form.Control
               className="AitemInput"
               name="email"
               type="email"
@@ -101,14 +103,16 @@ function Step1(props) {
               required
             />
             {fieldsErrors.email !== "" && (
-              <div className="Acheck AcheckAccount">該信箱已創建</div>
+              <Form.Text className="Acheck AcheckAccount">
+                該信箱已創建
+              </Form.Text>
             )}
-          </div>
-        </div>
-        <div className="Aitem">
-          <label className="AitemLabel">密碼</label>
-          <div className="AitemContent">
-            <input
+          </Form.Text>
+        </Form.Text>
+        <Form.Text className="Aitem">
+          <Form.Label className="AitemLabel">密碼</Form.Label>
+          <Form.Text className="AitemContent">
+            <Form.Control
               className="AitemInput"
               name="password"
               type="password"
@@ -118,14 +122,16 @@ function Step1(props) {
               minLength="3"
             />
             {fieldsErrors.password !== "" && (
-              <div className="Acheck AcheckAccount">該密碼不符合長度限制</div>
+              <Form.Text className="Acheck AcheckAccount">
+                該密碼不符合長度限制
+              </Form.Text>
             )}
-          </div>
-        </div>
-        <div className="Aitem">
-          <label className="AitemLabel">確認密碼</label>
-          <div className="AitemContent">
-            <input
+          </Form.Text>
+        </Form.Text>
+        <Form.Text className="Aitem">
+          <Form.Label className="AitemLabel">確認密碼</Form.Label>
+          <Form.Text className="AitemContent">
+            <Form.Control
               className="AitemInput"
               name="repassword"
               type="password"
@@ -135,14 +141,16 @@ function Step1(props) {
               title="OOOXXX"
             />
             {fields.repassword !== fields.password && (
-              <div className="Acheck AcheckAccount">與密碼不相符</div>
+              <Form.Text className="Acheck AcheckAccount">
+                與密碼不相符
+              </Form.Text>
             )}
-          </div>
-        </div>
+          </Form.Text>
+        </Form.Text>
         <button className="Abtn" type="submit" onClick={props.next}>
           下一步
         </button>
-      </div>
+      </Form.Text>
     </>
   );
 }
