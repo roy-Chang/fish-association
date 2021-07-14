@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-import { Steps, Step } from "react-step-builder";
+// import { Steps, Step } from "react-step-builder";
 import Step1 from "./JoinForm/Step1";
 import Step2 from "./JoinForm/Step2";
 
@@ -10,10 +10,10 @@ function Forms(props) {
     <>
       <form>
         {/* -----------------------form-------------------------- */}
-        <Steps>
+        {/* <Steps>
           <Step component={Step1} />
           <Step component={Step2} />
-        </Steps>
+        </Steps> */}
         {/* -----------------------form-------------------------- */}
       </form>
     </>

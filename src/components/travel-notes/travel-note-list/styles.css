@@ -38,15 +38,15 @@
 }
 .TopRankBlock a:link {
   text-decoration: none;
-  color: var(--mainBlue);
+  color: var(--main-color);
 }
 .TopRankBlock a:visited {
   text-decoration: none;
-  color: var(--mainBlue);
+  color: var(--main-color);
 }
 .TopRankBlock a:hover {
   text-decoration: none;
-  color: var(--minorBlue);
+  color: var(--second-color);
 }
 .TopRankBlock ul {
   padding: 0 10px;
@@ -66,3 +66,62 @@
   /* padding:  */
 }
 /* travel-notes toprank css END*/
+
+.list-container {
+  color: var(--main-color);
+  margin: 0 auto;
+  max-width: 1080px;
+}
+
+.list-top {
+  padding: 50px 0 30px 0;
+}
+.TN-write-btn {
+  background: var(--fifth-color);
+  color: var(--forth-color);
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+.TN-serch-btn {
+  background: var(--third-color);
+  color: var(--main-color);
+}
+
+/* article list css */
+
+.article-block {
+  background: var(--seventh-color);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.pic-block {
+  display: flex;
+  position: relative;
+}
+.board-pic {
+  width: 200px;
+  height: 200px;
+  filter: drop-shadow(-10px 10px 15px rgba(0, 0, 0, 0.7));
+}
+.article-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.article-content h1 {
+  font-size: 24px;
+}
+
+.article-content p {
+  font-size: 16px;
+}
+
+.article-btn {
+  margin-right: 50px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 30px;
+}

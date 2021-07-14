@@ -1,7 +1,6 @@
 import React from "react";
 
-import FirstPage from "../components/travel-notes/travel-note-1vh/FirstPage";
-import SecondPage from "../components/travel-notes/travel-note-2vh/SecondPage";
+import TravelNotesList from "../components/travel-notes/travel-note-list/TravelNotesList";
 
 import "../assets/css/styled.css";
 import "react-bootstrap"; //Toast
@@ -11,7 +10,7 @@ function TravelNotesPage() {
   return (
     <>
      <div className="activity-wrapper activity-bg-green">
-        <FirstPage />
+        <TravelNotesList />
       </div>
     </>
   );
