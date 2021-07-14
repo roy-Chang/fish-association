@@ -1,0 +1,249 @@
+:root {
+  --main-color: #1d3557;
+  --second-color: #457b9d;
+  --third-color: #abdadc;
+  --forth-color: #f1faee;
+  --fifth-color: #e63946;
+  --sixth-color: #fff579;
+  --blockLight: #c2ccc4;
+  --blueLine: #00a2e0;
+  --fontWhite: white;
+  --btnHover: #01619c;
+}
+body {
+  background: var(--forth-color);
+  width: 100%;
+  height: 100vh;
+}
+.Aactivity-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.Acontainer {
+  max-width: 100vw;
+  padding: 0;
+}
+
+.AmemberAside {
+  width: 100%;
+  background-size: cover;
+}
+
+.AheaderTitle {
+  display: none;
+}
+
+.AmemberPage {
+  display: flex;
+}
+
+.AmemberContent {
+  margin-left: 150px;
+}
+
+.Aanimation {
+  position: relative;
+  width: 50%;
+}
+
+.AloginItem {
+  position: relative;
+  max-width: 660px;
+  height: 660px;
+  background: var(--main-color);
+  margin: 8vw auto;
+  border-radius: 20px;
+}
+
+.AloginItem ul {
+  padding-left: 0;
+  display: flex;
+  list-style-type: none;
+  background: var(--second-color);
+  border-radius: 20px 20px 0 0;
+}
+
+.AloginItem ul li {
+  display: inline;
+  font-size: 32px;
+  width: 330px;
+  height: 80px;
+  text-align: center;
+  color: var(--fontWhite);
+}
+.AloginItem ul li:hover {
+  text-decoration: underline;
+}
+
+.AloginItem ul li a {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+  line-height: 80px;
+  cursor: pointer;
+}
+
+.Aactive {
+  background: var(--main-color);
+  border-bottom: 2px solid var(--sixth-color);
+  border-radius: 20px 20px 0 0;
+}
+
+.active {
+  border-radius: 20px 20px 0 0;
+}
+
+.AitemLabel {
+  color: var(--fontWhite);
+  font-size: 24px;
+}
+
+.AitemInput {
+  background: #dcdcdc;
+  border-radius: 5px;
+  width: 360px;
+  height: 30px;
+}
+
+.Acheck {
+  color: var(--sixth-color);
+  font-size: 16px;
+}
+
+.Aitem {
+  width: 475px;
+  margin: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Abtn {
+  background: var(--second-color);
+  width: 240px;
+  height: 55px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--fontWhite);
+  border-radius: 8px;
+  margin-left: 33%;
+}
+
+.Abtn:hover {
+  color: var(--fontWhite);
+  background: var(--btnHover);
+}
+
+.bubbles {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+
+.bubble {
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -10%;
+  animation: up 8s ease-in-out;
+}
+
+@keyframes up {
+  from {
+    bottom: -10%;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 100%;
+    opacity: 0.4;
+  }
+}
+
+.bubble1 {
+  transform: translate(100px, 0) scale(2);
+}
+
+.bubble2 {
+  transform: translate(200px, 0) scale(3);
+}
+
+@media screen and (max-width: 1240px) {
+  .AmemberContent {
+    margin: 0 auto;
+  }
+
+  .Aanimation {
+    display: none;
+  }
+  .Abtn {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .AmemberPage {
+    margin-bottom: 40px;
+  }
+  .Acontainer {
+    width: 100%;
+  }
+
+  .AheaderTitle {
+    display: block;
+    margin: 0px auto;
+  }
+
+  .AbigTitle {
+    font-size: 70px;
+    width: 280px;
+    margin: 20px auto;
+    font-weight: bold;
+  }
+
+  .AmemberEnter {
+    justify-content: space-evenly;
+    margin: 20px auto;
+  }
+
+  .AmemberContent {
+    width: 100%;
+    margin: 0px auto;
+  }
+
+  .AmemberAside {
+    background: var(--forth-color) !important;
+    width: 100%;
+  }
+
+  .AloginItem {
+    position: relative;
+    width: 100%;
+    background: var(--main-color);
+    margin: 0px auto;
+  }
+
+  .AitemInput {
+    background: #dcdcdc;
+    border-radius: 5px;
+    width: 220px;
+    height: 30px;
+  }
+
+  .Aitem {
+    width: 330px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+footer {
+  background: var(--fifth-color);
+  height: 300px;
+}

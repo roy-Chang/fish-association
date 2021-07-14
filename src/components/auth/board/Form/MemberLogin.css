@@ -1,0 +1,60 @@
+.MLactive {
+  /* background: var(--main-color) !important; */
+  /* border-bottom: 2px solid var(--sixth-color); */
+  /* border-radius: 20px 20px 0 0; */
+}
+.MLmemberEnter {
+  justify-content: space-evenly;
+  margin: 20px auto;
+}
+
+.MLitem {
+  width: 475px;
+  margin: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.MLitemLabel {
+  color: var(--fontWhite);
+  font-size: 24px;
+}
+.MLitemInput {
+  background: #dcdcdc;
+  border-radius: 5px;
+  width: 360px;
+  height: 30px;
+}
+.MLcheck {
+  color: var(--sixth-color);
+  font-size: 16px;
+}
+.MLitemVerification {
+  /* display: none; */
+}
+.MLverification {
+  width: 475px;
+  height: 150px;
+  background: var(--fontWhite);
+}
+
+.MLbtn {
+  background: var(--second-color);
+  width: 240px;
+  height: 55px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--fontWhite);
+  margin-left: 33%;
+  border-radius: 8px;
+}
+
+.MLbtn:hover {
+  background: var(--btnHover);
+}
+
+@media screen and (max-width: 760px) {
+  .MLitemVerification {
+    /* display: none; */
+  }
+}

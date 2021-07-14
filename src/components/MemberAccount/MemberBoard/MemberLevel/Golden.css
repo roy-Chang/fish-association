@@ -1,0 +1,297 @@
+.memberPage {
+  display: flex;
+  max-width: 1280px;
+  margin: 0px auto;
+}
+
+.memberCentreTitle {
+  width: 280px;
+  height: 80px;
+}
+
+.CentreTitle {
+  font-size: 70px;
+  font-weight: bold;
+  color: var(--main-color);
+  margin-top: 50px;
+}
+
+.memberCentreList {
+  width: 200px;
+  margin: 0px auto;
+}
+
+.memberCentreList ul {
+  padding-left: 0;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.memberCentreList ul li a {
+  font-size: 28px;
+  text-decoration: none;
+  display: block;
+  color: var(--main-color);
+  width: 100%;
+  margin-top: 40px;
+}
+
+.memberCentreList ul li a:hover {
+  font-size: 32px !important;
+  color: var(--fifth-color) !important;
+}
+
+.activeList a {
+  font-size: 32px !important;
+  color: var(--fifth-color) !important;
+}
+
+.memberBoard {
+  position: relative;
+  height: 750px;
+  width: 900px;
+  background: var(--main-color);
+  margin-top: 50px;
+  margin-left: 30px;
+  border-radius: 20px;
+}
+
+.memberAcount {
+  display: inline-flex;
+}
+
+.acountTitle {
+  font-size: 32px;
+  color: var(--fontWhite);
+  margin: 20px 40px;
+}
+
+.acountSubhead {
+  color: #cccccc;
+  line-height: 50px;
+}
+
+.memberBoard hr {
+  width: 90%;
+  height: 2px;
+  border: none;
+  background: var(--sixth-color);
+  margin-top: 0px;
+}
+
+.memberAccountInformation {
+  display: inline-flex;
+  padding: 10px 40px;
+  width: 90%;
+  /* height: 80%; */
+}
+
+.accountInformation {
+  width: 70%;
+  height: 100%;
+}
+
+.accountInformation a {
+  text-decoration: underline;
+}
+
+.account {
+  display: inline-flex;
+  align-items: flex-end;
+  width: 550px;
+  padding-top: 30px;
+}
+
+.account a {
+  text-decoration: none;
+}
+
+.listTitle {
+  width: 150px;
+  color: var(--fontWhite);
+  font-size: 24px;
+}
+
+.content {
+  font-size: 20px;
+  color: #ccc;
+}
+
+.golden {
+  font-size: 20px;
+  color: var(--sixth-color);
+  margin: 0px 20px;
+}
+
+.change {
+  font-size: 20px;
+  color: var(--sixth-color);
+  margin: 0px 20px;
+}
+
+.change:hover {
+  text-decoration: underline;
+}
+
+.dateInput {
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.headPicture {
+  /* width: 30%; */
+  min-width: 200px;
+  height: 270px;
+  margin: 20px auto;
+}
+
+.headPicture1240 {
+  display: none;
+}
+
+.picture {
+  position: relative;
+  /* height: 100%; */
+  height: 200px;
+}
+
+.picture img {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 0;
+}
+
+.pictureGo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+  margin: auto;
+}
+
+.pictureCard {
+  width: 200px;
+  height: 100%;
+  display: block;
+  flex-direction: column;
+}
+
+.pictureCard label {
+  border-radius: 8px;
+  background: #6d695f;
+  width: 120px;
+  height: 36px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--fontWhite);
+  margin: 10px 40px;
+  line-height: 36px;
+  text-align: center;
+}
+
+.pictureCard label:hover {
+  background: #777777;
+}
+
+.pictureCard input[type="file"] {
+  display: none;
+}
+
+.btn {
+  background: var(--second-color);
+  color: var(--fontWhite);
+  width: 240px;
+  height: 50px;
+  border-radius: 8px;
+  font-size: 24px;
+}
+
+.btn:hover {
+  background: var(--btnHover);
+}
+
+.List1240 {
+  display: none;
+}
+
+@media screen and (max-width: 1240px) {
+  .memberCentreTitle {
+    margin: 20px auto;
+  }
+
+  .CentreTitle {
+    margin: 0px auto;
+    font-size: 70px;
+    font-weight: bold;
+    color: var(--main-color);
+    width: 280px;
+  }
+
+  .memberAccountInformation {
+    max-width: 70vw;
+  }
+
+  .accountInformation {
+    width: 100%;
+  }
+
+  .account {
+    width: 100%;
+  }
+
+  .headPicture720 {
+    display: none;
+  }
+
+  .headPicture1240 {
+    display: block;
+  }
+
+  .pictureCard {
+    margin: 0px auto;
+    padding: 20px 0 0 0;
+  }
+
+  .memberBoard {
+    margin: 0px auto;
+    max-width: 80vw;
+    height: 100%;
+  }
+
+  .List1240 {
+    display: block;
+    width: 100%;
+  }
+
+  .List1240 ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .List1240 ul li {
+    margin: 0px auto;
+  }
+
+  .List1240 ul li a {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+  }
+
+  .List1240 ul li a img {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  .memberPage {
+    flex-direction: column;
+  }
+
+  .containerList {
+    display: none;
+  }
+}
