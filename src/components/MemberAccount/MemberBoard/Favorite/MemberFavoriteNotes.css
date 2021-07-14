@@ -10,10 +10,8 @@
 
 .MFNmemberBoard ul {
   padding-left: 0;
-  /*去除ul 的縮排*/
   display: flex;
   list-style-type: none;
-  margin-top: 0;
 }
 
 .MFNmemberBoard ul li {
