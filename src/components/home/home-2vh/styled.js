@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import secondBg from '../../../assets/img/2vh-bg.png';
-
+import { keyframes } from '@emotion/react';
 
 
 export const SecondBackground = styled.div`
@@ -45,4 +45,40 @@ export const Container = styled.div`
 
 export const WrapperInfo = styled.div`
  display: flex;
+`
+
+export const GiftPosition = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 100vh;
+`
+
+
+
+
+export const GiftWrapper = styled.div`
+  width: 100%;
+  border-radius: 40px;
+  :hover {
+      cursor: pointer;
+  }
+  .shipWrapper {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    top: 10%;
+    left: 10%;
+  }
+  .ship {
+    width: 10vw;
+    image {
+      width: 5vw;
+    }
+  }
+
 `
