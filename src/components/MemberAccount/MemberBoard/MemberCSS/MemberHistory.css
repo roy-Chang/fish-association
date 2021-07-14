@@ -1,0 +1,158 @@
+.MHmemberPage {
+  display: flex;
+  max-width: 1280px;
+  margin: 0px auto;
+}
+
+.MHmemberCentreTitle {
+  width: 280px;
+  height: 80px;
+}
+
+.MHCentreTitle {
+  font-size: 70px;
+  font-weight: bold;
+  color: var(--main-color);
+  margin-top: 50px;
+}
+
+.MHmemberCentreList {
+  width: 200px;
+  margin: 0px auto;
+}
+
+.MHmemberCentreList ul {
+  padding-left: 0;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.MHmemberCentreList ul li a {
+  font-size: 28px;
+  text-decoration: none;
+  display: block;
+  color: var(--main-color);
+  width: 100%;
+  margin-top: 40px;
+}
+
+.MHmemberCentreList ul li a:hover {
+  font-size: 32px !important;
+  color: var(--fifth-color) !important;
+}
+
+.MHactiveList a {
+  font-size: 32px !important;
+  color: var(--fifth-color) !important;
+}
+
+.MHmemberBoard {
+  position: relative;
+  height: 750px;
+  width: 900px;
+  background: var(--main-color);
+  margin-top: 50px;
+  margin-left: 30px;
+  border-radius: 20px;
+}
+
+.MHhistoryTitle {
+  font-size: 32px;
+  color: var(--fontWhite);
+  margin: 25px 40px 10px 40px;
+}
+
+.MHmemberBoard hr {
+  width: 90%;
+  height: 2px;
+  border: none;
+  background: var(--sixth-color);
+  margin-top: 0px;
+}
+
+.MHhistoryAll {
+  width: 100%;
+  height: 80%;
+  overflow-y: scroll;
+}
+
+.MHhistoryList {
+  width: 830px;
+  border: 1px solid #858585;
+  border-radius: 20px;
+  margin: 10px 30px;
+}
+
+.MHhistoryList hr {
+  background: #858585;
+  width: 90%;
+}
+
+.MHitem {
+  color: var(--fontWhite);
+  font-size: 24px;
+  display: inline-flex;
+  width: 90%;
+  margin: 20px 0px 20px 40px;
+}
+
+.MHitem img {
+  width: 160px;
+  height: 100px;
+}
+
+.MHquantity {
+  margin-left: 40px;
+  width: 70%;
+}
+
+.MHnumber {
+  margin-top: 46px;
+}
+
+.MHdollar {
+  margin-top: 73px;
+}
+
+.MHtotal {
+  display: inline-flex;
+  color: var(--fontWhite);
+  font-size: 24px;
+  margin-top: 20px;
+  margin-left: 40px;
+  align-items: flex-end;
+}
+
+.MHtotalPrice {
+  text-decoration: line-through;
+  color: #858585;
+}
+
+.MHdiscountDate {
+  display: inline-flex;
+  margin-left: 40px;
+  align-items: flex-end;
+}
+
+.MHdiscount {
+  margin-left: 10px;
+  color: var(--fifth-color);
+  font-size: 30px;
+}
+
+@media screen and (max-width: 1240px) {
+  .MHmemberBoard {
+    max-width: 80vw;
+    margin: 0 auto;
+  }
+
+  .MHhistoryList {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .MHdiscountDate {
+    /* flex-direction: column; */
+  }
+}

@@ -1,0 +1,167 @@
+.MVmemberPage {
+  display: flex;
+  max-width: 1280px;
+  margin: 0px auto;
+}
+
+.MVmemberCentreTitle {
+  width: 280px;
+  height: 80px;
+}
+
+.MVCentreTitle {
+  font-size: 70px;
+  font-weight: bold;
+  color: var(--main-color);
+  margin-top: 50px;
+}
+
+.MVmemberCentreList {
+  width: 200px;
+  margin: 0px auto;
+}
+
+.MVmemberCentreList ul {
+  padding-left: 0;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.MVmemberCentreList ul li a {
+  font-size: 28px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.MVmemberCentreList ul li a:hover {
+  font-size: 32px !important;
+  color: var(--fifth-color) !important;
+}
+
+.MVactiveList a {
+  font-size: 32px !important;
+  color: var(--fifth-color) !important;
+}
+
+.MVmemberBoard {
+  position: relative;
+  height: 750px;
+  width: 900px;
+  background: var(--main-color);
+  margin-top: 50px;
+  margin-left: 30px;
+  border-radius: 20px;
+}
+
+.MVmemberBoard ul {
+  padding-left: 0;
+  display: flex;
+  list-style-type: none;
+  margin-top: 0;
+}
+
+.MVmemberBoard ul li {
+  display: inline;
+  font-size: 32px;
+  background: var(--second-color);
+  width: 450px;
+  height: 80px;
+  text-align: center;
+  color: var(--fontWhite);
+}
+
+.MVmemberBoard ul li a {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+  line-height: 80px;
+  cursor: pointer;
+}
+
+.MVleftBoardTitle {
+  border-radius: 20px 0 0 0;
+}
+
+.MVrightBoardTitle {
+  border-radius: 0 20px 0 0;
+}
+
+.MVactive {
+  background: var(--main-color) !important;
+  border-bottom: 2px solid #fff579;
+}
+
+.MVcommodityVacation {
+  display: block;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+.MVcommodityVacation hr {
+  background-color: var(--fontWhite);
+  width: 90%;
+}
+
+.MVcommodityVacationList {
+  font-size: 24px;
+  color: var(--fontWhite);
+  display: flex;
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
+.MVinfotmation {
+  width: 60%;
+}
+
+.MVvacationDate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.MVvacationJoin {
+  display: flex;
+  justify-content: space-between;
+}
+
+.MVvacationPicture {
+  width: 300px;
+  height: 300px;
+}
+
+.MVlistMargin {
+  margin-bottom: 40px;
+  margin-left: 10px;
+}
+
+.MVbtn {
+  background: var(--fifth-color);
+  color: var(--fontWhite);
+  width: 95px;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 410px;
+  border-radius: 8px;
+}
+
+.MVbtn:hover {
+  background: rgb(255, 0, 0);
+}
+
+@media screen and (max-width: 1240px) {
+  .MVmemberBoard {
+    max-width: 80vw;
+    margin: 0 auto;
+  }
+  .MVlistMargin {
+    flex-direction: column;
+  }
+  .MVbtn {
+    margin: 0 auto;
+  }
+  .MVinfotmation {
+    padding: 0 20px;
+  }
+}

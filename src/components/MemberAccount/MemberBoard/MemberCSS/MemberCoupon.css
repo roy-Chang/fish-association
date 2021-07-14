@@ -1,0 +1,43 @@
+.MCmemberBoard {
+  position: relative;
+  height: 750px;
+  width: 900px;
+  background: var(--main-color);
+  margin-top: 50px;
+  margin-left: 30px;
+  border-radius: 20px;
+}
+
+.MChistoryTitle {
+  font-size: 32px;
+  color: var(--fontWhite);
+  margin: 25px 40px 10px 40px;
+}
+
+.MCmemberBoard hr {
+  width: 90%;
+  height: 2px;
+  border: none;
+  background: var(--sixth-color);
+  margin-top: 0px;
+}
+
+.MCcoupon {
+  margin: 200px auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MCcouponQuantity {
+  font-size: 70px;
+  color: var(--fontWhite);
+  height: 70px;
+}
+@media screen and (max-width: 1240px) {
+  .MCmemberBoard {
+    max-width: 80vw;
+    margin: 0 auto;
+  }
+}
