@@ -27,10 +27,13 @@ import {
   ItemName,
   Price,
   OutsideWrapper,
-} from "../components/item-single/style";
+} from "./style";
 import { Row, Col, Container, Button } from "react-bootstrap";
-function App() {
+
+function ItemSingle() {
   return (
+    <>
+    <nav style={{ height: "65px", background: "#1d3557" }}></nav>
     <OutsideWrapper>
       <Container>
         <Row>
@@ -203,7 +206,8 @@ function App() {
         </TestRed>
       </Container>
     </OutsideWrapper>
+  </>
   );
 }
 
-export default App;
+export default ItemSingle;

@@ -1,4 +1,6 @@
 .nav-bar {
   background: var(--main-color);
   color: var(--forth-color);
+  height: 65px;
+  opacity: 0.9;
 }

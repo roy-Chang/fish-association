@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 export const OutsideWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  overflow-y: scroll;
+  margin-top: 100px;
 `
 
 export const TestRed = styled.div`
