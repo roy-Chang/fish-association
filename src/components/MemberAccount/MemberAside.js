@@ -61,7 +61,8 @@ function MemberAside(props) {
                       setChange(2);
                     }}
                   >
-                    <img src={noteIcon} alt="" /> 我的札記
+                    <img src={noteIcon} alt="" />
+                    我的札記
                   </a>
                 </li>
                 <li className="">
@@ -71,7 +72,8 @@ function MemberAside(props) {
                       setChange(3);
                     }}
                   >
-                    <img src={activeIcon} alt="" /> 我的活動
+                    <img src={activeIcon} alt="" />
+                    我的活動
                   </a>
                 </li>
                 <li className="">

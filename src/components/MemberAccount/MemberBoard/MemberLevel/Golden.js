@@ -10,74 +10,51 @@ import GoldenMember from "../../../../assets/img/member/memberAccount/goldenMemb
 function General() {
   return (
     <>
-      <form>
-        <div className="MAmemberBoard">
-          <div class="headPicture headPicture1240">
-            <div class="pictureCard">
-              <div class="picture">
-                <img class="pictureGo" src={HeadPic} alt="" />
-                <img src={GoldenFeame} alt="" />
-              </div>
-              <label for="name">
-                <input type="file" id="name" />
-                選擇照片
-              </label>
-              <div></div>
+      <div className="MAmemberBoard">
+        <div class="headPicture headPicture1240">
+          <div class="pictureCard">
+            <div class="picture">
+              <img class="pictureGo" src={HeadPic} alt="" />
+              <img src={GoldenFeame} alt="" />
             </div>
+            <label htmlFor="name">
+              <input type="file" id="name" />
+              選擇照片
+            </label>
+            <div></div>
           </div>
-          {/* <div className="MAheadPicture MAheadPicture1240">
-            <div className="MApictureCard">
-              <div className="MApicture">
-                <img className="MApictureGo" src={HeadPic} alt="" />
-              </div>
-              <label for="name">
-                <input type="file" id="name" />
-                選擇照片
-              </label>
-              <div></div>
-            </div>
-          </div> */}
-
-          <div>
-            <div className="MAmemberAcount">
-              <h2 className="MAacountTitle">我的檔案</h2>
-              <p className="MAacountSubhead">管理你的檔案以保護你的帳戶</p>
-            </div>
-            <hr />
+        </div>
+        <div>
+          <div className="MAmemberAcount">
+            <h2 className="MAacountTitle">我的檔案</h2>
+            <p className="MAacountSubhead">管理你的檔案以保護你的帳戶</p>
           </div>
-          {/* <BoardForm /> */}
-          <form action="">
-            <div className="MAmemberAccountInformation">
-              <div className="MAaccountInformation">
-                <div className="MAaccount">
-                  <div className="MAlistTitle">使用者帳號</div>
-                  <div className="MAcontent">alexXXXX</div>
-                  <div className="MAmember" style={{ color: "#fff579" }}>
-                    白金會員
-                  </div>
+          <hr />
+        </div>
+        {/* <BoardForm /> */}
+        <form action="">
+          <div className="MAmemberAccountInformation">
+            <div className="MAaccountInformation">
+              <div className="MAaccount">
+                <div className="MAlistTitle">使用者帳號</div>
+                <div className="MAcontent">alexXXXX</div>
+                <div className="MAmember" style={{ color: "#fff579" }}>
+                  白金會員
                 </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">密碼</div>
-                  <div className="MAcontent">************</div>
-                  <a className="MAchange" href="#">
-                    變更
-                  </a>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">姓名</div>
-                  <div className="MAcontent">郭帥</div>
-                  <a className="MAchange" href="#">
-                    變更
-                  </a>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">性別</div>
-                  <div className="MAcontent">
-                    男
-                    <a className="MAchange" href="#">
-                      變更
-                    </a>
-                    {/* <div className="MAgender">
+              </div>
+              <div className="MAaccount">
+                <div className="MAlistTitle">密碼</div>
+                <div className="MAcontent">************</div>
+              </div>
+              <div className="MAaccount">
+                <div className="MAlistTitle">姓名</div>
+                <div className="MAcontent">郭帥</div>
+              </div>
+              <div className="MAaccount">
+                <div className="MAlistTitle">性別</div>
+                <div className="MAcontent">
+                  男
+                  {/* <div className="MAgender">
                     男
                     <input
                       className="MAitemCheck"
@@ -93,30 +70,21 @@ function General() {
                       name="gender"
                     />
                   </div> */}
-                  </div>
                 </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">信箱</div>
-                  <div className="MAcontent">alexXXXX@il.com</div>
-                  <a className="MAchange" href="#">
-                    變更
-                  </a>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">聯絡電話</div>
-                  <div className="MAcontent">0912345678</div>
-                  <a className="MAchange" href="#">
-                    變更
-                  </a>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">出生日期</div>
-                  <div className="MAcontent">
-                    1990-02-05
-                    <a className="MAchange" href="#">
-                      變更
-                    </a>
-                    {/* <select className="MAdateInput" name="" id="">
+              </div>
+              <div className="MAaccount">
+                <div className="MAlistTitle">信箱</div>
+                <div className="MAcontent">alexXXXX@il.com</div>
+              </div>
+              <div className="MAaccount">
+                <div className="MAlistTitle">聯絡電話</div>
+                <div className="MAcontent">0912345678</div>
+              </div>
+              <div className="MAaccount">
+                <div className="MAlistTitle">出生日期</div>
+                <div className="MAcontent">
+                  1990-02-05
+                  {/* <select className="MAdateInput" name="" id="">
                     <option value="">1990</option>
                     <option value="">1991</option>
                     <option value="">1992</option>
@@ -179,39 +147,33 @@ function General() {
                     <option value="">31</option>
                   </select>
                   日 */}
-                  </div>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">地址</div>
-                  <div className="MAcontent">
-                    桃園縣中壢區中央大學資策會中心
-                  </div>
-                  <a className="MAchange" href="#">
-                    變更
-                  </a>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle"></div>
-                  <button className="MAbtn">儲存</button>
                 </div>
               </div>
-              <div class="headPicture headPicture720">
-                <div class="pictureCard">
-                  <div class="picture">
-                    <img class="pictureGo" src={HeadPic} alt="" />
-                    <img src={GoldenFeame} alt="" />
-                  </div>
-                  <label for="name">
-                    <input type="file" id="name" />
-                    選擇照片
-                  </label>
-                  <div></div>
-                </div>
+              <div className="MAaccount">
+                <div className="MAlistTitle">地址</div>
+                <div className="MAcontent">桃園縣中壢區中央大學資策會中心</div>
+              </div>
+              <div className="MAaccount">
+                <div className="MAlistTitle"></div>
+                <button className="MAbtn">編輯</button>
               </div>
             </div>
-          </form>
-        </div>
-      </form>
+            <div class="headPicture headPicture720">
+              <div class="pictureCard">
+                <div class="picture">
+                  <img class="pictureGo" src={HeadPic} alt="" />
+                  <img src={GoldenFeame} alt="" />
+                </div>
+                <label htmlFor="name">
+                  <input type="file" id="name" />
+                  選擇照片
+                </label>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </>
   );
 }

@@ -9,7 +9,7 @@ function FormLogin(props) {
       <Form>
         <Form.Text className="MLmemberEnter">
           <Form.Text className="MLitem">
-            <Form.Label className="MLitemLabel" for="">
+            <Form.Label className="MLitemLabel" htmlFor="">
               會員帳號
             </Form.Label>
             <Form.Text className="MLitemContent">
@@ -20,7 +20,7 @@ function FormLogin(props) {
             </Form.Text>
           </Form.Text>
           <Form.Text className="MLitem">
-            <Form.Label className="MLitemLabel" for="">
+            <Form.Label className="MLitemLabel" htmlFor="">
               密碼
             </Form.Label>
             <Form.Text className="MLtemContent">

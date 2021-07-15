@@ -43,7 +43,7 @@ nav {
 }
 
 .MAmemberCentreTitle {
-  width: 280px;
+  width: 300px;
   height: 80px;
 }
 
@@ -52,6 +52,10 @@ nav {
   font-weight: bold;
   color: var(--main-color);
   margin-top: 50px;
+}
+.MAcontainerList ul li a img {
+  width: 40px;
+  height: 40px;
 }
 
 .MAmemberCentreList {
@@ -128,7 +132,7 @@ nav {
 .MAmemberAccountInformation {
   display: inline-flex;
   padding: 0px 40px;
-  width: 90%;
+  /* width: 90%; */
 }
 
 .MAaccountInformation {
@@ -139,7 +143,7 @@ nav {
 .MAaccount {
   display: inline-flex;
   align-items: flex-end;
-  width: 550px;
+  width: 460px;
   padding-top: 30px;
 }
 
@@ -161,7 +165,7 @@ nav {
 .MAchange {
   font-size: 20px;
   color: var(--sixth-color);
-  margin: 0px 20px;
+  /* margin: 0px 20px; */
   white-space: nowrap;
 }
 
@@ -237,14 +241,18 @@ nav {
 .MApictureCard input[type="file"] {
   display: none;
 }
+.MAbtnW {
+  width: 100%;
+}
 
 .MAbtn {
   background: var(--second-color);
   color: var(--fontWhite);
-  width: 240px;
+  width: 120px;
   height: 50px;
   border-radius: 8px;
   font-size: 24px;
+  margin: 20px 40%;
 }
 
 .MAbtn:hover {
@@ -271,9 +279,8 @@ nav {
     color: var(--main-color);
     width: 280px;
   }
-
-  .MAmemberAccountInformation {
-    max-width: 70vw;
+  .MAmemberCentreList {
+    margin: 50px auto;
   }
 
   .MAaccountInformation {
@@ -281,10 +288,12 @@ nav {
   }
   .MAmemberAcount {
     margin-left: 20px;
+    padding-top: 0px;
   }
 
   .MAaccount {
     width: 100%;
+    padding: 10px 0;
   }
 
   .MAheadPicture720 {
@@ -293,7 +302,7 @@ nav {
 
   .MAheadPicture1240 {
     display: block;
-    margin: 10px auto;
+    margin: 30px auto;
     height: 250px;
   }
 
@@ -341,7 +350,7 @@ nav {
   }
 
   .MAbtn {
-    margin: 0px auto;
+    margin-left: 40%;
   }
 }
 
