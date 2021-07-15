@@ -11,13 +11,6 @@ export const FourBackground = styled.div`
 `
 
 
-export const Navigation = styled.div`
-  width: 100%;
-  height: 65px;
-  background: #1D3557;
-  position: absolute;
-`
-
 export const CardWrapper = styled.div`
   width: 100%;
   display: flex;

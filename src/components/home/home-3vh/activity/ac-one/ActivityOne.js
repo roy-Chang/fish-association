@@ -34,7 +34,7 @@ export default class ActivityOne extends PureComponent {
                     </figure>
                     <Card>
                         <h2>海釣 | (正濱漁港/深澳漁港/龜吼漁港)</h2>
-                        <p>遊覽各漁港當地特色 品嘗當地特色海鮮 海釣活動 </p>
+                        <p>遊覽各漁港當地特色 品嘗當地海鮮 海釣活動 </p>
                         <div>
                             <TiStarFullOutline style={iconStyle}/>
                             <TiStarFullOutline style={iconStyle}/>

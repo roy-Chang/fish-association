@@ -27,12 +27,6 @@ export const FifthBackground = styled.div`
   }
 `
 
-export const Navigation = styled.div`
-  width: 100%;
-  height: 65px;
-  background: #1D3557;
-  position: absolute;
-`
 
 export const LoginCard = styled.div`
   width: 68vw;

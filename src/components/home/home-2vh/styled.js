@@ -11,12 +11,6 @@ export const SecondBackground = styled.div`
   font-family: sans-serif;
 `
 
-export const Navigation = styled.div`
-  width: 100%;
-  height: 65px;
-  background: #1D3557;
-  position: absolute;
-`
 
 export const Container = styled.div`
   box-sizing: border-box;
