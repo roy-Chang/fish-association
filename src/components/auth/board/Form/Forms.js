@@ -28,6 +28,13 @@ const Join1 = (props) => {
     email: "",
     password: "",
     repassword: "",
+    username: "",
+    gender: "",
+    year: "",
+    month: "",
+    day: "",
+    phone: "",
+    address: "",
   });
 
   //每個欄位的錯誤訊息
@@ -36,6 +43,13 @@ const Join1 = (props) => {
     email: "",
     password: "",
     repassword: "",
+    username: "",
+    gender: "",
+    year: "",
+    month: "",
+    day: "",
+    phone: "",
+    address: "",
   });
 
   return (

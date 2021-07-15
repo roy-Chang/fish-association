@@ -11,9 +11,8 @@ function AuthPage(props) {
     <>
       <div className="Aactivity-wrapper">
         <div className="Acontainer">
-          <nav></nav>
           <AuthBoard />
-          <footer></footer>
+          {/* <footer></footer> */}
         </div>
       </div>
     </>

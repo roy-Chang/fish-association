@@ -13,7 +13,7 @@ function Member(props) {
         <nav></nav>
         <RWDTitle />
         <MemberAside />
-        <footer></footer>
+        {/* <footer></footer> */}
       </div>
     </>
   );
