@@ -200,14 +200,24 @@
   display: none;
 }
 
-.btn {
+.MAbtn {
+  background: var(--second-color);
+  color: var(--fontWhite);
+  width: 120px;
+  height: 50px;
+  border-radius: 8px;
+  font-size: 24px;
+  margin: 20px 40%;
+}
+
+/* .btn {
   background: var(--second-color);
   color: var(--fontWhite);
   width: 240px;
   height: 50px;
   border-radius: 8px;
   font-size: 24px;
-}
+} */
 
 .btn:hover {
   background: var(--btnHover);

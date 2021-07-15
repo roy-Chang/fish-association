@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import { Button } from "react-bootstrap";
+
 import "./Golden.css";
 
 //導入圖片
@@ -8,210 +13,331 @@ import GoldenFeame from "../../../../assets/img/member/memberAccount/goldenFrame
 import GoldenMember from "../../../../assets/img/member/memberAccount/goldenMember.png";
 
 function General() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
-      <form>
-        <div className="MAmemberBoard">
-          <div class="headPicture headPicture1240">
+      <Modal size={"lg"} show={show} onHide={handleClose}>
+        {console.log(show)}
+        <Modal.Header style={{ background: "var(--forth-color)" }} closeButton>
+          <Modal.Title
+            style={{
+              fontSize: "32px",
+              color: "var(--main-color)",
+              fontWeight: "bold",
+            }}
+          >
+            變更您需要的項目
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ background: "var(--forth-color)" }}>
+          <Form.Text>
+            <Container>
+              <Row>
+                <Form.Label
+                  style={{ fontSize: "24px", width: "100px" }}
+                  className=""
+                  htmlFor=""
+                >
+                  密碼
+                </Form.Label>
+                <Form.Text className="MLtemContent">
+                  <Form.Control
+                    className="MLitemInput"
+                    type="text"
+                    name="password"
+                    required
+                    placeholder="請輸入密碼"
+                  />
+                </Form.Text>
+              </Row>
+              <Row>
+                <Form.Label
+                  style={{ fontSize: "24px", width: "100px" }}
+                  className=""
+                  htmlFor=""
+                >
+                  姓名
+                </Form.Label>
+                <Form.Text className="MLtemContent">
+                  <Form.Control
+                    className="MLitemInput"
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="請輸入姓名"
+                  />
+                </Form.Text>
+              </Row>
+              <Row>
+                <Form.Label
+                  style={{ fontSize: "24px", width: "100px" }}
+                  className=""
+                  htmlFor=""
+                >
+                  性別
+                </Form.Label>
+                <Form.Control
+                  as="select"
+                  style={{
+                    fontSize: "16px",
+                    width: "70px",
+                    background: "#DCDCDC",
+                  }}
+                >
+                  <option>男</option>
+                  <option>女</option>
+                </Form.Control>
+              </Row>
+              <Row>
+                <Form.Label
+                  style={{ fontSize: "24px", width: "100px" }}
+                  className=""
+                  htmlFor=""
+                >
+                  信箱
+                </Form.Label>
+                <Form.Text className="MLtemContent">
+                  <Form.Control
+                    className="MLitemInput"
+                    type="email"
+                    name="name"
+                    required
+                    placeholder="請輸入信箱"
+                  />
+                </Form.Text>
+              </Row>
+              <Row>
+                <Form.Label
+                  style={{ fontSize: "24px", width: "100px" }}
+                  className=""
+                  htmlFor=""
+                >
+                  聯絡電話
+                </Form.Label>
+                <Form.Text className="MLtemContent">
+                  <Form.Control
+                    className="MLitemInput"
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="請輸入電話"
+                  />
+                </Form.Text>
+              </Row>
+              <Row style={{ fontSize: "24px" }}>
+                <Form.Label
+                  style={{ fontSize: "24px", width: "100px" }}
+                  className=""
+                  htmlFor=""
+                >
+                  出生日期
+                </Form.Label>
+                <Form.Control
+                  as="select"
+                  style={{
+                    fontSize: "16px",
+                    width: "100px",
+                    background: "#DCDCDC",
+                  }}
+                >
+                  <option>1990</option>
+                  <option>1991</option>
+                  <option>1992</option>
+                  <option>1993</option>
+                  <option>1994</option>
+                  <option>1995</option>
+                  <option>1996</option>
+                  <option>1997</option>
+                  <option>1998</option>
+                  <option>1999</option>
+                  <option>2000</option>
+                </Form.Control>
+                年
+                <Form.Control
+                  as="select"
+                  style={{
+                    fontSize: "16px",
+                    width: "70px",
+                    background: "#DCDCDC",
+                  }}
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </Form.Control>
+                月
+                <Form.Control
+                  as="select"
+                  style={{
+                    fontSize: "16px",
+                    width: "70px",
+                    background: "#DCDCDC",
+                  }}
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                  <option>24</option>
+                  <option>25</option>
+                  <option>26</option>
+                  <option>27</option>
+                  <option>28</option>
+                  <option>29</option>
+                  <option>30</option>
+                  <option>31</option>
+                </Form.Control>
+                日
+              </Row>
+              <Row>
+                <Form.Label
+                  style={{ fontSize: "24px", width: "100px" }}
+                  className=""
+                  htmlFor=""
+                >
+                  地址
+                </Form.Label>
+                <Form.Text className="MLtemContent">
+                  <Form.Control
+                    className="MLitemInput"
+                    type="text"
+                    name="address"
+                    required
+                    placeholder="請輸入地址"
+                  />
+                </Form.Text>
+              </Row>
+            </Container>
+          </Form.Text>
+        </Modal.Body>
+        <Modal.Footer style={{ background: "var(--forth-color)" }}>
+          <Button
+            variant="secondary"
+            style={{ background: "var(--fifth-color)", border: "none" }}
+            onClick={handleClose}
+          >
+            關閉
+          </Button>
+          <Button
+            variant="primary"
+            style={{ background: "var(--second-color)", border: "none" }}
+            onClick={handleClose}
+          >
+            變更
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <div className="MAmemberBoard">
+        <div class="headPicture headPicture1240">
+          <div class="pictureCard">
+            <div class="picture">
+              <img class="pictureGo" src={HeadPic} alt="" />
+              <img src={GoldenFeame} alt="" />
+            </div>
+            <label htmlFor="name">
+              <input type="file" id="name" />
+              選擇照片
+            </label>
+            <div></div>
+          </div>
+        </div>
+        <div>
+          <div className="MAmemberAcount">
+            <h2 className="MAacountTitle">我的檔案</h2>
+            <p className="MAacountSubhead">管理你的檔案以保護你的帳戶</p>
+          </div>
+          <hr />
+        </div>
+        {/* <BoardForm /> */}
+        <div className="MAmemberAccountInformation">
+          <Container className="MAaccountInformation">
+            <Form.Group className="MAaccount">
+              <div className="MAlistTitle">使用者帳號</div>
+              <div className="MAcontent">alexXXXX</div>
+              <div className="MAmember" style={{ color: "#fff579" }}>
+                白金會員
+              </div>
+            </Form.Group>
+            <Form.Group className="MAaccount">
+              <div className="MAlistTitle">密碼</div>
+              <div className="MAcontent">************</div>
+            </Form.Group>
+            <Form.Group className="MAaccount">
+              <div className="MAlistTitle">姓名</div>
+              <div className="MAcontent">郭帥</div>
+            </Form.Group>
+            <Form.Group className="MAaccount">
+              <div className="MAlistTitle">性別</div>
+              <div className="MAcontent">男</div>
+            </Form.Group>
+            <Form.Group className="MAaccount">
+              <div className="MAlistTitle">信箱</div>
+              <div className="MAcontent">alexXXXX@il.com</div>
+            </Form.Group>
+            <Form.Group className="MAaccount">
+              <div className="MAlistTitle">聯絡電話</div>
+              <div className="MAcontent">0912345678</div>
+            </Form.Group>
+            <Form.Group className="MAaccount">
+              <div className="MAlistTitle">出生日期</div>
+              <div className="MAcontent">1990-02-05</div>
+            </Form.Group>
+            <Form.Group className="MAaccount">
+              <div className="MAlistTitle">地址</div>
+              <div className="MAcontent">桃園縣中壢區中央大學資策會中心</div>
+            </Form.Group>
+            <Form.Group className="MAbtnW">
+              <button className="MAbtn" onClick={handleShow}>
+                編輯
+              </button>
+            </Form.Group>
+          </Container>
+          <div class="headPicture headPicture720">
             <div class="pictureCard">
               <div class="picture">
                 <img class="pictureGo" src={HeadPic} alt="" />
                 <img src={GoldenFeame} alt="" />
               </div>
-              <label for="name">
+              <label htmlFor="name">
                 <input type="file" id="name" />
                 選擇照片
               </label>
               <div></div>
             </div>
           </div>
-          {/* <div className="MAheadPicture MAheadPicture1240">
-            <div className="MApictureCard">
-              <div className="MApicture">
-                <img className="MApictureGo" src={HeadPic} alt="" />
-              </div>
-              <label for="name">
-                <input type="file" id="name" />
-                選擇照片
-              </label>
-              <div></div>
-            </div>
-          </div> */}
-
-          <div>
-            <div className="MAmemberAcount">
-              <h2 className="MAacountTitle">我的檔案</h2>
-              <p className="MAacountSubhead">管理你的檔案以保護你的帳戶</p>
-            </div>
-            <hr />
-          </div>
-          {/* <BoardForm /> */}
-          <form action="">
-            <div className="MAmemberAccountInformation">
-              <div className="MAaccountInformation">
-                <div className="MAaccount">
-                  <div className="MAlistTitle">使用者帳號</div>
-                  <div className="MAcontent">alexXXXX</div>
-                  <div className="MAmember" style={{ color: "#fff579" }}>
-                    白金會員
-                  </div>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">密碼</div>
-                  <div className="MAcontent">************</div>
-                  <a className="MAchange" href="#">
-                    變更
-                  </a>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">姓名</div>
-                  <div className="MAcontent">郭帥</div>
-                  <a className="MAchange" href="#">
-                    變更
-                  </a>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">性別</div>
-                  <div className="MAcontent">
-                    男
-                    <a className="MAchange" href="#">
-                      變更
-                    </a>
-                    {/* <div className="MAgender">
-                    男
-                    <input
-                      className="MAitemCheck"
-                      type="radio"
-                      id="men"
-                      name="gender"
-                    />
-                    女
-                    <input
-                      className="MAitemCheck"
-                      type="radio"
-                      id="women"
-                      name="gender"
-                    />
-                  </div> */}
-                  </div>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">信箱</div>
-                  <div className="MAcontent">alexXXXX@il.com</div>
-                  <a className="MAchange" href="#">
-                    變更
-                  </a>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">聯絡電話</div>
-                  <div className="MAcontent">0912345678</div>
-                  <a className="MAchange" href="#">
-                    變更
-                  </a>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">出生日期</div>
-                  <div className="MAcontent">
-                    1990-02-05
-                    <a className="MAchange" href="#">
-                      變更
-                    </a>
-                    {/* <select className="MAdateInput" name="" id="">
-                    <option value="">1990</option>
-                    <option value="">1991</option>
-                    <option value="">1992</option>
-                    <option value="">1993</option>
-                    <option value="">1994</option>
-                    <option value="">1995</option>
-                    <option value="">1996</option>
-                    <option value="">1997</option>
-                    <option value="">1998</option>
-                    <option value="">1999</option>
-                    <option value="">2000</option>
-                  </select>
-                  年
-                  <select className="MAdateInput" name="" id="">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                    <option value="">6</option>
-                    <option value="">7</option>
-                    <option value="">8</option>
-                    <option value="">9</option>
-                    <option value="">10</option>
-                    <option value="">11</option>
-                    <option value="">12</option>
-                  </select>
-                  月
-                  <select className="MAdateInput" name="" id="">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                    <option value="">6</option>
-                    <option value="">7</option>
-                    <option value="">8</option>
-                    <option value="">9</option>
-                    <option value="">10</option>
-                    <option value="">11</option>
-                    <option value="">12</option>
-                    <option value="">13</option>
-                    <option value="">14</option>
-                    <option value="">15</option>
-                    <option value="">16</option>
-                    <option value="">17</option>
-                    <option value="">18</option>
-                    <option value="">19</option>
-                    <option value="">20</option>
-                    <option value="">21</option>
-                    <option value="">22</option>
-                    <option value="">23</option>
-                    <option value="">24</option>
-                    <option value="">25</option>
-                    <option value="">26</option>
-                    <option value="">27</option>
-                    <option value="">28</option>
-                    <option value="">29</option>
-                    <option value="">30</option>
-                    <option value="">31</option>
-                  </select>
-                  日 */}
-                  </div>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle">地址</div>
-                  <div className="MAcontent">
-                    桃園縣中壢區中央大學資策會中心
-                  </div>
-                  <a className="MAchange" href="#">
-                    變更
-                  </a>
-                </div>
-                <div className="MAaccount">
-                  <div className="MAlistTitle"></div>
-                  <button className="MAbtn">儲存</button>
-                </div>
-              </div>
-              <div class="headPicture headPicture720">
-                <div class="pictureCard">
-                  <div class="picture">
-                    <img class="pictureGo" src={HeadPic} alt="" />
-                    <img src={GoldenFeame} alt="" />
-                  </div>
-                  <label for="name">
-                    <input type="file" id="name" />
-                    選擇照片
-                  </label>
-                  <div></div>
-                </div>
-              </div>
-            </div>
-          </form>
         </div>
-      </form>
+      </div>
     </>
   );
 }

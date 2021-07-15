@@ -7,7 +7,7 @@ function JoinActivity() {
       <div className="MVcommodityVacation">
         <div className="MVcommodityVacationList">
           <img className="MVvacationPicture" src={vacation} alt="" />
-          <div className="MVinfotmation">
+          <div className="MVinformation">
             <div className="MVlistMargin MVlocation">正濱漁港(海釣活動)</div>
             <div className="MVlistMargin MVvacationDate">
               <div className="MVvacationTitle">日期:</div>
@@ -23,7 +23,7 @@ function JoinActivity() {
         <hr />
         <div className="MVcommodityVacationList">
           <img className="MVvacationPicture" src={vacation} alt="" />
-          <div className="MVinfotmation">
+          <div className="MVinformation">
             <div className="MVlistMargin MVlocation">正濱漁港(海釣活動)</div>
             <div className="MVlistMargin MVvacationDate">
               <div className="MVvacationTitle">日期:</div>

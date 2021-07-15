@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
 
 //CSS
 import "./MemberAccount.css";
@@ -30,7 +31,7 @@ function MemberAside(props) {
             <div className="MAmemberCentreTitle">
               <h1 className="MACentreTitle">會員中心</h1>
             </div>
-            <div className="MAmemberCentreList">
+            <Container className="MAmemberCentreList">
               <ul>
                 <li>
                   <a
@@ -61,7 +62,8 @@ function MemberAside(props) {
                       setChange(2);
                     }}
                   >
-                    <img src={noteIcon} alt="" /> 我的札記
+                    <img src={noteIcon} alt="" />
+                    我的札記
                   </a>
                 </li>
                 <li className="">
@@ -71,7 +73,8 @@ function MemberAside(props) {
                       setChange(3);
                     }}
                   >
-                    <img src={activeIcon} alt="" /> 我的活動
+                    <img src={activeIcon} alt="" />
+                    我的活動
                   </a>
                 </li>
                 <li className="">
@@ -97,7 +100,7 @@ function MemberAside(props) {
                   </a>
                 </li>
               </ul>
-            </div>
+            </Container>
           </div>
 
           {/* <MemberBoard /> */}

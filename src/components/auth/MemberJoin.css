@@ -10,11 +10,7 @@
   --fontWhite: white;
   --btnHover: #01619c;
 }
-body {
-  background: var(--forth-color);
-  width: 100%;
-  height: 100vh;
-}
+
 .Aactivity-wrapper {
   width: 100%;
   height: 100vh;
@@ -22,13 +18,16 @@ body {
 }
 
 .Acontainer {
-  max-width: 100vw;
+  background: url("../../assets/img/AuthBG/login-bg.png") center center fixed
+    no-repeat;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
   padding: 0;
 }
 
 .AmemberAside {
   width: 100%;
-  background-size: cover;
 }
 
 .AheaderTitle {
@@ -191,6 +190,7 @@ body {
     margin-bottom: 40px;
   }
   .Acontainer {
+    background: var(--forth-color);
     width: 100%;
   }
 

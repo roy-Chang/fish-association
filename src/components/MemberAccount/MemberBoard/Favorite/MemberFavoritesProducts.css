@@ -1,7 +1,7 @@
 .MFPmemberBoard {
   position: relative;
-  height: 750px;
-  width: 900px;
+  height: 650px;
+  width: 800px;
   background: var(--main-color);
   margin-top: 50px;
   margin-left: 30px;
@@ -54,7 +54,6 @@
   display: block;
   height: 600px;
   overflow-y: scroll;
-  /*要給高度 才能設置scroll 屬性*/
 }
 
 .MFPcommodityFavorites a:hover {
