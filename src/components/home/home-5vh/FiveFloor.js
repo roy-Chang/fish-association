@@ -7,8 +7,6 @@ export default class FiveFloor extends PureComponent {
     render() {
         return (
             <div>
-                <Navigation></Navigation>
-               
                 <Wrapper>
                     <FifthBackground>
                             <h1>已有 <Number/> 人註冊</h1>

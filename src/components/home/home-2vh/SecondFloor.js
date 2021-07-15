@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react'
 //styled
-import { Container, Navigation, WrapperInfo, GiftWrapper, GiftPosition } from './styled';
+import { Container, WrapperInfo, GiftWrapper, GiftPosition } from './styled';
 //new blog card
 import NewBlog from './shar-blog/NewBlog';
 //discount card
@@ -15,7 +15,6 @@ export default class SecondFloor extends PureComponent {
     render() {
         return (
             <Fragment>
-                <Navigation />
                   <GiftPosition>
                     <GiftWrapper>
                         <Gift/>

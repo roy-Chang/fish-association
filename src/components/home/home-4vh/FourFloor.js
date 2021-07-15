@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 //css
-import { Navigation, CardWrapper, Card, ItemWrapper } from './styled';
+import { CardWrapper, Card, ItemWrapper } from './styled';
 //hot sell
 import HotSell from './hot-sell/HotSell';
 //item
@@ -11,7 +11,6 @@ export default class FourFloor extends PureComponent {
     render() {
         return (
             <div>
-                <Navigation />
                 <CardWrapper>
                     <Card>
                         <h1>熱銷排行榜</h1>
