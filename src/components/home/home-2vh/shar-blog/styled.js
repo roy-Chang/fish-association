@@ -7,16 +7,16 @@ export const Container = styled.div`
   background: white;
   border-radius: 20px;
   text-align: center;
-  margin-top: 15px;
-  padding: 20px 20px 20px 20px;
+  margin-top: 1.5vh;
+  padding: 2vh 1.5vw 2vh 1.5vw;
   h1 {
       color: #000000;
-      margin-bottom: 10px;
+      margin-bottom: 1.2vh;
   }
   ul {
     margin: 0;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 1.8vh;
   }
   li {
       font-size: 0.9vw;

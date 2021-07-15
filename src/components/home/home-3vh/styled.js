@@ -3,8 +3,8 @@ import thirdBg from '../../../assets/img/3vh-merge.png';
 
 //title part css
 export const ThirdBackground = styled.div`
-  min-width: 100vw;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background: url(${thirdBg}) no-repeat;
   background-size: cover;
   font-family: sans-serif;
