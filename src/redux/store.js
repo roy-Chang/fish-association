@@ -13,7 +13,7 @@ const enhancer = composeEnhancers(
 );
 
 const allReducer = combineReducers({
-    weather: weatherReducer
+    weather: weatherReducer,
 })
 
 const store = createStore(allReducer, enhancer);
