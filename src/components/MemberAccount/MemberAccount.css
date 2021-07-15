@@ -18,7 +18,7 @@ body {
 nav {
   width: 100%;
   height: 66px;
-  background: red;
+  background: var(--forth-color);
 }
 .MAactivity-wrapper {
   width: 100%;
@@ -43,7 +43,7 @@ nav {
 }
 
 .MAmemberCentreTitle {
-  width: 280px;
+  width: 300px;
   height: 80px;
 }
 
@@ -53,9 +53,17 @@ nav {
   color: var(--main-color);
   margin-top: 50px;
 }
+.MAcontainerList {
+  width: 23%;
+}
+.MAcontainerList ul li a img {
+  width: 40px;
+  height: 40px;
+}
 
 .MAmemberCentreList {
-  width: 200px;
+  /* width: 250px; */
+  width: 100%;
   margin: 0px auto;
 }
 
@@ -66,7 +74,7 @@ nav {
 }
 
 .MAmemberCentreList ul li a {
-  font-size: 28px;
+  font-size: 24px;
   text-decoration: none;
   display: block;
   color: var(--main-color);
@@ -91,8 +99,8 @@ nav {
 
 .MAmemberBoard {
   position: relative;
-  height: 750px;
-  width: 900px;
+  height: 650px;
+  width: 800px;
   background: var(--main-color);
   margin-top: 50px;
   margin-left: 30px;
@@ -101,7 +109,7 @@ nav {
 
 .MAmemberAcount {
   display: inline-flex;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .MAacountTitle {
@@ -128,7 +136,7 @@ nav {
 .MAmemberAccountInformation {
   display: inline-flex;
   padding: 0px 40px;
-  width: 90%;
+  /* width: 90%; */
 }
 
 .MAaccountInformation {
@@ -139,8 +147,8 @@ nav {
 .MAaccount {
   display: inline-flex;
   align-items: flex-end;
-  width: 550px;
-  padding-top: 30px;
+  width: 460px;
+  /* padding-top: 30px; */
 }
 
 .MAaccount a {
@@ -161,7 +169,7 @@ nav {
 .MAchange {
   font-size: 20px;
   color: var(--sixth-color);
-  margin: 0px 20px;
+  /* margin: 0px 20px; */
   white-space: nowrap;
 }
 
@@ -237,14 +245,18 @@ nav {
 .MApictureCard input[type="file"] {
   display: none;
 }
+.MAbtnW {
+  width: 100%;
+}
 
 .MAbtn {
   background: var(--second-color);
   color: var(--fontWhite);
-  width: 240px;
+  width: 120px;
   height: 50px;
   border-radius: 8px;
   font-size: 24px;
+  margin: 20px 40%;
 }
 
 .MAbtn:hover {
@@ -271,9 +283,8 @@ nav {
     color: var(--main-color);
     width: 280px;
   }
-
-  .MAmemberAccountInformation {
-    max-width: 70vw;
+  .MAmemberCentreList {
+    margin: 50px auto;
   }
 
   .MAaccountInformation {
@@ -281,10 +292,12 @@ nav {
   }
   .MAmemberAcount {
     margin-left: 20px;
+    padding-top: 0px;
   }
 
   .MAaccount {
     width: 100%;
+    padding: 10px 0;
   }
 
   .MAheadPicture720 {
@@ -293,7 +306,7 @@ nav {
 
   .MAheadPicture1240 {
     display: block;
-    margin: 10px auto;
+    margin: 30px auto;
     height: 250px;
   }
 
@@ -341,7 +354,7 @@ nav {
   }
 
   .MAbtn {
-    margin: 0px auto;
+    margin-left: 40%;
   }
 }
 

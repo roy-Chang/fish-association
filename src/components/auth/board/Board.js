@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Forms from "./Form/Forms";
 import FormLogin from "./Form/FormLogin";
 
-function Board(props) {
+function Board() {
   const [change, setChange] = useState(true);
 
   return (
@@ -14,6 +14,7 @@ function Board(props) {
           <ul className="AitemUl">
             <li className={`AjoinMember ${change ? "Aactive" : ""}`}>
               <a
+                href
                 onClick={() => {
                   setChange(true);
                 }}
@@ -23,6 +24,7 @@ function Board(props) {
             </li>
             <li className={`AloginMember ${change ? "" : "Aactive"}`}>
               <a
+                href
                 onClick={() => {
                   setChange(false);
                 }}

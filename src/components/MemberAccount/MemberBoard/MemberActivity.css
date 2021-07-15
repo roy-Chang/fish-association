@@ -47,8 +47,8 @@
 
 .MVmemberBoard {
   position: relative;
-  height: 750px;
-  width: 900px;
+  height: 650px;
+  width: 800px;
   background: var(--main-color);
   margin-top: 50px;
   margin-left: 30px;
@@ -95,7 +95,7 @@
 
 .MVcommodityVacation {
   display: block;
-  height: 600px;
+  height: 500px;
   overflow-y: scroll;
 }
 
@@ -112,10 +112,6 @@
   padding-left: 40px;
 }
 
-.MVinfotmation {
-  width: 60%;
-}
-
 .MVvacationDate {
   display: flex;
   justify-content: space-between;
@@ -127,12 +123,12 @@
 }
 
 .MVvacationPicture {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 
 .MVlistMargin {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   margin-left: 10px;
 }
 
@@ -162,6 +158,6 @@
     margin: 0 auto;
   }
   .MVinfotmation {
-    padding: 0 20px;
+    /* padding: 0 20px; */
   }
 }
