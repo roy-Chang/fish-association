@@ -24,7 +24,7 @@ function Forthpage() {
               ></WeatherFcst>
               <div class="wave-info">
                 <h3>潮浪預測</h3>
-                <WaveFcst />
+                <WaveFcst locationName={locationName} />
               </div>
             </WeatherInfo>
           </BgSea>
