@@ -38,7 +38,7 @@ function MainNavbar(props) {
                     <LinkContainer to="/activity">
                         <Nav.Link>地方活動</Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/travel-notes">
+                    <LinkContainer to="/travelNotes">
                         <Nav.Link>札記分享</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/item-single">
@@ -58,7 +58,7 @@ function MainNavbar(props) {
             </Navbar>
             <Route path="/" exact component={IndexPage} />
             <Route path="/activity" component={ActivityPage} />
-            <Route path="/travel-notes" component={TravelNotesPage} />
+            <Route path="/travelNotes" component={TravelNotesPage} />
             <Route path="/item-single" component={ItemSingle} />
             <Route path="/item-main" component={ItemMain} />
             <Route path="/member" component={MemberPage} />
