@@ -4,42 +4,43 @@ export const InfoDetail = styled.div`
   max-width: 50%;
   border-radius: 50px;
   background: rgb(115, 165, 186, 0.7);
-  font-size: 24px;
-  padding: 23px;
+  font-size: 20px;
+  padding: 24px;
 `;
 export const LeftLoc = styled.div`
-  max-width: 35%;
+  max-width: 30%;
   overflow: hidden;
   object-fit: contain;
   border-radius: 20px;
   img {
-    clip-path: ellipse(35% 80% at 5% 5%);
+    clip-path: ellipse(28% 70% at 5% 5%);
   }
 `;
 export const LocationInfo = styled.div`
-  margin-top: 90px;
+  max-width: 90%;
   border-radius: 20px;
+  margin: 0 auto;
+  margin-top: 90px;
+  height: 80vh;
 `;
 
 export const InfoContent = styled.div`
-  max-width: 65%;
+  margin-left: 50px;
   flex-direction: column;
   position: relative;
-  height: 600px;
   h2 {
-    font-size: 70px;
+    font-size: 56px;
     border-bottom: 3px solid #fff579;
-    display: inline-block;
-    margin: 60px 0;
+    width: 550px;
+    margin: 40px 0;
   }
   h2 span {
     font-size: 32px;
-    display: inline-block;
   }
 `;
 export const InfoSchedule = styled.div`
-  margin-left: 70px;
-  font-size: 24px;
+  margin-left: 50px;
+  font-size: 20px;
   border-left: solid 3px #abdadc;
   li {
     margin: 10px;
@@ -53,10 +54,9 @@ export const RightLoc = styled.div`
   bottom: 0;
   img {
     border-radius: 100% 0 20px 0;
-    max-width: 370px;
+    max-width: 300px;
   }
 `;
 export const Wrapper = styled.div`
-  width: 1280px;
-  margin: 0 auto;
+  max-width: 1280px;
 `;

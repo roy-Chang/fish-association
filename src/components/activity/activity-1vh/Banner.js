@@ -28,7 +28,7 @@ export default function Banner() {
         <SwiperSlide>
           <img
             src="https://media.zenfs.com/en/yahoo__216/14b910c01f9c59136a4883fd1ac9580c"
-            alt=""
+            alt="正濱漁港banner"
             正濱漁港
           />
           <Slogan>
