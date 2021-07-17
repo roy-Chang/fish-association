@@ -1,10 +1,10 @@
 .MFPmemberBoard {
   position: relative;
-  height: 650px;
-  width: 800px;
+  height: 550px;
+  width: 600px;
   background: var(--main-color);
   margin-top: 50px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   border-radius: 20px;
 }
 
@@ -19,8 +19,8 @@
 
 .MFPmemberBoard ul li {
   display: inline;
-  font-size: 32px;
-  width: 450px;
+  font-size: 24px;
+  width: 300px;
   height: 80px;
   text-align: center;
   color: var(--fontWhite);
@@ -52,7 +52,7 @@
 
 .MFPcommodityFavorites {
   display: block;
-  height: 600px;
+  height: 430px;
   overflow-y: scroll;
 }
 
@@ -66,26 +66,26 @@
 }
 
 .MFPcommodityFavoritesList {
-  font-size: 24px;
+  font-size: 20px;
   color: var(--fontWhite);
   display: flex;
   /* justify-content: space-around; */
   width: 90%;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 20px;
   margin: 0px auto;
 }
 
 .MFPcommodityFavoritesList a {
   color: var(--fontWhite);
   text-decoration: none;
-  width: 300px;
   margin: 0 20px;
+  font-size: 16px;
 }
 
 .MFPcommodityPicture {
-  width: 160px;
-  height: 120px;
+  width: 100px;
+  height: 80px;
   margin-left: 20px;
 }
 
@@ -93,8 +93,9 @@
   background: var(--fifth-color);
   color: var(--fontWhite);
   width: 95px;
-  height: 40px;
   border-radius: 8px;
+  font-size: 16px;
+  border: none;
 }
 
 .MFPbtn:hover {
@@ -106,7 +107,7 @@
   display: none;
 }
 
-@media screen and (max-width: 1240px) {
+/* @media screen and (max-width: 1240px) {
   .MFPmemberCentreTitle {
     margin: 20px auto;
   }
@@ -168,4 +169,4 @@
   .MFParticle-content {
     width: 300px;
   }
-}
+} */

@@ -1,10 +1,10 @@
 .MFNmemberBoard {
   position: relative;
-  height: 750px;
-  width: 900px;
+  height: 550px;
+  width: 600px;
   background: var(--main-color);
   margin-top: 50px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   border-radius: 20px;
 }
 
@@ -16,9 +16,9 @@
 
 .MFNmemberBoard ul li {
   display: inline;
-  font-size: 32px;
+  font-size: 24px;
   background: var(--second-color);
-  width: 450px;
+  width: 300px;
   height: 80px;
   text-align: center;
 }
@@ -50,7 +50,7 @@
 
 .MFNcommodityFavorites {
   display: block;
-  height: 600px;
+  height: 430px;
   overflow-y: scroll;
   /*要給高度 才能設置scroll 屬性*/
 }
@@ -65,35 +65,36 @@
 }
 
 .MFNcommodityFavoritesList {
-  font-size: 24px;
+  font-size: 20px;
   color: var(--fontWhite);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 20px;
+  margin: 0px auto;
 }
 
 .MFNarticle-block {
   list-style: none;
   display: flex;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 20px;
   /* width: 70%; */
-  max-width: 600px;
+  /* max-width: 600px; */
 }
 
 .MFNarticle-content {
-  width: 600px;
+  /* width: 600px; */
 }
 
 .MFNarticle-content a {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: var(--fontWhite);
 }
 
 .MFNarticle-content p {
-  font-size: 24px;
+  font-size: 20px;
   color: var(--fontWhite);
 }
 
@@ -106,8 +107,9 @@
   background: var(--fifth-color);
   color: var(--fontWhite);
   width: 95px;
-  height: 40px;
   border-radius: 8px;
+  font-size: 16px;
+  border: none;
 }
 
 .MFNbtn:hover {

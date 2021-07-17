@@ -84,11 +84,9 @@ function FormLogin() {
                 required
                 placeholder="請輸入帳號"
               />
-              {fieldErrors.account !== "" && (
-                <Form.Text className="MLcheck MLcheckAccount">
-                  查無此帳號
-                </Form.Text>
-              )}
+              <Form.Text className="MLcheck MLcheckAccount">
+                {fieldErrors.account !== "" && "查無此帳號"}查無此帳號
+              </Form.Text>
             </Form.Text>
           </Form.Text>
           <Form.Text className="MLitem">
@@ -105,11 +103,10 @@ function FormLogin() {
                 required
                 placeholder="請輸入密碼"
               />
-              {fieldErrors.password !== "" && (
-                <Form.Text className="MLcheck MLcheckAccount">
-                  密碼輸入錯誤
-                </Form.Text>
-              )}
+
+              <Form.Text className="MLcheck MLcheckAccount">
+                {fieldErrors.password !== "" && "密碼輸入錯誤"}密碼輸入錯誤
+              </Form.Text>
             </Form.Text>
           </Form.Text>
           <Form.Text className="MLitem MLitemVerification">
@@ -120,9 +117,9 @@ function FormLogin() {
               </Form.Text>
             </Form.Text>
           </Form.Text>
-          <button className="MLbtn" type="submit">
+          <Button className="MLbtn" type="submit">
             登入
-          </button>
+          </Button>
         </Form.Text>
       </Form>
     </>

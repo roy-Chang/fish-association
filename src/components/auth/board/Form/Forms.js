@@ -1,12 +1,14 @@
 import React from "react";
 import { useState, useRef } from "react";
+import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-// import "./JoinForm/MemberJoin2.css";
 import "./MemberJoin2.css";
 
-function Forms() {
+function Forms(props) {
   const [checked, setCheck] = useState(1);
-  const changeForm = () => {
+  const changeForm = (e) => {
+    console.log(props);
+    // return;
     setCheck(2);
   };
 
@@ -19,15 +21,122 @@ const Join1 = (props) => {
   const inputAccountElement = useRef();
 
   //表單內的每個欄位
-  // const [account, setAccount] = useState();
-  // const [email, setEmail] = useState();
-  // const [password, setPassword] = useState();
-  // const [repassword, setRepassword] = useState();
   const [fields, setFields] = useState({
     account: "",
     email: "",
     password: "",
     repassword: "",
+  });
+
+  //每個欄位的錯誤訊息
+  const [fieldsErrors, setFieldsErrors] = useState({
+    account: "",
+    email: "",
+    password: "",
+    repassword: "",
+  });
+
+  const handleFieldChange = (e) => {
+    const updateFields = {
+      ...fields,
+      [e.target.name]: e.target.value,
+    };
+    setFields(updateFields);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const data = new FormData(e.target);
+    console.log(data.get("account"));
+    console.log(data.get("email"));
+    console.log(data.get("password"));
+    console.log(data.get("repassword"));
+    console.log(fields.account);
+
+    //送出資料寫這
+  };
+
+  return (
+    <>
+      <Form onSubmit={handleSubmit}>
+        <Form.Text className="AmemberEnter">
+          <Form.Text className="Aitem">
+            <Form.Label className="AitemLabel">會員帳號</Form.Label>
+            <Form.Text className="AitemContent">
+              <Form.Control
+                className="AitemInput"
+                name="account"
+                type="text"
+                required
+                value={fields.account}
+                onChange={handleFieldChange}
+              />
+              <Form.Text className="Acheck AcheckAccount">
+                {fieldsErrors.account !== "" && "該帳號已創建"}該帳號已創建
+              </Form.Text>
+            </Form.Text>
+          </Form.Text>
+          <Form.Text className="Aitem">
+            <Form.Label className="AitemLabel">信箱</Form.Label>
+            <Form.Text className="AitemContent">
+              <Form.Control
+                className="AitemInput"
+                name="email"
+                type="email"
+                required
+                value={fields.email}
+                onChange={handleFieldChange}
+              />
+              <Form.Text className="Acheck AcheckAccount">
+                {fieldsErrors.email !== "" && "該信箱已創建"}該信箱已創建
+              </Form.Text>
+            </Form.Text>
+          </Form.Text>
+          <Form.Text className="Aitem">
+            <Form.Label className="AitemLabel">密碼</Form.Label>
+            <Form.Text className="AitemContent">
+              <Form.Control
+                className="AitemInput"
+                name="password"
+                type="password"
+                required
+                value={fields.password}
+                onChange={handleFieldChange}
+              />
+              <Form.Text className="Acheck AcheckAccount">
+                {fieldsErrors.password !== "" && "該密碼不符合長度限制"}
+                該密碼不符合長度限制
+              </Form.Text>
+            </Form.Text>
+          </Form.Text>
+          <Form.Text className="Aitem">
+            <Form.Label className="AitemLabel">確認密碼</Form.Label>
+            <Form.Text>
+              <Form.Control
+                className="AitemInput"
+                name="repassword"
+                type="password"
+                required
+                value={fields.repassword}
+                onChange={handleFieldChange}
+              />
+              <Form.Text className="Acheck AcheckAccount">
+                {fieldsErrors.repassword !== "" && "與密碼不相符"}與密碼不相符
+              </Form.Text>
+            </Form.Text>
+          </Form.Text>
+          <Button className="Abtn" type="submit" onClick={props.go}>
+            下一步
+          </Button>
+        </Form.Text>
+      </Form>
+    </>
+  );
+};
+
+const Join2 = (props) => {
+  const [fields, setFields] = useState({
     username: "",
     gender: "",
     year: "",
@@ -39,10 +148,6 @@ const Join1 = (props) => {
 
   //每個欄位的錯誤訊息
   const [fieldsErrors, setFieldsErrors] = useState({
-    account: "",
-    email: "",
-    password: "",
-    repassword: "",
     username: "",
     gender: "",
     year: "",
@@ -51,232 +156,174 @@ const Join1 = (props) => {
     phone: "",
     address: "",
   });
-
   return (
     <>
       <Form>
-        <Form.Text className="AmemberEnter">
-          <Form.Text className="Aitem">
-            <Form.Label className="AitemLabel">會員帳號</Form.Label>
-            <Form.Text className="AitemContent">
-              <Form.Control className="AitemInput" name="account" type="text" />
-
-              <Form.Text className="Acheck AcheckAccount">
-                該帳號已創建
-              </Form.Text>
-            </Form.Text>
-          </Form.Text>
-          <Form.Text className="Aitem">
-            <Form.Label className="AitemLabel">信箱</Form.Label>
-            <Form.Text className="AitemContent">
-              <Form.Control className="AitemInput" name="email" type="email" />
-
-              <Form.Text className="Acheck AcheckAccount">
-                該信箱已創建
-              </Form.Text>
-            </Form.Text>
-          </Form.Text>
-          <Form.Text className="Aitem">
-            <Form.Label className="AitemLabel">密碼</Form.Label>
-            <Form.Text className="AitemContent">
-              <Form.Control
-                className="AitemInput"
-                name="password"
-                type="password"
-              />
-
-              <Form.Text className="Acheck AcheckAccount">
-                該密碼不符合長度限制
-              </Form.Text>
-            </Form.Text>
-          </Form.Text>
-          <Form.Text className="Aitem">
-            <Form.Label className="AitemLabel">確認密碼</Form.Label>
-            <Form.Text className="AitemContent">
-              <Form.Control
-                className="AitemInput"
-                name="repassword"
-                type="password"
-              />
-              <Form.Text className="Acheck AcheckAccount">
-                與密碼不相符
-              </Form.Text>
-            </Form.Text>
-          </Form.Text>
-          <button className="Abtn" type="submit" onClick={props.go}>
-            下一步
-          </button>
-        </Form.Text>
-      </Form>
-    </>
-  );
-};
-
-const Join2 = (props) => {
-  return (
-    <>
-      <Form>
-        <Form.Group className="ML2memberEnter">
-          <Form.Group className="ML2item">
-            <Form.Text className="ML2itemLabel" htmlFor="">
+        <Form.Group className="MJ2memberEnter">
+          <Form.Group className="MJ2item">
+            <Form.Text className="MJ2itemLabel" htmlFor="">
               姓名
             </Form.Text>
             <Form.Control
-              className="ML2itemInput"
+              className="MJ2itemInput"
               type="text"
               name="name"
-              onChange={props.handleChange}
+              onChange={(e) => {
+                setFields(e.target.value);
+              }}
             />
           </Form.Group>
-          <Form.Group className="ML2item">
-            <Form.Text className="ML2itemLabel" htmlFor="">
+          <Form.Group className="MJ2item">
+            <Form.Text className="MJ2itemLabel" htmlFor="">
               性別
             </Form.Text>
-            <Form.Group className="ML2itemContent">
-              <Form.Group type="checkbox" className="ML2gender">
-                <Form.Label style={{ fontSize: "24px" }} htmlFor="men">
-                  男
-                </Form.Label>
+            <Form.Group className="MJ2itemContent">
+              <Form.Check type="checkbox" className="MJ2gender">
                 <Form.Check
                   inline
-                  className="ML2itemCheck"
-                  type="radio"
-                  id="men"
                   name="gender"
-                  onChange={props.handleChange}
-                />
-                <Form.Label style={{ fontSize: "24px" }} htmlFor="women">
-                  女
-                </Form.Label>
+                  type="radio"
+                  label="男"
+                  id="男"
+                  style={{ fontSize: "20px" }}
+                ></Form.Check>
                 <Form.Check
                   inline
-                  className="ML2itemCheck"
-                  type="radio"
-                  id="women"
                   name="gender"
-                  onChange={props.handleChange}
-                />
-              </Form.Group>
+                  type="radio"
+                  label="女"
+                  id="女"
+                  style={{ fontSize: "20px", paddingLeft: "20px" }}
+                ></Form.Check>
+              </Form.Check>
             </Form.Group>
           </Form.Group>
-          <Form.Group className="ML2item">
-            <Form.Text className="ML2itemLabel" htmlFor="">
+          <Form.Group className="MJ2item">
+            <Form.Text className="MJ2itemLabel" htmlFor="">
               出生日期
             </Form.Text>
-            <Form.Group className="ML2itemContent">
-              {/* <Form.Control as="select"
-              defaultValue={selectYear}
-              onChange={setSelectYear}
-              options={years}
-            /> */}
+            <Form.Group className="MJ2itemContent">
               <Form.Control
                 as="select"
                 size="sm"
-                className="ML2dateInput"
-                name=""
-                id=""
+                className="MJ2dateInput"
+                name="year"
+                value={fields.year}
+                onChange={(e) => {
+                  setFields(e.target.value);
+                }}
               >
-                <option>1990</option>
-                <option>1991</option>
-                <option>1992</option>
-                <option>1993</option>
-                <option>1994</option>
-                <option>1995</option>
-                <option>1996</option>
-                <option>1997</option>
-                <option>1998</option>
-                <option>1999</option>
-                <option>2000</option>
+                <option value="1990">1990</option>
+                <option value="1991">1991</option>
+                <option value="1992">1992</option>
+                <option value="1993">1993</option>
+                <option value="1994">1994</option>
+                <option value="1995">1995</option>
+                <option value="1996">1996</option>
+                <option value="1997">1997</option>
+                <option value="1998">1998</option>
+                <option value="1999">1999</option>
+                <option value="2000">2000</option>
               </Form.Control>
               年
               <Form.Control
                 as="select"
                 size="sm"
-                className="ML2dateInput"
-                name=""
-                id=""
+                className="MJ2dateInput"
+                name="month"
+                value={fields.month}
+                onChange={(e) => {
+                  setFields(e.target.value);
+                }}
               >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </Form.Control>
               月
               <Form.Control
                 as="select"
                 size="sm"
-                className="ML2dateInput"
-                name=""
-                id=""
+                className="MJ2dateInput"
+                name="day"
+                value={fields.day}
+                onChange={(e) => {
+                  setFields(e.target.value);
+                }}
               >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-                <option>13</option>
-                <option>14</option>
-                <option>15</option>
-                <option>16</option>
-                <option>17</option>
-                <option>18</option>
-                <option>19</option>
-                <option>20</option>
-                <option>21</option>
-                <option>22</option>
-                <option>23</option>
-                <option>24</option>
-                <option>25</option>
-                <option>26</option>
-                <option>27</option>
-                <option>28</option>
-                <option>29</option>
-                <option>30</option>
-                <option>31</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
               </Form.Control>
               日
             </Form.Group>
           </Form.Group>
-          <Form.Group className="ML2item">
-            <Form.Text className="ML2itemLabel" htmlFor="">
+          <Form.Group className="MJ2item">
+            <Form.Text className="MJ2itemLabel" htmlFor="">
               連絡電話
             </Form.Text>
             <Form.Control
-              className="ML2itemInput"
+              className="MJ2itemInput"
               type="text"
               name="phone"
-              onChange={props.handleChange}
+              onChange={(e) => {
+                setFields(e.target.value);
+              }}
             />
           </Form.Group>
-          <Form.Group className="ML2item">
-            <Form.Text className="ML2itemLabel" htmlFor="">
+          <Form.Group className="MJ2item">
+            <Form.Text className="MJ2itemLabel" htmlFor="">
               地址
             </Form.Text>
             <Form.Control
-              className="ML2itemInput"
+              className="MJ2itemInput"
               type="text"
               name="address"
-              onChange={props.handleChange}
+              onChange={(e) => {
+                setFields(e.target.value);
+              }}
             />
           </Form.Group>
-          <button className="ML2btn" type="submit">
+          <Button className="MJ2btn" type="submit">
             送出
-          </button>
+          </Button>
         </Form.Group>
       </Form>
     </>

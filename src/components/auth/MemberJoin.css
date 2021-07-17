@@ -10,7 +10,9 @@
   --fontWhite: white;
   --btnHover: #01619c;
 }
-
+.authNAV {
+  height: 60px;
+}
 .Aactivity-wrapper {
   width: 100%;
   height: 100vh;
@@ -27,7 +29,7 @@
 }
 
 .AmemberAside {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .AheaderTitle {
@@ -36,6 +38,11 @@
 
 .AmemberPage {
   display: flex;
+}
+.AmemberEnter {
+  width: 90%;
+  /* justify-content: center; */
+  margin: 10px auto;
 }
 
 .AmemberContent {
@@ -49,10 +56,10 @@
 
 .AloginItem {
   position: relative;
-  max-width: 660px;
-  height: 660px;
+  /* max-width: 500px; */
+  /* height: 660px; */
   background: var(--main-color);
-  margin: 8vw auto;
+  margin: 100px auto;
   border-radius: 20px;
 }
 
@@ -66,16 +73,12 @@
 
 .AloginItem ul li {
   display: inline;
-  font-size: 32px;
-  width: 330px;
+  font-size: 24px;
+  width: 250px;
   height: 80px;
   text-align: center;
   color: var(--fontWhite);
 }
-.AloginItem ul li:hover {
-  text-decoration: underline;
-}
-
 .AloginItem ul li a {
   text-decoration: none;
   display: block;
@@ -93,40 +96,45 @@
 .active {
   border-radius: 20px 20px 0 0;
 }
+.Aitem {
+  margin: 10px;
+  display: flex;
+}
 
 .AitemLabel {
   color: var(--fontWhite);
-  font-size: 24px;
+  font-size: 20px;
+  width: 85px;
 }
 
 .AitemInput {
   background: #dcdcdc;
   border-radius: 5px;
-  width: 360px;
-  height: 30px;
+  margin-left: 20px;
+  width: 325px;
+  /* height: 30px; */
 }
 
 .Acheck {
   color: var(--sixth-color);
   font-size: 16px;
-}
-
-.Aitem {
-  width: 475px;
-  margin: 40px 60px;
-  display: flex;
-  justify-content: space-between;
+  height: 20px;
+  margin-left: 20px;
 }
 
 .Abtn {
   background: var(--second-color);
-  width: 240px;
-  height: 55px;
-  font-size: 24px;
+  width: 180px;
+  height: 45px;
+  font-size: 20px;
   font-weight: bold;
-  color: var(--fontWhite);
+  /* color: var(--fontWhite); */
   border-radius: 8px;
-  margin-left: 33%;
+  /* margin-bottom: 20px; */
+  /* margin-left: 40%; */
+  /* margin: 10px; */
+  margin: 10px 30% 20px;
+  border: none;
 }
 
 .Abtn:hover {
@@ -172,7 +180,7 @@
   transform: translate(200px, 0) scale(3);
 }
 
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 960px) {
   .AmemberContent {
     margin: 0 auto;
   }
@@ -231,8 +239,8 @@
   .AitemInput {
     background: #dcdcdc;
     border-radius: 5px;
-    width: 220px;
-    height: 30px;
+    /* width: 220px; */
+    /* height: 30px; */
   }
 
   .Aitem {

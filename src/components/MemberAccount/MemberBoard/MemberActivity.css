@@ -1,57 +1,10 @@
-.MVmemberPage {
-  display: flex;
-  max-width: 1280px;
-  margin: 0px auto;
-}
-
-.MVmemberCentreTitle {
-  width: 280px;
-  height: 80px;
-}
-
-.MVCentreTitle {
-  font-size: 70px;
-  font-weight: bold;
-  color: var(--main-color);
-  margin-top: 50px;
-}
-
-.MVmemberCentreList {
-  width: 200px;
-  margin: 0px auto;
-}
-
-.MVmemberCentreList ul {
-  padding-left: 0;
-  flex-direction: column;
-  list-style-type: none;
-}
-
-.MVmemberCentreList ul li a {
-  font-size: 28px;
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  margin-top: 40px;
-}
-
-.MVmemberCentreList ul li a:hover {
-  font-size: 32px !important;
-  color: var(--fifth-color) !important;
-}
-
-.MVactiveList a {
-  font-size: 32px !important;
-  color: var(--fifth-color) !important;
-}
-
 .MVmemberBoard {
   position: relative;
-  height: 650px;
-  width: 800px;
+  height: 550px;
+  width: 600px;
   background: var(--main-color);
   margin-top: 50px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   border-radius: 20px;
 }
 
@@ -64,9 +17,9 @@
 
 .MVmemberBoard ul li {
   display: inline;
-  font-size: 32px;
+  font-size: 24px;
   background: var(--second-color);
-  width: 450px;
+  width: 300px;
   height: 80px;
   text-align: center;
   color: var(--fontWhite);
@@ -95,7 +48,7 @@
 
 .MVcommodityVacation {
   display: block;
-  height: 500px;
+  height: 430px;
   overflow-y: scroll;
 }
 
@@ -105,7 +58,7 @@
 }
 
 .MVcommodityVacationList {
-  font-size: 24px;
+  font-size: 20px;
   color: var(--fontWhite);
   display: flex;
   padding-top: 40px;
@@ -123,8 +76,8 @@
 }
 
 .MVvacationPicture {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
 }
 
 .MVlistMargin {
@@ -136,17 +89,17 @@
   background: var(--fifth-color);
   color: var(--fontWhite);
   width: 95px;
-  height: 40px;
-  margin-top: 20px;
-  margin-left: 410px;
+  margin-left: 270px;
   border-radius: 8px;
+  font-size: 16px;
+  border: none;
 }
 
 .MVbtn:hover {
   background: rgb(255, 0, 0);
 }
 
-@media screen and (max-width: 1240px) {
+/* @media screen and (max-width: 1240px) {
   .MVmemberBoard {
     max-width: 80vw;
     margin: 0 auto;
@@ -157,7 +110,5 @@
   .MVbtn {
     margin: 0 auto;
   }
-  .MVinfotmation {
-    /* padding: 0 20px; */
-  }
-}
+  
+} */

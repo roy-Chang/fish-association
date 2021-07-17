@@ -17,7 +17,7 @@ function MemberCoupon() {
         </div>
         <div className="MCcoupon">
           <img className="MCcouponPicture" src={coupon} alt="" />
-          <div className="MCcouponQuantity">X5</div>
+          <div className="MCcouponQuantity">X15</div>
         </div>
       </div>
     </>
