@@ -67,7 +67,7 @@ const options = {
 const VerticalBar = () => (
   <div style={{height:'45%',width:'100%'}}>
     <div className='header'>
-      <h1 className='title' style={{textAlign: 'center', marginTop: '20px', color: 'white'}}>漁貨銷售統計</h1>
+      <h1 className='title' style={{textAlign: 'center', marginTop: '2vh', color: 'white'}}>漁貨銷售統計</h1>
       <hr style={{width: '10.5vw', marginBottom: '5px'}}/>
     </div>
     <Bar data={data} options={options} style={{paddingBottom: '5px'}}/>

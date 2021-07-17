@@ -6,7 +6,7 @@ export const Shap = styled.div`
   background: white;
   border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 1.2vh;
   :hover {
     background: rgba(253, 227, 167, 1);
     cursor: pointer;
@@ -15,7 +15,7 @@ export const Shap = styled.div`
       font-weight: 900;
       text-align: center;
       margin: 0;
-      padding: 7px 12px 7px 12px;
+      padding: 0.7vh 1vw 0.7vh 1vw;
       flex: 1;
       background: ${props => props.color || '#9ED0E6' || "#FFCC5B" || "#C9C4BB" || "#F18634"};
   }

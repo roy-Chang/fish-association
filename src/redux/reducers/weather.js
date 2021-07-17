@@ -11,6 +11,7 @@ const defaultState = {
     isLoading: true
 }
 
+
 //weather reducers
 export default (state = defaultState, action) => {
     if(action.type === actionTypes.INIT_WEATHER_ACTION) {

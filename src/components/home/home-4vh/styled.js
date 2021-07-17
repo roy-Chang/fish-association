@@ -20,11 +20,11 @@ export const CardWrapper = styled.div`
 export const Card = styled.div`
   position: absolute;
   width: 55vw;
-  height: 80%;
+  height: 85vh;
   background-color: rgba(72,145,170,.75);
   border-radius: 20px;
   margin-top: 12vh;
-  padding: 20px;
+  padding: 2vh 0;
   h1 {
     color: white;
     font-size: 1.8vw;

@@ -1,6 +1,7 @@
 .box {
   width: 20vw;
   background: white;
+  padding: 1vh 2vw;
   border-radius: 20px;
   box-shadow: 5px 5px 5px #bbbbbb;
   -webkit-box-shadow: 5px 5px 5px #bbbbbb;
@@ -15,7 +16,7 @@
   text-align: center;
   /* border: solid 1px; */
   border-radius: 5px;
-  height: 100px;
+  height: 7vh;
 }
 .conversationWrapper {
   top: 50%;
@@ -25,13 +26,14 @@
   position: absolute;
 }
 .Intro {
-  font-size: 20px;
+  font-size: 1.2vw;
+  color:#3a3a3a;
 }
 
 .button {
   background: #457B9D;
   border: 0;
-  padding: 10px;
+  padding: 10px 1.4vw;
   color: white;
   border-radius: 8px;;
 }
@@ -39,3 +41,6 @@
   position: absolute;
   bottom: 0;
 }
+
+
+

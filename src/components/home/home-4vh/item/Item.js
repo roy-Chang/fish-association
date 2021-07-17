@@ -1,7 +1,4 @@
 import React, { PureComponent } from 'react'
-import { jsx, css } from "@emotion/react";
-//import { jsx } from "@emotion/react";
-//css
 import { Container, ShrimpCard, ShellCard, SquidCard, HoverBoard, FishCard } from './styled';
 
 
@@ -51,3 +48,4 @@ export default class Item extends PureComponent {
         )
     }
 }
+

@@ -10,7 +10,7 @@ export const Container = styled.div`
   text-align: center;
   margin-top: 1.5vh;
   margin-left: 15px;
-  padding: 2vh 1.5vw 2vh 1.5vw;
+  padding: 1.5vh 1.5vw 1.5vh 1.5vw;
   h1 {
       color: #000000;
       margin-bottom: 1.2vh;

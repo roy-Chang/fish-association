@@ -29,7 +29,7 @@ export const Container = styled.div`
       background: #6D695F;
       border-radius: 8px;
       border: none;
-      padding: 8px 30px 8px 30px;
+      padding: 0.8vh 2.5vw 0.8vh 2.5vw;
       color: white;
       cursor: pointer;
       float: left;

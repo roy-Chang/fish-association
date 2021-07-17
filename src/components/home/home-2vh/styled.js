@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import secondBg from '../../../assets/img/2vh-bg.png';
-import { keyframes } from '@emotion/react';
+
 
 
 export const SecondBackground = styled.div`
@@ -14,7 +14,7 @@ export const SecondBackground = styled.div`
 
 export const Container = styled.div`
   box-sizing: border-box;
-  padding: 20px;
+  padding: 1.2vh 1.8vw 1.8vh 1.8vw;
   width: 56vw;
   height: 85%;
   opacity: 88%;
