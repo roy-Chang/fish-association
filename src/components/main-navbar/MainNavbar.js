@@ -9,6 +9,7 @@ import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
 import MemberPage from "../../pages/MemberPage";
 
+import ItemMain from "../../pages/ItemMainPage";
 
 import "../../assets/css/styled.css"
 import "./styles.css";
@@ -43,6 +44,9 @@ function MainNavbar(props) {
                     <LinkContainer to="/item-single">
                         <Nav.Link>生鮮水產</Nav.Link>
                     </LinkContainer>
+                    <LinkContainer to="/item-main">
+                        <Nav.Link>水產主頁</Nav.Link>
+                    </LinkContainer>
                     <LinkContainer to="/member">
                         <Nav.Link>會員中心</Nav.Link>
                     </LinkContainer>
@@ -56,6 +60,7 @@ function MainNavbar(props) {
             <Route path="/activity" component={ActivityPage} />
             <Route path="/travel-notes" component={TravelNotesPage} />
             <Route path="/item-single" component={ItemSingle} />
+            <Route path="/item-main" component={ItemMain} />
             <Route path="/member" component={MemberPage} />
             <Route path="/auth" component={AuthPage} />
         </Router>
