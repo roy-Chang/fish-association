@@ -85,11 +85,11 @@ function Money() {
           </animated.div>
           <animated.p style={{
               paddingTop: '2vh',
-              fontSize: "1.8vw",
+              fontSize: "1.6vw",
               fontWeight: 900,
               ...props
             }} >
-            恭喜您獲得了100元折價券
+            恭喜您獲得了100元折價券<br/>歡迎每周二來領取獎勵喔
           </animated.p>
         </>
     

@@ -12,6 +12,7 @@ import Gift from './gift/Gift';
 
 
 export default class SecondFloor extends PureComponent {
+    
     render() {
         return (
             <Fragment>

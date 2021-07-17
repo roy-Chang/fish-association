@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import thirdBg from '../../../assets/img/3vh-merge.png';
+import { keyframes } from '@emotion/react'
 
 //title part css
 export const ThirdBackground = styled.div`
@@ -43,3 +44,27 @@ export const ActivityWrapper = styled.div`
   flex-direction: column;
   position: absolute;
 `
+const swing = keyframes`
+  from {
+    transform: rotate(-3deg)
+  }
+
+  to {
+    transform: rotate(5deg)
+  }
+
+`
+
+export const Fishing = styled.figure`
+  position: absolute;
+  width: 26vw;
+  margin: 0;
+  left: 65vw;
+  top: 78vh;
+  transform-origin: bottom right;
+  animation: ${swing} 4s ease-out infinite alternate-reverse;
+  img {
+      width: 100%;
+  }
+`
+

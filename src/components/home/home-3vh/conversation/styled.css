@@ -1,0 +1,41 @@
+.box {
+  width: 20vw;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #bbbbbb;
+  -webkit-box-shadow: 5px 5px 5px #bbbbbb;
+  -moz-box-shadow: 5px 5px 5px #bbbbbb;
+}
+
+.box > h1 {
+  font-size: 1.1vw;
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+  padding-top: 15px;
+  text-align: center;
+  /* border: solid 1px; */
+  border-radius: 5px;
+  height: 100px;
+}
+.conversationWrapper {
+  top: 50%;
+  left: 65%;
+  width: 100%;
+  height: 20%;
+  position: absolute;
+}
+.Intro {
+  font-size: 20px;
+}
+
+.button {
+  background: #457B9D;
+  border: 0;
+  padding: 10px;
+  color: white;
+  border-radius: 8px;;
+}
+.button-container {
+  position: absolute;
+  bottom: 0;
+}

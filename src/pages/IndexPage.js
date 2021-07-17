@@ -15,11 +15,12 @@ import FiveFloor from '../components/home/home-5vh/FiveFloor';
 
 
 function App() {
+  
   return (
     <ScrollContainer>
       <ScrollSection pageId={0}>
         <FirstBackground />
-        <FirstFloor />
+        <FirstFloor/>
       </ScrollSection>
  
       <ScrollSection pageId={1}>
@@ -39,6 +40,7 @@ function App() {
 
       <ScrollSection pageId={4}>
         <FiveFloor/>
+        <FifthBackground />
       </ScrollSection>
     </ScrollContainer>
   );

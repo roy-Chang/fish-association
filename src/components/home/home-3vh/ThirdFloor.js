@@ -1,9 +1,13 @@
 import React, { PureComponent } from 'react'
-import { Title, ActivityWrapper } from './styled'
+import { Title, ActivityWrapper, Fishing } from './styled'
 
 import ActivityOne from './activity/ac-one/ActivityOne';
 import ActivityTwo from './activity/ac-two/ActivityTwo';
 import ActivityThree from './activity/ac-three/ActivityThree';
+//conversation
+import Conversation from './conversation/Conversation';
+//fishing
+import fishing from '../../../assets/img/homepage-ani/fishing.png';
 
 
 export default class ThirdFloor extends PureComponent {
@@ -18,7 +22,13 @@ export default class ThirdFloor extends PureComponent {
                   <ActivityOne />
                   <ActivityTwo />
                   <ActivityThree />
-              </ActivityWrapper>  
+              </ActivityWrapper> 
+                <Conversation/>
+              <div>
+                <Fishing>
+                    <img src={fishing} alt="fishing"/>
+                </Fishing>
+              </div> 
                                   
             </>
         )
