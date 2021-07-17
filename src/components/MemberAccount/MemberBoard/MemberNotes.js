@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Button } from "react-bootstrap";
 import "./MemberCSS/MemberNotes.css";
 function MemberNotes() {
   return (
@@ -23,60 +23,8 @@ function MemberNotes() {
                   <p style={{ opacity: "0.5" }}>發表日期:2021/05/20 20:00:25</p>
                 </div>
               </div>
-              <button className="MNbtnUpdate">修改</button>
-              <button className="MNbtn">刪除</button>
-            </div>
-            <hr />
-          </div>
-          <div className="MNListHr">
-            <div className="MNnotesList">
-              <div className="MNarticle-block">
-                <div className="MNarticle-content">
-                  <a href="">GO！化身美人魚的台灣秘境</a>
-                  <p style={{ opacity: "0.5" }}>發表日期:2021/05/20 20:00:25</p>
-                </div>
-              </div>
-              <button className="MNbtnUpdate">修改</button>
-              <button className="MNbtn">刪除</button>
-            </div>
-            <hr />
-          </div>
-          <div className="MNListHr">
-            <div className="MNnotesList">
-              <div className="MNarticle-block">
-                <div className="MNarticle-content">
-                  <a href="">GO！化身美人魚的台灣秘境</a>
-                  <p style={{ opacity: "0.5" }}>發表日期:2021/05/20 20:00:25</p>
-                </div>
-              </div>
-              <button className="MNbtnUpdate">修改</button>
-              <button className="MNbtn">刪除</button>
-            </div>
-            <hr />
-          </div>
-          <div className="MNListHr">
-            <div className="MNnotesList">
-              <div className="MNarticle-block">
-                <div className="MNarticle-content">
-                  <a href="">GO！化身美人魚的台灣秘境</a>
-                  <p style={{ opacity: "0.5" }}>發表日期:2021/05/20 20:00:25</p>
-                </div>
-              </div>
-              <button className="MNbtnUpdate">修改</button>
-              <button className="MNbtn">刪除</button>
-            </div>
-            <hr />
-          </div>
-          <div className="MNListHr">
-            <div className="MNnotesList">
-              <div className="MNarticle-block">
-                <div className="MNarticle-content">
-                  <a href="">GO！化身美人魚的台灣秘境</a>
-                  <p style={{ opacity: "0.5" }}>發表日期:2021/05/20 20:00:25</p>
-                </div>
-              </div>
-              <button className="MNbtnUpdate">修改</button>
-              <button className="MNbtn">刪除</button>
+              <Button className="MNbtnUpdate">修改</Button>
+              <Button className="MNbtn">刪除</Button>
             </div>
             <hr />
           </div>

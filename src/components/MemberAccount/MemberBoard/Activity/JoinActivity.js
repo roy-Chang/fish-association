@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import vacation from "../../../../assets/img/member/memberVacation/vacation.jpg";
 
 function JoinActivity() {
@@ -17,7 +18,7 @@ function JoinActivity() {
               <div className="MVjoinPeople">成人X2</div>
               <div className="MVjoinPay">共$3000元</div>
             </div>
-            <button className="MVbtn">刪除</button>
+            <Button className="MVbtn">刪除</Button>
           </div>
         </div>
         <hr />
@@ -33,7 +34,7 @@ function JoinActivity() {
               <div className="MVjoinPeople">成人X2</div>
               <div className="MVjoinPay">共$3000元</div>
             </div>
-            <button className="MVbtn">刪除</button>
+            <Button className="MVbtn">刪除</Button>
           </div>
         </div>
         <hr />

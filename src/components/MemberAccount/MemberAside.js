@@ -20,115 +20,118 @@ import MemberActivity from "./MemberBoard/MemberActivity";
 import MemberHistory from "./MemberBoard/MemberHistory";
 import MemberCoupon from "./MemberBoard/MemberCoupon";
 
+const tagSwitch = (change) => {};
+
 function MemberAside(props) {
   const [change, setChange] = useState(0);
   // const change = 5;
   return (
     <>
-      <aside className="MAmemberAside">
-        <div className="MAmemberPage">
-          <div className="MAcontainerList">
-            <div className="MAmemberCentreTitle">
-              <h1 className="MACentreTitle">會員中心</h1>
-            </div>
-            <Container className="MAmemberCentreList">
-              <ul>
-                <li>
-                  <a
-                    className={`${change == 0 ? "MAactiveList" : ""}`}
-                    onClick={() => {
-                      setChange(0);
-                    }}
-                  >
-                    <img src={accountIcon} alt="" />
-                    我的檔案
-                  </a>
-                </li>
-                <li className="">
-                  <a
-                    className={`${change == 1 ? "MAactiveList" : ""}`}
-                    onClick={() => {
-                      setChange(1);
-                    }}
-                  >
-                    <img src={favoriteIcon} alt="" />
-                    收藏清單
-                  </a>
-                </li>
-                <li className="">
-                  <a
-                    className={`${change == 2 ? "MAactiveList" : ""}`}
-                    onClick={() => {
-                      setChange(2);
-                    }}
-                  >
-                    <img src={noteIcon} alt="" />
-                    我的札記
-                  </a>
-                </li>
-                <li className="">
-                  <a
-                    className={`${change == 3 ? "MAactiveList" : ""}`}
-                    onClick={() => {
-                      setChange(3);
-                    }}
-                  >
-                    <img src={activeIcon} alt="" />
-                    我的活動
-                  </a>
-                </li>
-                <li className="">
-                  <a
-                    className={`${change == 4 ? "MAactiveList" : ""}`}
-                    onClick={() => {
-                      setChange(4);
-                    }}
-                  >
-                    <img src={clipboardIcon} alt="" />
-                    歷史清單
-                  </a>
-                </li>
-                <li className="">
-                  <a
-                    className={`${change == 5 ? "MAactiveList" : ""}`}
-                    onClick={() => {
-                      setChange(5);
-                    }}
-                  >
-                    <img src={dollarIcon} alt="" />
-                    優惠券專區
-                  </a>
-                </li>
-              </ul>
-            </Container>
+      {/* <aside className="MAmemberAside"> */}
+      <div className="MAmemberPage">
+        <div className="MAcontainerList">
+          <div className="MAmemberCentreTitle">
+            <h1 className="MACentreTitle">會員中心</h1>
           </div>
+          <Container className="MAmemberCentreList">
+            <ul>
+              <li>
+                <a
+                  className={`${change == 0 ? "MAactiveList" : ""}`}
+                  onClick={() => {
+                    setChange(0);
+                  }}
+                >
+                  <img src={accountIcon} alt="" />
+                  我的檔案
+                </a>
+              </li>
+              <li className="">
+                <a
+                  className={`${change == 1 ? "MAactiveList" : ""}`}
+                  onClick={() => {
+                    setChange(1);
+                  }}
+                >
+                  <img src={favoriteIcon} alt="" />
+                  收藏清單
+                </a>
+              </li>
+              <li className="">
+                <a
+                  className={`${change == 2 ? "MAactiveList" : ""}`}
+                  onClick={() => {
+                    setChange(2);
+                  }}
+                >
+                  <img src={noteIcon} alt="" />
+                  我的札記
+                </a>
+              </li>
+              <li className="">
+                <a
+                  className={`${change == 3 ? "MAactiveList" : ""}`}
+                  onClick={() => {
+                    setChange(3);
+                  }}
+                >
+                  <img src={activeIcon} alt="" />
+                  我的活動
+                </a>
+              </li>
+              <li className="">
+                <a
+                  className={`${change == 4 ? "MAactiveList" : ""}`}
+                  onClick={() => {
+                    setChange(4);
+                  }}
+                >
+                  <img src={clipboardIcon} alt="" />
+                  歷史清單
+                </a>
+              </li>
+              <li className="">
+                <a
+                  className={`${change == 5 ? "MAactiveList" : ""}`}
+                  onClick={() => {
+                    setChange(5);
+                  }}
+                >
+                  <img src={dollarIcon} alt="" />
+                  優惠券專區
+                </a>
+              </li>
+            </ul>
+          </Container>
+        </div>
 
-          {/* <MemberBoard /> */}
-          {(() => {
-            switch (change) {
-              case 0:
-                return <MemberBoard />;
-                break;
-              case 1:
-                return <MemberFavorite />;
-                break;
-              case 2:
-                return <MemberNotes />;
-                break;
-              case 3:
-                return <MemberActivity />;
-                break;
-              case 4:
-                return <MemberHistory />;
-                break;
-              case 5:
-                return <MemberCoupon />;
-                break;
-            }
-          })()}
+        {/* <MemberBoard /> */}
 
-          {/* <UnderList /> */}
-          <div className="MAmemberCentreList MAList1240">
+        {(() => {
+          switch (change) {
+            case 0:
+              return <MemberBoard />;
+              break;
+            case 1:
+              return <MemberFavorite />;
+              break;
+            case 2:
+              return <MemberNotes />;
+              break;
+            case 3:
+              return <MemberActivity />;
+              break;
+            case 4:
+              return <MemberHistory />;
+              break;
+            case 5:
+              return <MemberCoupon />;
+              break;
+          }
+        })()}
+
+        {/* <UnderList /> */}
+        {/* <div className="MAmemberCentreList MAList1240">
             <ul>
               <li>
                 <a
@@ -195,9 +198,9 @@ function MemberAside(props) {
                 </a>
               </li>
             </ul>
-          </div>
-        </div>
-      </aside>
+          </div> */}
+      </div>
+      {/* </aside> */}
     </>
   );
 }

@@ -1,15 +1,15 @@
 .MNmemberBoard {
   position: relative;
-  height: 650px;
-  width: 800px;
+  height: 550px;
+  width: 600px;
   background: var(--main-color);
   margin-top: 50px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   border-radius: 20px;
 }
 
 .MNnotesTitle {
-  font-size: 32px;
+  font-size: 24px;
   color: var(--fontWhite);
   margin: 30px 40px;
 }
@@ -24,7 +24,7 @@
 
 .MNnotesAll {
   width: 100%;
-  height: 80%;
+  height: 430px;
   overflow-y: scroll;
 }
 
@@ -33,8 +33,8 @@
 }
 
 .MNnotesList {
-  width: 700px;
-  margin: 30px 30px;
+  /* width: 700px; */
+  margin: 0px 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -45,15 +45,15 @@
   display: flex;
   align-items: center;
   margin-top: 30px;
-  max-width: 600px;
+  /* max-width: 600px; */
 }
 
 .MNarticle-content {
-  width: 450px;
+  /* width: 450px; */
 }
 
 .MNarticle-content a {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   color: var(--fontWhite);
   text-decoration: none;
@@ -64,7 +64,7 @@
 }
 
 .MNarticle-content p {
-  font-size: 24px;
+  font-size: 20px;
   color: var(--fontWhite);
 }
 
@@ -72,9 +72,9 @@
   background: var(--fifth-color);
   color: var(--fontWhite);
   width: 95px;
-  height: 40px;
   border-radius: 8px;
-  font-size: 24px;
+  font-size: 16px;
+  border: none;
 }
 
 .MNbtn:hover {
@@ -85,15 +85,15 @@
   background: var(--second-color);
   color: var(--fontWhite);
   width: 95px;
-  height: 40px;
   border-radius: 8px;
-  font-size: 24px;
+  font-size: 16px;
+  border: none;
 }
 
 .MNbtnUpdate:hover {
   background: var(--btnHover);
 }
-@media screen and (max-width: 1240px) {
+/* @media screen and (max-width: 1240px) {
   .MNmemberBoard {
     max-width: 80vw;
     margin: 0 auto;
@@ -105,4 +105,4 @@
   .MNarticle-content {
     width: 300px;
   }
-}
+} */

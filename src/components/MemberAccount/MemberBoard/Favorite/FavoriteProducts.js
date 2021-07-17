@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import fish from "../../../../assets/img/member/memberProducts/fish.jpeg";
 import "./MemberFavoritesProducts.css";
 
@@ -11,7 +12,7 @@ function FavoriteProducts() {
             <div className="MFPcommodityFavoritesListDate">2021/06/09</div>
             <img className="MFPcommodityPicture" src={fish} alt="" />
             <a href="">鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚</a>
-            <button className="MFPbtn">刪除</button>
+            <Button className="MFPbtn">刪除</Button>
           </div>
           <hr />
         </div>
@@ -20,7 +21,7 @@ function FavoriteProducts() {
             <div className="MFPcommodityFavoritesListDate">2021/06/09</div>
             <img className="MFPcommodityPicture" src={fish} alt="" />
             <a href="">鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚</a>
-            <button className="MFPbtn">刪除</button>
+            <Button className="MFPbtn">刪除</Button>
           </div>
           <hr />
         </div>
@@ -29,7 +30,7 @@ function FavoriteProducts() {
             <div className="MFPcommodityFavoritesListDate">2021/06/09</div>
             <img className="MFPcommodityPicture" src={fish} alt="" />
             <a href="">鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚</a>
-            <button className="MFPbtn">刪除</button>
+            <Button className="MFPbtn">刪除</Button>
           </div>
           <hr />
         </div>
@@ -38,16 +39,7 @@ function FavoriteProducts() {
             <div className="MFPcommodityFavoritesListDate">2021/06/09</div>
             <img className="MFPcommodityPicture" src={fish} alt="" />
             <a href="">鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚</a>
-            <button className="MFPbtn">刪除</button>
-          </div>
-          <hr />
-        </div>
-        <div>
-          <div className="MFPcommodityFavoritesList">
-            <div className="MFPcommodityFavoritesListDate">2021/06/09</div>
-            <img className="MFPcommodityPicture" src={fish} alt="" />
-            <a href="">鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚</a>
-            <button className="MFPbtn">刪除</button>
+            <Button className="MFPbtn">刪除</Button>
           </div>
           <hr />
         </div>

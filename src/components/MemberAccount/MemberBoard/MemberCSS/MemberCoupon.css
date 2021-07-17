@@ -1,17 +1,17 @@
 .MCmemberBoard {
   position: relative;
-  height: 650px;
-  width: 800px;
+  height: 550px;
+  width: 600px;
   background: var(--main-color);
   margin-top: 50px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   border-radius: 20px;
 }
 
 .MChistoryTitle {
-  font-size: 32px;
+  font-size: 24px;
   color: var(--fontWhite);
-  margin: 40px;
+  margin: 30px 40px;
 }
 
 .MCmemberBoard hr {
@@ -23,7 +23,7 @@
 }
 
 .MCcoupon {
-  margin: 150px auto;
+  margin: 100px auto;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -33,11 +33,15 @@
 .MCcouponQuantity {
   font-size: 70px;
   color: var(--fontWhite);
-  height: 70px;
+  height: 100px;
 }
-@media screen and (max-width: 1240px) {
+.MCcouponPicture {
+  width: 280px;
+  height: 160px;
+}
+/* @media screen and (max-width: 1240px) {
   .MCmemberBoard {
     max-width: 80vw;
     margin: 0 auto;
   }
-}
+} */

@@ -1,63 +1,74 @@
-.ML2itemLabel {
+.MJ2memberEnter {
+  width: 85%;
+  margin: 0 auto;
+}
+.MJ2itemLabel {
   color: var(--fontWhite);
-  font-size: 24px;
+  font-size: 20px;
+  width: 85px;
 }
 
-.ML2itemContent {
-  width: 360px;
+.MJ2itemContent {
+  /* width: 360px; */
   height: 30px;
   color: var(--fontWhite);
   font-size: 20px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   line-height: 40px;
+  margin-left: 15px;
 }
 
-.ML2itemInput {
+.MJ2itemInput {
   background: #dcdcdc;
   border-radius: 5px;
-  width: 360px;
-  height: 30px;
+  width: 80%;
+  margin-left: 20px;
+  /* height: 30px; */
 }
 
-.ML2dateInput {
+.MJ2dateInput {
   background: #dcdcdc;
   font-size: 16px;
   border-radius: 5px;
+  width: 75px;
 }
 
-.ML2gender {
+.MJ2gender {
   color: var(--fontWhite);
+  /* margin-left: 10px; */
 }
 
-.ML2check {
+/* .MJ2check {
   color: var(--sixth-color);
   font-size: 16px;
-}
+} */
 
-.ML2itemCheck {
+.MJ2itemCheck {
   margin: 0px 20px;
 }
 
-.ML2item {
-  width: 475px;
-  margin: 40px 60px;
+.MJ2item {
+  /* width: 475px; */
+  margin: 20px auto;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
-.ML2btn {
+.MJ2btn {
   background: var(--second-color);
-  width: 240px;
-  height: 55px;
-  font-size: 24px;
+  width: 180px;
+  height: 45px;
+  font-size: 20px;
   font-weight: bold;
-  color: var(--fontWhite);
+  /* color: var(--fontWhite); */
   border-radius: 8px;
-  margin-top: 20px;
-  margin-left: 33%;
+  /* margin-top: 20px;
+  margin-left: 33%; */
+  margin: 10px 30% 20px;
+  border: none;
 }
 
-.ML2btn:hover {
+.MJ2btn:hover {
   background: var(--btnHover);
 }

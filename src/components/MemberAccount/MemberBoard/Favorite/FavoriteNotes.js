@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Button } from "react-bootstrap";
 import "./MemberFavoriteNotes.css";
 
 function FavoriteNotes() {
@@ -14,7 +14,7 @@ function FavoriteNotes() {
                 <p style={{ opacity: 0.5 }}>作者：優尼 Mrs. Yuny</p>
               </div>
             </div>
-            <button className="MFNbtn">刪除</button>
+            <Button className="MFNbtn">刪除</Button>
           </div>
           <hr />
         </div>

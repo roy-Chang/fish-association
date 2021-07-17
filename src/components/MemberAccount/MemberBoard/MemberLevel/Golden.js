@@ -72,24 +72,33 @@ function General() {
                 </Form.Text>
               </Row>
               <Row>
-                <Form.Label
-                  style={{ fontSize: "24px", width: "100px" }}
-                  className=""
-                  htmlFor=""
-                >
+                <Form.Label style={{ fontSize: "24px", width: "100px" }}>
                   性別
                 </Form.Label>
-                <Form.Control
-                  as="select"
-                  style={{
-                    fontSize: "16px",
-                    width: "70px",
-                    background: "#DCDCDC",
-                  }}
-                >
-                  <option>男</option>
-                  <option>女</option>
-                </Form.Control>
+                <Form.Group className="ML2itemContent">
+                  <Form.Check type="checkbox" className="ML2gender">
+                    <Form.Check
+                      inline
+                      name="gender"
+                      type="radio"
+                      label="男"
+                      id="男"
+                      style={{ color: "var(--main-color)", fontSize: "20px" }}
+                    ></Form.Check>
+                    <Form.Check
+                      inline
+                      name="gender"
+                      type="radio"
+                      label="女"
+                      id="女"
+                      style={{
+                        color: "var(--main-color)",
+                        fontSize: "20px",
+                        paddingLeft: "20px",
+                      }}
+                    ></Form.Check>
+                  </Form.Check>
+                </Form.Group>
               </Row>
               <Row>
                 <Form.Label
@@ -258,20 +267,21 @@ function General() {
           </Button>
         </Modal.Footer>
       </Modal>
+      {/* -------------------------以上為會員編輯彈出視窗---------------------------------------- */}
       <div className="MAmemberBoard">
-        <div class="headPicture headPicture1240">
+        {/* <div class="headPicture headPicture1240">
           <div class="pictureCard">
             <div class="picture">
               <img class="pictureGo" src={HeadPic} alt="" />
               <img src={GoldenFeame} alt="" />
             </div>
             <label htmlFor="name">
-              <input type="file" id="name" />
+              <input type="file" id="name" name="photo" />
               選擇照片
             </label>
             <div></div>
           </div>
-        </div>
+        </div> */}
         <div>
           <div className="MAmemberAcount">
             <h2 className="MAacountTitle">我的檔案</h2>
@@ -318,9 +328,9 @@ function General() {
               <div className="MAcontent">桃園縣中壢區中央大學資策會中心</div>
             </Form.Group>
             <Form.Group className="MAbtnW">
-              <button className="MAbtn" onClick={handleShow}>
+              <Button className="MAbtn" onClick={handleShow}>
                 編輯
-              </button>
+              </Button>
             </Form.Group>
           </Container>
           <div class="headPicture headPicture720">
@@ -330,7 +340,7 @@ function General() {
                 <img src={GoldenFeame} alt="" />
               </div>
               <label htmlFor="name">
-                <input type="file" id="name" />
+                <input type="file" id="name" name="photo" />
                 選擇照片
               </label>
               <div></div>

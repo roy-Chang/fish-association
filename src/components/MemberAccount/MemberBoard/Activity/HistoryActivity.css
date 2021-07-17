@@ -1,57 +1,9 @@
-/* .MVHmemberBoard {
-  position: relative;
-  height: 750px;
-  width: 900px;
-  background: var(--main-color);
-  margin-top: 50px;
-  margin-left: 30px;
-  border-radius: 20px;
-}
-
-.MVHmemberBoard ul {
-  padding-left: 0;
-  display: flex;
-  list-style-type: none;
-  margin-top: 0;
-}
-
-.MVHmemberBoard ul li {
-  display: inline;
-  font-size: 32px;
-  background: var(--second-color);
-  width: 450px;
-  height: 80px;
-  text-align: center;
-}
-
-.MVHmemberBoard ul li a {
-  text-decoration: none;
-  display: block;
-  color: var(--fontWhite);
-  height: 100%;
-  line-height: 80px;
-  cursor: pointer;
-} */
-
-/* .MVHleftBoardTitle {
-  border-radius: 20px 0 0 0;
-}
-
-.MVHrightBoardTitle {
-  border-radius: 0 20px 0 0;
-} */
-
-/* .MVHactive {
-  background: var(--main-color) !important;
-  border-bottom: 2px solid var(--sixth-color);
-} */
-
 .MVHvacationHistory {
   display: block;
   width: 100%;
-  height: 600px;
+  height: 420px;
   overflow-y: scroll;
-  font-size: 24px;
+  font-size: 20px;
   color: var(--fontWhite);
 }
 
@@ -71,7 +23,7 @@
   margin-top: 40px;
 }
 .MVHactiveList {
-  font-size: 32px !important;
+  font-size: 24px !important;
   color: var(--fifth-color) !important;
 }
 

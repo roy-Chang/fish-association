@@ -1,60 +1,52 @@
-.MLactive {
-  /* background: var(--main-color) !important; */
-  /* border-bottom: 2px solid var(--sixth-color); */
-  /* border-radius: 20px 20px 0 0; */
-}
 .MLmemberEnter {
-  justify-content: space-evenly;
-  margin: 20px auto;
+  width: 90%;
+  margin: 10px auto;
 }
-
 .MLitem {
-  width: 475px;
-  margin: 40px 60px;
+  /* width: 475px; */
+  /* margin-left: 10px; */
+  margin: 10px 0 0 10px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .MLitemLabel {
   color: var(--fontWhite);
-  font-size: 24px;
+  font-size: 20px;
+  width: 85px;
 }
 .MLitemInput {
   background: #dcdcdc;
   border-radius: 5px;
-  width: 360px;
-  height: 30px;
+  margin-left: 20px;
+  width: 325px;
+  /* height: 30px; */
 }
 .MLcheck {
   color: var(--sixth-color);
   font-size: 16px;
-}
-.MLitemVerification {
-  /* display: none; */
+  height: 20px;
+  margin-left: 20px;
 }
 .MLverification {
-  width: 475px;
-  height: 150px;
+  width: 400px;
+  height: 120px;
   background: var(--fontWhite);
 }
 
 .MLbtn {
   background: var(--second-color);
-  width: 240px;
-  height: 55px;
-  font-size: 24px;
+  width: 180px;
+  height: 45px;
+  font-size: 20px;
   font-weight: bold;
-  color: var(--fontWhite);
-  margin-left: 33%;
+  /* color: var(--fontWhite); */
+  /* margin-left: 33%; */
   border-radius: 8px;
+  margin: 10px 30% 20px;
+  border: none;
 }
 
 .MLbtn:hover {
   background: var(--btnHover);
-}
-
-@media screen and (max-width: 760px) {
-  .MLitemVerification {
-    /* display: none; */
-  }
 }
