@@ -5,7 +5,7 @@ export const BgSea = styled.div`
   margin: 0 auto;
   background-size: 100%;
   background-position: top;
-  width: 45.5%;
+  width: 1150px;
   height: 350px;
   margin: 0 auto;
   position: relative;
