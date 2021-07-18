@@ -14,13 +14,13 @@ const IconPm = styled.div``;
 const YellowSlashline = styled.div`
   border-right: #fff579 solid 3px;
   height: 110px;
-  padding: 10px;
+  padding: 5px;
   transform: rotate(45deg);
 `;
 const YellowLine = styled.div`
   height: 60px;
   margin-left: 70px;
-  padding: 35px;
+  padding: 28px;
   border-left: #fff579 solid 8px;
 `;
 const Weekdate = styled.p``;
@@ -49,11 +49,7 @@ function WeatherFcst(props) {
           return response.json();
         })
         .then(function (myJson) {
-          console.log(myJson);
-          console.log(
-            "currentWeather.locationName",
-            currentWeather.locationName
-          );
+          //console.log(myJson);
           let queryLocation = "";
           if (props.locationName == currentWeather.locationName) {
             queryLocation = myJson.records.locations[1].location[1];
@@ -71,6 +67,7 @@ function WeatherFcst(props) {
               queryLocation = myJson.records.locations[1].location[5];
             }
           }
+          console.log("queryLocation", queryLocation);
           // const ruifang = myJson.records.locations[0].location[0];
           // const wanli = myJson.records.locations[0].location[7];
           // const gongliao = myJson.records.locations[0].location[10];
@@ -116,7 +113,9 @@ function WeatherFcst(props) {
             currentWeather.today.getHours() < 18
           ) {
             wxArray.map((item, index) => {
-              index % 2 == 0 ? wxArrayAM.push(item) : wxArrayPM.push(item);
+              return index % 2 == 0
+                ? wxArrayAM.push(item)
+                : wxArrayPM.push(item);
             });
             timeArray = timeArray.filter((item, index) => {
               return index % 2 === 0;
@@ -132,7 +131,9 @@ function WeatherFcst(props) {
             });
           } else {
             wxArray.map((item, index) => {
-              index % 2 == 0 ? wxArrayAM.push(item) : wxArrayPM.push(item);
+              return index % 2 == 0
+                ? wxArrayAM.push(item)
+                : wxArrayPM.push(item);
             });
             timeArray = timeArray.filter((item, index) => {
               return index % 2 === 1;
@@ -149,7 +150,7 @@ function WeatherFcst(props) {
           }
 
           setWeather((prevState) => {
-            console.log(timeArray, wxArray);
+            console.log(timeArray, wxArray, wxArrayAM, wxArrayPM);
             return {
               ...prevState,
               locationName: queryLocation.locationName,
@@ -198,7 +199,7 @@ function WeatherFcst(props) {
             return <WeatherIcon currentWeatherCode={item} moment="night" />;
           })}
         </li>
-        <li className="d-flex justify-content-around mt-5 mb-3">
+        <li className="d-flex justify-content-around mt-2 mb-2">
           {currentWeather.rainRate.map((item, i) => (
             <RainRate key={i}>
               <img src={Humidity} style={{ width: "10px" }} />

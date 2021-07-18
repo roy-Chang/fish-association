@@ -22,9 +22,12 @@ function Forthpage() {
                 className="p-4"
                 locationName={locationName}
               ></WeatherFcst>
-              <div class="wave-info">
+              <div>
                 <h3>潮浪預測</h3>
-                <WaveFcst locationName={locationName} />
+                <WaveFcst
+                  locationName={locationName}
+                  style={{ weidth: "800px" }}
+                />
               </div>
             </WeatherInfo>
           </BgSea>
