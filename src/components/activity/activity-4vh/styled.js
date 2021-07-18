@@ -2,25 +2,27 @@ import styled from "@emotion/styled";
 import SeaGirl from "../../../assets/img/Activity/bg-sea.jpg";
 export const BgSea = styled.div`
   background-image: url(${SeaGirl});
+  max-width: 90%;
+  margin: 0 auto;
   background-size: 60%;
   background-position: top;
   height: 1300px;
   position: relative;
 `;
 export const WeatherInfo = styled.div`
-  width: 1100px;
+  max-width: 86%;
   top: 600px;
-  left: 90px;
+  left: 80px;
   text-align: center;
   position: absolute;
   border: #fff579 solid 1px;
-  box-shadow: 0 0 0 90px #1d3557;
+  box-shadow: 0 0 0 81px #1d3557;
   z-index: 999;
   h2 {
-    font-size: var(--font-llg);
+    font-size: 56px;
     border-bottom: 3px solid #fff579;
     display: inline-block;
-    margin: 60px 0;
+    margin: 40px 0;
   }
   h3 {
     font-size: 32px;
@@ -28,7 +30,7 @@ export const WeatherInfo = styled.div`
   ul {
     padding: 50px;
     justify-content: space-around;
-    font-size: var(--font-md);
+    font-size: 24px;
   }
   ul > li > div {
     padding: 20px;
@@ -39,6 +41,6 @@ export const WeatherInfo = styled.div`
 // export const SignUpBtn = styled.div``;
 // export const BgBlue = styled.div``;
 export const Wrapper = styled.div`
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
 `;

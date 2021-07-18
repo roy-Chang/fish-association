@@ -72,6 +72,9 @@ class Threepage extends Component {
                   <Button className="sign-up-btn" href="#">
                     立即報名
                   </Button>
+                  <Button className="member-sign-up-btn" href="#">
+                    會員報名
+                  </Button>
                 </SignUpPrice>
               </SignUpDetail>
             </BgBlue>

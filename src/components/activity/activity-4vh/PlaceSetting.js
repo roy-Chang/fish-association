@@ -12,7 +12,7 @@ function PlaceSetting({ setLocationName }) {
       id="dropdown-basic-button"
       title={`請選擇地點`}
       className="d-inline-block  position-absolute"
-      style={{ top: "250px", right: "50px" }}
+      style={{ top: "150px", right: "50px" }}
     >
       {locations.map((location, index) => (
         <Dropdown.Item

@@ -97,3 +97,11 @@ a:hover {
   bottom: 30px;
   right: 30px;
 }
+.member-sign-up-btn {
+  font-size: var(--font-md);
+  background: var(--second-color);
+  border-radius: 8px;
+  position: absolute;
+  bottom: 30px;
+  right: 150px;
+}

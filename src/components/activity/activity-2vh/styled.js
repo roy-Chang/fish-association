@@ -21,7 +21,7 @@ export const LocationInfo = styled.div`
   border-radius: 20px;
   margin: 0 auto;
   margin-top: 90px;
-  height: 80vh;
+  height: 500px;
 `;
 
 export const InfoContent = styled.div`
@@ -59,4 +59,5 @@ export const RightLoc = styled.div`
 `;
 export const Wrapper = styled.div`
   max-width: 1280px;
+  margin: 0 auto;
 `;

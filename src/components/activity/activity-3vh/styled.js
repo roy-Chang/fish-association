@@ -7,7 +7,7 @@ export const SignUpHead = styled.div`
   position: relative;
   z-index: 1000;
   h2 {
-    font-size: 70px;
+    font-size: 56px;
     border-bottom: 3px solid #fff579;
     display: inline-block;
     margin: 60px 0;
@@ -17,14 +17,14 @@ export const SignUpHead = styled.div`
     height: 500px;
     object-fit: contain;
     position: absolute;
-    right: -5px;
+    right: 58px;
     top: -300px;
   }
 `;
 export const SignUpArea = styled.div`
   max-width: 80%;
   margin: auto;
-  margin-top: 60px;
+  margin-top: 40px;
   ul {
     justify-content: center;
     border-radius: 10px;
@@ -51,22 +51,22 @@ export const SignUpDetail = styled.div`
 `;
 
 export const SignUpPrice = styled.div`
-  padding: 40px;
+  padding: 70px;
   background: #92b7b0;
   border-radius: 0 20px 20px 0;
   position: relative;
   text-align: left;
   h3 {
-    font-size: 36px;
+    font-size: 24px;
     margin: 0;
   }
   .age {
     color: #efead2;
-    font-size: 24px;
+    font-size: 20px;
   }
   li {
     justify-content: space-between;
-    font-size: 32px;
+    font-size: 20px;
   }
 `;
 export const SignUpBtn = styled.div`
@@ -78,11 +78,13 @@ export const SignUpBtn = styled.div`
   }
 `;
 export const BgBlue = styled.div`
+  max-width: 90%;
   background: #1d3557;
   height: 70vh;
   border-radius: 20px 20px 0 0;
+  margin: 0 auto;
 `;
 export const Wrapper = styled.div`
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
 `;
