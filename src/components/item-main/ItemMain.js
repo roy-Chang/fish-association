@@ -18,6 +18,9 @@ import {
   MainItemList,
   ItemCard,
 } from "./style";
+
+import ItemCardt from "./ItemCard/ItemCard"
+
 import grandma from "../../assets/img/Item/grandma.jpg";
 import fish from "../../assets/img/Item/fish.jpeg";
 import shell from "../../assets/img/Item/shell.jpeg";
@@ -39,7 +42,7 @@ function ItemMain() {
 
       <Container fluid>
         <Row>
-          <Col lg={3}>
+          <Col sm={3}>
             <AsideNav>
               <div>當月超值優惠</div>
               <div>任選兩樣八折</div>
@@ -50,12 +53,12 @@ function ItemMain() {
               <div>軟足類</div>
             </AsideNav>
           </Col>
-          <Col lg={9}>
+          <Col sm={9}>
             <MainItemList>
               <h1 style={{ textAlign: "center", lineHeight: "80px" }}>蝦類</h1>
               <Row>
-                <Col lg={9}></Col>
-                <Col lg={3}>
+                <Col sm={9}></Col>
+                <Col sm={3}>
                   <Dropdown>
                     <Dropdown.Toggle variant="secondary" id="dropdown-basic">
                       選擇分類
@@ -74,12 +77,14 @@ function ItemMain() {
                 </Col>
               </Row>
               <Row>
-                <Col lg={3}>
+                <Col sm={3}>
                   <ItemCard>
-                      
+
                   </ItemCard>
                 </Col>
-                <Col lg={3}></Col>
+                <Col sm={3}>
+                    <ItemCardt></ItemCardt>
+                </Col>
               </Row>
             </MainItemList>
           </Col>
