@@ -86,14 +86,17 @@ function General() {
                   性別
                 </Form.Label>
                 <Form.Group className="ML2itemContent">
-                  <Form.Check type="checkbox" className="ML2gender">
+                  <Form.Check type="checkbox" className="">
                     <Form.Check
                       inline
                       name="gender"
                       type="radio"
                       label="男"
                       id="男"
-                      style={{ color: "var(--main-color)", fontSize: "20px" }}
+                      style={{
+                        color: "var(--main-color)",
+                        fontSize: "20px",
+                      }}
                     ></Form.Check>
                     <Form.Check
                       inline

@@ -18,23 +18,6 @@ function JoinActivity() {
               <div className="MVjoinPeople">成人X2</div>
               <div className="MVjoinPay">共$3000元</div>
             </div>
-            <Button className="MVbtn">刪除</Button>
-          </div>
-        </div>
-        <hr />
-        <div className="MVcommodityVacationList">
-          <img className="MVvacationPicture" src={vacation} alt="" />
-          <div className="MVinformation">
-            <div className="MVlistMargin MVlocation">正濱漁港(海釣活動)</div>
-            <div className="MVlistMargin MVvacationDate">
-              <div className="MVvacationTitle">日期:</div>
-              <div className="MVvacationTime">2021/06/15 06:00:00</div>
-            </div>
-            <div className="MVlistMargin MVvacationJoin">
-              <div className="MVjoinPeople">成人X2</div>
-              <div className="MVjoinPay">共$3000元</div>
-            </div>
-            <Button className="MVbtn">刪除</Button>
           </div>
         </div>
         <hr />

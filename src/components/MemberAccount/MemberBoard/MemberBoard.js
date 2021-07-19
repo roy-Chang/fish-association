@@ -14,6 +14,7 @@ function MemberBoard() {
     <>
       <General />
       {/* <Golden /> */}
+      {/* <nav className="downNav" /> */}
     </>
   );
 }
