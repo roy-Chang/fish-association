@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Row,
   Col,
@@ -7,7 +7,7 @@ import {
   Carousel,
   Card,
   Form,
-  Dropdown
+  Dropdown,
 } from "react-bootstrap";
 import {
   Banner,
@@ -19,7 +19,7 @@ import {
   ItemCard,
 } from "./style";
 
-import ItemCardt from "./ItemCard/ItemCard"
+import ItemCardt from "./ItemCard/ItemCard";
 
 import grandma from "../../assets/img/Item/grandma.jpg";
 import fish from "../../assets/img/Item/fish.jpeg";
@@ -27,6 +27,17 @@ import shell from "../../assets/img/Item/shell.jpeg";
 import squid from "../../assets/img/Item/squid.jpeg";
 import shrimp from "../../assets/img/Item/shrimp.jpeg";
 function ItemMain() {
+  const [product, setProduct] = useState([{"test":"test"},{"test":"test"}]);
+  // componentDidMount
+  useEffect(() => {
+    fetch("./test.json")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        console.log(myJson);
+      });
+  }, []);
   return (
     <>
       <Banner>
@@ -77,13 +88,20 @@ function ItemMain() {
                 </Col>
               </Row>
               <Row>
+                {product.map((p, i) => {
+                  return (
+                    
+                      <Col sm={3}>
+                      <ItemCardt></ItemCardt>
+                      </Col>
+                    
+                  )
+                })}
                 <Col sm={3}>
-                  <ItemCard>
-
-                  </ItemCard>
+                  <ItemCard></ItemCard>
                 </Col>
                 <Col sm={3}>
-                    <ItemCardt></ItemCardt>
+                  <ItemCardt></ItemCardt>
                 </Col>
               </Row>
             </MainItemList>

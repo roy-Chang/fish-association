@@ -30,7 +30,7 @@ import {
 } from "./style";
 import { Row, Col, Container, Button } from "react-bootstrap";
 
-function ItemSingle() {
+function ItemSingle(prop) {
   return (
     <>
     <nav style={{ height: "65px", background: "#1d3557" }}></nav>
