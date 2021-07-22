@@ -4,6 +4,8 @@ import Secondpage from "../components/activity/activity-2vh/Secondpage";
 import Threepage from "../components/activity/activity-3vh/Threepage";
 import Forthpage from "../components/activity/activity-4vh/Forthpage";
 import Fifthpage from "../components/activity/activity-5vh/Fifthpage";
+import MainFooter from '../components/footer/MainFooter'
+
 import "../assets/css/styled.css";
 import "react-bootstrap"; //Toast
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,6 +19,7 @@ function ActivityPage() {
         <Threepage />
         <Forthpage />
         <Fifthpage />
+        <MainFooter />
       </div>
     </>
   );

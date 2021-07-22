@@ -1,6 +1,7 @@
 import React from "react";
 
 import ItemSingle from "../components/item-single/ItemSingle";
+import MainFooter from '../components/footer/MainFooter'
 
 
 function ItemSinglePage() {
@@ -8,6 +9,7 @@ function ItemSinglePage() {
     <>
      <div className="activity-wrapper activity-bg-green">
         <ItemSingle />
+        <MainFooter />
       </div>
     </>
   );

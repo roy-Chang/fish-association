@@ -8,7 +8,7 @@ import board from '../../../assets/img/travel-notes/board.png'
 export default function TNBlock() {
   return (
     <>
-        <div className="article-block p-3">
+        <div className="article-block p-3 mx-5">
           <div className="pic-block px-3">
               <img className="board-pic" src={board} alt="" />
               {/* <img class="article-pic" src="/public/images/05-1.png" alt=""></img> */}
