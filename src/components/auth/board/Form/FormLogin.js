@@ -1,74 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./MemberLogin.css";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
+//axios
+import axios from 'axios';
 
 function FormLogin() {
-  //定義欄位屬性
-  const [fields, setFields] = useState({
+  
+  const inputValue = {
     account: "",
-    password: "",
-  });
-
-  const [fieldErrors, setFieldErrors] = useState({
-    account: "",
-    password: "",
-  });
-
-  const handleFieldChange = (e) => {
-    // 更新輸入欄位的變動
-    // 用新輸入的屬性值和原物件作合併
-    const updatedFields = {
-      ...fields,
-      [e.target.name]: e.target.value,
-    };
-
-    setFields(updatedFields);
-  };
-
-  const handleSubmit = (e) => {
+    password: ""
+  }
+  const [errMsg, setErrorMsg] = useState('')
+  const [inputClient, setInputClient] = useState(inputValue)
+  
+  useCallback(() => {
+    handleAxiosLogin()
+  }, [])
+  const handleAxiosLogin = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
+    let memberAccount = data.get("account");
+    let memberPassword = data.get("password");
+    axios.post('http://localhost:3000/api/member/login', {
+      member: {
+        account: memberAccount,
+        password: memberPassword
+      }
+      
+    })
+    .then((serverResponse) => {
+      const token = serverResponse.data.member.token
+      if(token) {
+        // set header
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}` ;
+      } else {
+        delete axios.defaults.headers.common['Authorization'];
+      }
+    })
+    .catch((error) => {
+      if( error.response ){
+        setErrorMsg(error.response.data.errors[0].msg)// => the response payload 
+      }
+    })
+    //get input value
+    
+    //axioshttp://localhost:3000/api/member/login
+    
+  }
 
-    //看有沒有讀取到值(用name屬性抓取)
-    console.log(data.get("account"));
-    console.log(data.get("password"));
-
-    //送到伺服器
-  };
-
-  //監聽輸入欄位
-  const handleFormChange = (e) => {
-    console.log("更新欄位: ", e.target.name);
-
-    // 該欄位的錯誤訊息清空
-    const updatedFieldErrors = {
-      ...fieldErrors,
-      [e.target.name]: "",
+  const handleChange = (e) => {
+    const updateFields = {
+      ...inputClient,
+      [e.target.name]: e.target.value,
     };
+    setInputClient(updateFields);
+  }
 
-    setFieldErrors(updatedFieldErrors);
-  };
+ 
 
-  // 表單有不合法的檢查出現時
-  const handleFormInvalid = (e) => {
-    // 擋住錯誤訊息預設呈現方式(跳出的訊息泡泡)
-    e.preventDefault();
-
-    const updatedFieldErrors = {
-      ...fieldErrors,
-      [e.target.name]: e.target.validationMessage,
-    };
-
-    setFieldErrors(updatedFieldErrors);
-  };
+  
+ 
   return (
     <>
-      <Form
-        onSubmit={handleSubmit}
-        onChange={handleFormChange}
-        onInvalid={handleFormInvalid}
-      >
+      <Form onSubmit={handleAxiosLogin}>
         <Form.Text className="MLmemberEnter">
           <Form.Text className="MLitem">
             <Form.Label className="MLitemLabel" htmlFor="">
@@ -79,14 +74,12 @@ function FormLogin() {
                 className="MLitemInput"
                 type="text"
                 name="account"
-                value={fields.account}
-                onChange={handleFieldChange}
                 required
                 placeholder="請輸入帳號"
+                onChange={handleChange}
+                value={inputClient.account}
               />
-              <Form.Text className="MLcheck MLcheckAccount">
-                {fieldErrors.account !== "" && "查無此帳號"}查無此帳號
-              </Form.Text>
+
             </Form.Text>
           </Form.Text>
           <Form.Text className="MLitem">
@@ -98,14 +91,14 @@ function FormLogin() {
                 className="MLitemInput"
                 type="text"
                 name="password"
-                value={fields.password}
-                onChange={handleFieldChange}
                 required
                 placeholder="請輸入密碼"
+                onChange={handleChange}
+                value={inputClient.password}
               />
 
               <Form.Text className="MLcheck MLcheckAccount">
-                {fieldErrors.password !== "" && "密碼輸入錯誤"}密碼輸入錯誤
+              {errMsg}
               </Form.Text>
             </Form.Text>
           </Form.Text>

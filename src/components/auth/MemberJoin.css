@@ -38,6 +38,7 @@
 
 .AmemberPage {
   display: flex;
+  justify-content: space-around
 }
 .AmemberEnter {
   width: 90%;
@@ -51,7 +52,6 @@
 
 .Aanimation {
   position: relative;
-  width: 50%;
 }
 
 .AloginItem {
@@ -59,7 +59,7 @@
   /* max-width: 500px; */
   /* height: 660px; */
   background: var(--main-color);
-  margin: 100px auto;
+  margin: 8vh auto;
   border-radius: 20px;
 }
 
