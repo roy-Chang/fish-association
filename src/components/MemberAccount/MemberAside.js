@@ -106,7 +106,6 @@ function MemberAside(props) {
         </div>
 
         {/* <MemberBoard /> */}
-
         {(() => {
           switch (change) {
             case 0:

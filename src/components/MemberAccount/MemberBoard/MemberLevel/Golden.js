@@ -13,14 +13,33 @@ import GoldenFeame from "../../../../assets/img/member/memberAccount/goldenFrame
 import GoldenMember from "../../../../assets/img/member/memberAccount/goldenMember.png";
 
 function General() {
+  //form表單
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [fields, setFields] = useState({
+    password: "",
+    name: "",
+    gender: "",
+    email: "",
+    phone: "",
+    year: "",
+    month: "",
+    day: "",
+    address: "",
+  });
+
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    const data = new FormData(e.target);
+
+    console.log(data.getAll("password"));
+  };
+
   return (
     <>
       <Modal size={"lg"} show={show} onHide={handleClose}>
-        {console.log(show)}
         <Modal.Header style={{ background: "var(--forth-color)" }} closeButton>
           <Modal.Title
             style={{
@@ -33,14 +52,10 @@ function General() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ background: "var(--forth-color)" }}>
-          <Form.Text>
+          <Form.Text onSubmit={handleSubmit}>
             <Container>
               <Row>
-                <Form.Label
-                  style={{ fontSize: "24px", width: "100px" }}
-                  className=""
-                  htmlFor=""
-                >
+                <Form.Label style={{ fontSize: "24px", width: "100px" }}>
                   密碼
                 </Form.Label>
                 <Form.Text className="MLtemContent">
@@ -49,16 +64,13 @@ function General() {
                     type="text"
                     name="password"
                     required
+                    value={fields.password}
                     placeholder="請輸入密碼"
                   />
                 </Form.Text>
               </Row>
               <Row>
-                <Form.Label
-                  style={{ fontSize: "24px", width: "100px" }}
-                  className=""
-                  htmlFor=""
-                >
+                <Form.Label style={{ fontSize: "24px", width: "100px" }}>
                   姓名
                 </Form.Label>
                 <Form.Text className="MLtemContent">
@@ -67,6 +79,7 @@ function General() {
                     type="text"
                     name="name"
                     required
+                    value={fields.name}
                     placeholder="請輸入姓名"
                   />
                 </Form.Text>
@@ -76,36 +89,34 @@ function General() {
                   性別
                 </Form.Label>
                 <Form.Group className="ML2itemContent">
-                  <Form.Check type="checkbox" className="ML2gender">
+                  <Form.Check type="checkbox" className="">
                     <Form.Check
+                      style={{ color: "var(--main-color)", fontSize: "20px" }}
                       inline
                       name="gender"
                       type="radio"
                       label="男"
                       id="男"
-                      style={{ color: "var(--main-color)", fontSize: "20px" }}
+                      value={fields.gender}
                     ></Form.Check>
                     <Form.Check
-                      inline
-                      name="gender"
-                      type="radio"
-                      label="女"
-                      id="女"
                       style={{
                         color: "var(--main-color)",
                         fontSize: "20px",
                         paddingLeft: "20px",
                       }}
+                      inline
+                      name="gender"
+                      type="radio"
+                      label="女"
+                      id="女"
+                      value={fields.gender}
                     ></Form.Check>
                   </Form.Check>
                 </Form.Group>
               </Row>
               <Row>
-                <Form.Label
-                  style={{ fontSize: "24px", width: "100px" }}
-                  className=""
-                  htmlFor=""
-                >
+                <Form.Label style={{ fontSize: "24px", width: "100px" }}>
                   信箱
                 </Form.Label>
                 <Form.Text className="MLtemContent">
@@ -114,16 +125,13 @@ function General() {
                     type="email"
                     name="name"
                     required
+                    value={fields.email}
                     placeholder="請輸入信箱"
                   />
                 </Form.Text>
               </Row>
               <Row>
-                <Form.Label
-                  style={{ fontSize: "24px", width: "100px" }}
-                  className=""
-                  htmlFor=""
-                >
+                <Form.Label style={{ fontSize: "24px", width: "100px" }}>
                   聯絡電話
                 </Form.Label>
                 <Form.Text className="MLtemContent">
@@ -132,16 +140,13 @@ function General() {
                     type="text"
                     name="name"
                     required
+                    value={fields.email}
                     placeholder="請輸入電話"
                   />
                 </Form.Text>
               </Row>
               <Row style={{ fontSize: "24px" }}>
-                <Form.Label
-                  style={{ fontSize: "24px", width: "100px" }}
-                  className=""
-                  htmlFor=""
-                >
+                <Form.Label style={{ fontSize: "24px", width: "100px" }}>
                   出生日期
                 </Form.Label>
                 <Form.Control
@@ -150,7 +155,9 @@ function General() {
                     fontSize: "16px",
                     width: "100px",
                     background: "#DCDCDC",
+                    marginLeft: "20px",
                   }}
+                  value={fields.year}
                 >
                   <option>1990</option>
                   <option>1991</option>
@@ -172,6 +179,7 @@ function General() {
                     width: "70px",
                     background: "#DCDCDC",
                   }}
+                  value={fields.month}
                 >
                   <option>1</option>
                   <option>2</option>
@@ -194,6 +202,7 @@ function General() {
                     width: "70px",
                     background: "#DCDCDC",
                   }}
+                  value={fields.day}
                 >
                   <option>1</option>
                   <option>2</option>
@@ -230,11 +239,7 @@ function General() {
                 日
               </Row>
               <Row>
-                <Form.Label
-                  style={{ fontSize: "24px", width: "100px" }}
-                  className=""
-                  htmlFor=""
-                >
+                <Form.Label style={{ fontSize: "24px", width: "100px" }}>
                   地址
                 </Form.Label>
                 <Form.Text className="MLtemContent">
@@ -243,7 +248,7 @@ function General() {
                     type="text"
                     name="address"
                     required
-                    placeholder="請輸入地址"
+                    value={fields.address}
                   />
                 </Form.Text>
               </Row>
@@ -261,7 +266,8 @@ function General() {
           <Button
             variant="primary"
             style={{ background: "var(--second-color)", border: "none" }}
-            onClick={handleClose}
+            // onClick={handleClose}
+            type="submit"
           >
             變更
           </Button>

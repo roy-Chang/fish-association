@@ -10,7 +10,7 @@ import RWDTitle from "../components/MemberAccount/RWDTitle";
 function Member(props) {
   return (
     <>
-      <nav className="authNAV" />
+      {/* <nav className="authNAV" /> */}
       <div className="MAactivity-wrapper">
         <nav></nav>
         {/* <RWDTitle /> */}
