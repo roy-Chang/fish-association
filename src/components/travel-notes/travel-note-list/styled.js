@@ -4,7 +4,7 @@ import "../../../assets/css/styled.css";
 export const WebPageTop = styled.div`
   color: black;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 80px;
   max-width: 1280px;
 `;
 

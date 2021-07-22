@@ -4,3 +4,21 @@
   height: 65px;
   opacity: 0.9;
 }
+
+.dropdown-menu.show {
+  background: var(--second-color);
+  color: var(--main-color);
+  left: auto;
+  right: 0;
+}
+/* .dropdown-item.active {
+  background: var(--forth-color);
+  color: var(--main-color);
+} */
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  color: #16181b;
+  text-decoration: none;
+  background: var(--second-color);
+}

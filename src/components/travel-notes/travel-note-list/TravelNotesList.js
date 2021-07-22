@@ -11,7 +11,7 @@ import { WebPageTop,WebPageCenter,TravelNotesList} from "./styled";
 function ListPage() {
   return (
     <>
-      <nav style={{ height: "65px", background: "#1d3557" }}></nav>
+      <nav style={{ height: "65px"}}></nav>
       
       
         <WebPageTop className="d-flex justify-content-between">
@@ -26,6 +26,10 @@ function ListPage() {
               <TNWriteBtn />
             </div>
             <TravelNotesList className="pb-5">
+              <TNBlock />
+              <TNBlock />
+              <TNBlock />
+              <TNBlock />
               <TNBlock />
               <TNBlock />
               <TNBlock />

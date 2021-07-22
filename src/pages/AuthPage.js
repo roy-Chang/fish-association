@@ -5,14 +5,16 @@ import "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../components/auth/MemberJoin.css";
 import AuthBoard from "../components/auth/authBoard";
+import MainFooter from "../components/footer/MainFooter";
 
 function AuthPage(props) {
   return (
     <>
-      <nav className="authNAV" />
-      <div className="Aactivity-wrapper">
+      <div className="activity-wrapper">
+        <nav style={{ height: "65px" }}></nav>
         <div className="Acontainer">
           <AuthBoard />
+          <MainFooter />
           {/* <footer></footer> */}
         </div>
       </div>
