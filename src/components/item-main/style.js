@@ -63,7 +63,7 @@ export const MainItemList = styled.div`
   border-radius: 10px;
   
   width:100%;
-  height:100vh;
+  height:200vh;
 `;
 export const ItemCard = styled.div`
   margin:10px;
@@ -72,4 +72,6 @@ export const ItemCard = styled.div`
   
   width:100%;
   height:200px;
+
+
 `;
