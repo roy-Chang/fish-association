@@ -12,7 +12,7 @@ import MainNavbar from './components/main-navbar/MainNavbar'
 function App() {
   return (
     <>
-      <MainNavbar />
+        <MainNavbar />
     </>
    
   );

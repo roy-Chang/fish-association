@@ -6,15 +6,16 @@ import "../components/MemberAccount/MemberAccount.css";
 //元件
 import MemberAside from "../components/MemberAccount/MemberAside";
 import RWDTitle from "../components/MemberAccount/RWDTitle";
+import MainFooter from '../components/footer/MainFooter'
 
 function Member(props) {
   return (
     <>
-      {/* <nav className="authNAV" /> */}
       <div className="MAactivity-wrapper">
-        <nav></nav>
+        <nav style={{ height: "65px"}}></nav>
         {/* <RWDTitle /> */}
         <MemberAside />
+        <MainFooter />
         {/* <footer></footer> */}
       </div>
     </>

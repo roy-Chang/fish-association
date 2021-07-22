@@ -6,6 +6,7 @@ function Firstpage() {
   return (
     <>
       <BgGreen>
+      <nav style={{ height: "65px"}}></nav>
         <header className="banner d-flex">
           <Banner />
         </header>
