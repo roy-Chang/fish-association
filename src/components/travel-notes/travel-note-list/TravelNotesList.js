@@ -1,4 +1,5 @@
 import React from "react";
+import {Container} from "react-bootstrap";
 import Slide from "./Slide";
 import TopRank from "./TopRank";
 import TNSearch from "./TNSearch";
@@ -12,25 +13,29 @@ function ListPage() {
     <>
       <nav style={{ height: "65px", background: "#1d3557" }}></nav>
       
-      <WebPageTop className="d-flex justify-content-between">
+      
+        <WebPageTop className="d-flex justify-content-between">
         <Slide />
         <TopRank />
-      </WebPageTop>
+        </WebPageTop>
 
-      <WebPageCenter>
-        <div className="list-container">
-          <div className="list-top d-flex justify-content-between align-items-center">
-            <TNSearch />
-            <TNWriteBtn />
-          </div>
-          <TravelNotesList className="pb-5">
-            <TNBlock />
-            <TNBlock />
-            <TNBlock />
-            <TNBlock />
-          </TravelNotesList>
-        </div>
-      </WebPageCenter>
+        {/* <WebPageCenter> */}
+          <Container className="list-container">
+            <div className="list-top d-flex justify-content-between align-items-center mx-5">
+              <TNSearch />
+              <TNWriteBtn />
+            </div>
+            <TravelNotesList className="pb-5">
+              <TNBlock />
+              <TNBlock />
+              <TNBlock />
+              <TNBlock />
+            </TravelNotesList>
+          </Container>
+        {/* </WebPageCenter> */}
+      
+      
+      
     </>
   );
 }

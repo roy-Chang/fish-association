@@ -250,8 +250,3 @@
     justify-content: space-between;
   }
 }
-
-footer {
-  background: var(--fifth-color);
-  height: 300px;
-}

@@ -4,11 +4,9 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap';
 import IndexPage from "../../pages/IndexPage";
 import ActivityPage from "../../pages/ActivityPage";
-import ItemSingle from "../../pages/ItemSinglePage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
 import MemberPage from "../../pages/MemberPage";
-
 import ItemMain from "../../pages/ItemMainPage";
 
 import "../../assets/css/styled.css"
@@ -20,7 +18,7 @@ function MainNavbar(props) {
     return (
     <>
         <Router>
-            <Navbar collapseOnSelect expand="md" fixed="top" variant="dark" className="nav-bar">
+            <Navbar collapseOnSelect expand="md" fixed="top" variant="dark" className="nav-bar activity-wrapper">
                 <LinkContainer to="/">
                     <Navbar.Brand className="font-weight-bold ml-5">
                         <img
@@ -34,6 +32,7 @@ function MainNavbar(props) {
                     </Navbar.Brand>
                 </LinkContainer>
                 <Navbar.Collapse className="justify-content-end">
+                {/* <Nav className="mr-5"> */}
                 <Nav activeKey={window.location.pathname} className="mr-5">
                     <LinkContainer to="/activity">
                         <Nav.Link>地方活動</Nav.Link>
@@ -41,11 +40,8 @@ function MainNavbar(props) {
                     <LinkContainer to="/travelNotes">
                         <Nav.Link>札記分享</Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/item-single">
+                    <LinkContainer to="/products">
                         <Nav.Link>生鮮水產</Nav.Link>
-                    </LinkContainer>
-                    <LinkContainer to="/item-main">
-                        <Nav.Link>水產主頁</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/member">
                         <Nav.Link>會員中心</Nav.Link>
@@ -59,8 +55,7 @@ function MainNavbar(props) {
             <Route path="/" exact component={IndexPage} />
             <Route path="/activity" component={ActivityPage} />
             <Route path="/travelNotes" component={TravelNotesPage} />
-            <Route path="/item-single" component={ItemSingle} />
-            <Route path="/item-main" component={ItemMain} />
+            <Route path="/products" component={ItemMain} />
             <Route path="/member" component={MemberPage} />
             <Route path="/auth" component={AuthPage} />
         </Router>

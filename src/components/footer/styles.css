@@ -1,0 +1,32 @@
+.footer {
+  margin-top: 100px;
+  background: var(--main-color);
+  color: white;
+}
+
+.footer-left hr {
+  background: var(--sixth-color);
+  width: 60%;
+  margin-left: 0;
+}
+
+.link-icon {
+  width: 100px;
+  font-size: 50px;
+}
+
+.footer-right hr {
+  background: var(--sixth-color);
+}
+
+.members-card {
+  text-align: center;
+}
+.members-pic {
+  width: 75px;
+  border-radius: 50px;
+  margin-bottom: 5px;
+}
+.members-card p {
+  margin: 2px 0;
+}
