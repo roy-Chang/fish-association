@@ -109,3 +109,28 @@ a:hover {
   bottom: 30px;
   right: 150px;
 }
+.activitylistOne {
+  color: blue;
+  background-color: #97c7eb !important;
+}
+.activitylistTwo {
+  color: rgb(245, 112, 29);
+  background-color: #e1d9a5 !important;
+}
+.activitylistThree {
+  color: #166322;
+  background-color: #afe2db !important;
+}
+.activitylistFour {
+  color: rgb(74, 21, 89);
+}
+.activitylistFive {
+  color: rgb(125, 19, 19);
+}
+a.actone.actone,
+a.acttwo.acttwo,
+a.actthree.actthree,
+a.actfour.actfour,
+a.actfive.actacitve {
+  background: #457b9d !important;
+}
