@@ -14,7 +14,8 @@ function Member(props) {
       <div className="MAactivity-wrapper">
         <nav style={{ height: "65px"}}></nav>
         {/* <RWDTitle /> */}
-        <MemberAside />
+        {console.log(props.something)}
+        <MemberAside/>
         <MainFooter />
         {/* <footer></footer> */}
       </div>

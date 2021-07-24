@@ -10,7 +10,7 @@ export const SignUpHead = styled.div`
     font-size: 56px;
     border-bottom: 3px solid #fff579;
     display: inline-block;
-    margin: 60px 0;
+    margin: 40px 0;
   }
   .seagull {
     max-width: 450px;
@@ -28,16 +28,18 @@ export const SignUpArea = styled.div`
   ul {
     justify-content: center;
     border-radius: 10px;
+    margin: 0;
   }
   ul li {
     border-left: #1d3557 1px solid;
   }
   a {
     color: white;
-    font-size: 32px;
-    padding: 15px 30px;
+    font-size: 30px;
+    padding: 10px 20px;
     background: rgb(185, 185, 185, 0.3);
-    line-height: 0;
+    line-height: 1.5;
+    display: block;
   }
   a:hover,
   a:active {
@@ -52,6 +54,7 @@ export const SignUpDetail = styled.div`
 
 export const SignUpPrice = styled.div`
   padding: 70px;
+  width: 50%;
   background: #92b7b0;
   border-radius: 0 20px 20px 0;
   position: relative;
@@ -63,6 +66,9 @@ export const SignUpPrice = styled.div`
   .age {
     color: #efead2;
     font-size: 20px;
+  }
+  ul {
+    padding-inline-start: 0;
   }
   li {
     justify-content: space-between;
