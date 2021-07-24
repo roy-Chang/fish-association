@@ -1,0 +1,89 @@
+/* Banner */
+.P-background {
+  position: relative;
+  height: 75vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.P-background::before {
+  content: "";
+  background-image: url("../../../assets/img/products/products-list/grandma.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+}
+
+.P-categoryImg {
+  opacity: 0.9;
+  height: 200px;
+  width: 240px;
+}
+
+/* Left Nav */
+.P-left-nav {
+  width: 200px;
+  background: var(--main-color);
+  border-radius: 10px;
+  color: white;
+}
+.P-left-nav ul {
+  padding: 0;
+}
+.P-left-nav ul li {
+  padding: 15px;
+  padding-left: 30px;
+}
+.P-left-nav ul li:hover {
+  background: var(--second-color);
+}
+
+/* Rank Card */
+.P-rank-card {
+  width: 200px;
+  background: var(--main-color);
+  border-radius: 10px;
+  color: white;
+}
+
+/* Main Block */
+
+.P-main-block {
+  background: var(--second-color);
+  border-radius: 10px;
+  color: white;
+  width: 850px;
+}
+
+.P-main-title {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+/* Product Card */
+.P-product-card {
+  width: 180px;
+  background: var(--seventh-color);
+  border-radius: 10px;
+  color: white;
+  justify-content: center;
+}
+.P-product-card-pic {
+  max-width: 180px;
+  max-height: 130px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.P-product-card-pic img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
