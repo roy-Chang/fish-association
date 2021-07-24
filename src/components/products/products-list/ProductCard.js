@@ -6,7 +6,6 @@ import {Card} from 'react-bootstrap';
 import { FaShoppingCart } from "react-icons/fa";
 import { BsHeartFill } from "react-icons/bs";
 import saira01 from "../../../assets/img/products/fish/saira01.jpg"
-import salmon02 from "../../../assets/img/products/fish/salmon02.jpg"
 
 export default function RankTable() {
   return (

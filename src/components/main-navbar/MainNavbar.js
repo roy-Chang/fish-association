@@ -6,7 +6,8 @@ import ActivityPage from "../../pages/ActivityPage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
 import MemberPage from "../../pages/MemberPage";
-import ItemMain from "../../pages/ItemMainPage";
+// import ItemMain from "../../pages/ItemMainPage";
+import ProductsPage from '../../pages/ProductsPage';
 import { Component } from 'react';
 /* css import */
 import "../../assets/css/styled.css"
@@ -114,7 +115,7 @@ class MainNavbar extends Component {
                         <Route path="/" exact component={IndexPage} />
                         <Route path="/activity" component={ActivityPage} />
                         <Route path="/travelNotes" component={TravelNotesPage} />
-                        <Route path="/products" component={ItemMain} />
+                        <Route path="/products" component={ProductsPage} />
                         <Route path="/member" render={() => <MemberPage something={'123456789'} />}/>
                         <Route path="/auth" component={AuthPage} />
                     </Router>
