@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from 'react-redux';
 import "./MemberLogin.css";
 import Form from "react-bootstrap/Form";
@@ -7,14 +7,8 @@ import { Button } from "react-bootstrap";
 //action creator
 import { handleAxiosLogin } from '../../../../redux/actions/memberLogin';
 
-class FormLogin extends Component {
-  handleFieldChange = (e) => {
-    const updateFields = {
-      [e.target.name]: e.target.value,
-    };
-    console.log(updateFields)
-  };
-
+class FormLogin extends PureComponent {
+ 
   render() {
     return (
       <>

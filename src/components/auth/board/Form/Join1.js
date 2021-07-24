@@ -2,10 +2,12 @@ import { Component } from 'react';
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import "./MemberJoin2.css";
+import { connect } from 'react-redux';
+//action creator
+import { saveInput } from '../../../../redux/actions/memberRegister'
 
-
-const Join1 = (props) => {
-
+class Join1 extends Component {
+  render() {
     return (
       <>
         <Form>
@@ -15,10 +17,10 @@ const Join1 = (props) => {
               <Form.Text className="AitemContent">
                 <Form.Control
                   className="AitemInput"
-                  name="account"
                   type="text"
                   required
-                 
+                  ref={input => this.account = input}
+                  value={this.props.accountRegister}
                 />
                 
               </Form.Text>
@@ -28,10 +30,9 @@ const Join1 = (props) => {
               <Form.Text className="AitemContent">
                 <Form.Control
                   className="AitemInput"
-                  name="email"
                   type="email"
                   required
-                
+                  ref={input => this.email = input}
                 />
                 
               </Form.Text>
@@ -41,34 +42,59 @@ const Join1 = (props) => {
               <Form.Text className="AitemContent">
                 <Form.Control
                   className="AitemInput"
-                  name="password"
                   type="password"
                   required
-                 
+                  ref={input => this.password = input}
                 />
                 
               </Form.Text>
             </Form.Text>
-            <Form.Text className="Aitem mb-5">
+            <Form.Text className="Aitem mb-4">
               <Form.Label className="AitemLabel">確認密碼</Form.Label>
               <Form.Text>
                 <Form.Control
                   className="AitemInput"
-                  name="repassword"
                   type="password"
                   required
-                
+                  ref={input => this.repassword = input}
                 />
                 
               </Form.Text>
             </Form.Text>
-            <Button className="Abtn mb-5" type="submit" onClick={props.go}>
+            {/* <Form.Text className="MJ2itemLabel mb-3 mx-auto" htmlFor="" style={{color: '#fff579', fontSize: '16px'}}>
+               
+            </Form.Text> */}
+            <Button 
+              onClick={()=> {this.props.saveRegisterInput(this.account, this.email, this.password, this.repassword)}} 
+              className="Abtn mb-5" 
+              type="button">
               下一步
             </Button>
           </Form.Text>
         </Form>
       </>
     );
-  };
+  }
+}
 
-  export default Join1;
+
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    saveRegisterInput(account, email, password, repassword) {
+      const registerValue = {
+        account: account.value,
+        email: email.value,
+        password: password.value,
+        repassword: repassword.value,
+      }
+      const action = saveInput(registerValue)
+      dispatch(action);
+    }
+  }
+}
+
+
+
+export default connect(null, mapDispatchToProps)(Join1);

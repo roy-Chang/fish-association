@@ -22,7 +22,7 @@ export const handleAxiosLogin = (account, password) => {
             member: {
                 account: account,
                 password: password
-        }
+          }
         
         })
         .then((serverResponse) => {
@@ -40,7 +40,7 @@ export const handleAxiosLogin = (account, password) => {
             dispatch(action);
         } else {
             delete axios.defaults.headers.common['Authorization'];
-        }
+          }
         })
         .catch((error) => {
         if( error.response ){
