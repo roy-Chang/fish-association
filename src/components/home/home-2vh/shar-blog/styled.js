@@ -33,5 +33,9 @@ export const Container = styled.div`
       color: white;
       cursor: pointer;
       float: left;
+      transition: all 0.3s;
+  }
+  :hover button {
+    background: #565656;
   }
 `

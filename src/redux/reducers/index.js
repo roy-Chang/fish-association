@@ -1,4 +1,5 @@
-import weatherReducer  from './weather';
+import weatherReducer from './weather';
+import memberLoginReducer from './memberLogin';
 
 
-export default weatherReducer ;
+export { weatherReducer, memberLoginReducer };

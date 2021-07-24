@@ -11,6 +11,9 @@ import fishing from '../../../../../assets/img/fishing.jpg';
 //rank gold svg
 import { ReactComponent as Gold } from '../../../../../assets/img/rank-svg/golden.svg';
 
+//router
+import { Link } from 'react-router-dom';
+
 const rankStyle = {
     zIndex: 5,
     position: 'absolute',
@@ -47,7 +50,9 @@ export default class ActivityOne extends PureComponent {
                             <p>TWD <span>500</span> (成人) / <span>250</span> (小孩)</p>
                             <p>截止日期: 5/29</p>
                         </Money>
-                        <BtnInfo>活動詳情</BtnInfo>
+                        <Link to="/activity">
+                            <BtnInfo>活動詳情</BtnInfo>
+                        </Link>
                         <JoinCount />
                     </Card>
                 </Wrapper>

@@ -43,6 +43,12 @@ export const ActivityWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
+  button {
+    transition: all 0.2s;
+  }
+  button:hover {
+    background: #2B5772;
+  }
 `
 const swing = keyframes`
   from {

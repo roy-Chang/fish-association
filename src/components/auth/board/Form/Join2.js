@@ -29,7 +29,7 @@ const Join2 = (props) => {
       <>
         <Form>
           <Form.Group className="MJ2memberEnter">
-            <Form.Group className="MJ2item">
+            <Form.Group className="MJ2item mb-0">
               <Form.Text className="MJ2itemLabel" htmlFor="">
                 姓名
               </Form.Text>
@@ -42,11 +42,11 @@ const Join2 = (props) => {
                 }}
               />
             </Form.Group>
-            <Form.Group className="MJ2item">
+            <Form.Group className="MJ2item mt-2">
               <Form.Text className="MJ2itemLabel" htmlFor="">
                 性別
               </Form.Text>
-              <Form.Group className="MJ2itemContent">
+              <Form.Group className="MJ2itemContent mt-0 mb-1">
                 <Form.Check type="checkbox" className="MJ2gender">
                   <Form.Check
                     inline
@@ -67,13 +67,13 @@ const Join2 = (props) => {
                 </Form.Check>
               </Form.Group>
             </Form.Group>
-            <Form.Group className="MJ2item" controlId="dob">
+            <Form.Group className="MJ2item mt-3 mb-3" controlId="dob">
               <Form.Label className="MJ2itemLabel">出生日期</Form.Label>
               <Form.Group className="MJ2itemContent">
                   <Form.Control type="date" name="dob" placeholder="Date of Birth" />
               </Form.Group>
             </Form.Group>
-            <Form.Group className="MJ2item">
+            <Form.Group className="MJ2item m-0">
               <Form.Text className="MJ2itemLabel" htmlFor="">
                 連絡電話
               </Form.Text>
@@ -86,7 +86,7 @@ const Join2 = (props) => {
                 }}
               />
             </Form.Group>
-            <Form.Group className="MJ2item">
+            <Form.Group className="MJ2item mt-4 mb-3">
               <Form.Text className="MJ2itemLabel" htmlFor="">
                 地址
               </Form.Text>
@@ -99,7 +99,7 @@ const Join2 = (props) => {
                 }}
               />
             </Form.Group>
-            <Button className="MJ2btn" type="submit">
+            <Button className="MJ2btn mb-5" type="submit">
               送出
             </Button>
           </Form.Group>
