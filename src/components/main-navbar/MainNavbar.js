@@ -6,7 +6,12 @@ import ActivityPage from "../../pages/ActivityPage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
 import MemberPage from "../../pages/MemberPage";
+<<<<<<< HEAD
 import ProductsListPage from "../../pages/ProductsPage";
+=======
+// import ItemMain from "../../pages/ItemMainPage";
+import ProductsPage from '../../pages/ProductsPage';
+>>>>>>> ed37677f9f1a80e410d240e5e6f7f55538929f4d
 import { Component } from 'react';
 /* css import */
 import "../../assets/css/styled.css"
@@ -114,7 +119,11 @@ class MainNavbar extends Component {
                         <Route path="/" exact component={IndexPage} />
                         <Route path="/activity" component={ActivityPage} />
                         <Route path="/travelNotes" component={TravelNotesPage} />
+<<<<<<< HEAD
                         <Route path="/products" component={ProductsListPage} />
+=======
+                        <Route path="/products" component={ProductsPage} />
+>>>>>>> ed37677f9f1a80e410d240e5e6f7f55538929f4d
                         <Route path="/member" render={() => <MemberPage something={'123456789'} />}/>
                         <Route path="/auth" component={AuthPage} />
                     </Router>

@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 // import ProductCard2 from "./ProductCard2";
-import {Row,Col,Dropdown} from "react-bootstrap";
+import {Row,Col} from "react-bootstrap";
 
 
 export default function MainBlock() {
