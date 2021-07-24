@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavItem, NavDropdown} from 'react-bootstrap';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap';
 import IndexPage from "../../pages/IndexPage";
 import ActivityPage from "../../pages/ActivityPage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
 import MemberPage from "../../pages/MemberPage";
-import ItemMain from "../../pages/ItemMainPage";
-
+import ProductsPage from "../../pages/ProductsPage";
 /* css import */
 import "../../assets/css/styled.css"
 import "./styles.css";
@@ -17,7 +16,6 @@ import logo from "../../assets/img/logo.png"
 import { FaShoppingCart } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
-import { BsCaretDownFill } from "react-icons/bs";
 
 
 function MainNavbar(props) {
@@ -26,7 +24,7 @@ function MainNavbar(props) {
         
         <Router>
             <Navbar collapseOnSelect expand="md" fixed="top" variant="dark" className="nav-bar">
-                <LinkContainer to="/">
+                <LinkContainer to="/" >
                     <Navbar.Brand className="font-weight-bold ml-5">
                         <img
                             src={logo}
@@ -76,7 +74,7 @@ function MainNavbar(props) {
                             <Nav.Link>會員註冊</Nav.Link>
                         </LinkContainer>
                         </NavDropdown.Item>
-                       
+                    
                     </NavDropdown>
                 </Nav>
                 </Navbar.Collapse>
@@ -84,7 +82,7 @@ function MainNavbar(props) {
             <Route path="/" exact component={IndexPage} />
             <Route path="/activity" component={ActivityPage} />
             <Route path="/travelNotes" component={TravelNotesPage} />
-            <Route path="/products" component={ItemMain} />
+            <Route path="/products" component={ProductsPage} />
             <Route path="/member" component={MemberPage} />
             <Route path="/auth" component={AuthPage} />
         </Router>
