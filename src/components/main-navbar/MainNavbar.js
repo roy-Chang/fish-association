@@ -84,6 +84,8 @@ function MainNavbar(props) {
             <Route path="/travelNotes" component={TravelNotesPage} />
             <Route path="/products" component={ProductsPage} />
             <Route path="/member" component={MemberPage} />
+            <Route path="/products" component={ItemMain} />
+            <Route path="/member" render={() => <MemberPage something={'123456789'} />}/>
             <Route path="/auth" component={AuthPage} />
         </Router>
     
