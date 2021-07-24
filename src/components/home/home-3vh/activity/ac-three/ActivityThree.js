@@ -9,6 +9,9 @@ import JoinCount from '../join/JoinCount';
 import aquarium from '../../../../../assets/img/aquarium.jpg';
 //rank gold svg
 import { ReactComponent as Copper } from '../../../../../assets/img/rank-svg/copper.svg';
+//router
+import { Link } from 'react-router-dom';
+
 
 const rankStyle = {
     zIndex: 5,
@@ -44,7 +47,9 @@ export default class ActivityThree extends PureComponent {
                             <p>TWD <span>500</span> (成人) / <span>250</span> (小孩)</p>
                             <p>截止日期: 16/29</p>
                         </Money>
-                        <BtnInfo>活動詳情</BtnInfo>
+                        <Link to="/activity">
+                            <BtnInfo>活動詳情</BtnInfo>
+                        </Link>
                         <JoinCount />
                     </Card>
                 </Wrapper>

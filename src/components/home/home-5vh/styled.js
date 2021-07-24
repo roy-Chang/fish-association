@@ -17,13 +17,18 @@ export const FifthBackground = styled.div`
   background: url(${fifthBg}) no-repeat;
   background-size: cover;
   font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   h1 {
     font-size: 4vw;
     font-weight: 900;
     text-align: center;
     margin-top: 20vh;
-
+  }
+  button:hover  {
+    background: #4DBBEC;
   }
 `
 
@@ -52,7 +57,12 @@ export const RegisterBtn = styled.button`
   border: none;
   border-radius: 8px;
   background: #9ED0E6;
-  font-weight: 900;
-  font-size: x-large;
- 
+  margin-top: 40vh;
+  transition: all 0.2s;
+  a {
+    font-weight: 900;
+    font-size: x-large;
+    color: black;
+    text-decoration: none
+  }
 `
