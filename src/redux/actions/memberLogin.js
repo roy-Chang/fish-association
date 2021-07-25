@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const changeLogoutState = () => ({
   type: actionTypes.MEMBER_LOGOUT_ACTION,
-  isLogin: false,
+  isLogin: '',
 });
 
 export const changeLoginState = (data) => ({
