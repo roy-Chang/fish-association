@@ -7,8 +7,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
 
+
 //導入圖片
-import HeadPic from "../../../../assets/img/member/memberAccount/handsome.jpg";
+import HeadPic from "../../../../assets/useimage/people-1627149411393.jpg";
 import GoldenMember from "../../../../assets/img/member/memberAccount/goldenMember.png";
 
 function General() {
@@ -35,7 +36,7 @@ function General() {
   //抓取後端來的API
   React.useEffect(() => {
     axios
-      .get("http://localhost:5000/api/profile", {
+      .get("http://localhost:3000/api/profile", {
         // headers: {
         //   // Authorization:
         //   //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZW1iZXJJZCI6NCwiaWF0IjoxNjI3MDI2NzA5LCJleHAiOjE2MjcwMzAzMDl9.Jn8yY1QTfae6aPoOzD7fzhL1sXY3W6btMhc4KYo_VeA",
@@ -66,7 +67,7 @@ function General() {
       delete fields.phone;
     }
     axios
-      .put("http://localhost:5000/api/profile/update", {
+      .put("http://localhost:3000/api/profile/update", {
         member: fields,
       })
       .then((serverResponse) => {
@@ -82,7 +83,7 @@ function General() {
     const photo = new FormData();
     // console.log(e.target.files[0]);
     photo.append("photo", e.target.files[0]);
-    axios.post("http://localhost:5000/api/profile/image", photo, {
+    axios.post("http://localhost:3000/api/profile/image", photo, {
       headers: { "Content-Type": "multipart/form-data" },
     });
   }
@@ -339,13 +340,13 @@ function General() {
               <div className="MApicture">
                 <img
                   className="MApictureGo"
-                  src={"http://localhost:5000/" + data.image}
+                  src={HeadPic}
                   alt=""
                 />
               </div>
               <form
                 method="POST"
-                action="http://localhost:5000/api/profile/image"
+                action="http://localhost:3000/api/profile/image"
                 enctype="multipart/form-data"
               >
                 <label htmlFor="name">

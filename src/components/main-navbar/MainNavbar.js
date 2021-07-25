@@ -135,6 +135,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleLogout() {
+            localStorage.removeItem('token');
             delete axios.defaults.headers.common['Authorization'];
             const action = changeLogoutState();
             dispatch(action)
