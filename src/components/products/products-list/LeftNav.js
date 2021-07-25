@@ -30,7 +30,6 @@ export default function LeftNav() {
           <Route path="/products/shrimp" component={ShrimpPage} />
           <Route path="/products/shell" component={ShellPage} />
           <Route path="/products/squid" component={SquidPage} />
-
         </Router>
 
        
