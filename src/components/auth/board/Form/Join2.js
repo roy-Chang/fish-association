@@ -89,7 +89,7 @@ class Join2 extends Component {
                 ref={input => this.address = input}
               />
             </Form.Group>
-            <Form.Text className="MJ2itemLabel mb-3 mx-auto" htmlFor="" style={{color: '#fff579', fontSize: '16px', width: '100px'}}>
+            <Form.Text className="MJ2itemLabel mb-3 mx-auto" htmlFor="" style={{color: '#fff579', fontSize: '16px', width: '200px'}}>
                 {this.props.msg}
             </Form.Text>
             <Row>
