@@ -1,14 +1,13 @@
 import React, { PureComponent } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import "./MemberLogin.css";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import axios from 'axios';
 //action creator
-import { handleAxiosLogin } from '../../../../redux/actions/memberLogin';
+import { handleAxiosLogin } from "../../../../redux/actions/memberLogin";
 
 class FormLogin extends PureComponent {
-  
   render() {
     return (
       <>
@@ -25,9 +24,8 @@ class FormLogin extends PureComponent {
                   name="account"
                   required
                   placeholder="請輸入帳號"
-                  ref={input => this.account = input}
+                  ref={(input) => (this.account = input)}
                 />
-
               </Form.Text>
             </Form.Text>
             <Form.Text className="MLitem">
@@ -41,11 +39,11 @@ class FormLogin extends PureComponent {
                   name="password"
                   required
                   placeholder="請輸入密碼"
-                  ref={input => this.password = input}
+                  ref={(input) => (this.password = input)}
                 />
 
                 <Form.Text className="MLcheck MLcheckAccount">
-                {this.props.error}
+                  {this.props.error}
                 </Form.Text>
               </Form.Text>
             </Form.Text>
@@ -57,22 +55,27 @@ class FormLogin extends PureComponent {
                 </Form.Text>
               </Form.Text>
             </Form.Text>
-            <Button onClick={() => {this.props.handleFormClick(this.account, this.password)}} className="MLbtn" type="button">
+            <Button
+              onClick={() => {
+                this.props.handleFormClick(this.account, this.password);
+              }}
+              className="MLbtn"
+              type="button"
+            >
               登入
             </Button>
           </Form.Text>
         </div>
       </>
-    )
+    );
   }
 }
 
-
 const mapStateToProps = (state) => {
-    return {
-      error: state.memberLogin.errorMsg,
-    }
-}
+  return {
+    error: state.memberLogin.errorMsg,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -80,7 +83,7 @@ const mapDispatchToProps = (dispatch) => {
       const action = handleAxiosLogin(account.value, password.value);
       dispatch(action);
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormLogin)
+export default connect(mapStateToProps, mapDispatchToProps)(FormLogin);

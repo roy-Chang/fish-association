@@ -1,0 +1,133 @@
+.cart-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+}
+.cart {
+  width: 65%;
+  max-width: 832px;
+  min-height: 600px;
+  background: var(--main-color);
+  margin: 100px auto;
+  border-radius: 20px;
+}
+
+.line {
+  width: 65%;
+  margin: 0 auto;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--sixth-color);
+  fill: none;
+}
+
+.circle1 {
+  background: var(--blueLine);
+}
+
+.process {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.item {
+  color: var(--fontWhite);
+  font-size: 20px;
+}
+
+.products {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.products hr {
+  background: #ccc;
+}
+
+.product {
+  display: flex;
+}
+
+.pitem {
+  color: var(--fontWhite);
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 10px;
+}
+
+.pimg {
+  width: 90px;
+  height: 90px;
+}
+
+.spitemPrice {
+  margin-top: 20px;
+}
+
+.coupon {
+  width: 70%;
+  margin: 20px auto;
+  font-size: 20px;
+  color: var(--fontWhite);
+}
+.coupon hr {
+  background: #ccc;
+}
+
+.addCoupon {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.svg {
+  width: 30px;
+  height: 30px;
+}
+
+.couBtn {
+  stroke: white;
+  stroke-width: 2;
+}
+
+.pay {
+  width: 70%;
+  margin: 20px auto;
+  font-size: 20px;
+  color: var(--fontWhite);
+}
+
+.payItem {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btnStep {
+  width: 150px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.cbtn {
+  background: var(--second-color);
+  color: var(--fontWhite);
+  width: 140px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 20px;
+  margin: 0 auto;
+  border: none;
+}
