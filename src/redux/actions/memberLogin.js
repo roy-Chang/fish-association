@@ -30,11 +30,11 @@ export const handleAxiosLogin = (account, password) => {
           axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
           //set localstorage
           localStorage.setItem('token', token);
+          localStorage.setItem('name', memberName)
           //action
           const action = changeLoginState({
             errorMsg: "",
             isLogin: true,
-            name: memberName,
           });
           dispatch(action);
         } else {

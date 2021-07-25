@@ -73,8 +73,18 @@ class MainNavbar extends Component {
                                     <FaShoppingCart style={{width:"25px",height:"25px"}}/>
                                     <FaCircle style={{width:"20px",height:"20px"}} className="ml-1"/>         
                                 </div>
-                                
-                                {this.props.isLogin === true ? 
+                                {localStorage.getItem('token') === null || this.props.isLogin === true || this.props.isLogin === false? 
+                                <NavDropdown title={<FaUserTimes style={{width:"30px",height:"30px"}} />} id="collasible-nav-down">
+                                    <NavDropdown.Item>
+                                        {/* 會員登錄 */}
+                                            <LinkContainer to="/auth">
+                                                <Nav.Link className="text-center">會員登入</Nav.Link>
+                                            </LinkContainer>
+                                            <LinkContainer to="/auth">
+                                                <Nav.Link className="text-center">會員註冊</Nav.Link>
+                                            </LinkContainer>
+                                    </NavDropdown.Item>  
+                                </NavDropdown> :
                                 <NavDropdown title={<FaUserCheck style={{width:"30px",height:"30px", color:'#5CFC4B'}} />} id="collasible-nav-down">
                                 <NavDropdown.Item>
                                         <LinkContainer to="/auth" className="mr-0">
@@ -87,25 +97,14 @@ class MainNavbar extends Component {
                                                     className="d-inline-block mr-2"
                                                     alt="React Bootstrap logo"
                                                 />
-                                                <span style={{fontSize: '16px'}}>{this.props.name}</span>
+                                                <span style={{fontSize: '16px'}}>{localStorage.getItem('name')}</span>
                                             </Navbar.Brand>
                                         </LinkContainer>
                                         <LinkContainer to="/auth">
                                             <Nav.Link onClick={this.props.handleLogout} className="text-center">會員登出</Nav.Link>
                                         </LinkContainer>
                                     </NavDropdown.Item>  
-                                </NavDropdown>  : 
-                                <NavDropdown title={<FaUserTimes style={{width:"30px",height:"30px"}} />} id="collasible-nav-down">
-                                    <NavDropdown.Item>
-                                        {/* 會員登錄 */}
-                                            <LinkContainer to="/auth">
-                                                <Nav.Link className="text-center">會員登入</Nav.Link>
-                                            </LinkContainer>
-                                            <LinkContainer to="/auth">
-                                                <Nav.Link className="text-center">會員註冊</Nav.Link>
-                                            </LinkContainer>
-                                    </NavDropdown.Item>  
-                                </NavDropdown>   
+                                </NavDropdown> 
                                 }    
                                 
                             </Nav>
@@ -127,15 +126,15 @@ class MainNavbar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      isLogin: state.memberLogin.isLogin,
-      name: state.memberLogin.name
-    }
+        error: state.memberLogin.isLogin,
+    };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         handleLogout() {
             localStorage.removeItem('token');
+            localStorage.removeItem('name');
             delete axios.defaults.headers.common['Authorization'];
             const action = changeLogoutState();
             dispatch(action)
