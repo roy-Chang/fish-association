@@ -1,0 +1,30 @@
+.overDeyail {
+  border-radius: 10px;
+  border: 2px solid white;
+  max-width: 400px;
+  min-height: 350px;
+  margin: 30px auto;
+  font-size: 16px;
+  color: var(--fontWhite);
+  padding: 40px 20px;
+}
+.btnStep3 {
+  /* margin: 10px auto; */
+  display: flex;
+  justify-content: center;
+}
+.btn3 {
+  width: 150px;
+  height: 40px;
+  border: none;
+  margin: 0 10px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+.backBtn {
+  background: #6d695f;
+}
+
+.overCheckBtn {
+  background: var(--second-color);
+}

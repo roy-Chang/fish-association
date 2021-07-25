@@ -3,51 +3,49 @@ import "./MemberLogin.css";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 //axios
-import axios from 'axios';
+import axios from "axios";
 
 function FormLogin() {
-  
   const inputValue = {
     account: "",
-    password: ""
-  }
-  const [errMsg, setErrorMsg] = useState('')
-  const [inputClient, setInputClient] = useState(inputValue)
-  
+    password: "",
+  };
+  const [errMsg, setErrorMsg] = useState("");
+  const [inputClient, setInputClient] = useState(inputValue);
+
   useCallback(() => {
-    handleAxiosLogin()
-  }, [])
+    handleAxiosLogin();
+  }, []);
   const handleAxiosLogin = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
     let memberAccount = data.get("account");
     let memberPassword = data.get("password");
-    axios.post('http://localhost:3000/api/member/login', {
-      member: {
-        account: memberAccount,
-        password: memberPassword
-      }
-      
-    })
-    .then((serverResponse) => {
-      const token = serverResponse.data.member.token
-      if(token) {
-        // set header
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}` ;
-      } else {
-        delete axios.defaults.headers.common['Authorization'];
-      }
-    })
-    .catch((error) => {
-      if( error.response ){
-        setErrorMsg(error.response.data.errors[0].msg)// => the response payload 
-      }
-    })
+    axios
+      .post("http://localhost:5000/api/member/login", {
+        member: {
+          account: memberAccount,
+          password: memberPassword,
+        },
+      })
+      .then((serverResponse) => {
+        const token = serverResponse.data.member.token;
+        if (token) {
+          // set header
+          axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        } else {
+          delete axios.defaults.headers.common["Authorization"];
+        }
+      })
+      .catch((error) => {
+        if (error.response) {
+          setErrorMsg(error.response.data.errors[0].msg); // => the response payload
+        }
+      });
     //get input value
-    
+
     //axioshttp://localhost:3000/api/member/login
-    
-  }
+  };
 
   const handleChange = (e) => {
     const updateFields = {
@@ -55,12 +53,8 @@ function FormLogin() {
       [e.target.name]: e.target.value,
     };
     setInputClient(updateFields);
-  }
+  };
 
- 
-
-  
- 
   return (
     <>
       <Form onSubmit={handleAxiosLogin}>
@@ -79,7 +73,6 @@ function FormLogin() {
                 onChange={handleChange}
                 value={inputClient.account}
               />
-
             </Form.Text>
           </Form.Text>
           <Form.Text className="MLitem">
@@ -97,9 +90,7 @@ function FormLogin() {
                 value={inputClient.password}
               />
 
-              <Form.Text className="MLcheck MLcheckAccount">
-              {errMsg}
-              </Form.Text>
+              <Form.Text className="MLcheck MLcheckAccount">{errMsg}</Form.Text>
             </Form.Text>
           </Form.Text>
           <Form.Text className="MLitem MLitemVerification">

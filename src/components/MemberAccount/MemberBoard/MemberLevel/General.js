@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import axios from "axios";
 
 //導入圖片
 import HeadPic from "../../../../assets/img/member/memberAccount/handsome.jpg";
@@ -16,17 +17,75 @@ function General() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [data, setData] = useState({});
+  // const [updateInfo, setUpdateInfo] = useState(fields);
+
   const [fields, setFields] = useState({
-    password: "",
-    username: "",
-    gender: "",
-    email: "",
-    phone: "",
-    year: "",
-    month: "",
-    day: "",
-    address: "",
+    password: data.password,
+    username: data.name,
+    gender: data.gender,
+    email: data.email,
+    phone: data.phone,
+    birthday: data.birthday,
+    address: data.address,
   });
+
+  //
+
+  //抓取後端來的API
+  React.useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/profile", {
+        // headers: {
+        //   // Authorization:
+        //   //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZW1iZXJJZCI6NCwiaWF0IjoxNjI3MDI2NzA5LCJleHAiOjE2MjcwMzAzMDl9.Jn8yY1QTfae6aPoOzD7fzhL1sXY3W6btMhc4KYo_VeA",
+        //   Authorization: window.localStorage.getItem("token"),
+        // },
+      })
+      .then((serverResponse) => {
+        const member = serverResponse.data.member;
+        setData(member);
+        setFields(member);
+      });
+  }, []);
+
+  useCallback(() => {
+    updateFile();
+  }, []);
+
+  const updateFile = (e) => {
+    e.preventDefault();
+    console.log(fields);
+    if (fields.email === data.email) {
+      delete fields.email;
+    }
+    if (fields.password === data.password) {
+      delete fields.password;
+    }
+    if (fields.phone === data.phone) {
+      delete fields.phone;
+    }
+    axios
+      .put("http://localhost:5000/api/profile/update", {
+        member: fields,
+      })
+      .then((serverResponse) => {
+        console.log(serverResponse);
+      })
+      .catch((error) => {
+        if (error.response) {
+        }
+      });
+  };
+
+  function changePhoto(e) {
+    const photo = new FormData();
+    // console.log(e.target.files[0]);
+    photo.append("photo", e.target.files[0]);
+    axios.post("http://localhost:5000/api/profile/image", photo, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  }
 
   return (
     <>
@@ -45,7 +104,7 @@ function General() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ background: "var(--forth-color)" }}>
-          <Form>
+          <Form onSubmit={updateFile}>
             <Container>
               <Row style={{ margin: "10px auto" }}>
                 <Form.Label style={{ fontSize: "24px", width: "100px" }}>
@@ -56,10 +115,9 @@ function General() {
                     className="MLitemInput"
                     name="password"
                     type="password"
-                    value={fields.password}
-                    placeholder="請輸入密碼"
+                    placeholder="請輸入要變更的密碼"
                     onChange={(e) => {
-                      setFields(e.target.value);
+                      setFields({ ...fields, password: e.target.value });
                     }}
                   />
                 </Form.Text>
@@ -72,11 +130,12 @@ function General() {
                   <Form.Control
                     className="MLitemInput"
                     type="text"
+                    value={fields.name}
                     name="username"
-                    value={fields.username}
+                    // value={data.name}
                     placeholder="請輸入姓名"
                     onChange={(e) => {
-                      setFields(e.target.value);
+                      setFields({ ...fields, name: e.target.value });
                     }}
                   />
                 </Form.Text>
@@ -86,7 +145,13 @@ function General() {
                   性別
                 </Form.Label>
                 <Form.Group className="ML2itemContent">
-                  <Form.Check type="checkbox" className="">
+                  <Form.Check
+                    type="checkbox"
+                    className=""
+                    onChange={(e) => {
+                      setFields({ ...fields, gender: e.target.value });
+                    }}
+                  >
                     <Form.Check
                       inline
                       name="gender"
@@ -125,7 +190,7 @@ function General() {
                     value={fields.email}
                     placeholder="請輸入信箱"
                     onChange={(e) => {
-                      setFields(e.target.value);
+                      setFields({ ...fields, email: e.target.value });
                     }}
                   />
                 </Form.Text>
@@ -142,7 +207,7 @@ function General() {
                     value={fields.phone}
                     placeholder="請輸入電話"
                     onChange={(e) => {
-                      setFields(e.target.value);
+                      setFields({ ...fields, phone: e.target.value });
                     }}
                   />
                 </Form.Text>
@@ -151,106 +216,18 @@ function General() {
                 <Form.Label style={{ fontSize: "24px", width: "100px" }}>
                   出生日期
                 </Form.Label>
+                {/* <Form.Group> */}
                 <Form.Control
-                  as="select"
-                  name="year"
-                  style={{
-                    fontSize: "16px",
-                    width: "100px",
-                    background: "#DCDCDC",
-                    marginLeft: "20px",
-                  }}
-                  value={fields.year}
+                  className="MLitemInput"
+                  type="date"
+                  name="birthday"
+                  value={fields.birthday}
+                  placeholder="Date of Birth"
                   onChange={(e) => {
-                    setFields(e.target.value);
+                    setFields({ ...fields, birthday: e.target.value });
                   }}
-                >
-                  <option value="1990">1990</option>
-                  <option value="1991">1991</option>
-                  <option value="1992">1992</option>
-                  <option value="1993">1993</option>
-                  <option value="1994">1994</option>
-                  <option value="1995">1995</option>
-                  <option value="1996">1996</option>
-                  <option value="1997">1997</option>
-                  <option value="1998">1998</option>
-                  <option value="1999">1999</option>
-                  <option value="2000">2000</option>
-                </Form.Control>
-                年
-                <Form.Control
-                  as="select"
-                  name="month"
-                  style={{
-                    fontSize: "16px",
-                    width: "70px",
-                    background: "#DCDCDC",
-                  }}
-                  value={fields.month}
-                  onChange={(e) => {
-                    setFields(e.target.value);
-                  }}
-                >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                </Form.Control>
-                月
-                <Form.Control
-                  as="select"
-                  name="day"
-                  style={{
-                    fontSize: "16px",
-                    width: "70px",
-                    background: "#DCDCDC",
-                  }}
-                  value={fields.day}
-                  onChange={(e) => {
-                    setFields(e.target.value);
-                  }}
-                >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
-                </Form.Control>
-                日
+                />
+                {/* </Form.Group> */}
               </Row>
               <Row style={{ margin: "10px auto" }}>
                 <Form.Label style={{ fontSize: "24px", width: "100px" }}>
@@ -264,7 +241,7 @@ function General() {
                     value={fields.address}
                     placeholder="請輸入地址"
                     onChange={(e) => {
-                      setFields(e.target.value);
+                      setFields({ ...fields, address: e.target.value });
                     }}
                   />
                 </Form.Text>
@@ -284,7 +261,7 @@ function General() {
             variant="primary"
             type="submit"
             style={{ background: "var(--second-color)", border: "none" }}
-            // onClick={handleClose}
+            onClick={updateFile}
           >
             變更
           </Button>
@@ -316,7 +293,7 @@ function General() {
           <Container className="MAaccountInformation">
             <Form.Group className="MAaccount">
               <div className="MAlistTitle">使用者帳號</div>
-              <div className="MAcontent">alexXXXX</div>
+              <div className="MAcontent">{data.account}</div>
               <div className="MAmember">一般會員</div>
               <a className="MAchange MAsmallChange" href="/#">
                 白金會員
@@ -329,27 +306,27 @@ function General() {
             </Form.Group>
             <Form.Group className="MAaccount">
               <div className="MAlistTitle">姓名</div>
-              <div className="MAcontent">郭帥</div>
+              <div className="MAcontent">{data.name}</div>
             </Form.Group>
             <Form.Group className="MAaccount">
               <div className="MAlistTitle">性別</div>
-              <div className="MAcontent">男</div>
+              <div className="MAcontent">{data.gender === 1 ? "男" : "女"}</div>
             </Form.Group>
             <Form.Group className="MAaccount">
               <div className="MAlistTitle">信箱</div>
-              <div className="MAcontent">alexXXXX@gmail.com</div>
+              <div className="MAcontent">{data.email}</div>
             </Form.Group>
             <Form.Group className="MAaccount">
               <div className="MAlistTitle">聯絡電話</div>
-              <div className="MAcontent">0912345678</div>
+              <div className="MAcontent">{data.phone}</div>
             </Form.Group>
             <Form.Group className="MAaccount">
               <div className="MAlistTitle">出生日期</div>
-              <div className="MAcontent">1990-02-05</div>
+              <div className="MAcontent">{data.birthday}</div>
             </Form.Group>
             <Form.Group className="MAaccount">
               <div className="MAlistTitle">地址</div>
-              <div className="MAcontent">桃園縣中壢區中央大學資策會中心</div>
+              <div className="MAcontent">{data.address}</div>
             </Form.Group>
             <Form.Group className="MAbtnW">
               <Button className="MAbtn" onClick={handleShow}>
@@ -360,12 +337,27 @@ function General() {
           <div className="MAheadPicture MAheadPicture720">
             <div className="MApictureCard">
               <div className="MApicture">
-                <img className="MApictureGo" src={HeadPic} alt="" />
+                <img
+                  className="MApictureGo"
+                  src={"http://localhost:5000/" + data.image}
+                  alt=""
+                />
               </div>
-              <label htmlFor="name">
-                <input type="file" id="name" name="photo" />
-                選擇照片
-              </label>
+              <form
+                method="POST"
+                action="http://localhost:5000/api/profile/image"
+                enctype="multipart/form-data"
+              >
+                <label htmlFor="name">
+                  <input
+                    type="file"
+                    id="name"
+                    name="photo"
+                    onChange={changePhoto}
+                  />
+                  選擇照片
+                </label>
+              </form>
               <div></div>
             </div>
           </div>

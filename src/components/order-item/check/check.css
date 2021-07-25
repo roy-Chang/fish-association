@@ -1,0 +1,74 @@
+.circle2 {
+  background: var(--blueLine);
+}
+.ckeckForm {
+  width: 70%;
+  margin: 40px auto;
+}
+
+.personal {
+  width: 100%;
+  /* height: 300px; */
+  /* background: var(--fifth-color); */
+  /* display: flex; */
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+.formLabel {
+  width: 150px;
+  font-size: 16px;
+  color: var(--fontWhite);
+  margin: 0;
+}
+.left {
+  width: 50%;
+  /* flex-direction: column; */
+  padding: 0 20px;
+}
+.right {
+  width: 50%;
+  border-left: 1px solid #ccc;
+  flex-direction: column;
+  /* padding-left: 40px; */
+}
+
+.perType {
+  width: 230px;
+  flex-direction: column;
+  /* padding-left: 50px; */
+}
+.RperType {
+  margin-left: 50px;
+}
+.inputNum {
+  width: 90px;
+}
+.visaCard {
+  display: flex;
+  flex-direction: row;
+}
+.visaInput {
+  width: 130px;
+}
+.visa {
+  width: 51px;
+  height: 32px;
+  margin-left: 10px;
+}
+.checkTotal {
+  font-size: 24px;
+  color: var(--fontWhite);
+  /* margin: 0 auto; */
+}
+.checkTotalPri {
+  margin: 0 auto;
+}
+.btnStep2 {
+  /* width: 100%; */
+  margin: 10px auto;
+}
+.cbtn {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+}
