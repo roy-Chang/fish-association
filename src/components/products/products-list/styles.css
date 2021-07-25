@@ -62,11 +62,27 @@
   text-decoration: none;
 }
 /* Rank Card */
+
+.P-rank-title {
+  background: var(--main-color);
+  border-radius: 10px;
+  width: 200px;
+  color: var(--sixth-color);
+  font-size: 24px;
+  padding: 5px;
+  justify-content: center;
+}
 .P-rank-card {
   width: 200px;
   background: var(--main-color);
   border-radius: 10px;
   color: white;
+}
+.P-rank-card-img {
+  max-height: 150px;
+  max-width: 200px;
+  object-fit: cover;
+  padding: 10px;
 }
 
 /* Main Block */
@@ -91,9 +107,20 @@
   width: 180px;
   background: var(--seventh-color);
   border-radius: 10px;
-  color: white;
+  color: var(--main-color);
   justify-content: center;
 }
+
+.P-product-card a {
+  text-decoration: none;
+}
+.P-product-card a:visited {
+  color: var(--main-color);
+}
+.P-product-card a:hover {
+  color: var(--second-color);
+}
+
 .P-product-card-pic {
   max-width: 180px;
   max-height: 130px;

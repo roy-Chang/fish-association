@@ -1,0 +1,101 @@
+.P-detail-blocK {
+  background: var(--second-color);
+  border-radius: 10px;
+  color: white;
+  width: 850px;
+}
+
+/* Detail Top */
+
+.P-deatil-top {
+  background: var(--seventh-color);
+  border-radius: 10px;
+  color: var(--main-color);
+  width: 750px;
+  margin-top: 50px;
+  padding: 30px;
+}
+
+/* Detail Top Img*/
+.P-detail-main-img {
+  max-width: 200px;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.P-detail-main-img img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.P-detail-sub-img {
+  max-width: 200px;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.P-detail-sub-img img {
+  margin: 3px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Detail Top Content */
+.P-detail-des h1 {
+  margin: 0;
+  font-size: 32px;
+}
+.P-detail-des p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+/* Detail Content */
+
+.P-detail-content {
+  background: var(--seventh-color);
+  border-radius: 10px;
+  color: var(--main-color);
+  width: 750px;
+  margin-top: 50px;
+  padding: 30px;
+}
+
+.P-detail-content h1 {
+  margin: 0;
+  font-size: 32px;
+  text-align: center;
+}
+.P-detail-content p {
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+/* Recommend */
+.P-detail-recommend {
+  background: var(--seventh-color);
+  border-radius: 10px;
+  color: var(--main-color);
+  width: 750px;
+  margin: 50px 0;
+  padding: 30px;
+}
+
+.P-detail-recommend h1 {
+  margin: 0;
+  font-size: 20px;
+  text-align: left;
+}
+
+.P-recommend-card {
+  background: var(--main-color);
+  color: white;
+  width: 150px;
+}
+
+.P-recommend-img {
+  max-height: 100px;
+  max-width: 150px;
+  object-fit: cover;
+  padding: 10px;
+}
