@@ -1,5 +1,5 @@
 /* Banner */
-.P-background {
+/* .P-background {
   position: relative;
   height: 75vh;
   width: 100%;
@@ -16,12 +16,29 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.5;
+} */
+
+.P-background {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("../../../assets/img/products/products-list/grandma.jpg");
+  /* background-image: url("../../../assets/img/products/products-list/grandma05-2.jpg"); */
+  background-repeat: no-repeat;
+  background-size: 100% 600px;
+  background-color: var(--forth-color);
 }
 
 .P-categoryImg {
-  opacity: 0.9;
-  height: 200px;
-  width: 240px;
+  max-width: 200px;
+  max-height: 200px;
+  overflow: hidden;
+}
+.P-categoryImg img {
+  height: 100%;
+  padding: 0;
+  object-fit: cover;
 }
 
 /* Left Nav */
@@ -29,7 +46,6 @@
   width: 200px;
   background: var(--main-color);
   border-radius: 10px;
-  color: white;
 }
 .P-left-nav ul {
   padding: 0;
@@ -41,7 +57,10 @@
 .P-left-nav ul li:hover {
   background: var(--second-color);
 }
-
+.P-left-nav ul a {
+  color: white;
+  text-decoration: none;
+}
 /* Rank Card */
 .P-rank-card {
   width: 200px;

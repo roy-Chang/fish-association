@@ -1,21 +1,39 @@
 import React from "react";
 
+import {BrowserRouter as Router, Route,Link} from 'react-router-dom';
+
+// import ProductsList from "./ProductsList";
+import DiscountPage from "../products-pages/DiscountPage";
+import FishPage from "../products-pages/FishPage";
+import ShellPage from "../products-pages/ShellPage";
+import ShrimpPage from "../products-pages/ShrimpPage";
+import SquidPage from "../products-pages/SquidPage";
+
+
 
 
 export default function LeftNav() {
     return (
       <>
-        <div className="P-left-nav">
+        <Router>
+          <div className="P-left-nav">
             <ul className="py-4">
-                <li>當月超值優惠</li>
-                <li>任選兩樣八折</li>
-                <li>產地新鮮直送</li>
-                <li>魚類</li>
-                <li>蝦類</li>
-                <li>貝類</li>
-                <li>軟足類</li>
+                <Link to="/products/discount"><li>當月超值優惠</li></Link>
+                <Link to="/products/fish"><li>魚類</li></Link>
+                <Link to="/products/shrimp"><li>蝦類</li></Link>
+                <Link to="/products/shell"><li>貝類</li></Link>
+                <Link to="/products/squid"><li>軟足類</li></Link>
             </ul>
-        </div>
+          </div>
+          <Route path="/products/discount" component={DiscountPage} />
+          <Route path="/products/fish" component={FishPage} />
+          <Route path="/products/shrimp" component={ShrimpPage} />
+          <Route path="/products/shell" component={ShellPage} />
+          <Route path="/products/squid" component={SquidPage} />
+
+        </Router>
+
+       
       </>
     );
   }

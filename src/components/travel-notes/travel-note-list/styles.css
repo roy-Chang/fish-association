@@ -24,8 +24,7 @@
 }
 .swiper-slide-TN img {
   display: block;
-  width: 800px;
-  height: 400px;
+  width: 100%;
   object-fit: cover;
 }
 /* travel-notes swiper css END */

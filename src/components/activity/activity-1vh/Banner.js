@@ -9,6 +9,10 @@ import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import { Autoplay } from "swiper";
 
+/* img */
+
+import banner01 from "../../../assets/img/Activity/banner01.jpg"
+
 export default function Banner() {
   SwiperCore.use([Pagination]);
   SwiperCore.use([Autoplay]);
@@ -27,7 +31,7 @@ export default function Banner() {
       >
         <SwiperSlide>
           <img
-            src="https://media.zenfs.com/en/yahoo__216/14b910c01f9c59136a4883fd1ac9580c"
+            src={banner01}
             alt="正濱漁港banner"
             正濱漁港
           />
