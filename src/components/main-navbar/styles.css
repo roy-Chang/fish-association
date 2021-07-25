@@ -11,10 +11,6 @@
   left: auto;
   right: 0;
 }
-/* .dropdown-item.active {
-  background: var(--forth-color);
-  color: var(--main-color);
-} */
 
 .dropdown-item:focus,
 .dropdown-item:hover {

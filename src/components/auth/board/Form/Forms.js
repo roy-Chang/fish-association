@@ -1,23 +1,25 @@
-import React from "react";
-import { useState } from "react";
+import { Component } from "react";
 import "./MemberJoin2.css";
 //component
 import Join1 from './Join1';
 import Join2 from './Join2';
+//redux
+import { connect } from 'react-redux';
 
-function Forms(props) {
-  const [checked, setCheck] = useState(1);
-  const changeForm = (e) => {
-    console.log(props);
-    // return;
-    setCheck(2);
-  };
 
-  return (
-    <>{checked === 1 ? <Join1 go={changeForm} value={checked} /> : <Join2 />}</>
-  );
+
+class Forms extends Component {
+  render() {
+    return (
+      <>{this.props.nextStep === false ? <Join1/> : <Join2/>}</>
+    );
+  }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    nextStep: state.memberRegister.nextStep,
+  }
+}
 
-;
-export default Forms;
+export default connect(mapStateToProps, null)(Forms);

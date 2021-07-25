@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 //reducers
-import weatherReducer from './reducers/index';
+import {weatherReducer, memberLoginReducer, memberRegisterReducer} from './reducers/index';
 //dev-tool redux
 const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
@@ -14,6 +14,8 @@ const enhancer = composeEnhancers(
 
 const allReducer = combineReducers({
     weather: weatherReducer,
+    memberLogin: memberLoginReducer,
+    memberRegister: memberRegisterReducer
 })
 
 const store = createStore(allReducer, enhancer);

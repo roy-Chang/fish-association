@@ -5,7 +5,7 @@ import TopRank from "./TopRank";
 import TNSearch from "./TNSearch";
 import TNWriteBtn from "./TNWriteBtn";
 import TNBlock from "./TNBlock";
-import { WebPageTop,WebPageCenter,TravelNotesList} from "./styled";
+import { WebPageTop ,TravelNotesList} from "./styled";
 
 
 function ListPage() {

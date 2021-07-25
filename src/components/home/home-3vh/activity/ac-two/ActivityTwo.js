@@ -9,6 +9,8 @@ import JoinCount from '../join/JoinCount';
 import snorkeling from '../../../../../assets/img/snorkeling.jpg';
 //rank gold svg
 import { ReactComponent as Silver } from '../../../../../assets/img/rank-svg/silver.svg';
+//router
+import { Link } from 'react-router-dom';
 
 const rankStyle = {
     zIndex: 5,
@@ -47,7 +49,9 @@ export default class ActivityTwo extends PureComponent {
                             
                             <p>截止日期: 16/29</p>
                         </Money>
-                        <BtnInfo>活動詳情</BtnInfo>
+                        <Link to="/activity">
+                            <BtnInfo>活動詳情</BtnInfo>
+                        </Link>
                         <JoinCount />
                     </Card>
                 </Wrapper>
