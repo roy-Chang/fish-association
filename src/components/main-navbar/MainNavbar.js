@@ -18,15 +18,17 @@ import { FaCircle } from "react-icons/fa";
 import { FaUserTimes } from "react-icons/fa";
 import { FaUserCheck } from "react-icons/fa";
 //login image
-import user from "../../assets/img/footer/user.jpg"
-//
+//import user from "../../assets/img/footer/user.jpg"
+//../../assets/img/userimage/people-1627149411393.jpg
 import { connect } from 'react-redux';
 import { changeLogoutState } from '../../redux/actions/memberLogin';
 //axios
 import axios from 'axios';
 
 class MainNavbar extends Component {
+
     render() {
+        
         return (
             
                 <>
@@ -90,7 +92,7 @@ class MainNavbar extends Component {
                                         <LinkContainer to="/auth" className="mr-0">
                                             <Navbar.Brand>
                                                 <img
-                                                    src={user}
+                                                    src={localStorage.getItem('image') === 'null' ? require(`../../assets/img/userimage/user.jpg`).default : require(`../../assets/img/userimage/${localStorage.getItem('image')}`).default}
                                                     width="35"
                                                     height="35"
                                                     style={{borderRadius: '50%'}}
@@ -135,6 +137,7 @@ const mapDispatchToProps = (dispatch) => {
         handleLogout() {
             localStorage.removeItem('token');
             localStorage.removeItem('name');
+            localStorage.removeItem('image');
             delete axios.defaults.headers.common['Authorization'];
             const action = changeLogoutState();
             dispatch(action)

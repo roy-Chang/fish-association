@@ -9,7 +9,7 @@ import axios from "axios";
 
 
 //導入圖片
-import HeadPic from "../../../../assets/useimage/people-1627149411393.jpg";
+//import HeadPic from "../../../../assets/useimage/people-1627149411393.jpg";
 import GoldenMember from "../../../../assets/img/member/memberAccount/goldenMember.png";
 
 function General() {
@@ -340,7 +340,7 @@ function General() {
               <div className="MApicture">
                 <img
                   className="MApictureGo"
-                  src={HeadPic}
+                  
                   alt=""
                 />
               </div>
