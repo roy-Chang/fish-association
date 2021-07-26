@@ -7,12 +7,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
 
-
 //導入圖片
 //import HeadPic from "../../../../assets/useimage/people-1627149411393.jpg";
 import GoldenMember from "../../../../assets/img/member/memberAccount/goldenMember.png";
+import { useHistory } from "react-router-dom";
 
-function General() {
+function General(props) {
   // const [formShow, setFormShow] = React.useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -35,8 +35,10 @@ function General() {
 
   //抓取後端來的API
   React.useEffect(() => {
+    const token = localStorage.getItem("token");
     axios
       .get("http://localhost:3000/api/profile", {
+        headers: { Authorization: `Bearer ${token}` },
         // headers: {
         //   // Authorization:
         //   //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZW1iZXJJZCI6NCwiaWF0IjoxNjI3MDI2NzA5LCJleHAiOjE2MjcwMzAzMDl9.Jn8yY1QTfae6aPoOzD7fzhL1sXY3W6btMhc4KYo_VeA",
@@ -50,12 +52,20 @@ function General() {
       });
   }, []);
 
+  //做完更新資料或上傳照片事件動作後跳回member
+  React.useEffect(() => {
+    // this.props.history.push(`http://localhost:3000/member`);
+    console.log("這是2");
+  }, []);
+
   useCallback(() => {
     updateFile();
   }, []);
 
   const updateFile = (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token");
+
     console.log(fields);
     if (fields.email === data.email) {
       delete fields.email;
@@ -68,15 +78,25 @@ function General() {
     }
     axios
       .put("http://localhost:3000/api/profile/update", {
+        headers: { Authorization: `Bearer ${token}` },
         member: fields,
       })
       .then((serverResponse) => {
         console.log(serverResponse);
+        // window.location.href = "/member";
       })
       .catch((error) => {
         if (error.response) {
         }
       });
+    // window.location.href = "/member";
+    // window.location.replace();
+    // window.location.replace("/member");
+    window.location.replace(window.location.href);
+    // window.history.go(0);
+    // window.location = window.location;
+    // window.location.assign(window.location);
+    // window.location.assign(window.location.href);
   };
 
   function changePhoto(e) {
@@ -86,6 +106,9 @@ function General() {
     axios.post("http://localhost:3000/api/profile/image", photo, {
       headers: { "Content-Type": "multipart/form-data" },
     });
+    // window.location.href = "/member";
+    // window.location.replace("/member");
+    // window.history.go(0);
   }
 
   return (
@@ -340,7 +363,7 @@ function General() {
               <div className="MApicture">
                 <img
                   className="MApictureGo"
-                  
+                  src={"http://localhost:3000/" + data.image}
                   alt=""
                 />
               </div>

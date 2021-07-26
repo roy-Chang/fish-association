@@ -87,7 +87,7 @@ function MemberAside(props) {
                   }}
                 >
                   <img src={clipboardIcon} alt="" />
-                  歷史清單
+                  購買紀錄
                 </a>
               </li>
               <li className="">

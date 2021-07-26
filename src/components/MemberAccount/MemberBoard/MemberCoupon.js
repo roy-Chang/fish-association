@@ -5,13 +5,18 @@ import "./MemberCSS/MemberCoupon.css";
 //引入折價券圖片
 import coupon from "../../../assets/img/member/membercoupon/coupon.png";
 
-function MemberCoupon() {
+function MemberCoupon(props) {
   const [data, setData] = useState({});
+  const token = localStorage.getItem("token");
   React.useEffect(() => {
-    axios.get("http://localhost:5000/api/profile").then((serverResponse) => {
-      const member = serverResponse.data.member;
-      setData(member);
-    });
+    axios
+      .get("http://localhost:3000/api/profile", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((serverResponse) => {
+        const member = serverResponse.data.member;
+        setData(member);
+      });
   }, []);
   return (
     <>
