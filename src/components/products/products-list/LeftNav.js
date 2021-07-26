@@ -18,18 +18,18 @@ export default function LeftNav() {
         <Router>
           <div className="P-left-nav">
             <ul className="py-4">
-                <Link to="/products/discount"><li>當月超值優惠</li></Link>
-                <Link to="/products/fish"><li>魚類</li></Link>
-                <Link to="/products/shrimp"><li>蝦類</li></Link>
-                <Link to="/products/shell"><li>貝類</li></Link>
-                <Link to="/products/squid"><li>軟足類</li></Link>
+                <Link to="/discount"><li>當月超值優惠</li></Link>
+                <Link to="/fish"><li>魚類</li></Link>
+                <Link to="/shrimp"><li>蝦類</li></Link>
+                <Link to="/shell"><li>貝類</li></Link>
+                <Link to="/squid"><li>軟足類</li></Link>
             </ul>
           </div>
-          <Route path="/products/discount" component={DiscountPage} />
-          <Route path="/products/fish" component={FishPage} />
-          <Route path="/products/shrimp" component={ShrimpPage} />
-          <Route path="/products/shell" component={ShellPage} />
-          <Route path="/products/squid" component={SquidPage} />
+          <Route path="/discount" component={DiscountPage} />
+          <Route path="/fish" component={FishPage} />
+          <Route path="/shrimp" component={ShrimpPage} />
+          <Route path="/shell" component={ShellPage} />
+          <Route path="/squid" component={SquidPage} />
         </Router>
 
        
