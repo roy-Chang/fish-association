@@ -14,7 +14,7 @@ import { FaFireAlt } from "react-icons/fa";
 import "../assets/css/styled.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function ProductsPage() {
+function ProductsListPage() {
   return (
       <>
         <div className="activity-wrapper  P-background">
@@ -35,4 +35,4 @@ function ProductsPage() {
   );
 }
 
-export default ProductsPage;
+export default ProductsListPage;
