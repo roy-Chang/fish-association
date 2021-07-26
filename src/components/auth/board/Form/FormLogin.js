@@ -35,7 +35,7 @@ class FormLogin extends PureComponent {
               <Form.Text className="MLtemContent">
                 <Form.Control
                   className="MLitemInput"
-                  type="text"
+                  type="password"
                   name="password"
                   required
                   placeholder="請輸入密碼"

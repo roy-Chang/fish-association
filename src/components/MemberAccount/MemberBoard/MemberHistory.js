@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 import "./MemberCSS/MemberHistory.css";
 
@@ -8,12 +9,25 @@ import shrimp from "../../../assets/img/member/memberHistory/shrimp.jpeg";
 import squid from "../../../assets/img/member/memberHistory/squid.jpeg";
 
 function MemberHistory() {
+  const [data, setData] = useState({});
+  const token = localStorage.getItem("token");
+  React.useEffect(() => {
+    axios
+      .get("http://localhost:3000/api/profile/order", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((serverResponse) => {
+        const myOrder = serverResponse.data;
+        console.log(myOrder);
+        setData(myOrder);
+      });
+  }, []);
   return (
     <>
       <div className="MHmemberBoard">
         <div>
           <div className="MHmemberAcount">
-            <h2 className="MHhistoryTitle">歷史清單</h2>
+            <h2 className="MHhistoryTitle">購買紀錄</h2>
           </div>
           <hr />
         </div>

@@ -8,10 +8,10 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 
 //導入圖片
-import HeadPic from "../../../../assets/useimage/people-1627149411393.jpg";
+//import HeadPic from "../../../../assets/useimage/people-1627149411393.jpg";
 import GoldenMember from "../../../../assets/img/member/memberAccount/goldenMember.png";
 
-function General() {
+function General(props) {
   // const [formShow, setFormShow] = React.useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -51,12 +51,20 @@ function General() {
       });
   }, []);
 
+  //做完更新資料或上傳照片事件動作後跳回member
+  React.useEffect(() => {
+    // this.props.history.push(`http://localhost:3000/member`);
+    console.log("這是2");
+  }, []);
+
   useCallback(() => {
     updateFile();
   }, []);
 
   const updateFile = (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token");
+
     console.log(fields);
     if (fields.email === data.email) {
       delete fields.email;
@@ -69,6 +77,7 @@ function General() {
     }
     axios
       .put("http://localhost:3000/api/profile/update", {
+        headers: { Authorization: `Bearer ${token}` },
         member: fields,
       })
       .then((serverResponse) => {

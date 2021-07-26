@@ -4,15 +4,18 @@ import MainBlock from "../products-list/MainBlock";
 import ProductCard from "../products-list/ProductCard";
 
 
-import "../../../assets/css/styled.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+/* img import */
+import { FaFireAlt } from "react-icons/fa";
 
-function SquidPage() {
+
+
+function LastestPage() {
   return (
-      <>
+    <>
+       
         
-      </>
+    </>
   );
 }
 
-export default SquidPage;
+export default LastestPage;

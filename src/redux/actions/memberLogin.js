@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const changeLogoutState = () => ({
   type: actionTypes.MEMBER_LOGOUT_ACTION,
-  isLogin: false,
+  isLogin: '',
 });
 
 export const changeLoginState = (data) => ({
@@ -25,16 +25,19 @@ export const handleAxiosLogin = (account, password) => {
         console.log(serverResponse.data)
         const token = serverResponse.data.member.token;
         const memberName = serverResponse.data.member.name;
+        const memberImage = serverResponse.data.member.image;
         if (token) {
+          console.log(memberImage)
           // set header
           axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
           //set localstorage
           localStorage.setItem('token', token);
+          localStorage.setItem('name', memberName);
+          localStorage.setItem('image', memberImage);
           //action
           const action = changeLoginState({
             errorMsg: "",
             isLogin: true,
-            name: memberName,
           });
           dispatch(action);
         } else {
