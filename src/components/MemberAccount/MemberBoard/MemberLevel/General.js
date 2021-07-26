@@ -10,6 +10,7 @@ import axios from "axios";
 //導入圖片
 //import HeadPic from "../../../../assets/useimage/people-1627149411393.jpg";
 import GoldenMember from "../../../../assets/img/member/memberAccount/goldenMember.png";
+import { useHistory } from "react-router-dom";
 
 function General(props) {
   // const [formShow, setFormShow] = React.useState(false);
@@ -82,11 +83,20 @@ function General(props) {
       })
       .then((serverResponse) => {
         console.log(serverResponse);
+        // window.location.href = "/member";
       })
       .catch((error) => {
         if (error.response) {
         }
       });
+    // window.location.href = "/member";
+    // window.location.replace();
+    // window.location.replace("/member");
+    window.location.replace(window.location.href);
+    // window.history.go(0);
+    // window.location = window.location;
+    // window.location.assign(window.location);
+    // window.location.assign(window.location.href);
   };
 
   function changePhoto(e) {
@@ -96,6 +106,9 @@ function General(props) {
     axios.post("http://localhost:3000/api/profile/image", photo, {
       headers: { "Content-Type": "multipart/form-data" },
     });
+    // window.location.href = "/member";
+    // window.location.replace("/member");
+    // window.history.go(0);
   }
 
   return (
