@@ -6,6 +6,7 @@ export const UPDATE_WEATHER = 'update_weather';
 
 //memberLogin
 export const MEMBER_LOGIN_ACTION = 'member_login_action';
+export const LOGIN_ERROR = 'login_error';   
 export const MEMBER_LOGOUT_ACTION = 'member_logout_action';
 //member register
 export const MEMBER_REGISTER_ACTION = 'member_register_action';

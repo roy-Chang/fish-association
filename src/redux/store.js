@@ -15,7 +15,7 @@ const enhancer = composeEnhancers(
 const allReducer = combineReducers({
     weather: weatherReducer,
     memberLogin: memberLoginReducer,
-    memberRegister: memberRegisterReducer
+    memberRegister: memberRegisterReducer,
 })
 
 const store = createStore(allReducer, enhancer);

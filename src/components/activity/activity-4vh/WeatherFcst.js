@@ -202,7 +202,7 @@ function WeatherFcst(props) {
         <li className="d-flex justify-content-around mt-2 mb-2">
           {currentWeather.rainRate.map((item, i) => (
             <RainRate key={i}>
-              {/*<img src={Humidity} style={{ width: "10px" }} />*/}
+              {/* <img src={Humidity} style={{ width: "10px" }} /> */}
               {item}%
             </RainRate>
           ))}

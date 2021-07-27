@@ -3,14 +3,20 @@ import { connect } from "react-redux";
 import "./MemberLogin.css";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
-import axios from 'axios';
 //action creator
 import { handleAxiosLogin } from "../../../../redux/actions/memberLogin";
+import { Redirect } from "react-router";
 
 class FormLogin extends PureComponent {
   render() {
+    let goto = null;
+    if (this.props.isLogin) {
+      //to do ..................
+      goto = <Redirect to="/" />;
+    }
     return (
       <>
+        {goto}
         <div>
           <Form.Text className="MLmemberEnter">
             <Form.Text className="MLitem">
@@ -72,7 +78,9 @@ class FormLogin extends PureComponent {
 }
 
 const mapStateToProps = (state) => {
+  
   return {
+    isLogin: state.memberLogin.isLogin,
     error: state.memberLogin.errorMsg,
   };
 };
@@ -81,7 +89,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleFormClick(account, password) {
       const action = handleAxiosLogin(account.value, password.value);
-      dispatch(action);
+      dispatch(action)
     },
   };
 };
