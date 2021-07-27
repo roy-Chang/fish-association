@@ -7,10 +7,13 @@ import {
   LeftLoc,
   InfoContent,
   RightLoc,
+  ButtonLoc,
   Wrapper,
 } from "./styled";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import ChenPin from "../../../assets/img/Activity/Chen-Pin2.jpeg";
 import ChenPin2 from "../../../assets/img/Activity/Chen-Pin.jpeg";
+import TaiwanMap from "../../../assets/img/Activity/taiwan-map.svg";
 
 class Secondpage extends Component {
   constructor(props) {
@@ -103,7 +106,7 @@ class Secondpage extends Component {
       <>
         <Wrapper>
           <LocationInfo className="wrapper activity-bg-blue d-flex">
-            <LeftLoc>
+            <LeftLoc className="d-flex">
               <img src={ChenPin} alt="Chen-Pin-Port" />
             </LeftLoc>
             <InfoContent className="d-flex">
@@ -126,44 +129,97 @@ class Secondpage extends Component {
               <RightLoc>
                 <img src={ChenPin2} alt="Chen-Pin-Port" />
               </RightLoc>
+              <ButtonLoc>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 384 512"
+                  class="d-block"
+                  height="50"
+                  width="50"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ left: "280px", top: "-15px", position: "absolute" }}
+                  onClick={this.handleClick}
+                >
+                  <path
+                    id="1"
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                  ></path>
+                </svg>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 384 512"
+                  class="d-block"
+                  height="50"
+                  width="50"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ left: "340px", top: "20px", position: "absolute" }}
+                  onClick={this.handleClick}
+                >
+                  <path
+                    id="2"
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                  ></path>
+                </svg>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 384 512"
+                  class="d-block"
+                  height="50"
+                  width="50"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ left: "380px", top: "30px", position: "absolute" }}
+                  onClick={this.handleClick}
+                >
+                  <path
+                    id="3"
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                  ></path>
+                </svg>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 384 512"
+                  class="d-block"
+                  height="50"
+                  width="50"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ left: "400px", top: "70px", position: "absolute" }}
+                  onClick={this.handleClick}
+                >
+                  <path
+                    id="4"
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                  ></path>
+                </svg>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 384 512"
+                  class="d-block"
+                  height="50"
+                  width="50"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ left: "305px", top: "40px", position: "absolute" }}
+                  onClick={this.handleClick}
+                >
+                  <path
+                    id="5"
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                  ></path>
+                </svg>
+                <img src={TaiwanMap} alt="taiwanMap" width="450" />
+              </ButtonLoc>
             </InfoContent>
           </LocationInfo>
         </Wrapper>
-        <Button
-          style={{ width: "100px", margin: "10px" }}
-          id="1"
-          onClick={this.handleClick}
-        >
-          龜吼漁港
-        </Button>
-        <Button
-          style={{ width: "100px", margin: "10px" }}
-          id="2"
-          onClick={this.handleClick}
-        >
-          正濱漁港
-        </Button>
-        <Button
-          style={{ width: "100px", margin: "10px" }}
-          id="3"
-          onClick={this.handleClick}
-        >
-          深澳漁港
-        </Button>
-        <Button
-          style={{ width: "100px", margin: "10px" }}
-          id="4"
-          onClick={this.handleClick}
-        >
-          龍洞
-        </Button>
-        <Button
-          style={{ width: "100px", margin: "10px" }}
-          id="5"
-          onClick={this.handleClick}
-        >
-          海生館
-        </Button>
       </>
     );
   }
