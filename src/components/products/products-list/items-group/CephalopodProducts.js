@@ -40,7 +40,7 @@ function CehalopodProducts() {
               </div>
               <Card.Body>
                 <Card.Title>
-                  <Link to="/detail">{item.name}</Link>
+                  <Link to="">{item.name}</Link>
                 </Card.Title>
                 <Card.Text>定價 ${item.price}</Card.Text>
               </Card.Body>

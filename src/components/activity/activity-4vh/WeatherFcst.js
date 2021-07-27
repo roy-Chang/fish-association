@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import WeatherIcon from "./WeatherIcon.js";
-import Humidity from "../../../assets/img/Activity/WeatherFcst-svg/humidity.svg";
+//import Humidity from "../../../assets/img/Activity/WeatherFcst-svg/humidity.svg";
 
 const IconAm = styled.div``;
 // position: absolute;
@@ -202,7 +202,7 @@ function WeatherFcst(props) {
         <li className="d-flex justify-content-around mt-2 mb-2">
           {currentWeather.rainRate.map((item, i) => (
             <RainRate key={i}>
-              <img src={Humidity} style={{ width: "10px" }} />
+              {/* <img src={Humidity} style={{ width: "10px" }} /> */}
               {item}%
             </RainRate>
           ))}
