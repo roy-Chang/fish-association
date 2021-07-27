@@ -121,21 +121,21 @@ class MainNavbar extends Component {
                     <NavDropdown.Item>
                       <LinkContainer to="/auth" className="mr-0">
                         <Navbar.Brand>
-                          {/* <img
-                            src={
-                              localStorage.getItem("image") === "null"
-                                ? require(`../../assets/img/userimage/user.jpg`)
-                                    .default
-                                : require(`../../assets/img/userimage/${localStorage.getItem(
-                                    "image"
-                                  )}`).default
-                            }
+                          <img
+                            // src={
+                            //   localStorage.getItem("image") === "null"
+                            //     ? require(`../../assets/img/userimage/user.jpg`)
+                            //         .default
+                            //     : require(`../../assets/img/userimage/${localStorage.getItem(
+                            //         "image"
+                            //       )}`).default
+                            // }
                             width="35"
                             height="35"
                             style={{ borderRadius: "50%" }}
                             className="d-inline-block mr-2"
                             alt="React Bootstrap logo"
-                          /> */}
+                          />
                           <span style={{ fontSize: "16px" }}>
                             {localStorage.getItem("name")}
                           </span>

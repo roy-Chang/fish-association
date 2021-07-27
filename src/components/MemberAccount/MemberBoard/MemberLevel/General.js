@@ -7,8 +7,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
 
+import MemberBoard from "../MemberBoard";
+
 //導入圖片
 //import HeadPic from "../../../../assets/useimage/people-1627149411393.jpg";
+import headPhoto from "../../../../assets/img/userimage/user.jpg";
 import GoldenMember from "../../../../assets/img/member/memberAccount/goldenMember.png";
 import { useHistory } from "react-router-dom";
 
@@ -18,9 +21,11 @@ function General(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  //抓到的個人資料存到data
   const [data, setData] = useState({});
   // const [updateInfo, setUpdateInfo] = useState(fields);
 
+  //資料
   const [fields, setFields] = useState({
     password: data.password,
     username: data.name,
@@ -49,63 +54,79 @@ function General(props) {
         const member = serverResponse.data.member;
         setData(member);
         setFields(member);
+        console.log(member);
+        // delete member.password;
+        // console.log(member);
       });
-  }, []);
-
-  //做完更新資料或上傳照片事件動作後跳回member
-  React.useEffect(() => {
-    // this.props.history.push(`http://localhost:3000/member`);
-    console.log("這是2");
   }, []);
 
   useCallback(() => {
     updateFile();
   }, []);
 
+  //更新會員資料
   const updateFile = (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-
-    console.log(fields);
-    if (fields.email === data.email) {
-      delete fields.email;
-    }
+    // console.log(token);
+    // console.log(fields);
+    // if (fields.email === data.email) {
+    //   delete fields.email;
+    // }
+    // if (fields.phone === data.phone) {
+    //   delete fields.phone;
+    // }
     if (fields.password === data.password) {
       delete fields.password;
     }
-    if (fields.phone === data.phone) {
-      delete fields.phone;
-    }
+
+    let header = {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
+    // console.log(header);
+    // axios.put(url, data, config)
+    //打API到後端
     axios
-      .put("http://localhost:3000/api/profile/update", {
-        headers: { Authorization: `Bearer ${token}` },
-        member: fields,
-      })
+      .patch(
+        "http://localhost:3000/api/profile/update",
+        { member: fields },
+        {
+          headers: header,
+        }
+      )
       .then((serverResponse) => {
-        console.log(serverResponse);
-        // window.location.href = "/member";
+        // console.log(fields);
+        setData(fields);
+        // console.log(data);
+        // console.log(fields);
       })
       .catch((error) => {
-        if (error.response) {
-        }
+        throw error;
       });
-    // window.location.href = "/member";
-    // window.location.replace();
-    // window.location.replace("/member");
-    window.location.replace(window.location.href);
-    // window.history.go(0);
-    // window.location = window.location;
-    // window.location.assign(window.location);
-    // window.location.assign(window.location.href);
   };
 
+  //修改大頭貼
   function changePhoto(e) {
+    const token = localStorage.getItem("token");
     const photo = new FormData();
     // console.log(e.target.files[0]);
+    let header = {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
     photo.append("photo", e.target.files[0]);
-    axios.post("http://localhost:3000/api/profile/image", photo, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
+    axios
+      .post("http://localhost:3000/api/profile/image", photo, {
+        headers: header,
+      })
+      .then(() => {
+        console.log(data.image);
+        setData(fields);
+        console.log(fields);
+      });
     // window.location.href = "/member";
     // window.location.replace("/member");
     // window.history.go(0);
@@ -156,7 +177,6 @@ function General(props) {
                     type="text"
                     value={fields.name}
                     name="username"
-                    // value={data.name}
                     placeholder="請輸入姓名"
                     onChange={(e) => {
                       setFields({ ...fields, name: e.target.value });
@@ -202,7 +222,7 @@ function General(props) {
                   </Form.Check>
                 </Form.Group>
               </Row>
-              <Row style={{ margin: "10px auto" }}>
+              {/* <Row style={{ margin: "10px auto" }}>
                 <Form.Label style={{ fontSize: "24px", width: "100px" }}>
                   信箱
                 </Form.Label>
@@ -218,7 +238,7 @@ function General(props) {
                     }}
                   />
                 </Form.Text>
-              </Row>
+              </Row> */}
               <Row style={{ margin: "10px auto" }}>
                 <Form.Label style={{ fontSize: "24px", width: "100px" }}>
                   聯絡電話
@@ -363,14 +383,19 @@ function General(props) {
               <div className="MApicture">
                 <img
                   className="MApictureGo"
-                  src={"http://localhost:3000/" + data.image}
+                  // src={headPhoto}
+                  src={
+                    window.localStorage.getItem("image") === "null"
+                      ? headPhoto
+                      : "http://localhost:3000/" + data.image
+                  }
                   alt=""
                 />
               </div>
               <form
-                method="POST"
-                action="http://localhost:3000/api/profile/image"
-                enctype="multipart/form-data"
+              // method="POST"
+              // action="http://localhost:3000/api/profile/image"
+              // enctype="multipart/form-data"
               >
                 <label htmlFor="name">
                   <input
