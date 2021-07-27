@@ -8,3 +8,9 @@ export const ProductTitle = styled.h1`
   font-size: 48px;
   font-weight: bold;
 `;
+
+export const ItemsWrapper = styled.div`
+  padding-left: 35px;
+  display: flex;
+  flex-wrap: wrap;
+`

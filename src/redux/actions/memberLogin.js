@@ -1,5 +1,8 @@
 import * as actionTypes from "../constant";
 import axios from "axios";
+import history from '../../utils/history';
+
+
 
 export const changeLogoutState = () => ({
   type: actionTypes.MEMBER_LOGOUT_ACTION,
@@ -10,6 +13,8 @@ export const changeLoginState = (data) => ({
   type: actionTypes.MEMBER_LOGIN_ACTION,
   data,
 });
+
+
 
 export const handleAxiosLogin = (account, password) => {
   //e.preventDefault();
@@ -34,12 +39,15 @@ export const handleAxiosLogin = (account, password) => {
           localStorage.setItem('token', token);
           localStorage.setItem('name', memberName);
           localStorage.setItem('image', memberImage);
+ 
           //action
           const action = changeLoginState({
             errorMsg: "",
             isLogin: true,
           });
           dispatch(action);
+          history.push("/");
+          //window.location.reload();
         } else {
           delete axios.defaults.headers.common["Authorization"];
           //clear localstorage
