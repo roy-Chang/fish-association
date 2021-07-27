@@ -87,7 +87,7 @@ class Calendardate extends Component {
     });
     listFive.forEach((element) => {
       if (element === moment(date).format("DD-MM-YYYY")) {
-        a = "activitylistThree";
+        a = "activitylistFive";
       }
     });
     return a;
@@ -97,6 +97,8 @@ class Calendardate extends Component {
       <>
         <CalendarStyle>
           <Calendar
+            minDate={new Date()}
+            maxDate={new Date(new Date().setMonth(new Date().getMonth() + 1))}
             tileClassName={({ activeStartDate, date, view }) =>
               this.setClass(date)
             }

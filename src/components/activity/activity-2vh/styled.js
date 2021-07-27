@@ -64,6 +64,7 @@ export const ButtonLoc = styled.div`
   svg:hover,
   svg:focus {
     fill: red;
+    cursor: pointer;
   }
 `;
 export const Wrapper = styled.div`
