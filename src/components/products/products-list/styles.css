@@ -34,13 +34,28 @@
   max-width: 200px;
   max-height: 200px;
   overflow: hidden;
+  position: relative;
 }
 .P-categoryImg img {
   height: 100%;
   padding: 0;
   object-fit: cover;
 }
-
+.P-categoryImg span {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  font-size: 24px;
+  display: none;
+}
+.P-categoryImg:hover img {
+  filter: brightness(40%);
+  transform: scale(1.2, 1.2);
+}
+.P-categoryImg:hover span {
+  color: white;
+  display: block;
+}
 /* Left Nav */
 .P-left-nav {
   width: 200px;
@@ -136,15 +151,15 @@
 }
 
 .heart {
-  color: white
+  color: white;
 }
 .heart:hover {
-  color: #E63946;
+  color: #e63946;
   cursor: pointer;
 }
 
 .shopping-cart {
-  color: white
+  color: white;
 }
 
 .shopping-cart:hover {

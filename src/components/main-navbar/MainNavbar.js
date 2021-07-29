@@ -20,6 +20,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { FaUserTimes } from "react-icons/fa";
 import { FaUserCheck } from "react-icons/fa";
+//import bootstrap
+import { Button, Modal } from "react-bootstrap";
 //login image
 //import user from "../../assets/img/footer/user.jpg"
 //../../assets/img/userimage/people-1627149411393.jpg
@@ -28,8 +30,6 @@ import { changeLogoutState } from "../../redux/actions/memberLogin";
 //axios
 import axios from "axios";
 
-
-
 class MainNavbar extends Component {
   // componentDidMount() {
   //   const token = localStorage.getItem('token')
@@ -37,10 +37,27 @@ class MainNavbar extends Component {
   //     //axios
   //     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   //     axios.get('http://localhost:3000/api/profile').then((res) => {
-  //       //isLogin = true 
+  //       //isLogin = true
   //     })
   //   }
   // }
+  //購物車所需要的彈跳視窗
+  constructor(props, context) {
+    super(props, context);
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.state = {
+      show: false,
+    };
+  }
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
+
   render() {
     return (
       <>
@@ -93,13 +110,41 @@ class MainNavbar extends Component {
                     ></td>
                   </tr>
                 </table>
-                <div className="d-flex align-items-center mx-3">
+                {/*購物車 後面記得要加箭頭符號hover*/}
+                <div
+                  className="d-flex align-items-center mx-3"
+                  onClick={this.handleShow}
+                >
                   <FaShoppingCart style={{ width: "25px", height: "25px" }} />
                   <FaCircle
                     style={{ width: "20px", height: "20px" }}
                     className="ml-1"
                   />
                 </div>
+                {/*bootstrap彈跳視窗*/}
+                <Modal show={this.state.show} onHide={this.handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>購物車清單</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <ul className="d-flex justify-content-between">
+                      <li>圖片</li>
+                      <li>鯖魚</li>
+                      <li>1</li>
+                      <li>$200</li>
+                    </ul>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={this.handleClose}>
+                      繼續購物
+                    </Button>
+                    <Button variant="primary" onClick={this.handleClose}>
+                      前往結帳
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+                {/*bootstrap彈跳視窗*/}
+                {/*會員登入狀態判斷*/}
                 {localStorage.getItem("token") === null ||
                 this.props.isLogin === true ||
                 this.props.isLogin === false ? (
@@ -144,7 +189,10 @@ class MainNavbar extends Component {
                             //         "image"
                             //       )}`).default
                             // }
-                            src={require(`../../assets/img/userimage/user.jpg`).default}
+                            src={
+                              require(`../../assets/img/userimage/user.jpg`)
+                                .default
+                            }
                             width="35"
                             height="35"
                             style={{ borderRadius: "50%" }}
