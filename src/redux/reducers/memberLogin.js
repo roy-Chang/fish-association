@@ -2,6 +2,7 @@ import * as actionTypes from "../constant";
 
 const defaultState = {
     errorMsg: '',
+    isFetching: false,
     isLogin: false
 }
 

@@ -10,7 +10,6 @@ import axios from "axios";
 import MemberBoard from "../MemberBoard";
 
 //導入圖片
-//import HeadPic from "../../../../assets/useimage/people-1627149411393.jpg";
 import headPhoto from "../../../../assets/img/userimage/user.jpg";
 import GoldenMember from "../../../../assets/img/member/memberAccount/goldenMember.png";
 import { useHistory } from "react-router-dom";
@@ -122,9 +121,9 @@ function General(props) {
       .post("http://localhost:3000/api/profile/image", photo, {
         headers: header,
       })
-      .then(() => {
-        console.log(data.image);
-        setData(fields);
+      .then((response) => {
+        console.log(response);
+        setData({ ...data, image: response.data });
         console.log(fields);
       });
     // window.location.href = "/member";
@@ -386,7 +385,7 @@ function General(props) {
                   // src={headPhoto}
                   src={
                     window.localStorage.getItem("image") === "null"
-                      ? headPhoto
+                      ? require(headPhoto).default
                       : "http://localhost:3000/" + data.image
                   }
                   alt=""

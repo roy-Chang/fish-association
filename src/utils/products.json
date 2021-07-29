@@ -1,172 +1,202 @@
 {
-    "products": [
+    "fishProducts": [
        {
           "id":1,
           "name":"比目魚",
           "description":"比目魚的肉質細嫩，肉多刺少，更適合家中小孩及老年人食用，可乾煎、清蒸，清蒸料理可以保留更多營養元素及美味口感",
           "price":300,
-          "catalog":1
+          "catalog":1,
+          "image": "flounder3"
         },
         {
             "id":2,
             "name":"秋刀魚",
             "description":"秋刀魚含有豐富的w-3脂肪酸，EPA含量也名列前茅，顯示秋刀魚是DHA的優質來源。也含有豐富的脂溶性維生素Ｅ及水溶性維生素Ｂ12。",
             "price":300,
-            "catalog":1
+            "catalog":1,
+            "image": "pike2"
         },
         {
             "id":3,
             "name":"蒲燒鰻",
             "description":"鰻魚的維生素A、維生素E及脂肪中含有的多元不飽和脂肪酸等，均有較高的含量。 鰻魚肉含有豐富的優質蛋白和各種人體必需的氨基酸。",
             "price":500,
-            "catalog":1
+            "catalog":1,
+            "image": "eel2"
           },
           {
             "id":4,
             "name":"鮪魚",
             "description":"鮪魚富含Omega-3脂肪酸、蛋白質、維生素E、維生素B群、鉀、鐵等營養成分，Omega-3脂肪酸具有抗發炎作用。",
             "price":500,
-            "catalog":1
+            "catalog":1,
+            "image": "tuna1"
           },
           {
             "id":5,
             "name":"鮭魚",
             "description":"鮭魚本體含有豐富的omega-3脂肪酸，一天吃5片，就可以達到當天所需要的營養攝取量，鮭魚有豐富的蛋白質，可幫助肌肉增加。",
             "price":250,
-            "catalog":1
+            "catalog":1,
+            "image": "salmon2"
           },
           {
             "id":6,
             "name":"鯖魚",
             "description":"鯖魚的營養價值非常高，不但有豐富的維生素、礦物質，DHA跟EPA的含量更僅次於鮪魚！ 若能正確搭配食材，還能有清血、抗氧化的功效喔",
             "price":350,
-            "catalog":1
-          },
-          {
-            "id":7,
-            "name":"白蝦",
-            "description":"白蝦含有20%的蛋白質，是蛋白質含量很高的食品之一，是魚、蛋、奶的幾倍至幾十倍。",
-            "price":400,
-            "catalog":2
-          },
-          {
-            "id":8,
-            "name":"泰國蝦",
-            "description":"含有極營養的成分：蛋白質、微生素A、微生素B群、鈣、鐵、磷、鋅及牛磺酸，有助強化肝及心臟，因此也與長壽的象徵有關。",
-            "price":300,
-            "catalog":2
-          },
-          {
-            "id":9,
-            "name":"斑節蝦",
-            "description":"其蝦青素的含量較普通蝦大約高20%，人和動物食用高含蝦青素的蝦肉也可以顯著改善動脈粥樣硬化等疾患。",
-            "price":500,
-            "catalog":2
-          },
-          {
-            "id":10,
-            "name":"草蝦",
-            "description":"草蝦低脂肪、高蛋白可替代雞胸肉，平常蝦紅素與蛋白質結合，存在蝦的外殼或是蝦肉之中。",
-            "price":300,
-            "catalog":2
-          },
-          {
-            "id":11,
-            "name":"龍蝦",
-            "description":"龍蝦中礦物質總量約為1.6%，其中鈣、磷、鈉及鐵的含量都比一般畜禽肉高，也比對蝦高。 因此經常食用龍蝦肉可保持神經、肌肉的興奮性。",
-            "price":600,
-            "catalog":2
-          },
-          {
-            "id":12,
-            "name":"櫻花蝦",
-            "description":"含有豐富的鈣及磷，小兒食可以開胃健脾，老年人常食櫻花蝦尤有補益功效，可強化骨骼，預防缺鈣所致的骨質疏鬆症。",
-            "price":200,
-            "catalog":2
-          },
+            "catalog":1,
+            "image": "mackerel1"
+          }
+    ],
+    "shrimpProducts": [
+      {
+        "id":7,
+        "name":"白蝦",
+        "description":"白蝦含有20%的蛋白質，是蛋白質含量很高的食品之一，是魚、蛋、奶的幾倍至幾十倍。",
+        "price":400,
+        "catalog":2,
+        "image": "whiteShrimp2"
+      },
+      {
+        "id":8,
+        "name":"泰國蝦",
+        "description":"含有極營養的成分：蛋白質、微生素A、微生素B群、鈣、鐵、磷、鋅及牛磺酸，有助強化肝及心臟，因此也與長壽的象徵有關。",
+        "price":300,
+        "catalog":2,
+        "image": "thaiShrimp1"
+      },
+      {
+        "id":9,
+        "name":"斑節蝦",
+        "description":"其蝦青素的含量較普通蝦大約高20%，人和動物食用高含蝦青素的蝦肉也可以顯著改善動脈粥樣硬化等疾患。",
+        "price":500,
+        "catalog":2,
+        "image": "penaeus3"
+      },
+      {
+        "id":10,
+        "name":"草蝦",
+        "description":"草蝦低脂肪、高蛋白可替代雞胸肉，平常蝦紅素與蛋白質結合，存在蝦的外殼或是蝦肉之中。",
+        "price":300,
+        "catalog":2,
+        "image": "prawn1"
+      },
+      {
+        "id":11,
+        "name":"龍蝦",
+        "description":"龍蝦中礦物質總量約為1.6%，其中鈣、磷、鈉及鐵的含量都比一般畜禽肉高，也比對蝦高。 因此經常食用龍蝦肉可保持神經、肌肉的興奮性。",
+        "price":600,
+        "catalog":2,
+        "image": "lobster2"
+      },
+      {
+        "id":12,
+        "name":"櫻花蝦",
+        "description":"含有豐富的鈣及磷，小兒食可以開胃健脾，老年人常食櫻花蝦尤有補益功效，可強化骨骼，預防缺鈣所致的骨質疏鬆症。",
+        "price":200,
+        "catalog":2,
+        "image": "sakuraShrimp2"
+      }
+    ],
+    "shellProducts": [
           {
             "id":13,
             "name":"干貝",
             "description":"干貝的營養價為豐富，除了含有好的脂肪、蛋白質、磷、等營養元素之外，其含有豐富的谷氨酸鈉更是鮮甜的秘密，干貝的蛋白質含量高達61.8%",
             "price":600,
-            "catalog":3
+            "catalog":3,
+            "image": "scallop1"
           },
           {
             "id":14,
             "name":"文蛤",
             "description":"蛤蜊營養價值高，含蛋白質、硒等多種礦物質和維生素，《本草經疏》中記載：「蛤蜊性滋潤，潤五臟、止消渴，能開胃。」",
             "price":200,
-            "catalog":3
+            "catalog":3,
+            "image": "clam2"
           },
           {
             "id":15,
             "name":"生蠔",
             "description":"營養豐富，高蛋白低脂肪，含有人體必需的8 種氨基酸，生蠔有著美容養顏、寧心安神、益智健腦的功效。",
             "price":600,
-            "catalog":3
+            "catalog":3,
+            "image": "oyster3"
           },
           {
             "id":16,
             "name":"白貝",
             "description":"白貝食用也可以用來藥用，白貝的營養價值很高而且還有很好的食療功效，多吃不怕肥胖。",
             "price":300,
-            "catalog":3
+            "catalog":3,
+            "image": "whiteScallop3"
           },
           {
             "id":17,
             "name":"扇貝",
             "description":"扇貝富含蛋白質、歐米伽3脂肪酸、B族維生素、鎂和鉀，熱量低且不含飽和脂肪。 常吃扇貝有助於預防心臟病、中風及老年癡呆症。",
             "price":400,
-            "catalog":3
+            "catalog":3,
+            "image": "fanScallop2"
           },
           {
             "id":18,
             "name":"蜆",
             "description":"蜆的營養成分大多是礦物質、維生素及胺基酸，能夠促進肝臟的功能，是個營養成分非常豐富的食材！",
             "price":200,
-            "catalog":3
-          },
+            "catalog":3,
+            "image": "taiwanClam1"
+          }
+    ],
+    "cephalopodProducts": [
           {
             "id":19,
             "name":"花枝",
             "description":"花枝有豐富維生素B群外，每100公克含蛋白質約12公克、脂肪0.5公克，對於想控制體重的人，是不錯的選擇。",
             "price":600,
-            "catalog":4
+            "catalog":4,
+            "image": "cuttlefish3"
           },
           {
             "id":20,
             "name":"章魚",
             "description":"章魚含有豐富的蛋白質、礦物質等營養元素，富含牛黃酸，章魚中的牛磺酸含量比一般的肉類高很多。",
             "price":500,
-            "catalog":4
+            "catalog":4,
+            "image": "octopus3"
           },
           {
             "id":21,
             "name":"透抽",
             "description":"透抽含有豐富的維生素E，能夠有效延緩細胞老化，同時具有預防老年失智的功效，中老年人不妨適量攝取。",
             "price":600,
-            "catalog":4
+            "catalog":4,
+            "image": "loliginidae3"
           },
           {
             "id":22,
             "name":"墨魚",
             "description":"墨魚味道鮮美，營養豐富，歷代醫家認為，墨魚性味甘、咸、平，有滋肝腎、養血滋陰、益氣諸功效。",
             "price":300,
-            "catalog":4
+            "catalog":4,
+            "image": "cuttle2"
           },
           {
             "id":23,
             "name":"魷魚",
             "description":"魷魚具有高蛋白、低脂肪、低熱量的優點，不但富含蛋白質、鈣、磷、鐵，以及鈣硒、碘、錳等微量元素， 還含有豐富的DHA。",
             "price":600,
-            "catalog":4
+            "catalog":4,
+            "image": "squid3"
           },
           {
             "id":24,
             "name":"小卷",
             "description":"特別向國人推廣軟絲，軟絲身幾無膽固醇，並具優良蛋白質，含有預防心血管疾病的 EPA，及促進嬰幼兒腦部發育的 DHA等高度不飽和脂肪酸，是物美價廉的好食品。",
             "price":200,
-            "catalog":4
+            "catalog":4,
+            "image": "smallVolume2"
           }
     ]
   }

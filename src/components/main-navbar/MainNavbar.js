@@ -27,6 +27,16 @@ import { changeLogoutState } from "../../redux/actions/memberLogin";
 import axios from "axios";
 
 class MainNavbar extends Component {
+  // componentDidMount() {
+  //   const token = localStorage.getItem('token')
+  //   if(token) {
+  //     //axios
+  //     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  //     axios.get('http://localhost:3000/api/profile').then((res) => {
+  //       //isLogin = true
+  //     })
+  //   }
+  // }
   render() {
     return (
       <>
@@ -130,6 +140,10 @@ class MainNavbar extends Component {
                             //         "image"
                             //       )}`).default
                             // }
+                            src={
+                              require(`../../assets/img/userimage/user.jpg`)
+                                .default
+                            }
                             width="35"
                             height="35"
                             style={{ borderRadius: "50%" }}
