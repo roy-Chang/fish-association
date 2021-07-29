@@ -4,7 +4,11 @@ import Calendardate from "./Calendar";
 import StarRating from "./StarRating";
 import { SignUpArea, SignUpDetail, SignUpPrice } from "./styled";
 import { Button } from "react-bootstrap";
+import { createBrowserHistory } from 'history';
 const axios = require("axios");
+
+
+
 
 class SignUp extends Component {
   constructor(props) {
@@ -31,6 +35,9 @@ class SignUp extends Component {
     };
     this.chooseDate = this.chooseDate.bind(this);
   }
+
+  history = createBrowserHistory()
+
   componentDidMount() {
     axios({
       method: "get",
@@ -144,7 +151,6 @@ class SignUp extends Component {
     console.log(chooserClass);
     return (
       <>
-        <Router>
           <SignUpArea>
             <ul className="d-flex">
               <li>
@@ -239,15 +245,16 @@ class SignUp extends Component {
                   {this.state.limit_num}個名額
                 </p>
               </div>
-              <Link to="/signupFirst">
-                <Button className="sign-up-btn">立即報名</Button>
+              <Link to="/order/activity/1">
+              立即報名
+                {/* <Button onClick={() => (this.history.push('/order/activity/1'))} className="sign-up-btn">立即報名</Button> */}
               </Link>
               <Button className="member-sign-up-btn" href="#">
                 會員報名
               </Button>
             </SignUpPrice>
           </SignUpDetail>
-        </Router>
+        
       </>
     );
   }

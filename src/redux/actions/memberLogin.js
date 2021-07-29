@@ -14,17 +14,17 @@ export const changeLoginState = (data) => ({
   data,
 });
 
-export const handleGoogleLogin = (token, data) => {
+export const handleGoogleLogin = (token) => {
+  console.log(token)
   return (dispatch) => {
     axios
-      .get('http://localhost:3000/api/member/login/google', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
+      .post('http://localhost:3000/api/member/login/google', token, { headers: {
+         Accept: 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
+      }})
       .then((res) => {
-        const action = changeLoginState(data);
-        dispatch(action);
+        //const action = changeLoginState(data);
+        //dispatch(action);
       })
   }
 }

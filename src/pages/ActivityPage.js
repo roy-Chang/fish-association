@@ -11,9 +11,8 @@ import "../assets/css/styled.css";
 import "react-bootstrap"; //Toast
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import FirstOrder from "../components/activity/activity-order/FirstStep/FirstOrder";
-import SecondOrder from "../components/activity/activity-order/SecondStep/SecondOrder";
-import ThirdOrder from "../components/activity/activity-order/ThirdStep/ThirdOrder";
+//order page
+//import FirstOrder from "../components/activity/activity-order/FirstStep/FirstOrder";
 
 function ActivityPage() {
   return (
@@ -26,9 +25,6 @@ function ActivityPage() {
           <Forthpage />
           <Fifthpage />
           <MainFooter />
-          <Route path="/signupFirst" component={FirstOrder} />
-          <Route path="/signupSecond" component={SecondOrder} />
-          <Route path="/signupThird" component={ThirdOrder} />
         </div>
       </Router>
     </>

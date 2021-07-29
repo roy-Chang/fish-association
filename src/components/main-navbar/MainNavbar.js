@@ -7,6 +7,8 @@ import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
 import MemberPage from "../../pages/MemberPage";
 import ProductsListPage from "../../pages/ProductsListPage";
+import ActivityOrder from "../../pages/ActivityOrder";
+//import FirstOrder from "../activity/activity-order/FirstStep/FirstOrder";
 //import ProductsDetailPage from "../../pages/ProductsDetailPage";
 import { Component } from "react";
 /* css import */
@@ -170,6 +172,7 @@ class MainNavbar extends Component {
           </Navbar>
           <Route path="/" exact component={IndexPage} />
           <Route path="/activity" component={ActivityPage} />
+          <Route path="/order/activity/1" component={ActivityOrder} />
           <Route path="/travelNotes" component={TravelNotesPage} />
           <Route path="/products" component={ProductsListPage} />
           <Route path="/member" />
