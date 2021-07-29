@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import Calendardate from "./Calendar";
 import StarRating from "./StarRating";
 import { SignUpArea, SignUpDetail, SignUpPrice } from "./styled";
@@ -143,108 +144,110 @@ class SignUp extends Component {
     console.log(chooserClass);
     return (
       <>
-        <SignUpArea>
-          <ul className="d-flex">
-            <li>
-              <a
-                href="#"
-                //onClick={this.handleClick}
-                className={`actone ${chooserClass}`}
-                style={{ borderRadius: "20px 0 0 0" }}
-              >
-                正濱漁港
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`acttwo ${chooserClass}`}
-                //onClick={this.handleClick}
-              >
-                龜吼漁港
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`actthree ${chooserClass}`}
-                //onClick={this.handleClick}
-              >
-                深澳漁港
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`actfour ${chooserClass}`}
-                //onClick={this.handleClick}
-              >
-                龍洞
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`actfive ${chooserClass}`}
-                //onClick={this.handleClick}
-                style={{ borderRadius: "0 20px 0 0" }}
-              >
-                基隆
-              </a>
-            </li>
-          </ul>
-        </SignUpArea>
-        <SignUpDetail className="d-flex">
-          <Calendardate
-            onChange={this.chooseDate}
-            className="calendar"
-            zhengbinArray={this.state.zhengbinArray}
-            wanliArray={this.state.wanliArray}
-            ruifangArray={this.state.ruifangArray}
-            longdongArray={this.state.longdongArray}
-            keelungArray={this.state.keelungArray}
-            id="calendar"
-          ></Calendardate>
-          <SignUpPrice>
-            <h3 className="mb-2">
-              {this.state.name}報名{" "}
-              <span style={{ color: "#E63946" }}>{this.state.msg}</span>
-            </h3>
-            <ul>
-              <li>地點:{this.state.place}</li>
-              <li>日期:{this.state.apply}</li>
-              <li>魚種:{this.state.schedule}</li>
+        <Router>
+          <SignUpArea>
+            <ul className="d-flex">
+              <li>
+                <a
+                  href="#"
+                  //onClick={this.handleClick}
+                  className={`actone ${chooserClass}`}
+                  style={{ borderRadius: "20px 0 0 0" }}
+                >
+                  正濱漁港
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className={`acttwo ${chooserClass}`}
+                  //onClick={this.handleClick}
+                >
+                  龜吼漁港
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className={`actthree ${chooserClass}`}
+                  //onClick={this.handleClick}
+                >
+                  深澳漁港
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className={`actfour ${chooserClass}`}
+                  //onClick={this.handleClick}
+                >
+                  龍洞
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className={`actfive ${chooserClass}`}
+                  //onClick={this.handleClick}
+                  style={{ borderRadius: "0 20px 0 0" }}
+                >
+                  基隆
+                </a>
+              </li>
             </ul>
-            <p style={{ margin: "0" }}>{this.state.clickDate}</p>
-            <StarRating />
-            <div className="d-flex">
+          </SignUpArea>
+          <SignUpDetail className="d-flex">
+            <Calendardate
+              onChange={this.chooseDate}
+              className="calendar"
+              zhengbinArray={this.state.zhengbinArray}
+              wanliArray={this.state.wanliArray}
+              ruifangArray={this.state.ruifangArray}
+              longdongArray={this.state.longdongArray}
+              keelungArray={this.state.keelungArray}
+              id="calendar"
+            ></Calendardate>
+            <SignUpPrice>
+              <h3 className="mb-2">
+                {this.state.name}報名{" "}
+                <span style={{ color: "#E63946" }}>{this.state.msg}</span>
+              </h3>
               <ul>
-                <li>
-                  成人<span className="age">(18-64歲)</span>
-                </li>
-                <li>
-                  兒童<span className="age">(04-11歲)</span>
-                </li>
+                <li>地點:{this.state.place}</li>
+                <li>日期:{this.state.apply}</li>
+                <li>魚種:{this.state.schedule}</li>
               </ul>
-              <ul>
-                <li>TWD{this.state.cost_adult}/每人</li>
-                <li>TWD{this.state.cost_children}/每人</li>
-              </ul>
-            </div>
-            <div style={{ color: " #1d3557" }}>
-              <p>
-                目前已有{this.state.current_apply}位報名 ， 最後剩下
-                {this.state.limit_num}個名額
-              </p>
-            </div>
-            <Button className="sign-up-btn" href="#">
-              立即報名
-            </Button>
-            <Button className="member-sign-up-btn" href="#">
-              會員報名
-            </Button>
-          </SignUpPrice>
-        </SignUpDetail>
+              <p style={{ margin: "0" }}>{this.state.clickDate}</p>
+              <StarRating />
+              <div className="d-flex">
+                <ul>
+                  <li>
+                    成人<span className="age">(18-64歲)</span>
+                  </li>
+                  <li>
+                    兒童<span className="age">(04-11歲)</span>
+                  </li>
+                </ul>
+                <ul>
+                  <li>TWD{this.state.cost_adult}/每人</li>
+                  <li>TWD{this.state.cost_children}/每人</li>
+                </ul>
+              </div>
+              <div style={{ color: " #1d3557" }}>
+                <p>
+                  目前已有{this.state.current_apply}位報名 ， 最後剩下
+                  {this.state.limit_num}個名額
+                </p>
+              </div>
+              <Link to="/signupFirst">
+                <Button className="sign-up-btn">立即報名</Button>
+              </Link>
+              <Button className="member-sign-up-btn" href="#">
+                會員報名
+              </Button>
+            </SignUpPrice>
+          </SignUpDetail>
+        </Router>
       </>
     );
   }

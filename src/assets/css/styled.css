@@ -110,22 +110,24 @@ a:hover {
   right: 150px;
 }
 .activitylistOne {
-  color: blue;
-  background-color: #97c7eb !important;
+  color: rgb(129, 26, 203);
+  background-color: #c6a1de !important;
 }
 .activitylistTwo {
   color: rgb(245, 112, 29);
-  background-color: #e1d9a5 !important;
+  background-color: rgb(240, 240, 160) !important;
 }
 .activitylistThree {
-  color: #166322;
-  background-color: #afe2db !important;
+  color: #184771;
+  background-color: #b5ede5 !important;
 }
 .activitylistFour {
-  color: rgb(74, 21, 89);
+  color: #2e415e;
+  background-color: #6c9de8 !important;
 }
 .activitylistFive {
-  color: rgb(125, 19, 19);
+  color: rgb(189, 35, 35);
+  background-color: #e89191 !important;
 }
 a.actone.actone,
 a.acttwo.acttwo,
