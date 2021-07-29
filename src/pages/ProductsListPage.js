@@ -14,6 +14,8 @@ import FishBlock from "../components/products/products-list/FishBlock";
 import SchrimpBlock from '../components/products/products-list/SchrimpBlock';
 import SellBlock from '../components/products/products-list/SellBlock';
 import CehalopodBlock from '../components/products/products-list/CehalopodBlock';
+import DetailBlock from "../components/products/products-detail/DetailBlock";
+
 
 function ProductsListPage() {
   return (
@@ -47,6 +49,7 @@ function ProductsListPage() {
                     <Route path="/shrimp" component={SchrimpBlock} />
                     <Route path="/shell" component={SellBlock} />
                     <Route path="/squid" component={CehalopodBlock} />
+                    <Route path="/detail/:type/:name/:id" component={DetailBlock} />
                 </div>
               </div>
             </Container>

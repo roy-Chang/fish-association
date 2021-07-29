@@ -1,33 +1,37 @@
 import React from "react";
-
+import { useParams } from "react-router-dom";
 import { Button, Row, Col } from "react-bootstrap";
 
 /* img import */
 import scallops01 from "../../../assets/img/products/shell/scallops01.jpeg";
+//json
+import productsAll from '../../../utils/products.json';
+
 
 function DetailTop() {
+  
+  const { type, name, id } = useParams();
+  const str = type;
+  const newType = str.replace(/Products/, "");
+  const itemFilter = productsAll[`${type}`];
+  const findItem = itemFilter.find((item) => { if(item.id == Number.parseInt(id)) return true })
+  
   return (
     <>
+      {console.log(type)}
       <Row className="P-deatil-top">
         <Col sm={4} className="P-detail-pic">
           <div className="P-detail-main-img">
-            <img src={scallops01} alt=""></img>
-          </div>
-          <div className="P-detail-sub-img d-flex mt-3">
-            <img src={scallops01} alt=""></img>
-            <img src={scallops01} alt=""></img>
-            <img src={scallops01} alt=""></img>
-          </div>
+            <img src={require(`../../../assets/img/products/${newType}/${findItem.image}.jpg`).default} alt=""></img>
+          </div> 
         </Col>
         <Col sm={8} className="P-detail-des">
-          <h1>北海道帆立貝柱 (300g)</h1>
+          <h1>{name}</h1>
           <p>
-            來自日本北海道，海水潔淨天然無污染，地理位置優越，為寒暖流交會之海域的野生干貝，品質口感特
-            優，產品以超低溫急速冷凍，保證新鮮，通過SGS的檢驗標準
-            ，讓您吃的放心。
+            {findItem.description}
           </p>
           <hr></hr>
-          <p>售價 : 600 元</p>
+          <p>售價 : {findItem.price} 元</p>
           <hr></hr>
           <div>
             <label for="pet-select">數量 :</label>

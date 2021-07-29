@@ -1,8 +1,9 @@
 import * as actionTypes from "../constant";
 
 const defaultState = {
+    name: '',
+    image: '',
     errorMsg: '',
-    isFetching: false,
     isLogin: false
 }
 
@@ -10,9 +11,14 @@ export default (state = defaultState, action) => {
     if(action.type === actionTypes.MEMBER_LOGIN_ACTION) {
         const newState = {
             ...state,
+            name: action.data.name,
+            image: action.data.image,
             isLogin: action.data.isLogin,
-            errorMsg: action.data.errorMsg
-        }       
+        }
+        const token = action.data.token
+        localStorage.setItem('token', token);
+        localStorage.setItem('name', newState.name);
+        localStorage.setItem('image', newState.image);
         return newState;
     }
     if(action.type === actionTypes.MEMBER_LOGOUT_ACTION) {

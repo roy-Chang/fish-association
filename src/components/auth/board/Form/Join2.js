@@ -149,6 +149,7 @@ const mapStateToProps = (state) => {
     password: state.memberRegister.passwordRegister,
     repassword: state.memberRegister.comfirmPasswordRegister,
     msg: state.memberRegister.msg,
+    registerSuccess: state.memberRegister.registerSuccess,
   };
 };
 

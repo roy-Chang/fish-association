@@ -21,9 +21,9 @@ export const LocationInfo = styled.div`
   border-radius: 20px;
   margin: 0 auto;
   margin-top: 90px;
-  height: 500px;
 `;
-
+//height: 500px;
+//position: relative;
 export const InfoContent = styled.div`
   margin-left: 50px;
   flex-direction: column;
@@ -55,6 +55,16 @@ export const RightLoc = styled.div`
   img {
     border-radius: 100% 0 20px 0;
     max-width: 300px;
+  }
+`;
+export const ButtonLoc = styled.div`
+  right: 600px;
+  top: 350px;
+  position: absolute;
+  svg:hover,
+  svg:focus {
+    fill: red;
+    cursor: pointer;
   }
 `;
 export const Wrapper = styled.div`

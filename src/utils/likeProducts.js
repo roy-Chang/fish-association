@@ -16,12 +16,12 @@ import oyster3 from "../assets/img/products/shell/oyster3.jpg";
 import whiteScallop3 from "../assets/img/products/shell/whiteScallop3.jpg";
 import fanScallop2 from "../assets/img/products/shell/fanScallop2.jpg";
 import taiwanClam1 from "../assets/img/products/shell/taiwanClam1.jpg";
-import cuttlefish3 from "../assets/img/products/squid/cuttlefish3.jpg";
-import octopus3 from "../assets/img/products/squid/octopus3.jpg";
-import loliginidae3 from "../assets/img/products/squid/loliginidae3.jpg";
-import cuttle2 from "../assets/img/products/squid/cuttle2.jpg";
-import squid3 from "../assets/img/products/squid/squid3.jpg";
-import smallVolume2 from "../assets/img/products/squid/smallVolume2.jpg";
+import cuttlefish3 from "../assets/img/products/cephalopod/cuttlefish3.jpg";
+import octopus3 from "../assets/img/products/cephalopod/octopus3.jpg";
+import loliginidae3 from "../assets/img/products/cephalopod/loliginidae3.jpg";
+import cuttle2 from "../assets/img/products/cephalopod/cuttle2.jpg";
+import squid3 from "../assets/img/products/cephalopod/squid3.jpg";
+import smallVolume2 from "../assets/img/products/cephalopod/smallVolume2.jpg";
 
 export default {
   myProducts: [

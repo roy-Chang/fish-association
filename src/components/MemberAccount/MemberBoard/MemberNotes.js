@@ -5,12 +5,6 @@ import SweetAlert from "sweetalert2-react";
 import "./MemberCSS/MemberNotes.css";
 
 const moment = require("moment");
-// const WarningData = {
-//   title: "Are you sure?",
-//   type: "warning",
-//   text: "You won't be able to revert this!",
-//   footer: "",
-// };
 function MemberNotes() {
   // const [state, setState] = useState();
   const [notes, setNotes] = useState([]);
@@ -52,7 +46,35 @@ function MemberNotes() {
                         </p>
                       </div>
                     </div>
-                    <Button className="MNbtn">刪除</Button>
+                    <Button
+                      className="MNbtn"
+                      onClick={() => {
+                        const article = notes.filter((v, i) => {
+                          return v.id !== note.id;
+                        });
+                        let header = {
+                          Authorization: `Bearer ${token}`,
+                          "Content-Type": "application/json",
+                          Accept: "application/json",
+                        };
+
+                        axios
+                          .patch(
+                            "http://localhost:3000/api/profile/note/delete",
+                            { note: notes },
+                            {
+                              headers: header,
+                            }
+                          )
+                          .then((response) => {
+                            console.log(response);
+                            setNotes(article);
+                          });
+                      }}
+                      onChange={(e) => {}}
+                    >
+                      刪除
+                    </Button>
                   </div>
                   <hr />
                 </div>

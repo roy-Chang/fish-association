@@ -43,10 +43,20 @@
   /* color: var(--fontWhite); */
   /* margin-left: 33%; */
   border-radius: 8px;
-  margin: 15px 30% 43px;
+  margin: 10px 30% 10px;
   border: none;
 }
 
 .MLbtn:hover {
   background: var(--btnHover);
+}
+
+.google {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.google-btn {
+  margin-top: 10px;
+  margin-bottom: 50px;
 }

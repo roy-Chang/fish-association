@@ -15,10 +15,12 @@ import productsAll from '../../../../utils/products.json'
 
 
 import { Link } from "react-router-dom";
-
+//history
+import { useHistory } from 'react-router-dom'
 
 function SellItems() {
-
+  const history = useHistory()
+  
   return (
     <>
     {console.log(productsAll)}
@@ -31,16 +33,17 @@ function SellItems() {
               </figure>
               <div className="d-flex justify-content-end align-items-center mr-3">
                 <BsHeartFill
-                  style={{ width: "25px", height: "25px", color: "white" }}
-                  className="mx-2"
+                  style={{ width: "25px", height: "25px" }}
+                  className="mx-2 heart"
                 />
                 <FaShoppingCart
-                  style={{ width: "25px", height: "25px", color: "white" }}
+                  style={{ width: "25px", height: "25px" }}
+                  className="shopping-cart"
                 />
               </div>
               <Card.Body>
                 <Card.Title>
-                  <Link to="/detail">{item.name}</Link>
+                <Link onClick={() => (history.push(`/detail/shellProducts/${item.name}/${item.id}`))}>{item.name}</Link>
                 </Card.Title>
                 <Card.Text>定價 ${item.price}</Card.Text>
               </Card.Body>

@@ -1,12 +1,12 @@
 import * as actionTypes from "../constant";
 import axios from "axios";
-import history from '../../utils/history';
+
 
 
 
 export const changeLogoutState = () => ({
   type: actionTypes.MEMBER_LOGOUT_ACTION,
-  isLogin: '',
+  isLogin: false,
 });
 
 export const changeLoginState = (data) => ({
@@ -14,6 +14,20 @@ export const changeLoginState = (data) => ({
   data,
 });
 
+export const handleGoogleLogin = (token, data) => {
+  return (dispatch) => {
+    axios
+      .get('http://localhost:3000/api/member/login/google', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then((res) => {
+        const action = changeLoginState(data);
+        dispatch(action);
+      })
+  }
+}
 
 
 export const handleAxiosLogin = (account, password) => {
@@ -32,22 +46,18 @@ export const handleAxiosLogin = (account, password) => {
         const memberName = serverResponse.data.member.name;
         const memberImage = serverResponse.data.member.image;
         if (token) {
-          console.log(memberImage)
           // set header
           axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-          //set localstorage
-          localStorage.setItem('token', token);
-          localStorage.setItem('name', memberName);
-          localStorage.setItem('image', memberImage);
- 
+        
           //action
           const action = changeLoginState({
-            errorMsg: "",
+            token: token,
+            name: memberName,
+            image: memberImage,
             isLogin: true,
           });
           dispatch(action);
-          history.push("/");
-          //window.location.reload();
+          
         } else {
           delete axios.defaults.headers.common["Authorization"];
           //clear localstorage
