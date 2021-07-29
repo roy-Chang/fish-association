@@ -1,13 +1,19 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./MemberLogin.css";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 //action creator
-import { handleAxiosLogin } from "../../../../redux/actions/memberLogin";
+import { handleAxiosLogin, changeLoginState, handleGoogleLogin } from "../../../../redux/actions/memberLogin";
 import { Redirect } from "react-router";
+//google 
+import GoogleLogin from "react-google-login";
+import axios from 'axios';
 
-class FormLogin extends PureComponent {
+
+
+class FormLogin extends Component {
+  
   render() {
     let goto = null;
     if (this.props.isLogin) {
@@ -53,14 +59,6 @@ class FormLogin extends PureComponent {
                 </Form.Text>
               </Form.Text>
             </Form.Text>
-            <Form.Text className="MLitem MLitemVerification">
-              <Form.Text className="MLitemContent">
-                <Form.Text className="MLverification"></Form.Text>
-                <Form.Text className="MLcheck MLcheckAccount">
-                  圖形驗證錯誤
-                </Form.Text>
-              </Form.Text>
-            </Form.Text>
             <Button
               onClick={() => {
                 this.props.handleFormClick(this.account, this.password);
@@ -70,6 +68,21 @@ class FormLogin extends PureComponent {
             >
               登入
             </Button>
+            <Form.Text className="text-center" style={{color: 'white', fontSize: '16px'}}>
+              - 或者使用 - 
+            </Form.Text>
+            <div className="google">
+              <GoogleLogin 
+                theme="dark"
+                clientId="1090154977683-uuphfjn83kjaijk2avt976jtglm5k3c0.apps.googleusercontent.com"
+                onSuccess={this.props.successGoogle}
+                onFailure={this.props.failureGoogle}
+                cookiePolicy={'single_host_origin'}
+                className="google-btn"
+                buttonText="使用GOOGLE登入"
+              />
+            </div> 
+            {/* <div><button onClick={this.props.tryGoogle}>try google</button></div> */}
           </Form.Text>
         </div>
       </>
@@ -91,6 +104,33 @@ const mapDispatchToProps = (dispatch) => {
       const action = handleAxiosLogin(account.value, password.value);
       dispatch(action)
     },
+    successGoogle(response) {
+      const name = response.profileObj.name;
+      const image = response.profileObj.imageUrl;
+      const token = response.tokenId;
+      //console.log(token)
+      //handleGoogleLogin(token)
+      try {
+        const data = {
+          name,
+          image,
+          token,
+          isLogin: true
+        }
+        const action = handleGoogleLogin(token, data)
+        dispatch(action)
+      } catch(error) {
+        console.log(error)
+      }
+    },
+    failureGoogle(response) {
+      console.log(response)
+    },
+    // tryGoogle() {
+    //   axios.get('http://localhost:3000/api/member/login/google/test').then((res) => {
+    //     console.log(res)
+    //   })
+    // }
   };
 };
 

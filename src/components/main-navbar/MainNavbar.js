@@ -7,7 +7,7 @@ import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
 import MemberPage from "../../pages/MemberPage";
 import ProductsListPage from "../../pages/ProductsListPage";
-import ProductsDetailPage from "../../pages/ProductsDetailPage";
+//import ProductsDetailPage from "../../pages/ProductsDetailPage";
 import { Component } from "react";
 /* css import */
 import "../../assets/css/styled.css";
@@ -172,12 +172,9 @@ class MainNavbar extends Component {
           <Route path="/activity" component={ActivityPage} />
           <Route path="/travelNotes" component={TravelNotesPage} />
           <Route path="/products" component={ProductsListPage} />
-          <Route
-            path="/member"
-            render={() => <MemberPage something={"123456789"} />}
-          />
+          <Route path="/member" />
           <Route path="/auth" component={AuthPage} />
-          <Route path="/detail" component={ProductsDetailPage} />
+          <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
         </Router>
       </>
     );

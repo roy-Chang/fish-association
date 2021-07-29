@@ -19,7 +19,7 @@ export const saveInputValueStepTwo = (data) => ({
 export const registerAxios = (data) => {
   return (dispatch) => {
     axios
-      .post("http://localhost:5000/api/member/register", {
+      .post("http://localhost:3000/api/member/register", {
         member: {
           account: data.account,
           email: data.email,

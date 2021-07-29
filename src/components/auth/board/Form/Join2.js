@@ -9,6 +9,7 @@ import { prevStep, registerAxios } from '../../../../redux/actions/memberRegiste
 
 class Join2 extends Component {
   render() {
+    
     return (
       <>
         <Form>
@@ -117,7 +118,8 @@ const mapStateToProps = (state) => {
     email: state.memberRegister.emailRegister,
     password: state.memberRegister.passwordRegister,
     repassword: state.memberRegister.comfirmPasswordRegister,
-    msg: state.memberRegister.msg
+    msg: state.memberRegister.msg,
+    registerSuccess: state.memberRegister.registerSuccess
   }
 }
 

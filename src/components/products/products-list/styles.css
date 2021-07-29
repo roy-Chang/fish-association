@@ -134,3 +134,20 @@
   height: 100%;
   object-fit: cover;
 }
+
+.heart {
+  color: white
+}
+.heart:hover {
+  color: #E63946;
+  cursor: pointer;
+}
+
+.shopping-cart {
+  color: white
+}
+
+.shopping-cart:hover {
+  color: #2970a0;
+  cursor: pointer;
+}
