@@ -1,5 +1,5 @@
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import IndexPage from "../../pages/IndexPage";
 import ActivityPage from "../../pages/ActivityPage";
@@ -170,14 +170,16 @@ class MainNavbar extends Component {
               </Nav>
             </Navbar.Collapse>
           </Navbar>
-          <Route path="/" exact component={IndexPage} />
-          <Route path="/activity" component={ActivityPage} />
-          <Route path="/order/activity/1" component={ActivityOrder} />
-          <Route path="/travelNotes" component={TravelNotesPage} />
-          <Route path="/products" component={ProductsListPage} />
-          <Route path="/member" />
-          <Route path="/auth" component={AuthPage} />
-          <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
+          <Switch>
+            <Route path="/" exact component={IndexPage} />
+            <Route path="/activity" component={ActivityPage} />
+            <Route path="/order/activity" component={ActivityOrder} />
+            <Route path="/travelNotes" component={TravelNotesPage} />
+            <Route path="/products" component={ProductsListPage} />
+            <Route path="/member" />
+            <Route path="/auth" component={AuthPage} />
+            <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
+          </Switch>
         </Router>
       </>
     );

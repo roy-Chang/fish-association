@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Firstpage from "../components/activity/activity-1vh/Firstpage";
 import Secondpage from "../components/activity/activity-2vh/Secondpage";
 import Threepage from "../components/activity/activity-3vh/Threepage";
@@ -17,7 +17,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function ActivityPage() {
   return (
     <>
-      <Router>
+     
         <div className="activity-wrapper activity-bg-green">
           <Firstpage />
           <Secondpage />
@@ -26,7 +26,7 @@ function ActivityPage() {
           <Fifthpage />
           <MainFooter />
         </div>
-      </Router>
+     
     </>
   );
 }
