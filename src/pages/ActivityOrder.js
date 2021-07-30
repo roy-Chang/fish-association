@@ -10,7 +10,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function ActivityOrder() {
   return (
     <>
-       <FirstOrder/>
+      <div className="activity-wrapper">
+        <FirstOrder />
+      </div>
     </>
   );
 }

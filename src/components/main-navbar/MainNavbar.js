@@ -219,18 +219,19 @@ class MainNavbar extends Component {
             </Navbar.Collapse>
           </Navbar>
 
-
           <Switch>
             <Route path="/" exact component={IndexPage} />
             <Route path="/activity" component={ActivityPage} />
-            <Route path="/order/activity" component={ActivityOrder} />
+            <Route path="/order/activity/:name" component={ActivityOrder} />
             <Route path="/travelNotes" component={TravelNotesPage} />
             <Route path="/products" component={ProductsListPage} />
             <Route path="/member" />
             <Route path="/auth" component={AuthPage} />
-            <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
+            <Route
+              path="/detail/:type/:name/:id"
+              component={ProductsListPage}
+            />
           </Switch>
-
         </Router>
       </>
     );
