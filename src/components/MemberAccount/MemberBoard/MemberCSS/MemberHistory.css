@@ -44,7 +44,7 @@
   font-size: 20px;
   display: inline-flex;
   width: 90%;
-  margin: 20px 0px 20px 40px;
+  margin: 10px 0px 10px 40px;
 }
 
 .MHitem img {
@@ -69,8 +69,8 @@
   display: inline-flex;
   color: var(--fontWhite);
   font-size: 24px;
-  margin-top: 20px;
-  margin-left: 40px;
+  margin-top: 10px;
+  margin-left: 60px;
   align-items: flex-end;
 }
 

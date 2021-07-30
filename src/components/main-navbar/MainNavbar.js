@@ -170,6 +170,8 @@ class MainNavbar extends Component {
               </Nav>
             </Navbar.Collapse>
           </Navbar>
+
+
           <Switch>
             <Route path="/" exact component={IndexPage} />
             <Route path="/activity" component={ActivityPage} />
@@ -180,6 +182,7 @@ class MainNavbar extends Component {
             <Route path="/auth" component={AuthPage} />
             <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
           </Switch>
+
         </Router>
       </>
     );
