@@ -23,7 +23,9 @@ export default (state = defaultState, action) => {
     }
     if(action.type === actionTypes.MEMBER_LOGOUT_ACTION) {
         const newState = {
-            ...state,
+            name: '',
+            image: '',
+            errorMsg: '',
             isLogin: action.isLogin
         }       
         return newState;

@@ -5,11 +5,8 @@ import IndexPage from "../../pages/IndexPage";
 import ActivityPage from "../../pages/ActivityPage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
-import MemberPage from "../../pages/MemberPage";
 import ProductsListPage from "../../pages/ProductsListPage";
 import ActivityOrder from "../../pages/ActivityOrder";
-//import FirstOrder from "../activity/activity-order/FirstStep/FirstOrder";
-//import ProductsDetailPage from "../../pages/ProductsDetailPage";
 import { Component } from "react";
 /* css import */
 import "../../assets/css/styled.css";
@@ -20,42 +17,26 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 import { FaUserTimes } from "react-icons/fa";
 import { FaUserCheck } from "react-icons/fa";
-//import bootstrap
-import { Button, Modal } from "react-bootstrap";
+
 //login image
 //import user from "../../assets/img/footer/user.jpg"
 //../../assets/img/userimage/people-1627149411393.jpg
 import { connect } from "react-redux";
-import { changeLogoutState } from "../../redux/actions/memberLogin";
+import { changeLogoutState, checkTokenProfile } from "../../redux/actions/memberLogin";
+
 //axios
 import axios from "axios";
 
 class MainNavbar extends Component {
-  // componentDidMount() {
-  //   const token = localStorage.getItem('token')
-  //   if(token) {
-  //     //axios
-  //     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-  //     axios.get('http://localhost:3000/api/profile').then((res) => {
-  //       //isLogin = true
-  //     })
-  //   }
-  // }
-  //購物車所需要的彈跳視窗
-  constructor(props, context) {
-    super(props, context);
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-    this.state = {
-      show: false,
-    };
-  }
-  handleClose() {
-    this.setState({ show: false });
-  }
-
-  handleShow() {
-    this.setState({ show: true });
+  
+  componentDidMount() {
+    const token = localStorage.getItem('token')
+    if(token) {
+      //axios
+      this.props.checkToken(token)
+    } else {
+      this.props.handleLogout()
+    }
   }
 
   render() {
@@ -93,12 +74,10 @@ class MainNavbar extends Component {
                 <LinkContainer to="/products" className="mx-2">
                   <Nav.Link>生鮮水產</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/member" className="mx-2">
+                <LinkContainer to={this.props.isLogin === true ? "/member" : "/auth"} className="mx-2">
                   <Nav.Link>會員中心</Nav.Link>
                 </LinkContainer>
-                {/* <LinkContainer to="/auth" className="mx-2">
-                                    <Nav.Link>會員註冊</Nav.Link>
-                                </LinkContainer> */}
+                
                 <table className="mx-3">
                   <tr>
                     <td
@@ -110,10 +89,8 @@ class MainNavbar extends Component {
                     ></td>
                   </tr>
                 </table>
-                {/*購物車 後面記得要加箭頭符號hover*/}
                 <div
                   className="d-flex align-items-center mx-3"
-                  onClick={this.handleShow}
                 >
                   <FaShoppingCart style={{ width: "25px", height: "25px" }} />
                   <FaCircle
@@ -121,33 +98,8 @@ class MainNavbar extends Component {
                     className="ml-1"
                   />
                 </div>
-                {/*bootstrap彈跳視窗*/}
-                <Modal show={this.state.show} onHide={this.handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>購物車清單</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <ul className="d-flex justify-content-between">
-                      <li>圖片</li>
-                      <li>鯖魚</li>
-                      <li>1</li>
-                      <li>$200</li>
-                    </ul>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button variant="secondary" onClick={this.handleClose}>
-                      繼續購物
-                    </Button>
-                    <Button variant="primary" onClick={this.handleClose}>
-                      前往結帳
-                    </Button>
-                  </Modal.Footer>
-                </Modal>
-                {/*bootstrap彈跳視窗*/}
-                {/*會員登入狀態判斷*/}
-                {localStorage.getItem("token") === null ||
-                this.props.isLogin === true ||
-                this.props.isLogin === false ? (
+                
+                {this.props.isLogin === false ? (
                   <NavDropdown
                     title={
                       <FaUserTimes style={{ width: "30px", height: "30px" }} />
@@ -236,7 +188,7 @@ class MainNavbar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    error: state.memberLogin.isLogin,
+    isLogin: state.memberLogin.isLogin,
   };
 };
 
@@ -250,6 +202,10 @@ const mapDispatchToProps = (dispatch) => {
       const action = changeLogoutState();
       dispatch(action);
     },
+    checkToken(token) {
+      const action = checkTokenProfile(token)
+      dispatch(action)
+    }
   };
 };
 
