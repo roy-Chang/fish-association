@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, useParams } from "react-router-dom";
+import { BrowserRouter as Router, useParams, Link } from "react-router-dom";
 import { Wrapper, Bg_blue, ProgressBar, OrderSchedule, Notice } from "./styled";
 import { DropdownButton, Dropdown, Form, Button } from "react-bootstrap";
 import axios from "axios";
@@ -122,8 +122,18 @@ export default function FirstOrder(props) {
           </Form.Group>
         </Notice>
         <div className="text-center">
-          <Button className="mt-3" type="submit" disabled={clickValue}>
-            下一步
+          <Button className="mt-3" type="submit">
+            <Link to={`/activity`} style={{ color: "white" }}>
+              上一步
+            </Link>
+          </Button>
+          <Button className="mt-3 ml-5" type="submit" disabled={clickValue}>
+            <Link
+              to={`/order/activity/${name}/second`}
+              style={{ color: "white" }}
+            >
+              下一步
+            </Link>
           </Button>
         </div>
       </Bg_blue>

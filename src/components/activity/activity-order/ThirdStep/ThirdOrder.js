@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, useParams, Link } from "react-router-dom";
 import { Wrapper, Bg_blue, ProgressBar, CheckOrder } from "./styled";
 import { Button } from "react-bootstrap";
+
 function ThirdOrder() {
+  const { name } = useParams();
   return (
     <Wrapper className=" mt-5">
       <Bg_blue>
@@ -24,7 +27,12 @@ function ThirdOrder() {
         </CheckOrder>
         <div className="text-center">
           <Button variant="primary" className="mt-3 mr-5">
-            上一頁
+            <Link
+              to={`/order/activity/${name}/second`}
+              style={{ color: "white" }}
+            >
+              上一頁
+            </Link>
           </Button>
           <Button variant="primary" className="mt-3 ml-5">
             送出訂單

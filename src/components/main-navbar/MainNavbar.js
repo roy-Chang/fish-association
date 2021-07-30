@@ -222,7 +222,10 @@ class MainNavbar extends Component {
           <Switch>
             <Route path="/" exact component={IndexPage} />
             <Route path="/activity" component={ActivityPage} />
-            <Route path="/order/activity/:name" component={ActivityOrder} />
+            <Route
+              path="/order/activity/:name/:step"
+              component={ActivityOrder}
+            />
             <Route path="/travelNotes" component={TravelNotesPage} />
             <Route path="/products" component={ProductsListPage} />
             <Route path="/member" />
