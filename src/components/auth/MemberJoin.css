@@ -38,7 +38,7 @@
 
 .AmemberPage {
   display: flex;
-  justify-content: space-around
+  justify-content: space-around;
 }
 .AmemberEnter {
   width: 90%;
@@ -87,10 +87,15 @@
   cursor: pointer;
 }
 
-.Aactive {
+.joinActive {
   background: var(--main-color);
   border-bottom: 2px solid var(--sixth-color);
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px 0 0 0;
+}
+.loginActive {
+  background: var(--main-color);
+  border-bottom: 2px solid var(--sixth-color);
+  border-radius: 0 20px 0 0;
 }
 
 .active {
@@ -193,7 +198,7 @@
   }
 }
 
-@media screen and (max-width: 760px) {
+/* @media screen and (max-width: 760px) {
   .AmemberPage {
     margin-bottom: 40px;
   }
@@ -236,17 +241,15 @@
     margin: 0px auto;
   }
 
-  .AitemInput {
+  /* .AitemInput {
     background: #dcdcdc;
     border-radius: 5px;
-    /* width: 220px; */
-    /* height: 30px; */
-  }
+  } */
 
-  .Aitem {
+/* .Aitem {
     width: 330px;
     margin: 40px auto;
     display: flex;
     justify-content: space-between;
-  }
-}
+  } */
+/* }  */

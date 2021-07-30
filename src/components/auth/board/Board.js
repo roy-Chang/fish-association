@@ -12,7 +12,7 @@ function Board() {
       <div className="AmemberContent">
         <div className="AloginItem">
           <ul className="AitemUl">
-            <li className={`AjoinMember ${change ? "Aactive" : ""}`}>
+            <li className={`AjoinMember ${change ? "joinActive" : ""}`}>
               <a
                 href
                 onClick={() => {
@@ -22,7 +22,7 @@ function Board() {
                 加入會員
               </a>
             </li>
-            <li className={`AloginMember ${change ? "" : "Aactive"}`}>
+            <li className={`AloginMember ${change ? "" : "loginActive"}`}>
               <a
                 href
                 onClick={() => {

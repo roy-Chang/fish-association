@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
+import axios from "axios";
+
 import "./MemberFavoriteNotes.css";
 
 function FavoriteNotes() {
+  const [favoriteN, setFavoriteN] = useState();
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/api/profile/noteLike")
+      .then((serverResponse) => {
+        const noteLike = serverResponse.data;
+        console.log(noteLike);
+        setFavoriteN(noteLike);
+      });
+  }, []);
+
   return (
     <>
       <div className="MFNcommodityFavorites">
