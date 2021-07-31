@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import axios from "axios";
-import SweetAlert from "sweetalert2-react";
 import "./MemberCSS/MemberNotes.css";
 
 const moment = require("moment");
@@ -16,6 +15,7 @@ function MemberNotes() {
       })
       .then((serverResponse) => {
         const myNotes = serverResponse.data;
+        myNotes.reverse();
         console.log(myNotes);
         setNotes(myNotes);
       });
@@ -52,24 +52,25 @@ function MemberNotes() {
                         const article = notes.filter((v, i) => {
                           return v.id !== note.id;
                         });
+                        setNotes(article);
                         let header = {
                           Authorization: `Bearer ${token}`,
                           "Content-Type": "application/json",
                           Accept: "application/json",
                         };
 
-                        axios
-                          .patch(
-                            "http://localhost:3000/api/profile/note/delete",
-                            { note: notes },
-                            {
-                              headers: header,
-                            }
-                          )
-                          .then((response) => {
-                            console.log(response);
-                            setNotes(article);
-                          });
+                        // axios
+                        //   .patch(
+                        //     "http://localhost:3000/api/profile/note/delete",
+                        //     { note: notes },
+                        //     {
+                        //       headers: header,
+                        //     }
+                        //   )
+                        //   .then((response) => {
+                        //     console.log(response);
+                        //     setNotes(article);
+                        //   });
                       }}
                       onChange={(e) => {}}
                     >

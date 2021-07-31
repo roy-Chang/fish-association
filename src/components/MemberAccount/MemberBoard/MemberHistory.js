@@ -16,13 +16,14 @@ function MemberHistory() {
       })
       .then((serverResponse) => {
         const myOrder = serverResponse.data;
+        myOrder.reverse();
         console.log(myOrder);
         setOrderList(myOrder);
       });
   }, []);
   return (
     <>
-      {console.log(productsAll.myProducts)}
+      {/* {console.log(productsAll.myProducts)} */}
       <div className="MHmemberBoard">
         <div>
           <div className="MHmemberAcount">
@@ -31,21 +32,6 @@ function MemberHistory() {
           <hr />
         </div>
         <div className="MHhistoryAll">
-          {/* {order.map((item, i) => {
-              return (
-                <>
-                  <div key={order.id} className="MHitem">
-                    <img src="" alt="" />
-                    <div className="MHquantity">
-                      <div className="MHlist">鯊魚{item.data.product_id}</div>
-                      <div className="MHnumber">X1{item.buy_num}</div>
-                    </div>
-                    <div className="MHdollar">$300</div>
-                  </div>
-                  <hr />
-                </>
-              );
-            })} */}
           {/* --一組商品區塊頭-- */}
           {orderList.map((order) => {
             return (

@@ -5,7 +5,7 @@ import axios from "axios";
 import vacation from "../../../../assets/img/member/memberVacation/vacation.jpg";
 
 function JoinActivity() {
-  const [data, setData] = useState({});
+  const [activity, setActivity] = useState([]);
   const token = localStorage.getItem("token");
   React.useEffect(() => {
     axios
@@ -15,60 +15,57 @@ function JoinActivity() {
       .then((serverResponse) => {
         const myActivity = serverResponse.data;
         console.log(myActivity);
-        setData(myActivity);
-        // return myActivity;
+        setActivity(myActivity);
       });
   }, []);
   return (
     <>
       <div className="MVcommodityVacation">
-        {/* {data.map((toActivity, i) => {
+        {activity.map((singUP) => {
           return (
             <>
-              <div className="MVcommodityVacationList" key={i}>
+              <div className="MVcommodityVacationList">
                 <img className="MVvacationPicture" src={vacation} alt="" />
                 <div className="MVinformation">
                   <div className="MVlistMargin MVlocation">
-                    {data[i].activity_info_model.place}(
-                    {data[i].activity_info_model.activity_name})
+                    {singUP.activity_info_model.activity_name} (
+                    {singUP.activity_info_model.place})
                   </div>
                   <div className="MVlistMargin MVvacationDate">
                     <div className="MVvacationTitle">日期:</div>
-                    <div className="MVvacationTime">{data[i].start_time}</div>
+                    <div className="MVvacationTime">
+                      {singUP.activity_info_model.start_time}
+                    </div>
                   </div>
                   <div className="MVlistMargin MVvacationJoin">
                     <div className="MVjoinPeople">成人X2</div>
-                    <div className="MVjoinPay">共$3000元</div>
+                    <div className="MVjoinPay">
+                      共$
+                      {singUP.activity_info_model.cost_adult * 2}元
+                    </div>
                   </div>
                 </div>
               </div>
               <hr />
             </>
           );
-        })} */}
+        })}
 
-        <div className="MVcommodityVacationList">
+        {/* <div className="MVcommodityVacationList">
           <img className="MVvacationPicture" src={vacation} alt="" />
           <div className="MVinformation">
-            <div className="MVlistMargin MVlocation">
-              {/* {data[0].activity_info_model.place}(
-              {data[0].activity_info_model.activity_name}) */}
-            </div>
+            <div className="MVlistMargin MVlocation">活動名稱 (地點)</div>
             <div className="MVlistMargin MVvacationDate">
               <div className="MVvacationTitle">日期:</div>
-              <div className="MVvacationTime">
-                {/* {data[0].activity_info_model.start_time} */}
-              </div>
+              <div className="MVvacationTime">2021/07/30 18:00:00</div>
             </div>
             <div className="MVlistMargin MVvacationJoin">
-              <div className="MVjoinPeople">成人X{data.length}</div>
-              <div className="MVjoinPay">
-                {/* 共${data[0].activity_info_model.cost_adult * data.length}元 */}
-              </div>
+              <div className="MVjoinPeople">成人X{activity.length}</div>
+              <div className="MVjoinPay">共4000元</div>
             </div>
           </div>
         </div>
-        <hr />
+        <hr /> */}
       </div>
     </>
   );
