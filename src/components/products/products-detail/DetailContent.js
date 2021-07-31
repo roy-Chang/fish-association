@@ -1,6 +1,7 @@
 import React from "react";
 
 function DetailContent() {
+
   return (
     <>
       <div class="P-detail-content">
@@ -36,3 +37,4 @@ function DetailContent() {
 }
 
 export default DetailContent;
+

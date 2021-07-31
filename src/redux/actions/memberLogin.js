@@ -14,6 +14,24 @@ export const changeLoginState = (data) => ({
   data,
 });
 
+export const checkTokenProfile = (token) => {
+  return (dispatch) => {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    axios
+      .get('http://localhost:3000/api/profile')
+      .then((res) => {
+          //isLogin = true
+          const action = changeLoginState({
+            name: res.data.member.name,
+            image: res.data.member.image,
+            isLogin: true,
+          });
+          dispatch(action);
+    })
+  }
+}
+
+
 export const handleGoogleLogin = (token) => {
   console.log(token)
   return (dispatch) => {
@@ -22,16 +40,23 @@ export const handleGoogleLogin = (token) => {
          Accept: 'application/json',
         'Content-Type': 'application/json; charset=utf-8',
       }})
-      .then((res) => {
-        //const action = changeLoginState(data);
-        //dispatch(action);
+      .then((serverResponse) => {
+        console.log(serverResponse)
+        const memberName = serverResponse.data.member.name;
+        const memberImage = serverResponse.data.member.image;
+        const action = changeLoginState({
+          token: token,
+          name: memberName,
+          image: memberImage,
+          isLogin: true,
+        });
+        dispatch(action);
       })
   }
 }
 
 
 export const handleAxiosLogin = (account, password) => {
-  //e.preventDefault();
   return (dispatch) => {
     axios
       .post("http://localhost:3000/api/member/login", {
@@ -41,7 +66,6 @@ export const handleAxiosLogin = (account, password) => {
         },
       })
       .then((serverResponse) => {
-        console.log(serverResponse.data)
         const token = serverResponse.data.member.token;
         const memberName = serverResponse.data.member.name;
         const memberImage = serverResponse.data.member.image;

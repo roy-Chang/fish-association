@@ -1,61 +1,49 @@
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Badge } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import IndexPage from "../../pages/IndexPage";
 import ActivityPage from "../../pages/ActivityPage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
-import MemberPage from "../../pages/MemberPage";
 import ProductsListPage from "../../pages/ProductsListPage";
+import memberPage from '../../pages/MemberPage';
 import ActivityOrder from "../../pages/ActivityOrder";
-//import FirstOrder from "../activity/activity-order/FirstStep/FirstOrder";
-//import ProductsDetailPage from "../../pages/ProductsDetailPage";
 import { Component } from "react";
 /* css import */
 import "../../assets/css/styled.css";
 import "./styles.css";
 /* img import */
 import logo from "../../assets/img/logo.png";
-import { FaShoppingCart } from "react-icons/fa";
-import { FaCircle } from "react-icons/fa";
+//icons
 import { FaUserTimes } from "react-icons/fa";
 import { FaUserCheck } from "react-icons/fa";
-//import bootstrap
-import { Button, Modal } from "react-bootstrap";
+
 //login image
 //import user from "../../assets/img/footer/user.jpg"
 //../../assets/img/userimage/people-1627149411393.jpg
+
+//reduc & action creator
 import { connect } from "react-redux";
-import { changeLogoutState } from "../../redux/actions/memberLogin";
+import { changeLogoutState, checkTokenProfile } from "../../redux/actions/memberLogin";
+
 //axios
 import axios from "axios";
 
-class MainNavbar extends Component {
-  // componentDidMount() {
-  //   const token = localStorage.getItem('token')
-  //   if(token) {
-  //     //axios
-  //     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-  //     axios.get('http://localhost:3000/api/profile').then((res) => {
-  //       //isLogin = true
-  //     })
-  //   }
-  // }
-  //購物車所需要的彈跳視窗
-  constructor(props, context) {
-    super(props, context);
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-    this.state = {
-      show: false,
-    };
-  }
-  handleClose() {
-    this.setState({ show: false });
-  }
+//popovers
+import PopoverShopping from "./popover";
 
-  handleShow() {
-    this.setState({ show: true });
+
+
+class MainNavbar extends Component {
+  
+  componentDidMount() {
+    const token = localStorage.getItem('token')
+    if(token) {
+      //axios
+      this.props.checkToken(token)
+    } else {
+      this.props.handleLogout()
+    }
   }
 
   render() {
@@ -69,6 +57,7 @@ class MainNavbar extends Component {
             variant="dark"
             className="nav-bar"
           >
+            {/*logo*/}
             <LinkContainer to="/">
               <Navbar.Brand className="font-weight-bold ml-5">
                 <img
@@ -81,8 +70,9 @@ class MainNavbar extends Component {
                 跳躍吧漁會
               </Navbar.Brand>
             </LinkContainer>
+
+            {/*navigation 網頁連結*/}
             <Navbar.Collapse className="justify-content-end">
-              {/* <Nav className="mr-5"> */}
               <Nav activeKey={window.location.pathname} className="mr-5">
                 <LinkContainer to="/activity" className="mx-2">
                   <Nav.Link>地方活動</Nav.Link>
@@ -93,61 +83,38 @@ class MainNavbar extends Component {
                 <LinkContainer to="/products" className="mx-2">
                   <Nav.Link>生鮮水產</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/member" className="mx-2">
+                <LinkContainer to={this.props.isLogin === true ? "/member" : "/auth"} className="mx-2">
                   <Nav.Link>會員中心</Nav.Link>
                 </LinkContainer>
-                {/* <LinkContainer to="/auth" className="mx-2">
-                                    <Nav.Link>會員註冊</Nav.Link>
-                                </LinkContainer> */}
+                
+                {/*金色分割線*/}
                 <table className="mx-3">
-                  <tr>
-                    <td
-                      style={{
-                        borderRightWidth: 2,
-                        borderRightColor: `var(--sixth-color)`,
-                        borderRightStyle: "solid",
-                      }}
-                    ></td>
-                  </tr>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={{
+                          borderRightWidth: 2,
+                          borderRightColor: `var(--sixth-color)`,
+                          borderRightStyle: "solid",
+                        }}
+                      ></td>
+                    </tr>
+                  </tbody>
                 </table>
-                {/*購物車 後面記得要加箭頭符號hover*/}
+
+
+                {/*購物車*/}
                 <div
                   className="d-flex align-items-center mx-3"
-                  onClick={this.handleShow}
                 >
-                  <FaShoppingCart style={{ width: "25px", height: "25px" }} />
-                  <FaCircle
-                    style={{ width: "20px", height: "20px" }}
-                    className="ml-1"
-                  />
+                  <PopoverShopping/>
+                  <Badge pill style={{width: "50px", backgroundColor: '#E63946', marginLeft: '5px'}}>
+                    {this.props.buyNum.length}
+                  </Badge>{' '}
                 </div>
-                {/*bootstrap彈跳視窗*/}
-                <Modal show={this.state.show} onHide={this.handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>購物車清單</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <ul className="d-flex justify-content-between">
-                      <li>圖片</li>
-                      <li>鯖魚</li>
-                      <li>1</li>
-                      <li>$200</li>
-                    </ul>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button variant="secondary" onClick={this.handleClose}>
-                      繼續購物
-                    </Button>
-                    <Button variant="primary" onClick={this.handleClose}>
-                      前往結帳
-                    </Button>
-                  </Modal.Footer>
-                </Modal>
-                {/*bootstrap彈跳視窗*/}
-                {/*會員登入狀態判斷*/}
-                {localStorage.getItem("token") === null ||
-                this.props.isLogin === true ||
-                this.props.isLogin === false ? (
+
+                {/* 判斷會員下拉的呈現 */}
+                {this.props.isLogin === false ? (
                   <NavDropdown
                     title={
                       <FaUserTimes style={{ width: "30px", height: "30px" }} />
@@ -215,6 +182,7 @@ class MainNavbar extends Component {
                     </NavDropdown.Item>
                   </NavDropdown>
                 )}
+                 {/* 判斷會員下拉的呈現 結束*/}
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -224,13 +192,11 @@ class MainNavbar extends Component {
             <Route path="/activity" component={ActivityPage} />
             <Route path="/order/activity" component={ActivityOrder} />
             <Route path="/travelNotes" component={TravelNotesPage} />
-            <Route path="/products" component={ProductsListPage} />
-            <Route path="/member" component={MemberPage} />
+            <Route path="/member" component={memberPage}/>
             <Route path="/auth" component={AuthPage} />
-            <Route
-              path="/detail/:type/:name/:id"
-              component={ProductsListPage}
-            />
+            <Route path="/products" component={ProductsListPage} />
+            <Route path="/:itemType" component={ProductsListPage}/>
+            <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
           </Switch>
         </Router>
       </>
@@ -240,7 +206,8 @@ class MainNavbar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    error: state.memberLogin.isLogin,
+    isLogin: state.memberLogin.isLogin,
+    buyNum: state.shoppingCartContent
   };
 };
 
@@ -254,6 +221,10 @@ const mapDispatchToProps = (dispatch) => {
       const action = changeLogoutState();
       dispatch(action);
     },
+    checkToken(token) {
+      const action = checkTokenProfile(token)
+      dispatch(action)
+    }
   };
 };
 
