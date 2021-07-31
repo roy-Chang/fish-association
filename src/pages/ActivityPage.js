@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Firstpage from "../components/activity/activity-1vh/Firstpage";
 import Secondpage from "../components/activity/activity-2vh/Secondpage";
 import Threepage from "../components/activity/activity-3vh/Threepage";
@@ -11,14 +11,13 @@ import "../assets/css/styled.css";
 import "react-bootstrap"; //Toast
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import FirstOrder from "../components/activity/activity-order/FirstStep/FirstOrder";
-import SecondOrder from "../components/activity/activity-order/SecondStep/SecondOrder";
-import ThirdOrder from "../components/activity/activity-order/ThirdStep/ThirdOrder";
+//order page
+//import FirstOrder from "../components/activity/activity-order/FirstStep/FirstOrder";
 
 function ActivityPage() {
   return (
     <>
-      <Router>
+     
         <div className="activity-wrapper activity-bg-green">
           <Firstpage />
           <Secondpage />
@@ -26,11 +25,8 @@ function ActivityPage() {
           <Forthpage />
           <Fifthpage />
           <MainFooter />
-          <Route path="/signupFirst" component={FirstOrder} />
-          <Route path="/signupSecond" component={SecondOrder} />
-          <Route path="/signupThird" component={ThirdOrder} />
         </div>
-      </Router>
+     
     </>
   );
 }

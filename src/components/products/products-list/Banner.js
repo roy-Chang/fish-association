@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./styles.css";
 
 /* img import */
@@ -26,16 +26,28 @@ export default function ProductsBanner() {
               <img style={{ width: "800px" }} src={aquarium} alt="aquarium" />
               <div className="d-flex  mt-1">
                 <div className="P-categoryImg">
-                  <img src={fishCategory} alt="fishCategory" />
+                  <Link to="/fish">
+                    <img src={fishCategory} alt="fishCategory" />
+                    <span>魚類</span>
+                  </Link>
                 </div>
                 <div className="P-categoryImg">
-                  <img src={shrimpCategory} alt="shrimpCategory" />
+                  <Link to="/shrimp">
+                    <img src={shrimpCategory} alt="shrimpCategory" />
+                    <span>蝦類</span>
+                  </Link>
                 </div>
                 <div className="P-categoryImg">
-                  <img src={squidCategory} alt="squidCategory" />
+                  <Link to="/squid">
+                    <img src={squidCategory} alt="squidCategory" />
+                    <span>軟足類</span>
+                  </Link>
                 </div>
                 <div className="P-categoryImg">
-                  <img src={shellCategory} alt="shellCategory" />
+                  <Link to="/shell">
+                    <img src={shellCategory} alt="shellCategory" />
+                    <span>貝類</span>
+                  </Link>
                 </div>
               </div>
             </div>

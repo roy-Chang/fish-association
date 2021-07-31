@@ -74,7 +74,7 @@ class FormLogin extends Component {
             <div className="google">
               <GoogleLogin 
                 theme="dark"
-                clientId="1090154977683-uuphfjn83kjaijk2avt976jtglm5k3c0.apps.googleusercontent.com"
+                clientId="1090154977683-pd1o3bu6t2tjculo1jn1uqjootumkagc.apps.googleusercontent.com"
                 onSuccess={this.props.successGoogle}
                 onFailure={this.props.failureGoogle}
                 cookiePolicy={'single_host_origin'}
@@ -105,23 +105,30 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(action)
     },
     successGoogle(response) {
-      const name = response.profileObj.name;
-      const image = response.profileObj.imageUrl;
-      const token = response.tokenId;
+      // const name = response.profileObj.name;
+      // const image = response.profileObj.imageUrl;
+      //const token = response.tokenId;
+      const tokenBlob = new Blob(
+        [JSON.stringify({ access_token: response.accessToken }, null, 2)],
+        { type: 'application/json' }
+      )
+
+      const action = handleGoogleLogin(tokenBlob)
+      dispatch(action)
       //console.log(token)
       //handleGoogleLogin(token)
-      try {
-        const data = {
-          name,
-          image,
-          token,
-          isLogin: true
-        }
-        const action = handleGoogleLogin(token, data)
-        dispatch(action)
-      } catch(error) {
-        console.log(error)
-      }
+      // try {
+      //   const data = {
+      //     name,
+      //     image,
+      //     token,
+      //     isLogin: true
+      //   }
+      //   const action = handleGoogleLogin(token, data)
+      //   dispatch(action)
+      // } catch(error) {
+      //   console.log(error)
+      // }
     },
     failureGoogle(response) {
       console.log(response)
