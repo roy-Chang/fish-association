@@ -65,10 +65,11 @@
 }
 
 .MFNcommodityFavoritesList {
+  width: 80%;
   font-size: 20px;
   color: var(--fontWhite);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding-top: 20px;
   margin: 0px auto;
