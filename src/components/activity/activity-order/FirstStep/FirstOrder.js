@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, useParams, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  useParams,
+  Link,
+  useHistory,
+} from "react-router-dom";
 import { Wrapper, Bg_blue, ProgressBar, OrderSchedule, Notice } from "./styled";
 import { DropdownButton, Dropdown, Form, Button } from "react-bootstrap";
 import axios from "axios";
-export default function FirstOrder(props) {
+
+function FirstOrder(props) {
   const [data, setData] = useState(null);
   const [orderName, setorderName] = useState(null);
   const [place, setPlace] = useState(null);
@@ -34,6 +40,11 @@ export default function FirstOrder(props) {
   const [normalNum, setNormalNum] = useState(1);
   const [childlNum, setChildNum] = useState(1);
   const [totalNum, setTotalNum] = useState(0);
+  const location = {
+    pathname: `/order/activity/${name}/second`,
+    state: { id: totalNum, normalNum: normalNum, childlNum: childlNum },
+  };
+  let history = useHistory();
   const handleNormalSelect = (e) => {
     setNormalNum(Number(e));
   };
@@ -127,16 +138,17 @@ export default function FirstOrder(props) {
               上一步
             </Link>
           </Button>
-          <Button className="mt-3 ml-5" type="submit" disabled={clickValue}>
-            <Link
-              to={`/order/activity/${name}/second`}
-              style={{ color: "white" }}
-            >
-              下一步
-            </Link>
+          <Button
+            className="mt-3 ml-5"
+            type="submit"
+            onClick={() => history.push(location)}
+            disabled={clickValue}
+          >
+            下一步
           </Button>
         </div>
       </Bg_blue>
     </Wrapper>
   );
 }
+export default FirstOrder;
