@@ -18,7 +18,6 @@ function DetailTop() {
   
   return (
     <>
-      {console.log(type)}
       <Row className="P-deatil-top">
         <Col sm={4} className="P-detail-pic">
           <div className="P-detail-main-img">
@@ -34,7 +33,7 @@ function DetailTop() {
           <p>售價 : {findItem.price} 元</p>
           <hr></hr>
           <div>
-            <label for="pet-select">數量 :</label>
+            <label htmlFor="pet-select">數量 :</label>
             <select id="pet-select" className="ml-2">
               <option value="1">1</option>
               <option value="2">2</option>

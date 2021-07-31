@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import axios from "axios";
-import SweetAlert from "sweetalert2-react";
 import "./MemberCSS/MemberNotes.css";
 
 const moment = require("moment");

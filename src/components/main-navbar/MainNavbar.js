@@ -1,4 +1,4 @@
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Badge } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import IndexPage from "../../pages/IndexPage";
@@ -6,6 +6,7 @@ import ActivityPage from "../../pages/ActivityPage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
 import ProductsListPage from "../../pages/ProductsListPage";
+import memberPage from '../../pages/MemberPage';
 import ActivityOrder from "../../pages/ActivityOrder";
 import { Component } from "react";
 /* css import */
@@ -13,19 +14,25 @@ import "../../assets/css/styled.css";
 import "./styles.css";
 /* img import */
 import logo from "../../assets/img/logo.png";
-import { FaShoppingCart } from "react-icons/fa";
-import { FaCircle } from "react-icons/fa";
+//icons
 import { FaUserTimes } from "react-icons/fa";
 import { FaUserCheck } from "react-icons/fa";
 
 //login image
 //import user from "../../assets/img/footer/user.jpg"
 //../../assets/img/userimage/people-1627149411393.jpg
+
+//reduc & action creator
 import { connect } from "react-redux";
 import { changeLogoutState, checkTokenProfile } from "../../redux/actions/memberLogin";
 
 //axios
 import axios from "axios";
+
+//popovers
+import PopoverShopping from "./popover";
+
+
 
 class MainNavbar extends Component {
   
@@ -50,6 +57,7 @@ class MainNavbar extends Component {
             variant="dark"
             className="nav-bar"
           >
+            {/*logo*/}
             <LinkContainer to="/">
               <Navbar.Brand className="font-weight-bold ml-5">
                 <img
@@ -62,8 +70,9 @@ class MainNavbar extends Component {
                 跳躍吧漁會
               </Navbar.Brand>
             </LinkContainer>
+
+            {/*navigation 網頁連結*/}
             <Navbar.Collapse className="justify-content-end">
-              {/* <Nav className="mr-5"> */}
               <Nav activeKey={window.location.pathname} className="mr-5">
                 <LinkContainer to="/activity" className="mx-2">
                   <Nav.Link>地方活動</Nav.Link>
@@ -78,27 +87,33 @@ class MainNavbar extends Component {
                   <Nav.Link>會員中心</Nav.Link>
                 </LinkContainer>
                 
+                {/*金色分割線*/}
                 <table className="mx-3">
-                  <tr>
-                    <td
-                      style={{
-                        borderRightWidth: 2,
-                        borderRightColor: `var(--sixth-color)`,
-                        borderRightStyle: "solid",
-                      }}
-                    ></td>
-                  </tr>
+                  <tbody>
+                    <tr>
+                      <td
+                        style={{
+                          borderRightWidth: 2,
+                          borderRightColor: `var(--sixth-color)`,
+                          borderRightStyle: "solid",
+                        }}
+                      ></td>
+                    </tr>
+                  </tbody>
                 </table>
+
+
+                {/*購物車*/}
                 <div
                   className="d-flex align-items-center mx-3"
                 >
-                  <FaShoppingCart style={{ width: "25px", height: "25px" }} />
-                  <FaCircle
-                    style={{ width: "20px", height: "20px" }}
-                    className="ml-1"
-                  />
+                  <PopoverShopping/>
+                  <Badge pill style={{width: "50px", backgroundColor: '#E63946', marginLeft: '5px'}}>
+                    {this.props.buyNum.length}
+                  </Badge>{' '}
                 </div>
-                
+
+                {/* 判斷會員下拉的呈現 */}
                 {this.props.isLogin === false ? (
                   <NavDropdown
                     title={
@@ -167,6 +182,7 @@ class MainNavbar extends Component {
                     </NavDropdown.Item>
                   </NavDropdown>
                 )}
+                 {/* 判斷會員下拉的呈現 結束*/}
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -177,9 +193,10 @@ class MainNavbar extends Component {
             <Route path="/activity" component={ActivityPage} />
             <Route path="/order/activity" component={ActivityOrder} />
             <Route path="/travelNotes" component={TravelNotesPage} />
-            <Route path="/products" component={ProductsListPage} />
-            <Route path="/member" />
+            <Route path="/member" component={memberPage}/>
             <Route path="/auth" component={AuthPage} />
+            <Route path="/products" component={ProductsListPage} />
+            <Route path="/:itemType" component={ProductsListPage}/>
             <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
           </Switch>
 
@@ -192,6 +209,7 @@ class MainNavbar extends Component {
 const mapStateToProps = (state) => {
   return {
     isLogin: state.memberLogin.isLogin,
+    buyNum: state.shoppingCartContent
   };
 };
 
