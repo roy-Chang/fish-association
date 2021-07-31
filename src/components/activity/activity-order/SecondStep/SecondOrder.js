@@ -1,4 +1,4 @@
-import React, { useState, useEffect, initialFormData } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   useParams,
@@ -13,44 +13,54 @@ function SecondOrder(props) {
   //取得活動號碼->取得前一頁報名人數 ->總人數陣列->存取表單的值->存取付款方式
   const { name } = useParams();
   const location = useLocation();
-  const [totalNum, setTotalNum] = useState([]);
-  const [formData, updateFormData] = useState(initialFormData);
+  const history = useHistory();
   const [paymentWay, setpPaymentWay] = useState(0);
+  const [inputFields, setInputField] = useState([
+    { name: "", email: "", phone: "" },
+  ]);
   const nextPage = {
     pathname: `/order/activity/${name}/third`,
     state: {
-      data: formData,
+      data: inputFields,
       payment: paymentWay,
       normalNum: location.state.normalNum,
       childlNum: location.state.childlNum,
     },
   };
-  let history = useHistory();
-  let array = [];
 
-  //將前一頁取到的人數轉換成陣列並map在頁面上
+  //將前一頁取到的人數轉換成陣列並map在頁面上->location.state.id是前一頁來的人數
   useEffect(() => {
-    for (let i = 0; i < location.state.id; i++) {
-      array.push(i);
+    const formNum = { name: "", email: "", phone: "" };
+    const formTwo = { name: "", email: "", phone: "" };
+    const formThree = { name: "", email: "", phone: "" };
+    switch (location.state.id) {
+      case 1:
+        break;
+      case 2:
+        setInputField([...inputFields, formNum]);
+        break;
+      case 3:
+        setInputField([...inputFields, formNum, formTwo]);
+        break;
+      case 4:
+        setInputField([...inputFields, formNum, formTwo, formThree]);
+        break;
     }
-    setTotalNum(array);
-  }, []);
+  }, [location.state.id]);
 
   //提交表單value
   const handleSubmit = (event) => {
     event.preventDefault();
     history.push(nextPage);
-    console.log("2page-handleSubmit", formData);
+    console.log("2page-handleSubmit", inputFields);
     console.log("2page-paymentWay", paymentWay);
   };
 
   //讀取動態表單value
-  const handleChange = (e) => {
-    updateFormData({
-      ...formData,
-      [e.target.ClassName]: e.target.value.trim(),
-    });
-    console.log("handleChange", formData);
+  const handleChange = (index, e) => {
+    const values = [...inputFields];
+    values[index][e.target.name] = e.target.value;
+    setInputField(values);
   };
 
   return (
@@ -65,58 +75,39 @@ function SecondOrder(props) {
         </ProgressBar>
         <form className="mt-5 flex-wrap">
           <div className="d-flex justify-content-around ">
-            {totalNum.map((value, index) => {
+            {inputFields.map((value, index) => {
               return (
-                <div className="">
+                <div key={index}>
                   <Row className="mb-10" noValidate>
-                    <Form.Group
-                      as={Col}
-                      md="10"
-                      controlId={`validationCustom `}
-                    >
+                    <Form.Group as={Col} md="10">
                       <Form.Label>姓名</Form.Label>
                       <Form.Control
                         type="text"
                         placeholder="請輸入姓名"
-                        defaultValue=""
-                        key={`${index}name`}
-                        name={`${index}name`}
-                        onChange={handleChange}
-                        required
+                        value={inputFields[`${index}`].name}
+                        name="name"
+                        onChange={(e) => handleChange(index, e)}
                       />
-                      <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group as={Col} md="10" controlId="validationCustom02">
+                    <Form.Group as={Col} md="10">
                       <Form.Label>電話</Form.Label>
+                      <Form.Control
+                        type="mail"
+                        placeholder="請輸入信箱"
+                        value={inputFields[`${index}`].email}
+                        name="email"
+                        onChange={(e) => handleChange(index, e)}
+                      />
+                    </Form.Group>
+                    <Form.Group as={Col} md="10">
+                      <Form.Label>信箱</Form.Label>
                       <Form.Control
                         type="tel"
                         placeholder="請輸入電話"
-                        defaultValue=""
-                        key={`${index}phone`}
-                        name={`${index}phone`}
-                        onChange={handleChange}
-                        minLength="9"
-                        maxLength="14"
-                        required
+                        value={inputFields[`${index}`].phone}
+                        name="phone"
+                        onChange={(e) => handleChange(index, e)}
                       />
-                    </Form.Group>
-                    <Form.Group
-                      as={Col}
-                      md="10"
-                      controlId="validationCustomUsername"
-                    >
-                      <Form.Label>信箱</Form.Label>
-                      <InputGroup hasValidation>
-                        <Form.Control
-                          type="email"
-                          placeholder="請輸入信箱"
-                          aria-describedby="email"
-                          key={`${index}email`}
-                          name={`${index}email`}
-                          onChange={handleChange}
-                          required
-                        />
-                      </InputGroup>
                     </Form.Group>
                   </Row>
                 </div>
