@@ -7,10 +7,11 @@ import { BsFillExclamationTriangleFill } from "react-icons/bs";
 import { connect } from 'react-redux'
 //action creator
 import { axiosShowShoppingCartItems, showShoppingCartList, handleShoppingBtn, handleShoppingBtnSwitch } from '../../redux/actions/shoppingCart';
-//img
-import fishPic from '../../assets/img/products/fish/eel2.jpg'
+import { toGoRoute } from '../../redux/actions/jumpRouter';
 //buy filter
 import { buyFilter } from '../../utils/handleFilterItemData';
+//link
+import { Link } from 'react-router-dom'
 
 
 
@@ -22,7 +23,6 @@ class PopoverShopping extends Component {
     render() {
         return (
             <>
-            {console.log(this.props.isLogin)}
                 <OverlayTrigger 
                   trigger={["hover", "focus"]}
                   placement="bottom" 
@@ -42,7 +42,8 @@ class PopoverShopping extends Component {
                                             marginRight: "5px",
                                             color: 'rgba(0,0,0,0.3)' 
                                         }}
-                                    />目前沒有內容
+                                    />
+                                    目前沒有內容
                                 </>  
                                 
                             ) : 
@@ -85,7 +86,22 @@ class PopoverShopping extends Component {
                             )
                             :
                             (<div className="buy-now-btn">
-                                    立即購買
+                                    {this.props.isLogin === false ? (
+                                        <Link 
+                                          onClick={() => {
+                                              this.props.handleJumpToRoute()
+                                          }} 
+                                          to="/auth" 
+                                          style={{color: 'white', textDecoration: 'none'}}>
+                                              立即購買
+                                        </Link>
+                                    ) : (
+                                        <Link to="/products/order" style={{color: 'white', textDecoration: 'none'}}>
+                                            立即購買
+                                        </Link>
+                                    )
+                                    }                                
+                                    
                             </div>)
                         }
                         
@@ -120,6 +136,14 @@ const mapDispatchToProps = (dispatch) => {
         handleShoppingSwitch() {
             const action = handleShoppingBtnSwitch()
             dispatch(action)
+        },
+        handleJumpToRoute() {
+            const action = toGoRoute({
+                fromWhere: '/products',
+                toRouter: '/products/order'
+            })
+            dispatch(action)
+            
         }
 
     }

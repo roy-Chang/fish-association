@@ -22,3 +22,7 @@ export const SHOW_SHOPPING_CART_LIST = 'show_shopping_cart_list';
 //shopping cart btn transform
 export const SHOPPING_BTN_CHANGE = 'shopping_btn_change';
 export const SHOPPING_BTN_CHANGE_SWITCH = 'shopping_btn_change_switch';
+
+
+//jump router
+export const JUMP_TO_ROUTER = 'jump_to_router';

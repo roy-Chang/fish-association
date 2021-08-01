@@ -8,6 +8,7 @@ import AuthPage from "../../pages/AuthPage";
 import ProductsListPage from "../../pages/ProductsListPage";
 import memberPage from '../../pages/MemberPage';
 import ActivityOrder from "../../pages/ActivityOrder";
+import ProductsOrder from '../order-item/cart';
 import { Component } from "react";
 /* css import */
 import "../../assets/css/styled.css";
@@ -194,6 +195,7 @@ class MainNavbar extends Component {
             <Route path="/travelNotes" component={TravelNotesPage} />
             <Route path="/member" component={memberPage}/>
             <Route path="/auth" component={AuthPage} />
+            <Route path="/products/order" component={ProductsOrder} />
             <Route path="/products" component={ProductsListPage} />
             <Route path="/:itemType" component={ProductsListPage}/>
             <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
@@ -207,7 +209,7 @@ class MainNavbar extends Component {
 const mapStateToProps = (state) => {
   return {
     isLogin: state.memberLogin.isLogin,
-    buyNum: state.shoppingCartContent
+    buyNum: state.shoppingCartContent,
   };
 };
 

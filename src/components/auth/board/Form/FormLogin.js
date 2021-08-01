@@ -8,6 +8,7 @@ import { handleAxiosLogin, handleGoogleLogin } from "../../../../redux/actions/m
 import { Redirect } from "react-router";
 //google 
 import GoogleLogin from "react-google-login";
+import { Switch } from "react-router-dom";
 
 
 
@@ -18,7 +19,15 @@ class FormLogin extends Component {
     let goto = null;
     if (this.props.isLogin) {
       //to do ..................
-      goto = <Redirect to="/" />;
+      switch (this.props.jumpTo.fromWhere) {
+          case '/products': {
+            goto = <Redirect to={this.props.jumpTo.toRouter} />;  
+            break;
+          }
+          default:
+            goto = <Redirect to="/" />; 
+            break;  
+      }
     }
     return (
       <>
@@ -94,6 +103,7 @@ const mapStateToProps = (state) => {
   return {
     isLogin: state.memberLogin.isLogin,
     error: state.memberLogin.errorMsg,
+    jumpTo: state.toRouter
   };
 };
 
