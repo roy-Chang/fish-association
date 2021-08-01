@@ -99,3 +99,40 @@
   object-fit: cover;
   padding: 10px;
 }
+
+.cur-buy-btn {
+  background: var(--fifth-color); 
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.cur-buy-btn:hover {
+  background: #c2303c;
+} 
+
+
+.add-buy-btn {
+  background: var(--second-color);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 15px;
+} 
+
+.add-buy-btn:hover {
+  background: #396581;
+}
+
+.like-btn-btn {
+  background: #ABDADC;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.like-btn-btn:hover {
+  background: #8cb3b4;
+}

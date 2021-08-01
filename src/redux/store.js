@@ -1,7 +1,15 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 //reducers
-import {weatherReducer, memberLoginReducer, memberRegisterReducer, shopingCartReducer, shoppingCartListReducer, shoppingCartBtnReducer } from './reducers/index';
+import {
+    weatherReducer, 
+    memberLoginReducer, 
+    memberRegisterReducer, 
+    shopingCartReducer, 
+    shoppingCartListReducer, 
+    shoppingCartBtnReducer,
+    jumpRouterReducer
+} from './reducers/index';
 //dev-tool redux
 const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
@@ -18,7 +26,8 @@ const allReducer = combineReducers({
     memberRegister: memberRegisterReducer,
     shoppingCartContent: shopingCartReducer,
     shoppingCartList: shoppingCartListReducer,
-    shoppingBtn: shoppingCartBtnReducer
+    shoppingBtn: shoppingCartBtnReducer,
+    toRouter: jumpRouterReducer
 })
 
 const store = createStore(allReducer, enhancer);

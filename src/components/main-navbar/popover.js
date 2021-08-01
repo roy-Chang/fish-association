@@ -22,6 +22,7 @@ class PopoverShopping extends Component {
     render() {
         return (
             <>
+            {console.log(this.props.isLogin)}
                 <OverlayTrigger 
                   trigger={["hover", "focus"]}
                   placement="bottom" 
@@ -100,7 +101,8 @@ const mapStateToProps = (state) => {
     return {
         shoppingCartContent: state.shoppingCartContent,
         CartList: state.shoppingCartList,
-        btnState: state.shoppingBtn
+        btnState: state.shoppingBtn,
+        isLogin: state.memberLogin.isLogin
     }
     
 }

@@ -23,6 +23,7 @@ function MemberHistory() {
   }, []);
   return (
     <>
+    {console.log(orderList)}
       {/* {console.log(productsAll.myProducts)} */}
       <div className="MHmemberBoard">
         <div>

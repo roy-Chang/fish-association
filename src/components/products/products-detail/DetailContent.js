@@ -4,7 +4,7 @@ function DetailContent() {
 
   return (
     <>
-      <div class="P-detail-content">
+      <div className="P-detail-content">
         <h1>產品資訊</h1>
         <p>
           來自台灣跳躍吧股份有限公司，捕撈地點的海水潔淨天然無污染，地理位置優越，為寒暖流交會之海域的海鮮產品，

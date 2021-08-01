@@ -30,6 +30,20 @@ export default (state = defaultState, action) => {
         }       
         return newState;
     }
+
+    if(action.type === actionTypes.MEMBER_REFRESH_CHECK) {
+        const newState = {
+            ...state,
+            name: action.data.name,
+            image: action.data.image,
+            isLogin: action.data.isLogin,
+        }
+        const token = action.data.token
+        localStorage.setItem('token', token);
+        localStorage.setItem('name', newState.name);
+        localStorage.setItem('image', newState.image);
+        return newState;
+    }
     
     return state;
 }

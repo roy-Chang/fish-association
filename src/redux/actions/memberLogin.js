@@ -14,6 +14,11 @@ export const changeLoginState = (data) => ({
   data,
 });
 
+export const refreshCheck = (data) => ({
+  type: actionTypes.MEMBER_REFRESH_CHECK,
+  data
+})
+
 export const checkTokenProfile = (token) => {
   return (dispatch) => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -21,10 +26,11 @@ export const checkTokenProfile = (token) => {
       .get('http://localhost:3000/api/profile')
       .then((res) => {
           //isLogin = true
-          const action = changeLoginState({
+          const action = refreshCheck({
+            token,
             name: res.data.member.name,
             image: res.data.member.image,
-            isLogin: true,
+            isLogin: true, 
           });
           dispatch(action);
     })

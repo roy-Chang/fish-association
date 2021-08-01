@@ -4,6 +4,7 @@ import memberRegisterReducer from './memberRegister';
 import shopingCartReducer from './shopping-cart-content'
 import shoppingCartListReducer from './shopping-cart-show-list'
 import shoppingCartBtnReducer from './shopping-cart-btn';
+import jumpRouterReducer from './jumpToRoute';
 
 export { 
     weatherReducer, 
@@ -11,5 +12,6 @@ export {
     memberRegisterReducer, 
     shopingCartReducer,
     shoppingCartListReducer,
-    shoppingCartBtnReducer
+    shoppingCartBtnReducer,
+    jumpRouterReducer
 };
