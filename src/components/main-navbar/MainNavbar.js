@@ -8,7 +8,7 @@ import AuthPage from "../../pages/AuthPage";
 import ProductsListPage from "../../pages/ProductsListPage";
 import memberPage from '../../pages/MemberPage';
 import ActivityOrder from "../../pages/ActivityOrder";
-import ProductsOrder from '../order-item/cart';
+import Cart from '../order-item/Cart';
 import { Component } from "react";
 /* css import */
 import "../../assets/css/styled.css";
@@ -26,7 +26,7 @@ import { FaUserCheck } from "react-icons/fa";
 //reduc & action creator
 import { connect } from "react-redux";
 import { changeLogoutState, checkTokenProfile } from "../../redux/actions/memberLogin";
-
+import { axiosWeather, axiosWeatherInfo } from '../../redux/actions/weather'
 //axios
 import axios from "axios";
 
@@ -59,7 +59,10 @@ class MainNavbar extends Component {
             className="nav-bar"
           >
             {/*logo*/}
-            <LinkContainer to="/">
+            <LinkContainer to="/" onClick={() => {
+              axiosWeather();
+              axiosWeatherInfo();
+            }}>
               <Navbar.Brand className="font-weight-bold ml-5">
                 <img
                   src={logo}
@@ -195,7 +198,7 @@ class MainNavbar extends Component {
             <Route path="/travelNotes" component={TravelNotesPage} />
             <Route path="/member" component={memberPage}/>
             <Route path="/auth" component={AuthPage} />
-            <Route path="/products/order" component={ProductsOrder} />
+            <Route path="/products/order" component={Cart} />
             <Route path="/products" component={ProductsListPage} />
             <Route path="/:itemType" component={ProductsListPage}/>
             <Route path="/detail/:type/:name/:id" component={ProductsListPage} />

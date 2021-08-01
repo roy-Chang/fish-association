@@ -8,24 +8,7 @@ import visa from "../../../assets/img/mastercard.png";
 function check() {
   return (
     <>
-      <div className="cart">
-        <div className="line">
-          <svg className="circle circle1">
-            <circle cx="20" cy="20" r="15" />
-          </svg>
-          <svg className="circle circle1">
-            <circle cx="20" cy="20" r="15" />
-          </svg>
-          <svg className="circle">
-            <circle cx="20" cy="20" r="15" />
-          </svg>
-        </div>
-        <div className="process">
-          <div className="item">訂單確定</div>
-          <div className="item">付款確定</div>
-          <div className="item">付款完成</div>
-        </div>
-        <div className="ckeckForm">
+      <div className="checkWrapper">
           <Form>
             <Row style={{ margin: "10px auto" }}>
               <Form.Label
@@ -195,12 +178,8 @@ function check() {
             <Row className="checkTotal">
               <Row className="checkTotalPri">總計 $80</Row>
             </Row>
-
-            <div className="btnStep2">
-              <Button className="cbtn">訂單確定</Button>
-            </div>
           </Form>
-        </div>
+        
       </div>
     </>
   );

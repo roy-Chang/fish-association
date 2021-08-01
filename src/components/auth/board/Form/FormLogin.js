@@ -9,7 +9,7 @@ import { clearRoute } from '../../../../redux/actions/jumpRouter';
 import { Redirect } from "react-router";
 //google 
 import GoogleLogin from "react-google-login";
-import { Switch } from "react-router-dom";
+
 
 
 
@@ -21,7 +21,7 @@ class FormLogin extends Component {
     if (this.props.isLogin) {
       //to do ..................
       switch (this.props.jumpTo.fromWhere) {
-          case '/products': {
+          case '/products/order': {
             goto = <Redirect to={this.props.jumpTo.toRouter} />;  
             this.props.clearRouteAny()
             break;
