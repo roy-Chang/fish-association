@@ -26,3 +26,4 @@ export const SHOPPING_BTN_CHANGE_SWITCH = 'shopping_btn_change_switch';
 
 //jump router
 export const JUMP_TO_ROUTER = 'jump_to_router';
+export const CLEAR_ROUTER = 'clear_router';

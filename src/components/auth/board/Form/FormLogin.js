@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 //action creator
 import { handleAxiosLogin, handleGoogleLogin } from "../../../../redux/actions/memberLogin";
+import { clearRoute } from '../../../../redux/actions/jumpRouter';
 import { Redirect } from "react-router";
 //google 
 import GoogleLogin from "react-google-login";
@@ -22,6 +23,7 @@ class FormLogin extends Component {
       switch (this.props.jumpTo.fromWhere) {
           case '/products': {
             goto = <Redirect to={this.props.jumpTo.toRouter} />;  
+            this.props.clearRouteAny()
             break;
           }
           default:
@@ -125,7 +127,13 @@ const mapDispatchToProps = (dispatch) => {
     failureGoogle(response) {
       console.log(response)
     },
-   
+    clearRouteAny() {
+      const action = clearRoute({
+        fromWhere: '',
+        toRouter: ''
+      })
+      dispatch(action)
+    }
   };
 };
 

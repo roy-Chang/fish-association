@@ -16,6 +16,14 @@ export default (state = defaultRouter, action) => {
             }       
             return newState;
         }
+        case actionTypes.CLEAR_ROUTER: {
+            const newState = {
+                ...state,
+                fromWhere: action.data.fromWhere,
+                toRouter: action.data.toRouter
+            }       
+            return newState;
+        }
 
         default:
             return state      
