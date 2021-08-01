@@ -25,6 +25,10 @@ export const handleShoppingBtnSwitch = () => ({
     type: actionTypes.SHOPPING_BTN_CHANGE_SWITCH
 })
 
+export const clearShoppingCartItems = () => ({
+    type: actionTypes.CLEAR_SHOPPING_CART_ITEMS
+})
+
 export const axiosShowShoppingCartItems = (data) => {
     console.log(data)
     return (dispatch) => {

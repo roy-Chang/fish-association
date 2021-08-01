@@ -9,7 +9,10 @@ export default (state = products, action) => {
             const newState = [...state, action.data]
             return newState;
         }
-
+        case actionTypes.CLEAR_SHOPPING_CART_ITEMS: {
+           const newState = []
+           return newState
+        }
         default:
             return state      
     }

@@ -1,22 +1,31 @@
-import React, { useState, useEffect } from "react";
-import "./detail/cart.css";
+import React, { useState } from "react";
 import Detail from "./detail/detail";
 import Check from "./check/check";
 import OverCheck from "./overCheck/overCheck";
-import './detail/cart.css'
 import { Button } from "react-bootstrap";
 import { useHistory } from 'react-router-dom';
+//css
+import './detail/cart.css'
+//action creator
+import { clearShoppingCartItems } from '../../redux/actions/shoppingCart'
+//react redux
+import { useDispatch } from 'react-redux';
 
-function Cart(props) {
-  
+
+function Cart() {
+  //set step
   const [change, setChange] = useState(0);
+  //dispatch
+  const dispatch = useDispatch();
+  const clearCartItems = () => {
+    dispatch(clearShoppingCartItems())
+  }
 
   
   //history
   const history = useHistory()
   return (
     <>
-      {console.log(change)}
       <div className="cart-wrapper">
         <div className="cart">
           {/*progress bar step*/}
@@ -24,8 +33,8 @@ function Cart(props) {
             <svg 
               className="circle circle1" 
               style={{ 
-                background: 'var(--blueLine)',
-                boxShadow: '0 0 20px var(--blueLine)'}}>
+                background: '#AB20FD',
+                boxShadow: '0 0 20px #AB20FD'}}>
 
               <circle cx="20" cy="20" r="15" />
             </svg>
@@ -39,13 +48,25 @@ function Cart(props) {
                 } 
                 : 
                 {
-                  background: 'var(--blueLine)',
-                  boxShadow: '0 0 20px var(--blueLine)'
+                  background: '#AB20FD',
+                  boxShadow: '0 0 20px #AB20FD'
                 }
               }>
               <circle cx="20" cy="20" r="15" />
             </svg>
-            <svg className="circle" style={{background: '#1D3557'}}>
+            <svg 
+              className="circle" 
+              style={
+                change === 0 || change === 1 ?  
+                {
+                  background: '#1D3557'
+                } 
+                : 
+                {
+                  background: '#AB20FD',
+                  boxShadow: '0 0 20px #AB20FD'
+                }
+              }>
               <circle cx="20" cy="20" r="15" />
             </svg>
           </div>
@@ -64,6 +85,7 @@ function Cart(props) {
                   className="cbtn"
                   onClick={() => {
                     setChange(0)
+                    clearCartItems()
                     history.push('/products')
                   }}
                 >
