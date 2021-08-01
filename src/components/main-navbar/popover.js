@@ -89,7 +89,7 @@ class PopoverShopping extends Component {
                                     {this.props.isLogin === false ? (
                                         <Link 
                                           onClick={() => {
-                                              this.props.handleJumpToRoute()
+                                              this.props.handleJumpToRoute(this.props.shoppingCartContent.length)
                                           }} 
                                           to="/auth" 
                                           style={{color: 'white', textDecoration: 'none'}}>
@@ -137,12 +137,16 @@ const mapDispatchToProps = (dispatch) => {
             const action = handleShoppingBtnSwitch()
             dispatch(action)
         },
-        handleJumpToRoute() {
-            const action = toGoRoute({
-                fromWhere: '/products',
-                toRouter: '/products/order'
-            })
-            dispatch(action)
+        handleJumpToRoute(item) {
+            console.log(item)
+            if (item !== 0) {
+                const action = toGoRoute({
+                    fromWhere: '/products/order',
+                    toRouter: '/products/order'
+                })
+                dispatch(action)
+            } 
+            
             
         }
 

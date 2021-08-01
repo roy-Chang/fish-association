@@ -21,7 +21,7 @@ class FormLogin extends Component {
     if (this.props.isLogin) {
       //to do ..................
       switch (this.props.jumpTo.fromWhere) {
-          case '/products': {
+          case '/products/order': {
             goto = <Redirect to={this.props.jumpTo.toRouter} />;  
             this.props.clearRouteAny()
             break;
