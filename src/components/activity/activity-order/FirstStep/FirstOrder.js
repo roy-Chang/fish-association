@@ -1,7 +1,64 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  useParams,
+  Link,
+  useHistory,
+} from "react-router-dom";
 import { Wrapper, Bg_blue, ProgressBar, OrderSchedule, Notice } from "./styled";
 import { DropdownButton, Dropdown, Form, Button } from "react-bootstrap";
-export default function FirstOrder() {
+import axios from "axios";
+
+function FirstOrder(props) {
+  const [data, setData] = useState(null);
+  const [orderName, setorderName] = useState(null);
+  const [place, setPlace] = useState(null);
+  const [apply, setApply] = useState(null);
+  const [normalCost, setnormalCost] = useState(null);
+  const [childCost, setchildCost] = useState(null);
+  const [clickValue, setclickValue] = useState(true);
+  //讀取前台選取的活動ID，並導入react-router-dom的useParams
+  const { name } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/api/activity/${name}`)
+      .then((res) => {
+        console.log(res.data.ret[0]);
+        setData(res.data.ret[0]);
+        setorderName(res.data.ret[0].activity_name);
+        setPlace(res.data.ret[0].place);
+        setApply(res.data.ret[0].apply);
+        setnormalCost(res.data.ret[0].cost_adult);
+        setchildCost(res.data.ret[0].cost_children);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  // {id: 1, activity_name: "海釣活動", place: "正濱漁港", schedule: "白帶魚、紅目鰱、鎖管", start_time: "2021-08-01", …}
+  const [normalNum, setNormalNum] = useState(1);
+  const [childlNum, setChildNum] = useState(1);
+  const [totalNum, setTotalNum] = useState(0);
+  const location = {
+    pathname: `/order/activity/${name}/second`,
+    state: { id: totalNum, normalNum: normalNum, childlNum: childlNum },
+  };
+  let history = useHistory();
+  const handleNormalSelect = (e) => {
+    setNormalNum(Number(e));
+  };
+  const handleChildSelect = (e) => {
+    setChildNum(Number(e));
+  };
+  const handleClickValue = (e) => {
+    setclickValue(!clickValue);
+  };
+  useEffect(async () => {
+    let total = await Number(normalNum + childlNum);
+    await setTotalNum(total);
+  }, [normalNum, childlNum]);
+  console.log(totalNum);
   return (
     <Wrapper className="justify-content-center mt-5">
       <Bg_blue>
@@ -14,38 +71,40 @@ export default function FirstOrder() {
         </ProgressBar>
         <OrderSchedule className="mt-5">
           <ul>
-            <li>龍洞</li>
-            <li>2021/08/10</li>
-
+            <li>{place}</li>
+            <li>{apply}</li>
             <li>成人</li>
-            <li>$2000</li>
+            <li>{normalCost}</li>
 
             <li>
               <DropdownButton
+                style={{ width: "100px" }}
                 id="dropdown-basic-button"
-                title="選擇人數"
-                size="sm"
+                title={normalNum}
+                className="format"
+                onSelect={handleNormalSelect}
+                required
               >
-                <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">2</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">3</Dropdown.Item>
+                <Dropdown.Item eventKey="1">1</Dropdown.Item>
+                <Dropdown.Item eventKey="2">2</Dropdown.Item>
               </DropdownButton>
             </li>
           </ul>
           <ul>
-            <li>海釣活動</li>
+            <li>{orderName}</li>
             <li style={{ visibility: "hidden" }}>2021/08/10 </li>
             <li>兒童</li>
-            <li>$1500</li>
+            <li>{childCost}</li>
             <li>
               <DropdownButton
                 id="dropdown-basic-button"
-                title="選擇人數"
-                size="sm"
+                title={childlNum}
+                className="format"
+                onSelect={handleChildSelect}
+                required
               >
-                <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">2</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">3</Dropdown.Item>
+                <Dropdown.Item eventKey="1">1</Dropdown.Item>
+                <Dropdown.Item eventKey="2">2</Dropdown.Item>
               </DropdownButton>
             </li>
           </ul>
@@ -69,11 +128,22 @@ export default function FirstOrder() {
               type="checkbox"
               label="已詳細閱讀、瞭解並同意《特別聲明 》
             "
+              onChange={handleClickValue}
             />
           </Form.Group>
         </Notice>
         <div className="text-center">
-          <Button variant="primary" className="mt-3">
+          <Button className="mt-3" type="submit">
+            <Link to={`/activity`} style={{ color: "white" }}>
+              上一步
+            </Link>
+          </Button>
+          <Button
+            className="mt-3 ml-5"
+            type="submit"
+            onClick={() => history.push(location)}
+            disabled={clickValue}
+          >
             下一步
           </Button>
         </div>
@@ -81,3 +151,4 @@ export default function FirstOrder() {
     </Wrapper>
   );
 }
+export default FirstOrder;

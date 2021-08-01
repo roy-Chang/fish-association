@@ -191,7 +191,7 @@ class MainNavbar extends Component {
           <Switch>
             <Route path="/" exact component={IndexPage} />
             <Route path="/activity" component={ActivityPage} />
-            <Route path="/order/activity" component={ActivityOrder} />
+            <Route path="/order/activity/:name/:step" component={ActivityOrder} />
             <Route path="/travelNotes" component={TravelNotesPage} />
             <Route path="/member" component={memberPage}/>
             <Route path="/auth" component={AuthPage} />
@@ -199,6 +199,7 @@ class MainNavbar extends Component {
             <Route path="/products" component={ProductsListPage} />
             <Route path="/:itemType" component={ProductsListPage}/>
             <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
+
           </Switch>
         </Router>
       </>
