@@ -9,7 +9,7 @@ import { clearRoute } from '../../../../redux/actions/jumpRouter';
 import { Redirect } from "react-router";
 //google 
 import GoogleLogin from "react-google-login";
-import { Switch } from "react-router-dom";
+
 
 
 

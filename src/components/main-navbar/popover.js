@@ -86,7 +86,8 @@ class PopoverShopping extends Component {
                             )
                             :
                             (<div className="buy-now-btn">
-                                    {this.props.isLogin === false ? (
+                                    {this.props.isLogin === false ? 
+                                    (
                                         <Link 
                                           onClick={() => {
                                               this.props.handleJumpToRoute(this.props.shoppingCartContent.length)
@@ -95,7 +96,15 @@ class PopoverShopping extends Component {
                                           style={{color: 'white', textDecoration: 'none'}}>
                                               立即購買
                                         </Link>
-                                    ) : (
+                                    ) : this.props.shoppingCartContent.length === 0 ? 
+                                    (
+                                        <Link 
+                                          to="/products" 
+                                          style={{color: 'white', textDecoration: 'none'}}>
+                                              立即購買
+                                        </Link>
+                                    ) : 
+                                    (
                                         <Link to="/products/order" style={{color: 'white', textDecoration: 'none'}}>
                                             立即購買
                                         </Link>
@@ -137,16 +146,12 @@ const mapDispatchToProps = (dispatch) => {
             const action = handleShoppingBtnSwitch()
             dispatch(action)
         },
-        handleJumpToRoute(item) {
-            console.log(item)
-            if (item !== 0) {
-                const action = toGoRoute({
-                    fromWhere: '/products/order',
-                    toRouter: '/products/order'
-                })
-                dispatch(action)
-            } 
-            
+        handleJumpToRoute() {
+            const action = toGoRoute({
+                fromWhere: '/products/order',
+                toRouter: '/products/order'
+            })
+            dispatch(action)
             
         }
 
