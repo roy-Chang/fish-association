@@ -10,9 +10,6 @@ import { useHistory } from 'react-router-dom';
 function Cart(props) {
   
   const [change, setChange] = useState(0);
-  useEffect(() => {
-    setChange(0)
-  })
 
   
   //history
@@ -33,7 +30,19 @@ function Cart(props) {
               <circle cx="20" cy="20" r="15" />
             </svg>
             <hr className="progress-line"/>
-            <svg className="circle" style={{background: '#1D3557'}}>
+            <svg 
+              className="circle" 
+              style={
+                change === 0 ?  
+                {
+                  background: '#1D3557'
+                } 
+                : 
+                {
+                  background: 'var(--blueLine)',
+                  boxShadow: '0 0 20px var(--blueLine)'
+                }
+              }>
               <circle cx="20" cy="20" r="15" />
             </svg>
             <svg className="circle" style={{background: '#1D3557'}}>
@@ -63,7 +72,7 @@ function Cart(props) {
                 <Button
                   className="cbtn"
                   onClick={() => {
-                    setChange(change + 1)
+                    setChange(1)
                   }}
                 >
                   下一步
