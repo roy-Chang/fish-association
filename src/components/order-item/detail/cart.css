@@ -90,11 +90,16 @@
 }
 
 .itemPrice {
-  font-size: 18px;
+  line-height: 85px;
+  font-size: 17px;
 }
 
 .spitemPrice {
   margin-top: 20px;
+}
+
+.spitemProduct {
+  margin-top: 30px;
 }
 
 
@@ -119,10 +124,7 @@
   justify-content: space-between;
 }
 
-.svg {
-  width: 30px;
-  height: 30px;
-}
+
 
 .couBtn {
   stroke: white;
@@ -166,3 +168,5 @@
   margin: 0 auto;
   border: none;
 }
+
+

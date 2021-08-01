@@ -18,6 +18,8 @@ export const MEMBER_REGISTERSTEPTWO_ACTION = 'member_registersteptwo_action';
 export const ADD_ITEMS_TO_SHOPPING_CART = 'add_items_to_shopping_cart';
 export const SHOW_SHOPPING_CART_ITEMS = 'show_shopping_cart_items';
 export const SHOW_SHOPPING_CART_LIST = 'show_shopping_cart_list';
+export const CLEAR_SHOPPING_CART_ITEMS = 'clear_shopping_cart_items';
+
 
 //shopping cart btn transform
 export const SHOPPING_BTN_CHANGE = 'shopping_btn_change';
