@@ -8,7 +8,7 @@ import AuthPage from "../../pages/AuthPage";
 import ProductsListPage from "../../pages/ProductsListPage";
 import memberPage from "../../pages/MemberPage";
 import ActivityOrder from "../../pages/ActivityOrder";
-import Cart from "../order-item/cart";
+import Cart from "../order-item/Cart";
 import { Component } from "react";
 /* css import */
 import "../../assets/css/styled.css";
