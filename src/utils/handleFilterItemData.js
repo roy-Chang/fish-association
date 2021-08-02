@@ -41,3 +41,35 @@ export const buyFilter = (items) => {
     const showProductsList = flatten(productsArr);
     return showProductsList
 };
+//-----------------
+export const filterAxiosCartItems = (data) => {
+  const productsList = myProducts.myProducts
+  let productsArr = [];
+    for (let i = 0; i < data.length; i++) {
+      let products = productsList.filter((item) => {
+        return item.id === data[i].product_id;
+      });
+      products[0].buy_num = data[i].buy_num;
+      //let total = list[i].buy_num;
+      productsArr.push(products);
+    }
+    
+    function flatten(arr) { 
+      return [].concat( ...arr.map(x => Array.isArray(x) ? flatten(x) : x) ) 
+    }
+    const showProductsList = flatten(productsArr);
+    return showProductsList
+}
+
+export const splitArrCartItems = (data) => {
+  let arrItems = []
+  data.forEach((item) => {
+    for(let i =0; i < item.buy_num; i++) {
+      arrItems.push({
+        product_id: item.product_id,
+        buy_num: 1
+      })
+    }
+  })
+  return arrItems
+}

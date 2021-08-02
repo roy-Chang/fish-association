@@ -26,7 +26,8 @@ import { FaUserCheck } from "react-icons/fa";
 //reduc & action creator
 import { connect } from "react-redux";
 import { changeLogoutState, checkTokenProfile } from "../../redux/actions/memberLogin";
-import { axiosWeather, axiosWeatherInfo } from '../../redux/actions/weather'
+import { axiosGetShoppingCartList } from '../../redux/actions/shoppingCart';
+import { axiosWeather, axiosWeatherInfo } from '../../redux/actions/weather';
 //axios
 import axios from "axios";
 
@@ -42,6 +43,7 @@ class MainNavbar extends Component {
     if(token) {
       //axios
       this.props.checkToken(token)
+      this.props.handleGetCartItemsList(token)
     } else {
       this.props.handleLogout()
     }
@@ -229,6 +231,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     checkToken(token) {
       const action = checkTokenProfile(token)
+      dispatch(action)
+    },
+    handleGetCartItemsList(token) {
+      const action = axiosGetShoppingCartList(token)
       dispatch(action)
     }
   };
