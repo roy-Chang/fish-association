@@ -7,9 +7,9 @@ import { useHistory } from 'react-router-dom';
 //css
 import './detail/cart.css'
 //action creator
-import { clearShoppingCartItems } from '../../redux/actions/shoppingCart'
+import { clearShoppingCartItems, cleartCartList, saveOrderDetailAll } from '../../redux/actions/shoppingCart'
 //react redux
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 function Cart() {
@@ -17,12 +17,34 @@ function Cart() {
   const [change, setChange] = useState(0);
   //dispatch
   const dispatch = useDispatch();
+  //clear cart list and content
   const clearCartItems = () => {
     dispatch(clearShoppingCartItems())
   }
+  const handleClearCartList = () => {
+    dispatch(cleartCartList())
+  }
+  //store state
+  const shoppingCartList = useSelector((state) => state.shoppingCartList);
+  const shoppingUseCoupon = useSelector((state) => state.shoppingOrderDetail);
+  //original total
+  let sum = 0
+  shoppingCartList.forEach((item) => {
+      sum += item.price
+  })
+  //原價
+  let total = sum
+  //總計
+  sum = shoppingUseCoupon.discount_count === 1 ? sum - 100 : sum;
+  //-----------------
+  const prevBtn = () => {
+    setChange(change -1)
+  }
+  const nextBtn = () => {
+    setChange(change + 1)
+  }
 
-  
-  //history
+  //-----------history
   const history = useHistory()
   return (
     <>
@@ -73,7 +95,7 @@ function Cart() {
           {/*元件轉換*/}
           {
             change === 0 ? (<Detail />) :
-            change === 1 ? (<Check />) :
+            change === 1 ? (<Check oringinSum={total} sum={sum} prevBtn={prevBtn} nextBtn={nextBtn}/>) :
             (<OverCheck />)
           }
 
@@ -86,6 +108,7 @@ function Cart() {
                   onClick={() => {
                     setChange(0)
                     clearCartItems()
+                    handleClearCartList()
                     history.push('/products')
                   }}
                 >
@@ -102,24 +125,8 @@ function Cart() {
               </div>
             ) :
             change === 1 ? (
-              <div className="btnStep">
-                <Button 
-                  className="cbtn"
-                  onClick={() => {
-                    setChange(change -1)
-                  }}
-                >
-                  上一步
-                </Button>
-                <Button
-                  className="cbtn"
-                  onClick={() => {
-                    setChange(change + 1)
-                  }}
-                >
-                  確認訂單
-                </Button>
-              </div>
+              <></>
+              
             ) :
             (
               <div className="btnStep">
@@ -127,6 +134,8 @@ function Cart() {
                   className="cbtn"
                   onClick={() => {
                     setChange(0)
+                    clearCartItems()
+                    handleClearCartList()
                     history.push('/products')
                   }}
                 >

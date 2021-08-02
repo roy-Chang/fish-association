@@ -1,11 +1,81 @@
-import React from "react";
-import "./check.css";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import "./check.css";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import visa from "../../../assets/img/mastercard.png";
+import { useTwZipCode, cities, districts } from "use-tw-zipcode";
+//action creator
+import { saveOrderDetailAll } from '../../../redux/actions/shoppingCart';
+//dispatch
+import { useDispatch, useSelector } from 'react-redux'
 
-function check() {
+function Check(props) {
+  //store
+  const discount_count = useSelector((state) => state.shoppingOrderDetail.discount_count)
+  console.log(discount_count)
+  const {
+    city,
+    district,
+    zipCode,
+    handleCityChange,
+    handleDistrictChange
+  } = useTwZipCode();
+  
+  //define form data
+  const inputValue = {
+    discount_count,
+    original_total: props.oringinSum,
+    pay_total: props.sum,
+    pay_way: 1,
+    city: "",
+    postal: 324,
+    address: ""
+  }
+  //save input value
+  const[orderValue, setOrderValue] = useState(inputValue)
+  
+  //define checkbox value
+  const payWay = [
+    { id: 1, way: "虛擬ATM"}, 
+    { id: 2, way: "信用卡"},
+    { id: 3, way: "Line"},
+    { id: 4, way: "google pay"}
+  ];
+  const deliver = [ 
+    { id: 1, way: "黑貓宅急便"}, 
+    { id: 2, way: "超商取貨"}, 
+    { id: 3, way: "貨到付款"}
+  ]
+  //onChange
+  const getAllInputValue = (e) => {
+      setOrderValue({
+        ...orderValue,
+        [e.target.name]: e.target.value
+      })
+  }
+
+  const cityInput = (city) => {
+    setOrderValue({
+      ...orderValue,
+      city: city,
+    })
+  }
+  const distInput = (dist, address, zipCode) => {
+    console.log(dist, address)
+    console.log(zipCode)
+    setOrderValue({
+      ...orderValue,
+      address: dist + address,
+      postal: zipCode
+    })
+  }
+  //dispatch
+  const dispatch = useDispatch()
+  const insertOrderDetal = () => {
+    dispatch(saveOrderDetailAll(orderValue))
+  }
+
   return (
     <>
       <div className="checkWrapper">
@@ -18,54 +88,23 @@ function check() {
               </Form.Label>
               <Form.Group className="">
                 <Form.Check type="checkbox" className="">
-                  <Form.Check
-                    inline
-                    name="pay"
-                    type="radio"
-                    label="虛擬ATM"
-                    id="虛擬ATM"
-                    style={{
-                      color: "var(--fontWhite)",
-                      fontSize: "16px",
-                      marginLeft: "30px",
-                    }}
-                  />
-                  <Form.Check
-                    inline
-                    name="pay"
-                    type="radio"
-                    label="信用卡"
-                    id="信用卡"
-                    style={{
-                      color: "var(--fontWhite)",
-                      fontSize: "16px",
-                      paddingLeft: "20px",
-                    }}
-                  />
-                  <Form.Check
-                    inline
-                    name="pay"
-                    type="radio"
-                    label="Line pay"
-                    id="Line pay"
-                    style={{
-                      color: "var(--fontWhite)",
-                      fontSize: "16px",
-                      paddingLeft: "20px",
-                    }}
-                  />
-                  <Form.Check
-                    inline
-                    name="pay"
-                    type="radio"
-                    label="google pay"
-                    id="google pay"
-                    style={{
-                      color: "var(--fontWhite)",
-                      fontSize: "16px",
-                      paddingLeft: "20px",
-                    }}
-                  />
+                  {
+                    payWay.map((way) => (
+                        <Form.Check key={way.id}
+                            inline
+                            name="pay_way"
+                            type="radio"
+                            label={way.way}
+                            value={way.id}
+                            style={{
+                              color: "var(--fontWhite)",
+                              fontSize: "16px",
+                              marginLeft: "30px",
+                            }}
+                            onChange={getAllInputValue}
+                          />
+                    ))
+                  }
                 </Form.Check>
               </Form.Group>
             </Row>
@@ -77,42 +116,23 @@ function check() {
               </Form.Label>
               <Form.Group className="">
                 <Form.Check type="checkbox" className="">
-                  <Form.Check
-                    inline
-                    name="transport"
-                    type="radio"
-                    label="黑貓宅急便"
-                    id="黑貓宅急便"
-                    style={{
-                      color: "var(--fontWhite)",
-                      fontSize: "16px",
-                      marginLeft: "30px",
-                    }}
-                  />
-                  <Form.Check
-                    inline
-                    name="transport"
-                    type="radio"
-                    label="超商取貨"
-                    id="超商取貨"
-                    style={{
-                      color: "var(--fontWhite)",
-                      fontSize: "16px",
-                      paddingLeft: "20px",
-                    }}
-                  />
-                  <Form.Check
-                    inline
-                    name="transport"
-                    type="radio"
-                    label="貨到付款"
-                    id="貨到付款"
-                    style={{
-                      color: "var(--fontWhite)",
-                      fontSize: "16px",
-                      paddingLeft: "20px",
-                    }}
-                  />
+                  {
+                    deliver.map((deliver) => (
+                      <Form.Check key={deliver.id}
+                        inline
+                        name="deliver_way"
+                        type="radio"
+                        label={deliver.way}
+                        value={deliver.id}
+                        style={{
+                          color: "var(--fontWhite)",
+                          fontSize: "16px",
+                          marginLeft: "30px",
+                        }}
+                        onChange={getAllInputValue}
+                      />
+                    ))
+                  }                 
                 </Form.Check>
               </Form.Group>
             </Row>
@@ -123,33 +143,50 @@ function check() {
                   <Form.Control
                     className=""
                     type="text"
-                    name="username"
+                    name="name"
                     placeholder="請輸入姓名"
+                    onChange={getAllInputValue}
                   />
                 </Row>
+                
+                  <div style={{marginTop: '10px'}}>
+                  <Row>
+                    <select name="city" className="tw-select" onChange={e => {
+                      handleCityChange(e.target.value)
+                      cityInput(e.target.value)
+                    }}>
+                      {cities.map((city, i) => {
+                        return <option key={i}>{city}</option>;
+                      })}
+                    </select>
+                  
+                    <select className="tw-select" onChange={e => {
+                        handleDistrictChange(e.target.value)
+                        // distInput(e.target.value)
+                      }
+                    }>
+                      {districts[city].map((district, i) => {
+                        return <option key={i}>{district}</option>;
+                      })}
+                    </select>
+                  </Row>
+                    <div style={{color: 'white', marginTop: '5px'}}>
+                      {city}
+                      {district}
+                      <span style={{marginLeft: '10px'}}>
+                        <input value={zipCode} className="zip" style={{ color: 'black'}} disabled/>
+                      </span>
+                    </div>
+                  </div>
+                
+                
                 <Row className="perType">
                   <Form.Label className="formLabel">地址</Form.Label>
                   <Form.Control
-                    className=""
                     type="text"
-                    name="username"
+                    name="address"
                     placeholder="請輸入地址"
-                  />
-                </Row>
-                <Row className="perType">
-                  <Form.Label className="formLabel">郵遞區號</Form.Label>
-                  <Form.Control
-                    className="inputNum"
-                    type="text"
-                    name="username"
-                  />
-                </Row>
-                <Row className="perType">
-                  <Form.Label className="formLabel">縣市</Form.Label>
-                  <Form.Control
-                    className="inputNum"
-                    type="text"
-                    name="username"
+                    onChange={(e) => {distInput(district, e.target.value, zipCode)}}
                   />
                 </Row>
               </Row>
@@ -176,13 +213,31 @@ function check() {
               </Row>
             </Row>
             <Row className="checkTotal">
-              <Row className="checkTotalPri">總計 $80</Row>
-            </Row>
+              <Row className="checkTotalPri">總計 $ {props.sum}</Row>
+            </Row>    
           </Form>
-        
+          <div className="btnStep">
+                <Button 
+                  className="cbtn"
+                  onClick={
+                    props.prevBtn
+                  }
+                >
+                  上一步
+                </Button>
+                <Button
+                  className="cbtn"
+                  onClick={() => {
+                    props.nextBtn();
+                    insertOrderDetal()
+                  }}
+                >
+                  確認訂單
+                </Button>
+          </div>
       </div>
     </>
   );
 }
 
-export default check;
+export default Check;

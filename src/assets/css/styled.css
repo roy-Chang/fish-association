@@ -101,14 +101,7 @@ a:hover {
   bottom: 30px;
   right: 30px;
 }
-.member-sign-up-btn {
-  font-size: var(--font-md);
-  background: var(--second-color);
-  border-radius: 8px;
-  position: absolute;
-  bottom: 30px;
-  right: 150px;
-}
+
 .activitylistOne {
   color: rgb(129, 26, 203);
   background-color: #c6a1de !important;
@@ -129,10 +122,7 @@ a:hover {
   color: rgb(189, 35, 35);
   background-color: #e89191 !important;
 }
-a.actone.actone,
-a.acttwo.acttwo,
-a.actthree.actthree,
-a.actfour.actfour,
-a.actfive.actacitve {
+
+.btn-choose {
   background: #457b9d !important;
 }

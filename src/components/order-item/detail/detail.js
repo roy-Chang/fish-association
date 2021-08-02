@@ -1,29 +1,43 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./cart.css";
 //react icons
 import { BsTag } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 //react redux
-import { useSelector } from 'react-redux';
-
-
+import { useSelector, useDispatch } from 'react-redux';
+//action creator
+import { saveOrderDetail } from '../../../redux/actions/shoppingCart';
 
 
 
 function Detail() {
+  //useState
+  const [transRotate, settransRotate] = useState(false)
+  //store state
   const shoppingCartList = useSelector((state) => state.shoppingCartList);
+   //dispatch
+   const dispatch = useDispatch()
 
   //original total
   let sum = 0
   shoppingCartList.forEach((item) => {
       sum += item.price
   })
-  //change true/false
+
+  //click arrow
   const handleClickState = () => {
     settransRotate(prevCheck => !prevCheck)
+    //use coupon?
+    let discount_count;
+    transRotate === false ? discount_count = 1 : discount_count = 0;
+    const action = saveOrderDetail({
+      discount_count
+    })
+    dispatch(action)
   }
- //useState
-  const [transRotate, settransRotate] = useState(false)
+
+
+ 
 
 
   return (
@@ -36,7 +50,7 @@ function Detail() {
         <div className="products">
           {
             shoppingCartList.map((item) => (
-              <>
+              <div key={item.id}>
                 <div className="product">
                   <img className="pimg" src={item.image} alt="" />
                   <div className="pitem">
@@ -47,7 +61,7 @@ function Detail() {
                   </div>
                 </div>
                 <hr />
-              </>
+              </div>
             ))
           }
         </div>

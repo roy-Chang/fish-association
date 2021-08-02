@@ -13,6 +13,11 @@ export default (state = products, action) => {
            const newState = []
            return newState
         }
+        case actionTypes.REFRESH_CART_LIST: {
+            console.log(action.data)
+            const newState = [...state, ...action.data]
+            return newState
+         }
         default:
             return state      
     }

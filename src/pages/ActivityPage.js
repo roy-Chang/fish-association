@@ -15,18 +15,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //import FirstOrder from "../components/activity/activity-order/FirstStep/FirstOrder";
 
 function ActivityPage() {
+  const cardStyles = "marginTop: 0px !important";
   return (
     <>
-     
-        <div className="activity-wrapper activity-bg-green">
-          <Firstpage />
-          <Secondpage />
-          <Threepage />
-          <Forthpage />
-          <Fifthpage />
-          <MainFooter />
-        </div>
-     
+      <div className="activity-wrapper activity-bg-green">
+        <Firstpage />
+        <Secondpage />
+        <Threepage />
+        <Forthpage />
+        <Fifthpage />
+        <MainFooter />
+      </div>
     </>
   );
 }
