@@ -93,9 +93,9 @@ function ThirdOrder() {
               <li>
                 付款：
                 {(function () {
-                  if (location.state.payment == 1) return "信用卡";
-                  else if (location.state.payment == 2) return "電匯";
-                  else return "現場付費";
+                  if (location.state.payment == "0") return "信用卡";
+                  else if (location.state.payment == "1") return "電匯";
+                  else if (location.state.payment == "2") return "現場付費";
                 })()}
               </li>
               <li>
