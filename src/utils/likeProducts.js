@@ -30,6 +30,7 @@ export default {
       name: "比目魚",
       price: 300,
       catalog: 1,
+      catalogName: "fishProducts",
       image: flounder3,
     },
     {
@@ -37,6 +38,7 @@ export default {
       name: "秋刀魚",
       price: 300,
       catalog: 1,
+      catalogName: "fishProducts",
       image: pike2,
     },
     {
@@ -44,6 +46,7 @@ export default {
       name: "蒲燒鰻",
       price: 500,
       catalog: 1,
+      catalogName: "fishProducts",
       image: eel2,
     },
     {
@@ -51,6 +54,7 @@ export default {
       name: "鮪魚",
       price: 500,
       catalog: 1,
+      catalogName: "fishProducts",
       image: tuna1,
     },
     {
@@ -58,6 +62,7 @@ export default {
       name: "鮭魚",
       price: 250,
       catalog: 1,
+      catalogName: "fishProducts",
       image: salmon2,
     },
     {
@@ -65,6 +70,7 @@ export default {
       name: "鯖魚",
       price: 350,
       catalog: 1,
+      catalogName: "fishProducts",
       image: mackerel1,
     },
     {
@@ -72,6 +78,7 @@ export default {
       name: "白蝦",
       price: 400,
       catalog: 2,
+      catalogName: "shrimpProducts",
       image: whiteShrimp2,
     },
     {
@@ -79,6 +86,7 @@ export default {
       name: "泰國蝦",
       price: 300,
       catalog: 2,
+      catalogName: "shrimpProducts",
       image: thaiShrimp1,
     },
     {
@@ -86,6 +94,7 @@ export default {
       name: "斑節蝦",
       price: 500,
       catalog: 2,
+      catalogName: "shrimpProducts",
       image: penaeus3,
     },
     {
@@ -93,6 +102,7 @@ export default {
       name: "草蝦",
       price: 300,
       catalog: 2,
+      catalogName: "shrimpProducts",
       image: prawn1,
     },
     {
@@ -100,6 +110,7 @@ export default {
       name: "龍蝦",
       price: 600,
       catalog: 2,
+      catalogName: "shrimpProducts",
       image: lobster2,
     },
     {
@@ -107,6 +118,7 @@ export default {
       name: "櫻花蝦",
       price: 200,
       catalog: 2,
+      catalogName: "shrimpProducts",
       image: sakuraShrimp2,
     },
     {
@@ -114,6 +126,7 @@ export default {
       name: "干貝",
       price: 600,
       catalog: 3,
+      catalogName: "shellProducts",
       image: scallop1,
     },
     {
@@ -121,6 +134,7 @@ export default {
       name: "文蛤",
       price: 200,
       catalog: 3,
+      catalogName: "shellProducts",
       image: clam2,
     },
     {
@@ -128,6 +142,7 @@ export default {
       name: "生蠔",
       price: 600,
       catalog: 3,
+      catalogName: "shellProducts",
       image: oyster3,
     },
     {
@@ -135,6 +150,7 @@ export default {
       name: "白貝",
       price: 300,
       catalog: 3,
+      catalogName: "shellProducts",
       image: whiteScallop3,
     },
     {
@@ -142,6 +158,7 @@ export default {
       name: "扇貝",
       price: 400,
       catalog: 3,
+      catalogName: "shellProducts",
       image: fanScallop2,
     },
     {
@@ -149,6 +166,7 @@ export default {
       name: "蜆",
       price: 200,
       catalog: 3,
+      catalogName: "shellProducts",
       image: taiwanClam1,
     },
     {
@@ -156,6 +174,7 @@ export default {
       name: "花枝",
       price: 600,
       catalog: 4,
+      catalogName: "cephalopodProducts",
       image: cuttlefish3,
     },
     {
@@ -163,6 +182,7 @@ export default {
       name: "章魚",
       price: 500,
       catalog: 4,
+      catalogName: "cephalopodProducts",
       image: octopus3,
     },
     {
@@ -170,6 +190,7 @@ export default {
       name: "透抽",
       price: 600,
       catalog: 4,
+      catalogName: "cephalopodProducts",
       image: loliginidae3,
     },
     {
@@ -177,6 +198,7 @@ export default {
       name: "墨魚",
       price: 300,
       catalog: 4,
+      catalogName: "cephalopodProducts",
       image: cuttle2,
     },
     {
@@ -184,6 +206,7 @@ export default {
       name: "魷魚",
       price: 600,
       catalog: 4,
+      catalogName: "cephalopodProducts",
       image: squid3,
     },
     {
@@ -191,6 +214,7 @@ export default {
       name: "小卷",
       price: 200,
       catalog: 4,
+      catalogName: "cephalopodProducts",
       image: smallVolume2,
     },
   ],
