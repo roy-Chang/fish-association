@@ -6,6 +6,9 @@ export const InfoDetail = styled.div`
   background: rgb(115, 165, 186, 0.7);
   font-size: 20px;
   padding: 24px;
+  &:hover {
+    background: rgb(115, 165, 186, 0.9);
+  }
 `;
 export const LeftLoc = styled.div`
   max-width: 30%;

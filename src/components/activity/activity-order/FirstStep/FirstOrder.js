@@ -103,6 +103,7 @@ function FirstOrder(props) {
                 onSelect={handleChildSelect}
                 required
               >
+                <Dropdown.Item eventKey="0">0</Dropdown.Item>
                 <Dropdown.Item eventKey="1">1</Dropdown.Item>
                 <Dropdown.Item eventKey="2">2</Dropdown.Item>
               </DropdownButton>

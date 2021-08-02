@@ -31,32 +31,33 @@ function WaveFcst(props) {
       labels: currentLabel,
       datasets: [
         {
-          label: "潮高-相對海圖(cm)",
-          backgroundColor: "#abdadc",
+          label: `${props.locationName}潮高-相對海圖(cm)`,
           borderColor: "RGB(11, 174, 255)",
-          borderWidth: 3,
+          borderWidth: 4,
           data: currentWave,
+          tension: 0.4,
         },
       ],
     },
     options: {
       responsive: true,
-      font: {
-        size: "24px",
-        color: "white",
-      },
-
       scales: {
         x: {
           grid: {
             borderColor: "yellow",
             borderWidth: 3,
           },
+          ticks: {
+            color: "#fff579",
+          },
         },
         y: {
           grid: {
             borderColor: "yellow",
             borderWidth: 3,
+          },
+          ticks: {
+            color: "#fff579",
           },
         },
       },
@@ -109,7 +110,7 @@ function WaveFcst(props) {
 
   return (
     <>
-      <div style={{ margin: "auto", width: "1000px" }}>
+      <div style={{ margin: "0px", width: "95%" }}>
         <Line data={config.data} options={config.options} />
       </div>
     </>
