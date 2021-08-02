@@ -4,11 +4,13 @@ import "./MemberLogin.css";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 //action creator
-import { handleAxiosLogin, changeLoginState, handleGoogleLogin } from "../../../../redux/actions/memberLogin";
+import { handleAxiosLogin, handleGoogleLogin } from "../../../../redux/actions/memberLogin";
+import { clearRoute } from '../../../../redux/actions/jumpRouter';
 import { Redirect } from "react-router";
 //google 
 import GoogleLogin from "react-google-login";
-import axios from 'axios';
+
+
 
 
 
@@ -18,7 +20,16 @@ class FormLogin extends Component {
     let goto = null;
     if (this.props.isLogin) {
       //to do ..................
-      goto = <Redirect to="/" />;
+      switch (this.props.jumpTo.fromWhere) {
+          case '/products/order': {
+            goto = <Redirect to={this.props.jumpTo.toRouter} />;  
+            this.props.clearRouteAny()
+            break;
+          }
+          default:
+            goto = <Redirect to="/" />; 
+            break;  
+      }
     }
     return (
       <>
@@ -82,7 +93,6 @@ class FormLogin extends Component {
                 buttonText="使用GOOGLE登入"
               />
             </div> 
-            {/* <div><button onClick={this.props.tryGoogle}>try google</button></div> */}
           </Form.Text>
         </div>
       </>
@@ -95,6 +105,7 @@ const mapStateToProps = (state) => {
   return {
     isLogin: state.memberLogin.isLogin,
     error: state.memberLogin.errorMsg,
+    jumpTo: state.toRouter
   };
 };
 
@@ -105,39 +116,24 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(action)
     },
     successGoogle(response) {
-      // const name = response.profileObj.name;
-      // const image = response.profileObj.imageUrl;
-      //const token = response.tokenId;
       const tokenBlob = new Blob(
         [JSON.stringify({ access_token: response.accessToken }, null, 2)],
         { type: 'application/json' }
       )
-
       const action = handleGoogleLogin(tokenBlob)
       dispatch(action)
-      //console.log(token)
-      //handleGoogleLogin(token)
-      // try {
-      //   const data = {
-      //     name,
-      //     image,
-      //     token,
-      //     isLogin: true
-      //   }
-      //   const action = handleGoogleLogin(token, data)
-      //   dispatch(action)
-      // } catch(error) {
-      //   console.log(error)
-      // }
+      
     },
     failureGoogle(response) {
       console.log(response)
     },
-    // tryGoogle() {
-    //   axios.get('http://localhost:3000/api/member/login/google/test').then((res) => {
-    //     console.log(res)
-    //   })
-    // }
+    clearRouteAny() {
+      const action = clearRoute({
+        fromWhere: '',
+        toRouter: ''
+      })
+      dispatch(action)
+    }
   };
 };
 

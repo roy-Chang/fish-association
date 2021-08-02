@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   max-width: 1280px;
   margin: 0 auto;
+  color: white;
 `;
 export const Bg_blue = styled.div`
   max-width: 70%;
@@ -30,7 +31,7 @@ export const OrderSchedule = styled.div`
     justify-content: space-between;
   }
   li {
-    width: 100px;
+    width: 110px;
   }
 `;
 export const Notice = styled.div`

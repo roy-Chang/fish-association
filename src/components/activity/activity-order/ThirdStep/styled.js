@@ -9,6 +9,7 @@ export const Bg_blue = styled.div`
   background: #1d3557;
   border-radius: 20px;
   padding: 50px;
+  color: white;
 `;
 
 export const ProgressBar = styled.div`

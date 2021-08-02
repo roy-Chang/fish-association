@@ -1,9 +1,12 @@
-.circle2 {
-  background: var(--blueLine);
-}
 .ckeckForm {
   width: 70%;
   margin: 40px auto;
+}
+
+.checkWrapper {
+  width: 80%;
+  padding-top: 10px;
+  margin: 0 auto;
 }
 
 .personal {
