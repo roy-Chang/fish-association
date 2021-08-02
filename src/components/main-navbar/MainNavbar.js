@@ -6,9 +6,9 @@ import ActivityPage from "../../pages/ActivityPage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
 import AuthPage from "../../pages/AuthPage";
 import ProductsListPage from "../../pages/ProductsListPage";
-import memberPage from '../../pages/MemberPage';
+import memberPage from "../../pages/MemberPage";
 import ActivityOrder from "../../pages/ActivityOrder";
-import Cart from '../order-item/Cart';
+import Cart from "../order-item/cart";
 import { Component } from "react";
 /* css import */
 import "../../assets/css/styled.css";
@@ -25,25 +25,25 @@ import { FaUserCheck } from "react-icons/fa";
 
 //reduc & action creator
 import { connect } from "react-redux";
-import { changeLogoutState, checkTokenProfile } from "../../redux/actions/memberLogin";
-import { axiosWeather, axiosWeatherInfo } from '../../redux/actions/weather'
+import {
+  changeLogoutState,
+  checkTokenProfile,
+} from "../../redux/actions/memberLogin";
+import { axiosWeather, axiosWeatherInfo } from "../../redux/actions/weather";
 //axios
 import axios from "axios";
 
 //popovers
 import PopoverShopping from "./popover";
 
-
-
 class MainNavbar extends Component {
-  
   componentDidMount() {
-    const token = localStorage.getItem('token')
-    if(token) {
+    const token = localStorage.getItem("token");
+    if (token) {
       //axios
-      this.props.checkToken(token)
+      this.props.checkToken(token);
     } else {
-      this.props.handleLogout()
+      this.props.handleLogout();
     }
   }
 
@@ -59,10 +59,13 @@ class MainNavbar extends Component {
             className="nav-bar"
           >
             {/*logo*/}
-            <LinkContainer to="/" onClick={() => {
-              axiosWeather();
-              axiosWeatherInfo();
-            }}>
+            <LinkContainer
+              to="/"
+              onClick={() => {
+                axiosWeather();
+                axiosWeatherInfo();
+              }}
+            >
               <Navbar.Brand className="font-weight-bold ml-5">
                 <img
                   src={logo}
@@ -87,10 +90,13 @@ class MainNavbar extends Component {
                 <LinkContainer to="/products" className="mx-2">
                   <Nav.Link>生鮮水產</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to={this.props.isLogin === true ? "/member" : "/auth"} className="mx-2">
+                <LinkContainer
+                  to={this.props.isLogin === true ? "/member" : "/auth"}
+                  className="mx-2"
+                >
                   <Nav.Link>會員中心</Nav.Link>
                 </LinkContainer>
-                
+
                 {/*金色分割線*/}
                 <table className="mx-3">
                   <tbody>
@@ -106,15 +112,19 @@ class MainNavbar extends Component {
                   </tbody>
                 </table>
 
-
                 {/*購物車*/}
-                <div
-                  className="d-flex align-items-center mx-3"
-                >
-                  <PopoverShopping/>
-                  <Badge pill style={{width: "50px", backgroundColor: '#E63946', marginLeft: '5px'}}>
+                <div className="d-flex align-items-center mx-3">
+                  <PopoverShopping />
+                  <Badge
+                    pill
+                    style={{
+                      width: "50px",
+                      backgroundColor: "#E63946",
+                      marginLeft: "5px",
+                    }}
+                  >
                     {this.props.buyNum.length}
-                  </Badge>{' '}
+                  </Badge>{" "}
                 </div>
 
                 {/* 判斷會員下拉的呈現 */}
@@ -184,7 +194,7 @@ class MainNavbar extends Component {
                     </NavDropdown.Item>
                   </NavDropdown>
                 )}
-                 {/* 判斷會員下拉的呈現 結束*/}
+                {/* 判斷會員下拉的呈現 結束*/}
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -192,15 +202,20 @@ class MainNavbar extends Component {
           <Switch>
             <Route path="/" exact component={IndexPage} />
             <Route path="/activity" component={ActivityPage} />
-            <Route path="/order/activity/:name/:step" component={ActivityOrder} />
+            <Route
+              path="/order/activity/:name/:step"
+              component={ActivityOrder}
+            />
             <Route path="/travelNotes" component={TravelNotesPage} />
-            <Route path="/member" component={memberPage}/>
+            <Route path="/member" component={memberPage} />
             <Route path="/auth" component={AuthPage} />
             <Route path="/products/order" component={Cart} />
             <Route path="/products" component={ProductsListPage} />
-            <Route path="/:itemType" component={ProductsListPage}/>
-            <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
-
+            <Route path="/:itemType" component={ProductsListPage} />
+            <Route
+              path="/detail/:type/:name/:id"
+              component={ProductsListPage}
+            />
           </Switch>
         </Router>
       </>
@@ -226,9 +241,9 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(action);
     },
     checkToken(token) {
-      const action = checkTokenProfile(token)
-      dispatch(action)
-    }
+      const action = checkTokenProfile(token);
+      dispatch(action);
+    },
   };
 };
 
