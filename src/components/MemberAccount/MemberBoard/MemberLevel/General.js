@@ -135,7 +135,7 @@ function General(props) {
     <>
       {/* -------------------------以下為會員編輯彈出視窗---------------------------------------- */}
       <Modal size={"lg"} show={show} onHide={handleClose}>
-        {console.log(show)}
+        {/* {console.log(show)} */}
         <Modal.Header style={{ background: "var(--forth-color)" }} closeButton>
           <Modal.Title
             style={{
