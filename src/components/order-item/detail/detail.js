@@ -21,7 +21,7 @@ function Detail() {
   //original total
   let sum = 0
   shoppingCartList.forEach((item) => {
-      sum += item.price
+      sum += (item.price * item.buy_num)
   })
 
   //click arrow

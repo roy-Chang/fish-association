@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from 'react-redux'
 function Check(props) {
   //store
   const discount_count = useSelector((state) => state.shoppingOrderDetail.discount_count)
-  console.log(discount_count)
   const {
     city,
     district,
@@ -62,8 +61,6 @@ function Check(props) {
     })
   }
   const distInput = (dist, address, zipCode) => {
-    console.log(dist, address)
-    console.log(zipCode)
     setOrderValue({
       ...orderValue,
       address: dist + address,

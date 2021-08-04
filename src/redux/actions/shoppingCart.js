@@ -30,26 +30,6 @@ export const saveOrderDetail = (data) => ({
     data
 })
 
-export const saveOrderDetailAll = (data) => {
-    return(dispatch) => {
-        const token = localStorage.getItem("token");
-        const headers = {
-            'Authorization': `Bearer ${token}`
-        }
-        axios.post('http://localhost:3000/api/order/products',  {order_details: data},  {headers})
-          .then((res) => {
-                const action = ({
-                  type: actionTypes.SAVE_SHOPPING_DETAIL_ALL,
-                  data
-                })
-                dispatch(action)
-            
-          })
-          .catch((err) => {
-              console.log(err)
-          })
-    }
-}
 
 //-----clear
 export const clearShoppingCartItems = () => ({
@@ -109,3 +89,52 @@ export const axiosGetShoppingCartList = (token) => {
       })
     }
   }
+
+
+  export const saveOrderDetailAll = (data) => {
+    return(dispatch) => {
+        const token = localStorage.getItem("token");
+        const headers = {
+            'Authorization': `Bearer ${token}`
+        }
+        axios
+          .post('http://localhost:3000/api/order/products',  {order_details: data},  {headers})
+          .then((res) => {
+                const action = ({
+                  type: actionTypes.SAVE_SHOPPING_DETAIL_ALL,
+                  data
+                })
+                dispatch(action)
+          })
+          .catch((err) => {
+              console.log(err)
+          })
+    }
+}
+
+
+export const showOrderDetailAll = () => {
+    console.log(123)
+    return(dispatch) => {
+        const token = localStorage.getItem("token");
+        const headers = {
+            'Authorization': `Bearer ${token}`
+        }
+        axios
+          .get('http://localhost:3000/api/order/detail', {headers})
+          .then((res) => {
+                const detail = res.myOrderDetail
+                const action = ({
+                  type: actionTypes.SHOW_SHOPPING_DETAIL,
+                  detail
+                })
+                dispatch(action)
+          })
+          .catch((err) => {
+              console.log(err)
+          })
+    }
+}
+
+
+
