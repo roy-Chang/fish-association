@@ -7,24 +7,24 @@ export const SignUpHead = styled.div`
   position: relative;
   z-index: 1000;
   h2 {
-    font-size: 56px;
+    font-size: 48px;
     border-bottom: 3px solid #fff579;
     display: inline-block;
-    margin: 40px 0;
+    margin: 48px 0px;
   }
   .seagull {
-    max-width: 450px;
+    max-width: 400px;
     height: 500px;
     object-fit: contain;
     position: absolute;
-    right: 58px;
+    right: 125px;
     top: -300px;
   }
 `;
 export const SignUpArea = styled.div`
   max-width: 80%;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 10px;
   ul {
     justify-content: center;
     border-radius: 10px;
@@ -35,7 +35,7 @@ export const SignUpArea = styled.div`
   }
   a {
     color: white;
-    font-size: 30px;
+    font-size: 24px;
     padding: 10px 20px;
     background: rgb(185, 185, 185, 0.3);
     line-height: 1.5;
@@ -53,7 +53,7 @@ export const SignUpDetail = styled.div`
 `;
 
 export const SignUpPrice = styled.div`
-  padding: 70px;
+  padding: 50px 65px;
   width: 50%;
   background: #92b7b0;
   border-radius: 0 20px 20px 0;
@@ -65,26 +65,26 @@ export const SignUpPrice = styled.div`
   }
   .age {
     color: #efead2;
-    font-size: 20px;
+    font-size: 18px;
   }
   ul {
     padding-inline-start: 0;
   }
   li {
     justify-content: space-between;
-    font-size: 20px;
+    font-size: 18px;
   }
 `;
 export const SignUpBtn = styled.div`
   margin-left: 70px;
-  font-size: 24px;
+  font-size: 20px;
   border-left: solid 3px #abdadc;
   li {
     margin: 10px;
   }
 `;
 export const BgBlue = styled.div`
-  max-width: 90%;
+  max-width: 80%;
   background: #1d3557;
   height: 70vh;
   border-radius: 20px 20px 0 0;

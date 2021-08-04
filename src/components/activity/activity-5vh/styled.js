@@ -5,8 +5,8 @@ export const BgSea = styled.div`
   margin: 0 auto;
   background-size: 100%;
   background-position: top;
-  width: 1140px;
-  height: 350px;
+  width: 1024px;
+  height: 300px;
   margin: 0 auto;
   position: relative;
 `;
@@ -16,19 +16,19 @@ export const DivingPic = styled.img`
   clip-path: circle(70% at 50% 0);
   position: absolute;
   left: 33%;
-  top: 30%;
+  top: 15%;
 `;
 
 export const BlogList = styled.div`
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto;
   padding: 30px;
   text-align: center;
   h2 {
-    font-size: 56px;
+    font-size: 48px;
     border-bottom: 3px solid #fff579;
     display: inline-block;
-    margin: 40px 0;
+    margin: 40px 0px 60px;
   }
 `;
 export const Wrapper = styled.div`

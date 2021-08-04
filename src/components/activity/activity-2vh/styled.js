@@ -4,7 +4,7 @@ export const InfoDetail = styled.div`
   max-width: 50%;
   border-radius: 50px;
   background: rgb(115, 165, 186, 0.7);
-  font-size: 20px;
+  font-size: 18px;
   padding: 24px;
   &:hover {
     background: rgb(115, 165, 186, 0.9);
@@ -16,11 +16,11 @@ export const LeftLoc = styled.div`
   object-fit: contain;
   border-radius: 20px;
   img {
-    clip-path: ellipse(28% 70% at 5% 5%);
+    clip-path: ellipse(23% 65% at 3% 5%);
   }
 `;
 export const LocationInfo = styled.div`
-  max-width: 90%;
+  max-width: 80%;
   border-radius: 20px;
   margin: 0 auto;
   margin-top: 90px;
@@ -32,7 +32,7 @@ export const InfoContent = styled.div`
   flex-direction: column;
   position: relative;
   h2 {
-    font-size: 56px;
+    font-size: 48px;
     border-bottom: 3px solid #fff579;
     width: 550px;
     margin: 40px 0;
@@ -43,7 +43,7 @@ export const InfoContent = styled.div`
 `;
 export const InfoSchedule = styled.div`
   margin-left: 50px;
-  font-size: 20px;
+  font-size: 18px;
   border-left: solid 3px #abdadc;
   li {
     margin: 10px;
@@ -57,11 +57,11 @@ export const RightLoc = styled.div`
   bottom: 0;
   img {
     border-radius: 100% 0 20px 0;
-    max-width: 300px;
+    max-width: 350px;
   }
 `;
 export const ButtonLoc = styled.div`
-  right: 600px;
+  right: 550px;
   top: 350px;
   position: absolute;
   svg:hover,

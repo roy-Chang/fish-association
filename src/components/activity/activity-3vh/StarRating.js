@@ -20,7 +20,9 @@ export default function StarRating({ totalStars = 5 }) {
           />
         );
       })}
-      <p>250位參加過的人給出{selectedStars}的評價</p>
+      <p style={{ color: " #1d3557", margin: "0px", fontSize: "15px" }}>
+        250位參加過的人給出{selectedStars}的評價
+      </p>
     </>
   );
 }
