@@ -78,9 +78,7 @@
 }
 .TN-write-btn {
   background: var(--fifth-color);
-  color: var(--forth-color);
-  border-radius: 5px;
-  padding: 7px 10px;
+  border: none;
 }
 .TN-serch-btn {
   background: var(--third-color);
@@ -124,4 +122,23 @@
   display: flex;
   justify-content: flex-end;
   font-size: 30px;
+}
+
+/* TNblock  */
+
+.TN-block-link {
+  font-size: 30px;
+  text-decoration: none;
+}
+.TN-block-link :link {
+  text-decoration: none;
+  color: var(--main-color);
+}
+.TN-block-link :visited {
+  text-decoration: none;
+  color: var(--main-color);
+}
+.TN-block-link :hover {
+  text-decoration: none;
+  color: var(--second-color);
 }
