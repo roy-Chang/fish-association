@@ -8,7 +8,7 @@ import AuthPage from "../../pages/AuthPage";
 import ProductsListPage from "../../pages/ProductsListPage";
 import memberPage from "../../pages/MemberPage";
 import ActivityOrder from "../../pages/ActivityOrder";
-import Cart from "../order-item/cart";
+import Cart from "../order-item/Cart";
 import { Component } from "react";
 /* css import */
 import "../../assets/css/styled.css";
@@ -25,11 +25,10 @@ import { FaUserCheck } from "react-icons/fa";
 
 //reduc & action creator
 import { connect } from "react-redux";
-import {
-  changeLogoutState,
-  checkTokenProfile,
-} from "../../redux/actions/memberLogin";
-import { axiosWeather, axiosWeatherInfo } from "../../redux/actions/weather";
+import { changeLogoutState, checkTokenProfile } from "../../redux/actions/memberLogin";
+import { axiosGetShoppingCartList } from '../../redux/actions/shoppingCart';
+import { axiosWeather, axiosWeatherInfo } from '../../redux/actions/weather';
+
 //axios
 import axios from "axios";
 
@@ -38,12 +37,13 @@ import PopoverShopping from "./popover";
 
 class MainNavbar extends Component {
   componentDidMount() {
-    const token = localStorage.getItem("token");
-    if (token) {
+    const token = localStorage.getItem('token')
+    if(token) {
       //axios
-      this.props.checkToken(token);
+      this.props.checkToken(token)
+      this.props.handleGetCartItemsList(token)
     } else {
-      this.props.handleLogout();
+      this.props.handleLogout()
     }
   }
 
@@ -162,16 +162,16 @@ class MainNavbar extends Component {
                       <LinkContainer to="/auth" className="mr-0">
                         <Navbar.Brand>
                           <img
-                            src={
-                              localStorage.getItem("image") === "null"
-                                ? require(`../../assets/img/userimage/user.jpg`)
-                                    .default
-                                : "http://localhost:3000/" + localStorage.image
-                            }
                             // src={
-                            //   require(`../../assets/img/userimage/user.jpg`)
-                            //     .default
+                            //   localStorage.getItem("image") === "null"
+                            //     ? require(`../../assets/img/userimage/user.jpg`)
+                            //         .default
+                            //     : "http://localhost:3000/" + localStorage.image
                             // }
+                            src={
+                              require(`../../assets/img/userimage/user.jpg`)
+                                .default
+                            }
                             width="35"
                             height="35"
                             style={{ borderRadius: "50%" }}
@@ -241,9 +241,13 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(action);
     },
     checkToken(token) {
-      const action = checkTokenProfile(token);
-      dispatch(action);
+      const action = checkTokenProfile(token)
+      dispatch(action)
     },
+    handleGetCartItemsList(token) {
+      const action = axiosGetShoppingCartList(token)
+      dispatch(action)
+    }
   };
 };
 
