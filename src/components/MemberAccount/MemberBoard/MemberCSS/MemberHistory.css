@@ -80,11 +80,11 @@
 .MHtotalPrice {
   text-decoration: line-through;
   color: #858585;
+  margin-left: 40px;
 }
 
 .MHdiscountDate {
   display: inline-flex;
-  margin-left: 40px;
   align-items: flex-end;
 }
 
