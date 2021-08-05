@@ -105,6 +105,18 @@ export const axiosGetShoppingCartList = (token) => {
                   data
                 })
                 dispatch(action)
+                return res
+          })
+          .then((detail) => {
+            console.log(detail)
+            const orderDetail = detail.data.saveOrderDetail
+            const buyItems = detail.data.buyItem
+            const action = ({
+            type: actionTypes.SHOW_SHOPPING_DETAIL,
+                orderDetail,
+                buyItems
+            })
+             dispatch(action)
           })
           .catch((err) => {
               console.log(err)
@@ -113,28 +125,27 @@ export const axiosGetShoppingCartList = (token) => {
 }
 
 
-export const showOrderDetailAll = () => {
-    console.log(123)
-    return(dispatch) => {
-        const token = localStorage.getItem("token");
-        const headers = {
-            'Authorization': `Bearer ${token}`
-        }
-        axios
-          .get('http://localhost:3000/api/order/detail', {headers})
-          .then((res) => {
-                const detail = res.myOrderDetail
-                const action = ({
-                  type: actionTypes.SHOW_SHOPPING_DETAIL,
-                  detail
-                })
-                dispatch(action)
-          })
-          .catch((err) => {
-              console.log(err)
-          })
-    }
-}
+// export const showOrderDetailAll = () => {
+//     return(dispatch) => {
+//         const token = localStorage.getItem("token");
+//         const headers = {
+//             'Authorization': `Bearer ${token}`
+//         }
+//         axios
+//           .get('http://localhost:3000/api/order/detail', {headers})
+//           .then((res) => {
+//                 const detail = res.myOrderDetail
+//                 const action = ({
+//                   type: actionTypes.SHOW_SHOPPING_DETAIL,
+//                   detail
+//                 })
+//                 dispatch(action)
+//           })
+//           .catch((err) => {
+//               console.log(err)
+//           })
+//     }
+// }
 
 
 

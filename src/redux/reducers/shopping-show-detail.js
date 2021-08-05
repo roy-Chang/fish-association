@@ -6,8 +6,11 @@ const showOrderDetail = {}
 export default (state = showOrderDetail, action) => {
     switch (action.type) {
         case actionTypes.SHOW_SHOPPING_DETAIL: {
+            console.log(action)
             const newState = {
-                action
+                ...state,
+                ...action.orderDetail,
+                itemArr: action.buyItems
             }
             return newState
         }
