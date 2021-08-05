@@ -12,11 +12,11 @@ export const BgSea = styled.div`
 export const WeatherInfo = styled.div`
   width: 85%;
   top: 530px;
-  left: 77px;
+  left: 76px;
   text-align: center;
   position: absolute;
   border: #fff579 solid 3px;
-  box-shadow: 0 0 0 77px #1d3557;
+  box-shadow: 0 0 0 76px #1d3557;
   z-index: 999;
   h2 {
     font-size: 48px;

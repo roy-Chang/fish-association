@@ -33,7 +33,7 @@ export default function Banner() {
         className="mySwiper" //連結css樣式
       >
         <SwiperSlide>
-          <img src={banner01} alt="正濱漁港banner" 正濱漁港 />
+          <img src={banner01} alt="正濱漁港banner" />
           <Slogan>
             <h1>地方深度體驗</h1>
             <p>
@@ -44,7 +44,7 @@ export default function Banner() {
           </Slogan>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={banner02} alt="深澳漁港banner" 深澳漁港 />
+          <img src={banner02} alt="深澳漁港banner" />
           <Slogan>
             <h1>漁產資源豐富</h1>
             <p>
@@ -55,7 +55,7 @@ export default function Banner() {
           </Slogan>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={banner03} alt="龍洞banner" 龍洞 />
+          <img src={banner03} alt="龍洞banner" />
           <Slogan>
             <h1>透清涼好去處</h1>
             <p>
@@ -66,7 +66,7 @@ export default function Banner() {
           </Slogan>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={banner04} alt="龜吼banner" 龜吼 />
+          <img src={banner04} alt="龜吼banner" />
           <Slogan>
             <h1>傳統技藝傳承</h1>
             <p>

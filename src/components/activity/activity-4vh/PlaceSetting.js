@@ -20,6 +20,7 @@ function PlaceSetting({ setLocationName }) {
     >
       {locations.map((location, index) => (
         <Dropdown.Item
+          key={index}
           value={location}
           href="#"
           id={location}

@@ -183,7 +183,9 @@ function WeatherFcst(props) {
         </li>
         <li className="d-flex justify-content-around" style={{ padding: "0" }}>
           {currentWeather.phenomenonAM.map((item, index) => {
-            return <WeatherIcon currentWeatherCode={item} moment="day" />;
+            return (
+              <WeatherIcon key={index} currentWeatherCode={item} moment="day" />
+            );
           })}
         </li>
         <li className="d-flex justify-content-around" style={{ padding: "0" }}>
@@ -197,7 +199,13 @@ function WeatherFcst(props) {
         </li>
         <li className="d-flex justify-content-around" style={{ padding: "0" }}>
           {currentWeather.phenomenonPM.map((item, index) => {
-            return <WeatherIcon currentWeatherCode={item} moment="night" />;
+            return (
+              <WeatherIcon
+                key={index}
+                currentWeatherCode={item}
+                moment="night"
+              />
+            );
           })}
         </li>
         <li className="d-flex justify-content-around mt-2 mb-2">
