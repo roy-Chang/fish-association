@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
-
+import { MdAccountCircle } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
+import { RiEditBoxFill } from "react-icons/ri";
+import { MdDirectionsBoat } from "react-icons/md";
+import { FaClipboardList } from "react-icons/fa";
+import { RiCouponFill } from "react-icons/ri";
 //CSS
 import "./MemberAccount.css";
 
@@ -35,71 +40,59 @@ function MemberAside(props) {
           </div>
           <Container className="MAmemberCentreList">
             <ul>
-              <li>
-                <a
-                  className={`${change == 0 ? "MAactiveList" : ""}`}
-                  onClick={() => {
-                    setChange(0);
-                  }}
-                >
-                  <img src={accountIcon} alt="" />
-                  我的檔案
-                </a>
+              <li
+                className={`${change == 0 ? "MAactiveList" : ""}`}
+                onClick={() => {
+                  setChange(0);
+                }}
+              >
+                <MdAccountCircle />
+                <div>我的檔案</div>
               </li>
-              <li className="">
-                <a
-                  className={`${change == 1 ? "MAactiveList" : ""}`}
-                  onClick={() => {
-                    setChange(1);
-                  }}
-                >
-                  <img src={favoriteIcon} alt="" />
-                  收藏清單
-                </a>
+              <li
+                className={`${change == 1 ? "MAactiveList" : ""}`}
+                onClick={() => {
+                  setChange(1);
+                }}
+              >
+                <MdFavorite />
+                <div>收藏清單</div>
               </li>
-              <li className="">
-                <a
-                  className={`${change == 2 ? "MAactiveList" : ""}`}
-                  onClick={() => {
-                    setChange(2);
-                  }}
-                >
-                  <img src={noteIcon} alt="" />
-                  我的札記
-                </a>
+              <li
+                className={`${change == 2 ? "MAactiveList" : ""}`}
+                onClick={() => {
+                  setChange(2);
+                }}
+              >
+                <RiEditBoxFill />
+                <div>我的札記</div>
               </li>
-              <li className="">
-                <a
-                  className={`${change == 3 ? "MAactiveList" : ""}`}
-                  onClick={() => {
-                    setChange(3);
-                  }}
-                >
-                  <img src={activeIcon} alt="" />
-                  我的活動
-                </a>
+              <li
+                className={`${change == 3 ? "MAactiveList" : ""}`}
+                onClick={() => {
+                  setChange(3);
+                }}
+              >
+                <MdDirectionsBoat />
+                <div>我的活動</div>
               </li>
-              <li className="">
-                <a
-                  className={`${change == 4 ? "MAactiveList" : ""}`}
-                  onClick={() => {
-                    setChange(4);
-                  }}
-                >
-                  <img src={clipboardIcon} alt="" />
-                  購買紀錄
-                </a>
+              <li
+                className={`${change == 4 ? "MAactiveList" : ""}`}
+                onClick={() => {
+                  setChange(4);
+                }}
+              >
+                <FaClipboardList />
+                <div>購買紀錄</div>
               </li>
-              <li className="">
-                <a
-                  className={`${change == 5 ? "MAactiveList" : ""}`}
-                  onClick={() => {
-                    setChange(5);
-                  }}
-                >
-                  <img src={dollarIcon} alt="" />
-                  優惠券專區
-                </a>
+              <li
+                className={`${change == 5 ? "MAactiveList" : ""}`}
+                onClick={() => {
+                  setChange(5);
+                }}
+              >
+                <RiCouponFill />
+                <div>優惠券專區</div>
               </li>
             </ul>
           </Container>
