@@ -43,6 +43,7 @@ class MainNavbar extends Component {
       //axios
       this.props.checkToken(token)
       this.props.handleGetCartItemsList(token)
+      this.props.axiosProductLike()
     } else {
       this.props.handleLogout()
     }
@@ -88,7 +89,7 @@ class MainNavbar extends Component {
                 <LinkContainer to="/travelNotes" className="mx-2">
                   <Nav.Link>札記分享</Nav.Link>
                 </LinkContainer>
-                <LinkContainer onClick={this.props.axiosProductLike} to="/products" className="mx-2">
+                <LinkContainer onClick={() => (this.props.axiosProductLike())} to="/products" className="mx-2">
                   <Nav.Link>生鮮水產</Nav.Link>
                 </LinkContainer>
                 <LinkContainer

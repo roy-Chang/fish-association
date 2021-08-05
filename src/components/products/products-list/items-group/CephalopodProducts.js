@@ -5,7 +5,7 @@ import { Card } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsHeartFill } from "react-icons/bs";
 /*items json*/
-import productsAll from '../../../../utils/products.json'
+import { likeProducts } from '../../../../utils/handleFilterItemData';
 import { Link } from "react-router-dom";
 //connect store
 import { connect } from 'react-redux'
@@ -26,7 +26,7 @@ class CephalopodProducts extends Component {
   render() {
     return (
       <>
-        {productsAll.cephalopodProducts.map((item) => {
+        {likeProducts(this.props.like, 'cephalopodProducts').map((item) => {
           return (
             <div key={item.id}>
               <Card className="P-product-card my-3" style={{marginRight: '20px'}}>
@@ -35,7 +35,7 @@ class CephalopodProducts extends Component {
                 </figure>
                 <div className="d-flex justify-content-end align-items-center mr-3">
                   <BsHeartFill
-                    style={{ width: "25px", height: "25px" }}
+                    style={{ width: "25px", height: "25px", color: `${item.like === true ? 'red' : ''}` }}
                     className="mx-2 heart"
                   />
                   <FaShoppingCart
@@ -67,6 +67,7 @@ class CephalopodProducts extends Component {
 const mapStateToProps = (state) => {
   return {
     shoppingCartContent: state.shoppingCartContent,
+    like: state.like
   };
 };
 

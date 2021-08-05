@@ -1,8 +1,8 @@
 import * as actionTypes from "../constant";
 import axios from "axios";
 
-export const saveInput = (data) => ({
-  type: actionTypes.MEMBER_REGISTER_ACTION,
+export const handleMemberLike = (data) => ({
+  type: actionTypes.PRODUCTS_LIKE_ACTION,
   data,
 });
 
@@ -17,6 +17,9 @@ export const saveInput = (data) => ({
         setFavoriteP(myProductsLike);
       });
   }, []); */
+
+
+
 export const axiosGetProductLike = () => {
     const token = localStorage.getItem("token");
   return (dispatch) => {
@@ -26,6 +29,12 @@ export const axiosGetProductLike = () => {
       })
       .then((res) => {
           console.log(res)
+          let memberLike = []
+          res.data.forEach(item => {
+              memberLike.push(item.product_id)
+          })
+          const action = handleMemberLike(memberLike)
+          dispatch(action)
       });
   };
 };

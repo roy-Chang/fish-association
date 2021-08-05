@@ -6,33 +6,31 @@ import { Card } from "react-bootstrap";
 /* img import */
 import { FaShoppingCart } from "react-icons/fa";
 import { BsHeartFill } from "react-icons/bs";
-
-/*items json*/
-import productsAll from '../../../../utils/products.json'
+//like product filter
+import { likeProducts } from '../../../../utils/handleFilterItemData';
 import { Link } from "react-router-dom";
 
 //react-redux
 import { connect } from "react-redux";
 //action creator
-import { addShoppingCartItems, showShoppingCartList } from '../../../../redux/actions/shoppingCart';
-//utils itemfilter
-import { buyFilter } from '../../../../utils/handleFilterItemData';
+import { addShoppingCartItems } from '../../../../redux/actions/shoppingCart';
+
+//newArr = likeProducts([2, 5], fishProducts)
 
 class FishItems extends Component {
+
   addCart(id, data) {
     let itemObj = { 
       product_id: id, buy_num: 1
     }
     this.props.addShoppingCart(itemObj);
   }
-
-
-
+ 
 
   render() {
     return (
     <>
-        {productsAll.fishProducts.map((item) => {
+        {likeProducts(this.props.like, 'fishProducts').map((item) => {
           return (
             <div key={item.id}>
               <Card className="P-product-card my-3" style={{marginRight: '20px'}}>
@@ -40,12 +38,15 @@ class FishItems extends Component {
                   <img src={require(`../../../../assets/img/products/fish/${item.image}.jpg`).default} alt="" />
                 </figure>
                 <div className="d-flex justify-content-end align-items-center mr-3">
+                  
                   <BsHeartFill
+                    onClick={() => {this.props.productLike(item.id)}}
                     style={{
                       width: "25px", 
                       height: "25px",
-                      color: `${item.id = 1 ? 'red' : ''}`
+                      color: `${item.like === true ? 'red' : ''}`
                     }}
+                    
                     className="mx-2 heart"
                   />
                   <FaShoppingCart
@@ -74,7 +75,8 @@ class FishItems extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    shoppingCartContent: state.shoppingCartContent
+    shoppingCartContent: state.shoppingCartContent,
+    like: state.like
   };
 };
 
@@ -83,6 +85,9 @@ const mapDispatchToProps = (dispatch) => {
     addShoppingCart(item) {
       const action = addShoppingCartItems(item)
       dispatch(action);
+    },
+    productLike(id) {
+      console.log(id)
     }
   }
 }
