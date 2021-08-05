@@ -1,5 +1,5 @@
 import myProducts from './likeProducts';
-
+import productsAll from './products.json'
 
 export const buyFilter = (items) => {
     const productsList = myProducts.myProducts
@@ -72,4 +72,18 @@ export const splitArrCartItems = (data) => {
     }
   })
   return arrItems
+}
+
+export const likeProducts = (arr, type) => {
+  let newArr = []
+  const productsList = productsAll[`${type}`]
+  for(let i = 0; i < productsList.length; i++) {
+    arr.forEach((like) => {
+      if(productsList[i].id === like) {
+        productsList[i].like = true
+      }
+    })
+    newArr.push(productsList[i])
+  }
+  return newArr
 }

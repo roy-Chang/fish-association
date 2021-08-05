@@ -3,8 +3,8 @@ import { Card } from "react-bootstrap";
 /* img import */
 import { FaShoppingCart } from "react-icons/fa";
 import { BsHeartFill } from "react-icons/bs";
-/*items json*/
-import productsAll from '../../../../utils/products.json'
+//like product filter
+import { likeProducts } from '../../../../utils/handleFilterItemData';
 //link
 import { Link } from "react-router-dom";
 //connect store
@@ -24,7 +24,8 @@ class ShrimpItems extends Component {
   render() {
     return (
       <>
-        {productsAll.shrimpProducts.map((item) => {
+      {console.log(likeProducts(this.props.like, 'shrimpProducts'))}
+        {likeProducts(this.props.like, 'shrimpProducts').map((item) => {
           return (
             <div key={item.id}>
               <Card className="P-product-card my-3" style={{marginRight: '20px'}}>
@@ -33,13 +34,14 @@ class ShrimpItems extends Component {
                 </figure>
                 <div className="d-flex justify-content-end align-items-center mr-3">
                   <BsHeartFill
-                    style={{ width: "25px", height: "25px" }}
+                    style={{ width: "25px", height: "25px", color: `${item.like === true ? 'red' : ''}` }}
                     className="mx-2 heart"
                   />
                   <FaShoppingCart
                     style={{ width: "25px", height: "25px" }}
                     className="shopping-cart"
                     onClick={() => {this.addCart(item.id)}}
+                    
                   />
                 </div>
                 <Card.Body>
@@ -63,6 +65,7 @@ class ShrimpItems extends Component {
 const mapStateToProps = (state) => {
   return {
     shoppingCartContent: state.shoppingCartContent,
+    like: state.like
   };
 };
 
