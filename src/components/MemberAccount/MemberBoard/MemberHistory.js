@@ -23,7 +23,7 @@ function MemberHistory() {
   }, []);
   return (
     <>
-    {console.log(orderList)}
+      {console.log(orderList)}
       {/* {console.log(productsAll.myProducts)} */}
       <div className="MHmemberBoard">
         <div>
@@ -64,11 +64,11 @@ function MemberHistory() {
                   );
                 })}
                 <div className="MHtotal">
-                  <div className="MHtotalPrice">${order.original_total}</div>
-                  <div className="MHdiscount">${order.pay_total}</div>
                   <div className="MHdiscountDate">
                     {moment(order.created_at).format("YYYY-MM-DD HH:mm:ss")}
                   </div>
+                  <div className="MHtotalPrice">${order.original_total}</div>
+                  <div className="MHdiscount">${order.pay_total}</div>
                 </div>
               </div>
             );

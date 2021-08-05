@@ -45,6 +45,13 @@ function FavoriteNotes() {
                         return v.note_id !== article.note_id;
                       });
                       setFavoriteN(newWriter);
+                      axios.delete(
+                        `http://localhost:3000/api/profile/noteLike/${article.note_id}`,
+                        {
+                          headers: { Authorization: `Bearer ${token}` },
+                        }
+                      );
+                      // console.log(article.note_id);
                     }}
                   >
                     刪除

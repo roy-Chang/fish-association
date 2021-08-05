@@ -47,7 +47,7 @@
 }
 .P-detail-des p {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* Detail Content */
@@ -68,7 +68,7 @@
 }
 .P-detail-content p {
   margin-top: 30px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* Recommend */
@@ -101,7 +101,7 @@
 }
 
 .cur-buy-btn {
-  background: var(--fifth-color); 
+  background: var(--fifth-color);
   border: none;
   color: white;
   border-radius: 5px;
@@ -110,8 +110,7 @@
 
 .cur-buy-btn:hover {
   background: #c2303c;
-} 
-
+}
 
 .add-buy-btn {
   background: var(--second-color);
@@ -119,14 +118,14 @@
   color: white;
   border-radius: 5px;
   padding: 10px 15px;
-} 
+}
 
 .add-buy-btn:hover {
   background: #396581;
 }
 
 .like-btn-btn {
-  background: #ABDADC;
+  background: #abdadc;
   border: none;
   color: white;
   border-radius: 5px;

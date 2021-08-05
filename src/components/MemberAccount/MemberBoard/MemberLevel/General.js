@@ -385,7 +385,7 @@ function General(props) {
                   // src={headPhoto}
                   src={
                     window.localStorage.getItem("image") === "null"
-                      ? require(headPhoto).default
+                      ? headPhoto
                       : "http://localhost:3000/" + data.image
                   }
                   alt=""
