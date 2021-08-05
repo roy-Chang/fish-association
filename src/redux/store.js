@@ -9,6 +9,7 @@ import {
     shoppingCartListReducer, 
     shoppingCartBtnReducer,
     shoppingOrderDetailReducer,
+    showOrderDetailReducer,
     jumpRouterReducer
 } from './reducers/index';
 //dev-tool redux
@@ -29,6 +30,7 @@ const allReducer = combineReducers({
     shoppingCartList: shoppingCartListReducer,
     shoppingBtn: shoppingCartBtnReducer,
     shoppingOrderDetail: shoppingOrderDetailReducer,
+    orderDetail: showOrderDetailReducer,
     toRouter: jumpRouterReducer
 })
 

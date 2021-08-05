@@ -25,6 +25,7 @@ export const REFRESH_CART_LIST = 'refresh_cart_list'
 //shopping cart detail
 export const SAVE_SHOPPING_CART_DETAIL = 'save_shopping_cart_detail';
 export const SAVE_SHOPPING_DETAIL_ALL = 'save_shopping_detail_all';
+export const SHOW_SHOPPING_DETAIL = 'show_shopping_detail';
 //shopping cart btn transform
 export const SHOPPING_BTN_CHANGE = 'shopping_btn_change';
 export const SHOPPING_BTN_CHANGE_SWITCH = 'shopping_btn_change_switch';

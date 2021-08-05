@@ -7,10 +7,11 @@ import { useHistory } from 'react-router-dom';
 //css
 import './detail/cart.css'
 //action creator
-import { clearShoppingCartItems, cleartCartList, saveOrderDetailAll } from '../../redux/actions/shoppingCart'
+import { clearShoppingCartItems, cleartCartList } from '../../redux/actions/shoppingCart'
 //react redux
+import * as actionTypes from '../../redux/constant';
 import { useDispatch, useSelector } from 'react-redux';
-
+import axios from 'axios';
 
 function Cart() {
   //set step
@@ -24,13 +25,14 @@ function Cart() {
   const handleClearCartList = () => {
     dispatch(cleartCartList())
   }
+ 
   //store state
   const shoppingCartList = useSelector((state) => state.shoppingCartList);
   const shoppingUseCoupon = useSelector((state) => state.shoppingOrderDetail);
   //original total
   let sum = 0
   shoppingCartList.forEach((item) => {
-      sum += item.price
+      sum += item.price * item.buy_num
   })
   //原價
   let total = sum
@@ -43,7 +45,38 @@ function Cart() {
   const nextBtn = () => {
     setChange(change + 1)
   }
-
+  //--清空購物車
+  const axiosClearCartList = () => {
+    const token = localStorage.getItem("token");
+    const headers = {
+        'Authorization': `Bearer ${token}`
+      }
+      axios
+        .delete('http://localhost:3000/api/cart/list', {headers})
+        .then((res) => {
+            console.log(res)
+            
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+  }
+  //--show order detail
+  const handleShowDetail = () => {
+    const token = localStorage.getItem("token");
+      const headers = {
+          'Authorization': `Bearer ${token}`
+      }
+    axios
+      .get('http://localhost:3000/api/order/detail', {headers})
+      .then((res) => {
+            const action = ({
+              type: actionTypes.SHOW_SHOPPING_DETAIL,
+              res
+            })
+            dispatch(action)
+          })
+  }
   //-----------history
   const history = useHistory()
   return (
@@ -109,6 +142,7 @@ function Cart() {
                     setChange(0)
                     clearCartItems()
                     handleClearCartList()
+                    axiosClearCartList()
                     history.push('/products')
                   }}
                 >
@@ -117,6 +151,7 @@ function Cart() {
                 <Button
                   className="cbtn"
                   onClick={() => {
+                    handleShowDetail()
                     setChange(1)
                   }}
                 >

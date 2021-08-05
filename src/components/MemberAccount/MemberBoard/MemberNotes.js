@@ -53,26 +53,22 @@ function MemberNotes() {
                           return v.id !== note.id;
                         });
                         setNotes(article);
-                        let header = {
-                          Authorization: `Bearer ${token}`,
-                          "Content-Type": "application/json",
-                          Accept: "application/json",
-                        };
 
-                        // axios
-                        //   .patch(
-                        //     "http://localhost:3000/api/profile/note/delete",
-                        //     { note: notes },
-                        //     {
-                        //       headers: header,
-                        //     }
-                        //   )
-                        //   .then((response) => {
-                        //     console.log(response);
-                        //     setNotes(article);
-                        //   });
+                        axios
+                          .patch(
+                            `http://localhost:3000/api/profile/note/patch/${note.id}`,
+                            {
+                              headers: { Authorization: `Bearer ${token}` },
+                            }
+                          )
+                          .then((response) => {
+                            console.log(response);
+                          })
+                          .catch((err) => {
+                            console.log(err);
+                          });
+                        console.log(note.id);
                       }}
-                      onChange={(e) => {}}
                     >
                       刪除
                     </Button>

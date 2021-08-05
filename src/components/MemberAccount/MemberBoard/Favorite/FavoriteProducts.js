@@ -77,18 +77,15 @@ function FavoriteProducts(props) {
                     const newFavProducts = favoriteP.filter((v, i) => {
                       return v.product_id !== likeProducts.product_id;
                     });
-                    //
-
-                    //
                     setFavoriteP(newFavProducts);
-                    // axios.delete(
-                    //   `http://localhost:3000/api/profile/productLike/:productId`,
-                    //   {
-                    //     headers: { Authorization: `Bearer ${token}` },
-                    //   }
-                    // );
+                    axios.delete(
+                      `http://localhost:3000/api/profile/productLike/${findProduct.id}`,
+                      {
+                        headers: { Authorization: `Bearer ${token}` },
+                      }
+                    );
 
-                    // console.log(findProduct.id);
+                    console.log(findProduct.id);
                     // handleDelete(findProduct.id);
                   }}
                 >
