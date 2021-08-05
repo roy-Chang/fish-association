@@ -91,12 +91,10 @@ nav {
 .MAactiveList {
   color: var(--second-color) !important;
   font-weight: bold;
-  /* background-color: var(--second-color); */
 }
 
 .MAmemberBoard {
   position: relative;
-  height: 550px;
   width: 600px;
   background: var(--main-color);
   margin-top: 50px;

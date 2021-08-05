@@ -7,14 +7,14 @@ import { Card } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsHeartFill } from "react-icons/bs";
 //like product filter
-import { likeProducts } from '../../../../utils/handleFilterItemData';
+import allProducts from '../../../../utils/products.json'
 import { Link } from "react-router-dom";
 
 //react-redux
 import { connect } from "react-redux";
 //action creator
 import { addShoppingCartItems } from '../../../../redux/actions/shoppingCart';
-
+import { axiosAddProductLike } from '../../../../redux/actions/productLike';
 //newArr = likeProducts([2, 5], fishProducts)
 
 class FishItems extends Component {
@@ -30,7 +30,7 @@ class FishItems extends Component {
   render() {
     return (
     <>
-        {likeProducts(this.props.like, 'fishProducts').map((item) => {
+        {allProducts.fishProducts.map((item) => {
           return (
             <div key={item.id}>
               <Card className="P-product-card my-3" style={{marginRight: '20px'}}>
@@ -44,7 +44,6 @@ class FishItems extends Component {
                     style={{
                       width: "25px", 
                       height: "25px",
-                      color: `${item.like === true ? 'red' : ''}`
                     }}
                     
                     className="mx-2 heart"
@@ -75,8 +74,7 @@ class FishItems extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    shoppingCartContent: state.shoppingCartContent,
-    like: state.like
+    shoppingCartContent: state.shoppingCartContent
   };
 };
 
@@ -87,7 +85,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(action);
     },
     productLike(id) {
-      console.log(id)
+      const action = axiosAddProductLike(id)
+      dispatch(action)
     }
   }
 }

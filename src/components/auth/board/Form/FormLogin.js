@@ -120,6 +120,7 @@ const mapDispatchToProps = (dispatch) => {
         [JSON.stringify({ access_token: response.accessToken }, null, 2)],
         { type: 'application/json' }
       )
+      console.log(response)
       const action = handleGoogleLogin(tokenBlob)
       dispatch(action)
       

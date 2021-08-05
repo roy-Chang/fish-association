@@ -32,7 +32,6 @@ import {
 } from "../../redux/actions/memberLogin";
 import { axiosGetShoppingCartList } from "../../redux/actions/shoppingCart";
 import { axiosWeather, axiosWeatherInfo } from "../../redux/actions/weather";
-import { axiosGetProductLike } from "../../redux/actions/productLike";
 //axios
 import axios from "axios";
 
@@ -46,7 +45,6 @@ class MainNavbar extends Component {
       //axios
       this.props.checkToken(token);
       this.props.handleGetCartItemsList(token);
-      this.props.axiosProductLike();
     } else {
       this.props.handleLogout();
     }
@@ -92,11 +90,7 @@ class MainNavbar extends Component {
                 <LinkContainer to="/travelNotes" className="mx-2">
                   <Nav.Link>札記分享</Nav.Link>
                 </LinkContainer>
-                <LinkContainer
-                  onClick={() => this.props.axiosProductLike()}
-                  to="/products"
-                  className="mx-2"
-                >
+                <LinkContainer to="/products" className="mx-2">
                   <Nav.Link>生鮮水產</Nav.Link>
                 </LinkContainer>
                 <LinkContainer
@@ -256,10 +250,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleGetCartItemsList(token) {
       const action = axiosGetShoppingCartList(token);
-      dispatch(action);
-    },
-    axiosProductLike() {
-      const action = axiosGetProductLike();
       dispatch(action);
     },
   };

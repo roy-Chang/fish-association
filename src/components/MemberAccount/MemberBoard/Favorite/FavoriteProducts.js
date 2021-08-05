@@ -108,59 +108,6 @@ function FavoriteProducts(props) {
             </animated.div>
           );
         })}
-
-        {/* {一般} */}
-        {/* {favoriteP.map((likeProducts) => {
-          const findProduct = products.find((product) => {
-            return product.id === likeProducts.product_id;
-          });
-          return (
-            <div>
-              <div className="MFPcommodityFavoritesList">
-                <img
-                  className="MFPcommodityPicture"
-                  src={findProduct.image}
-                  alt=""
-                />
-                <Link
-                  to={`/detail/${findProduct.catalogName}/${findProduct.name}/${findProduct.id}`}
-                >
-                  {findProduct.name}
-                </Link>
-                <Button
-                  className="MFPbtn"
-                  onClick={() => {
-                    const newFavProducts = favoriteP.filter((v, i) => {
-                      return v.product_id !== likeProducts.product_id;
-                    });
-                    setFavoriteP(newFavProducts);
-                    axios.delete(
-                      `http://localhost:3000/api/profile/productLike/${findProduct.id}`,
-                      {
-                        headers: { Authorization: `Bearer ${token}` },
-                      }
-                    );
-
-                    console.log(findProduct.id);
-                    // handleDelete(findProduct.id);
-                  }}
-                >
-                  刪除
-                </Button>
-              </div>
-              <hr />
-            </div>
-          );
-        })} */}
-
-        {/* <div>
-          <div className="MFPcommodityFavoritesList">
-            <img className="MFPcommodityPicture" src={fish} alt="" />
-            <a href="">鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚</a>
-            <Button className="MFPbtn">刪除</Button>
-          </div>
-          <hr />
-        </div> */}
       </div>
     </>
   );

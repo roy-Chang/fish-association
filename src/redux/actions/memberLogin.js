@@ -40,7 +40,6 @@ export const checkTokenProfile = (token) => {
 
 
 export const handleGoogleLogin = (token) => {
-  console.log(token)
   return (dispatch) => {
     axios
       .post('http://localhost:3000/api/member/login/google', token, { headers: {
@@ -51,8 +50,9 @@ export const handleGoogleLogin = (token) => {
         console.log(serverResponse)
         const memberName = serverResponse.data.member.name;
         const memberImage = serverResponse.data.member.image;
+        const memberToken = serverResponse.data.member.token;
         const action = changeLoginState({
-          token: token,
+          token: memberToken,
           name: memberName,
           image: memberImage,
           isLogin: true,
