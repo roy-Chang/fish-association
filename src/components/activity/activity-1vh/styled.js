@@ -6,12 +6,12 @@ export const BgGreen = styled.div`
 `;
 export const Slogan = styled.div`
   max-width: 620px;
-  padding: 20px;
+  padding: 35px;
   border-radius: 20px;
   background-color: rgba(250, 250, 250, 0.7);
   position: absolute;
   left: 5%;
-  top: 25%;
+  top: 15%;
   color: #1d3557;
   z-index: 1000;
   text-align: left;

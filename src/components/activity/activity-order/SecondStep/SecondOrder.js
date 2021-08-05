@@ -18,6 +18,8 @@ function SecondOrder(props) {
   const [inputFields, setInputField] = useState([
     { name: "", email: "", phone: "" },
   ]);
+  const [massage, setMassage] = useState(null);
+  const [check, setCheck] = useState(true);
   const nextPage = {
     pathname: `/order/activity/${name}/third`,
     state: {
@@ -47,11 +49,37 @@ function SecondOrder(props) {
         break;
     }
   }, [location.state.id]);
-
+  //檢查表單是否都有填寫
+  function checkform() {
+    for (let i = 0; i < inputFields.length; i++) {
+      Object.values(inputFields[i]).forEach(function eachKey(key) {
+        if (!key) {
+          setMassage("請檢查資料是否正確");
+          setCheck(true);
+        }
+      });
+    }
+  }
   //提交表單value
   const handleSubmit = (event) => {
     event.preventDefault();
-    history.push(nextPage);
+    checkform();
+    function isEmpty(element) {
+      return element !== "";
+    }
+    let count = 0;
+    for (let i = 0; i < inputFields.length; i++) {
+      let result = Object.values(inputFields[i]).every(isEmpty);
+      if (result !== false) {
+        count = count + 1;
+        if (count == inputFields.length) {
+          console.log(result);
+          console.log(count);
+          setCheck(false);
+          history.push(nextPage);
+        }
+      }
+    }
     console.log("2page-handleSubmit", inputFields);
     console.log("2page-paymentWay", paymentWay);
   };
@@ -61,12 +89,42 @@ function SecondOrder(props) {
     const values = [...inputFields];
     values[index][e.target.name] = e.target.value;
     setInputField(values);
+    setCheck(false);
+    setMassage("");
   };
 
   return (
     <Wrapper className=" mt-5">
       <Bg_blue>
         <ProgressBar>
+          <div className="line">
+            <svg
+              className="circle circle1"
+              style={{
+                background: "#1D3557",
+              }}
+            >
+              <circle cx="20" cy="20" r="15" />
+            </svg>
+            <hr className="progress-line" />
+            <svg
+              className="circle"
+              style={{
+                background: "#AB20FD",
+                boxShadow: "0 0 20px #AB20FD",
+              }}
+            >
+              <circle cx="20" cy="20" r="15" />
+            </svg>
+            <svg
+              className="circle"
+              style={{
+                background: "#1D3557",
+              }}
+            >
+              <circle cx="20" cy="20" r="15" />
+            </svg>
+          </div>
           <ul>
             <li>活動確認</li>
             <li>資料填寫</li>
@@ -87,26 +145,29 @@ function SecondOrder(props) {
                         value={inputFields[`${index}`].name}
                         name="name"
                         onChange={(e) => handleChange(index, e)}
+                        required
                       />
                     </Form.Group>
                     <Form.Group as={Col} md="10">
-                      <Form.Label>電話</Form.Label>
+                      <Form.Label>信箱</Form.Label>
                       <Form.Control
                         type="mail"
                         placeholder="請輸入信箱"
                         value={inputFields[`${index}`].email}
                         name="email"
                         onChange={(e) => handleChange(index, e)}
+                        required
                       />
                     </Form.Group>
                     <Form.Group as={Col} md="10">
-                      <Form.Label>信箱</Form.Label>
+                      <Form.Label>電話</Form.Label>
                       <Form.Control
                         type="tel"
                         placeholder="請輸入電話"
                         value={inputFields[`${index}`].phone}
                         name="phone"
                         onChange={(e) => handleChange(index, e)}
+                        required
                       />
                     </Form.Group>
                   </Row>
@@ -114,7 +175,7 @@ function SecondOrder(props) {
               );
             })}
           </div>
-          <Form.Group className="mb-5 mt-5" style={{ marginLeft: "80px" }}>
+          <Form.Group className="mb-5 mt-2" style={{ marginLeft: "60px" }}>
             <Form.Label as="legend" column sm={5}>
               請選擇付款方式
             </Form.Label>
@@ -123,30 +184,32 @@ function SecondOrder(props) {
                 type="radio"
                 label="信用卡"
                 name={`payment`}
-                key="1"
+                key="0"
                 id="formHorizontalRadios1"
-                onChange={() => setpPaymentWay(1)}
+                onChange={() => setpPaymentWay(0)}
+                checked
               />
               <Form.Check
                 type="radio"
                 label="電匯"
                 name={`payment`}
-                key="2"
+                key="1"
                 id="formHorizontalRadios2"
-                onChange={() => setpPaymentWay(2)}
+                onChange={() => setpPaymentWay(1)}
               />
               <Form.Check
                 type="radio"
                 label="現場付款"
                 name={`payment`}
-                key="3"
+                key="2"
                 id="formHorizontalRadios3"
                 onChange={() => setpPaymentWay(2)}
               />
             </Col>
           </Form.Group>
           <div className="text-center mt-3">
-            <Button type="submit" onClick={handleSubmit}>
+            <p style={{ color: "red", height: "25px" }}>{massage}</p>
+            <Button type="submit" onClick={handleSubmit} disabled={check}>
               資料確認
             </Button>
           </div>

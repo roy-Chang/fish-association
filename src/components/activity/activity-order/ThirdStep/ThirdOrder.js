@@ -7,7 +7,7 @@ import {
   useHistory,
 } from "react-router-dom";
 import { Wrapper, Bg_blue, ProgressBar, CheckOrder } from "./styled";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
 
 function ThirdOrder() {
@@ -18,10 +18,15 @@ function ThirdOrder() {
   const [apply, setApply] = useState(null);
   const [normalCost, setnormalCost] = useState(null);
   const [childCost, setchildCost] = useState(null);
-  //const FormData = require("form-data");
-  location.state.data.forEach((value, index) => {
-    console.log("value", value.email);
-  });
+  const [message, setMessage] = useState(null);
+  const url = "http://localhost:3000/api/activity/order";
+  const insertData = [];
+  const history = useHistory();
+  //引用彈跳視窗
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   console.log(
     "3page-paymentWay",
     location.state.payment,
@@ -32,6 +37,28 @@ function ThirdOrder() {
     "3page-小孩人頭",
     location.state.childlNum
   );
+
+  function handleSubmit() {
+    location.state.data.map((element) => {
+      insertData.push({
+        activity_id: name,
+        name: element.name,
+        phone: element.phone,
+        email: element.email,
+        member_id: null,
+        remit: location.state.payment,
+      });
+    });
+    try {
+      axios.post(url, insertData).then((response) => {
+        console.log(response.data);
+        setMessage(response.data.message);
+        handleShow();
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/activity/${name}`)
@@ -48,56 +75,104 @@ function ThirdOrder() {
       });
   }, []);
   return (
-    <Wrapper className=" mt-5">
-      <Bg_blue>
-        <ProgressBar>
-          <ul>
-            <li>活動確認</li>
-            <li>資料填寫</li>
-            <li>報名完成</li>
-          </ul>
-        </ProgressBar>
-        <CheckOrder className=" mt-5">
-          <ul>
-            <li>報名活動 {orderName}</li>
-            <li>活動地點 {place}</li>
-            <li>活動日期 {apply}</li>
-            <li>
-              付款：
-              {(function () {
-                if (location.state.payment == 1) return "信用卡";
-                else if (location.state.payment == 2) return "電匯";
-                else return "現場付費";
-              })()}
-            </li>
-            <li>
-              總人數 大人{location.state.normalNum}名，小孩
-              {location.state.childlNum}名
-            </li>
-            <li>
-              總金額
-              {location.state.normalNum * normalCost +
-                location.state.childlNum * childCost}
-            </li>
-            {location.state.data.map((value, index) => {
-              return (
-                <>
-                  <p className="mt-2">------------------------------</p>
-                  <li>姓名{value.name}</li>
-                  <li>聯絡電話{value.phone}</li>
-                  <li>信箱 {value.email}</li>
-                </>
-              );
-            })}
-          </ul>
-        </CheckOrder>
-        <div className="text-center">
-          <Button variant="primary" className="mt-3 ml-5">
-            送出訂單
+    <>
+      <Wrapper className=" mt-5">
+        <Bg_blue>
+          <div className="line">
+            <svg
+              className="circle circle1"
+              style={{
+                background: "#1D3557",
+              }}
+            >
+              <circle cx="20" cy="20" r="15" />
+            </svg>
+            <hr className="progress-line" />
+            <svg
+              className="circle"
+              style={{
+                background: "#1D3557",
+              }}
+            >
+              <circle cx="20" cy="20" r="15" />
+            </svg>
+            <svg
+              className="circle"
+              style={{
+                background: "#AB20FD",
+                boxShadow: "0 0 20px #AB20FD",
+              }}
+            >
+              <circle cx="20" cy="20" r="15" />
+            </svg>
+          </div>
+          <ProgressBar>
+            <ul>
+              <li>活動確認</li>
+              <li>資料填寫</li>
+              <li>報名完成</li>
+            </ul>
+          </ProgressBar>
+          <CheckOrder className=" mt-5">
+            <ul>
+              <li>報名活動 {orderName}</li>
+              <li>活動地點 {place}</li>
+              <li>活動日期 {apply}</li>
+              <li>
+                付款：
+                {(function () {
+                  if (location.state.payment == "0") return "信用卡";
+                  else if (location.state.payment == "1") return "電匯";
+                  else if (location.state.payment == "2") return "現場付費";
+                })()}
+              </li>
+              <li>
+                總人數 大人{location.state.normalNum}名，小孩
+                {location.state.childlNum}名
+              </li>
+              <li>
+                總金額
+                {location.state.normalNum * normalCost +
+                  location.state.childlNum * childCost}
+              </li>
+              {location.state.data.map((value, index) => {
+                return (
+                  <>
+                    <p className="mt-2">------------------------------</p>
+                    <li>姓名{value.name}</li>
+                    <li>聯絡電話{value.phone}</li>
+                    <li>信箱 {value.email}</li>
+                  </>
+                );
+              })}
+            </ul>
+          </CheckOrder>
+          <div className="text-center">
+            <Button
+              variant="primary"
+              className="mt-3 ml-5"
+              onClick={handleSubmit}
+            >
+              送出訂單
+            </Button>
+          </div>
+        </Bg_blue>
+      </Wrapper>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>通知</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{message}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            關閉
           </Button>
-        </div>
-      </Bg_blue>
-    </Wrapper>
+          <Button variant="primary" onClick={handleClose}>
+            確認
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }
 export default ThirdOrder;

@@ -49,7 +49,7 @@ class PopoverShopping extends Component {
                             ) : 
                                 
                                 this.props.CartList.map((item) => (
-                                    <div className="shopping-product-wrapper">
+                                    <div key={item.id} className="shopping-product-wrapper">
                                         <figure className="product-pic">
                                             <img src={item.image} alt="" />
                                         </figure>
@@ -86,12 +86,9 @@ class PopoverShopping extends Component {
                             )
                             :
                             (<div className="buy-now-btn">
-                                    {this.props.isLogin === false ? 
+                                    {this.props.isLogin === false && this.props.shoppingCartContent.length === 0 ? 
                                     (
                                         <Link 
-                                          onClick={() => {
-                                              this.props.handleJumpToRoute(this.props.shoppingCartContent.length)
-                                          }} 
                                           to="/auth" 
                                           style={{color: 'white', textDecoration: 'none'}}>
                                               立即購買
@@ -103,9 +100,24 @@ class PopoverShopping extends Component {
                                           style={{color: 'white', textDecoration: 'none'}}>
                                               立即購買
                                         </Link>
-                                    ) : 
+                                    ) : this.props.isLogin === false ?
                                     (
-                                        <Link to="/products/order" style={{color: 'white', textDecoration: 'none'}}>
+                                        <Link 
+                                          to="/auth" 
+                                          style={{color: 'white', textDecoration: 'none'}}
+                                          onClick={() => {
+                                            this.props.handleJumpToRoute()
+                                          }} 
+                                        >
+                                            立即購買
+                                        </Link>
+                                    ) :
+                                    (
+                                        <Link 
+                                          to="/products/order" 
+                                          style={{color: 'white', textDecoration: 'none'}}
+                                          onClick={() => (this.props.insertShoppingCart(this.props.CartList))}
+                                        >
                                             立即購買
                                         </Link>
                                     )
@@ -133,7 +145,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {
+    return { 
         showCartItems(data) {
             const action = showShoppingCartList(buyFilter(data))
             dispatch(action)
@@ -153,6 +165,18 @@ const mapDispatchToProps = (dispatch) => {
             })
             dispatch(action)
             
+        },
+        insertShoppingCart(data) {
+            //insert db data
+            let products = []
+            data.forEach((item) => {
+                products.push({
+                    product_id: item.id,
+                    buy_num: item.buy_num
+                })
+            })
+            const action = axiosShowShoppingCartItems(products)
+            dispatch(action)
         }
 
     }

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./MemberCSS/MemberHistory.css";
 import productsAll from "../../../utils/likeProducts";
+import { Link } from "react-router-dom";
 const moment = require("moment");
-
 const products = productsAll.myProducts;
 
 function MemberHistory() {
@@ -23,7 +23,7 @@ function MemberHistory() {
   }, []);
   return (
     <>
-    {console.log(orderList)}
+      {console.log(orderList)}
       {/* {console.log(productsAll.myProducts)} */}
       <div className="MHmemberBoard">
         <div>
@@ -43,28 +43,32 @@ function MemberHistory() {
                   });
                   return (
                     <>
-                      <div className="MHitem">
-                        <img src={findProduct.image} alt="" />
-                        <div className="MHquantity">
-                          <div className="MHlist">
-                            {findProduct.name} ${findProduct.price}
+                      <Link
+                        to={`/detail/${findProduct.catalogName}/${findProduct.name}/${findProduct.id}`}
+                      >
+                        <div className="MHitem">
+                          <img src={findProduct.image} alt="" />
+                          <div className="MHquantity">
+                            <div className="MHlist">
+                              {findProduct.name}${findProduct.price}
+                            </div>
+                            <div className="MHnumber">X{item.buy_num}</div>
                           </div>
-                          <div className="MHnumber">X{item.buy_num}</div>
+                          <div className="MHdollar">
+                            ${item.buy_num * findProduct.price}
+                          </div>
                         </div>
-                        <div className="MHdollar">
-                          ${item.buy_num * findProduct.price}
-                        </div>
-                      </div>
+                      </Link>
                       <hr />
                     </>
                   );
                 })}
                 <div className="MHtotal">
-                  <div className="MHtotalPrice">${order.original_total}</div>
-                  <div className="MHdiscount">${order.pay_total}</div>
                   <div className="MHdiscountDate">
                     {moment(order.created_at).format("YYYY-MM-DD HH:mm:ss")}
                   </div>
+                  <div className="MHtotalPrice">${order.original_total}</div>
+                  <div className="MHdiscount">${order.pay_total}</div>
                 </div>
               </div>
             );

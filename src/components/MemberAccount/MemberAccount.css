@@ -70,29 +70,28 @@ nav {
   list-style-type: none;
 }
 
-.MAmemberCentreList ul li a {
+.MAmemberCentreList ul li {
   font-size: 20px;
-  text-decoration: none;
-  display: block;
+  display: flex;
   color: var(--main-color);
   width: 100%;
   margin-top: 40px;
   cursor: pointer;
+  align-items: center;
+}
+.MAmemberCentreList ul li div {
+  margin-left: 10px;
 }
 
-.MAmemberCentreList ul li a:hover {
-  color: var(--fifth-color) !important;
+.MAmemberCentreList ul li:hover {
+  color: var(--second-color) !important;
+  font-weight: bold;
 }
+
 .MAactiveList {
-  color: var(--fifth-color) !important;
-}
-
-.MAactiveList a {
-  font-size: 24px !important;
-  color: var(--fifth-color) !important;
-}
-.memberRoute {
-  /* width: 150px; */
+  color: var(--second-color) !important;
+  font-weight: bold;
+  /* background-color: var(--second-color); */
 }
 
 .MAmemberBoard {
@@ -157,7 +156,7 @@ nav {
 }
 
 .MAcontent {
-  font-size: 16px;
+  font-size: 18px;
   color: #cccccc;
 }
 

@@ -27,6 +27,8 @@ class FishItems extends Component {
   }
 
 
+
+
   render() {
     return (
     <>
@@ -39,7 +41,11 @@ class FishItems extends Component {
                 </figure>
                 <div className="d-flex justify-content-end align-items-center mr-3">
                   <BsHeartFill
-                    style={{ width: "25px", height: "25px" }}
+                    style={{
+                      width: "25px", 
+                      height: "25px",
+                      color: `${item.id = 1 ? 'red' : ''}`
+                    }}
                     className="mx-2 heart"
                   />
                   <FaShoppingCart

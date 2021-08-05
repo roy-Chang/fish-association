@@ -11,7 +11,10 @@ import { Autoplay } from "swiper";
 
 /* img */
 
-import banner01 from "../../../assets/img/Activity/banner01.jpg"
+import banner01 from "../../../assets/img/Activity/banner01.jpg";
+import banner02 from "../../../assets/img/Activity/banner02.jpeg";
+import banner03 from "../../../assets/img/Activity/banner03.jpeg";
+import banner04 from "../../../assets/img/Activity/banner04.jpeg";
 
 export default function Banner() {
   SwiperCore.use([Pagination]);
@@ -30,23 +33,49 @@ export default function Banner() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img
-            src={banner01}
-            alt="正濱漁港banner"
-            正濱漁港
-          />
+          <img src={banner01} alt="正濱漁港banner" 正濱漁港 />
           <Slogan>
             <h1>地方深度體驗</h1>
             <p>
               正濱漁港，舊稱基隆漁港
               <br />
-              位於基隆市中正區正濱里與和平島南方
+              位於基隆市中正區
             </p>
           </Slogan>
         </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>
+          <img src={banner02} alt="深澳漁港banner" 深澳漁港 />
+          <Slogan>
+            <h1>漁產資源豐富</h1>
+            <p>
+              深澳漁港，舊名蕃仔澳
+              <br />
+              位於新北市瑞芳區
+            </p>
+          </Slogan>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={banner03} alt="龍洞banner" 龍洞 />
+          <Slogan>
+            <h1>透清涼好去處</h1>
+            <p>
+              龍洞，古代寫作撈洞
+              <br />
+              位於新北市貢寮區
+            </p>
+          </Slogan>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={banner04} alt="龜吼banner" 龜吼 />
+          <Slogan>
+            <h1>傳統技藝傳承</h1>
+            <p>
+              龜吼漁港，昔日以龜吼莊得名
+              <br />
+              位於新北市萬里區
+            </p>
+          </Slogan>
+        </SwiperSlide>
       </Swiper>
     </>
   );

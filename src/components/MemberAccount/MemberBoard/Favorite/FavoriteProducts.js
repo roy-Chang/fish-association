@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import Modal from "react-bootstrap/Modal";
 import axios from "axios";
-import productsAll from "../../../../utils/likeProducts";
-
-import fish from "../../../../assets/img/member/memberProducts/fish.jpeg";
 import "./MemberFavoritesProducts.css";
+import productsAll from "../../../../utils/likeProducts";
+import { Link } from "react-router-dom";
 const products = productsAll.myProducts;
 
-function FavoriteProducts() {
+function FavoriteProducts(props) {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [favoriteP, setFavoriteP] = useState([]);
   const token = localStorage.getItem("token");
 
@@ -62,7 +66,11 @@ function FavoriteProducts() {
                   src={findProduct.image}
                   alt=""
                 />
-                <a href="">{findProduct.name}</a>
+                <Link
+                  to={`/detail/${findProduct.catalogName}/${findProduct.name}/${findProduct.id}`}
+                >
+                  {findProduct.name}
+                </Link>
                 <Button
                   className="MFPbtn"
                   onClick={() => {
@@ -71,13 +79,13 @@ function FavoriteProducts() {
                     });
                     setFavoriteP(newFavProducts);
                     axios.delete(
-                      `http://localhost:3000/api/profile/productLike/:productId`,
+                      `http://localhost:3000/api/profile/productLike/${findProduct.id}`,
                       {
                         headers: { Authorization: `Bearer ${token}` },
                       }
                     );
 
-                    // console.log(findProduct.id);
+                    console.log(findProduct.id);
                     // handleDelete(findProduct.id);
                   }}
                 >

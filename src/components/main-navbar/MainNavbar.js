@@ -7,9 +7,9 @@ import TravelNotesPage from "../../pages/TravelNotesPage";
 import TravelNotesShow from "../../components/travel-notes/travel-note-show/TravelNotesShow"
 import AuthPage from "../../pages/AuthPage";
 import ProductsListPage from "../../pages/ProductsListPage";
-import memberPage from '../../pages/MemberPage';
+import memberPage from "../../pages/MemberPage";
 import ActivityOrder from "../../pages/ActivityOrder";
-import Cart from '../order-item/cart';
+import Cart from "../order-item/Cart";
 import { Component } from "react";
 /* css import */
 import "../../assets/css/styled.css";
@@ -27,22 +27,22 @@ import { FaUserCheck } from "react-icons/fa";
 //reduc & action creator
 import { connect } from "react-redux";
 import { changeLogoutState, checkTokenProfile } from "../../redux/actions/memberLogin";
-import { axiosWeather, axiosWeatherInfo } from '../../redux/actions/weather'
+import { axiosGetShoppingCartList } from '../../redux/actions/shoppingCart';
+import { axiosWeather, axiosWeatherInfo } from '../../redux/actions/weather';
+import { axiosGetProductLike } from '../../redux/actions/productLike'
 //axios
 import axios from "axios";
 
 //popovers
 import PopoverShopping from "./popover";
 
-
-
 class MainNavbar extends Component {
-  
   componentDidMount() {
     const token = localStorage.getItem('token')
     if(token) {
       //axios
       this.props.checkToken(token)
+      this.props.handleGetCartItemsList(token)
     } else {
       this.props.handleLogout()
     }
@@ -60,10 +60,13 @@ class MainNavbar extends Component {
             className="nav-bar"
           >
             {/*logo*/}
-            <LinkContainer to="/" onClick={() => {
-              axiosWeather();
-              axiosWeatherInfo();
-            }}>
+            <LinkContainer
+              to="/"
+              onClick={() => {
+                axiosWeather();
+                axiosWeatherInfo();
+              }}
+            >
               <Navbar.Brand className="font-weight-bold ml-5">
                 <img
                   src={logo}
@@ -85,13 +88,16 @@ class MainNavbar extends Component {
                 <LinkContainer to="/travelNotes" className="mx-2">
                   <Nav.Link>札記分享</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/products" className="mx-2">
+                <LinkContainer onClick={this.props.axiosProductLike} to="/products" className="mx-2">
                   <Nav.Link>生鮮水產</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to={this.props.isLogin === true ? "/member" : "/auth"} className="mx-2">
+                <LinkContainer
+                  to={this.props.isLogin === true ? "/member" : "/auth"}
+                  className="mx-2"
+                >
                   <Nav.Link>會員中心</Nav.Link>
                 </LinkContainer>
-                
+
                 {/*金色分割線*/}
                 <table className="mx-3">
                   <tbody>
@@ -107,15 +113,19 @@ class MainNavbar extends Component {
                   </tbody>
                 </table>
 
-
                 {/*購物車*/}
-                <div
-                  className="d-flex align-items-center mx-3"
-                >
-                  <PopoverShopping/>
-                  <Badge pill style={{width: "50px", backgroundColor: '#E63946', marginLeft: '5px'}}>
+                <div className="d-flex align-items-center mx-3">
+                  <PopoverShopping />
+                  <Badge
+                    pill
+                    style={{
+                      width: "50px",
+                      backgroundColor: "#E63946",
+                      marginLeft: "5px",
+                    }}
+                  >
                     {this.props.buyNum.length}
-                  </Badge>{' '}
+                  </Badge>{" "}
                 </div>
 
                 {/* 判斷會員下拉的呈現 */}
@@ -157,9 +167,7 @@ class MainNavbar extends Component {
                             //   localStorage.getItem("image") === "null"
                             //     ? require(`../../assets/img/userimage/user.jpg`)
                             //         .default
-                            //     : require(`../../assets/img/userimage/${localStorage.getItem(
-                            //         "image"
-                            //       )}`).default
+                            //     : "http://localhost:3000/" + localStorage.image
                             // }
                             src={
                               require(`../../assets/img/userimage/user.jpg`)
@@ -187,7 +195,7 @@ class MainNavbar extends Component {
                     </NavDropdown.Item>
                   </NavDropdown>
                 )}
-                 {/* 判斷會員下拉的呈現 結束*/}
+                {/* 判斷會員下拉的呈現 結束*/}
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -195,16 +203,21 @@ class MainNavbar extends Component {
           <Switch>
             <Route path="/" exact component={IndexPage} />
             <Route path="/activity" component={ActivityPage} />
-            <Route path="/order/activity/:name/:step" component={ActivityOrder} />
+            <Route
+              path="/order/activity/:name/:step"
+              component={ActivityOrder}
+            />
             <Route path="/travelNotes" component={TravelNotesPage} />
             <Route path="/travelNotesShow" component={TravelNotesShow} />
             <Route path="/member" component={memberPage}/>
             <Route path="/auth" component={AuthPage} />
             <Route path="/products/order" component={Cart} />
             <Route path="/products" component={ProductsListPage} />
-            <Route path="/:itemType" component={ProductsListPage}/>
-            <Route path="/detail/:type/:name/:id" component={ProductsListPage} />
-
+            <Route path="/:itemType" component={ProductsListPage} />
+            <Route
+              path="/detail/:type/:name/:id"
+              component={ProductsListPage}
+            />
           </Switch>
         </Router>
       </>
@@ -232,8 +245,18 @@ const mapDispatchToProps = (dispatch) => {
     checkToken(token) {
       const action = checkTokenProfile(token)
       dispatch(action)
+    },
+    handleGetCartItemsList(token) {
+      const action = axiosGetShoppingCartList(token)
+      dispatch(action)
+    },
+    axiosProductLike() {
+      const action = axiosGetProductLike()
+      dispatch(action)
     }
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainNavbar);
+
+

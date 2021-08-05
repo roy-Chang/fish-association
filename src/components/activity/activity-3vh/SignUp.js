@@ -28,7 +28,7 @@ class SignUp extends Component {
       longdongArray: [],
       keelungArray: [],
       msg: "請選擇日期",
-      isChoosen: false,
+      menuNum: 1,
     };
     this.chooseDate = this.chooseDate.bind(this);
   }
@@ -80,7 +80,7 @@ class SignUp extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.clickDate !== this.state.clickDate) {
       this.state.dataArry.forEach((item) => {
-        if (item.apply === this.state.clickDate) {
+        if (item.apply == this.state.clickDate) {
           this.handleClick(item.place);
           this.setState({
             id: item.id,
@@ -94,54 +94,34 @@ class SignUp extends Component {
             apply: item.apply,
             msg: null,
           });
+          switch (item.place) {
+            case "正濱漁港":
+              this.setState({ menuNum: 1 });
+              break;
+            case "龜吼漁港":
+              this.setState({ menuNum: 2 });
+              break;
+            case "深澳漁港":
+              this.setState({ menuNum: 3 });
+              break;
+            case "龍洞":
+              this.setState({ menuNum: 4 });
+              break;
+            case "基隆":
+              this.setState({ menuNum: 5 });
+              break;
+          }
         }
       });
     }
   }
   chooseDate = (e) => {
     this.setState({ clickDate: e });
-    this.state.dataArry.forEach((item) => {
-      if (item.apply !== this.state.clickDate) {
-        this.setState({
-          msg: "今天沒有活動喔",
-          name: null,
-          place: null,
-          cost_adult: null,
-          cost_children: null,
-          current_apply: null,
-          limit_num: null,
-          schedule: null,
-          apply: null,
-        });
-      }
-    });
   };
-  handleClick = (name) => {
-    console.log(name);
-    //const name = e.target.innerHTML;
-    // switch (name) {
-    //   case "正濱漁港":
-    //     this.setState({ isChoosen: !this.state.isChoosen });
-    //     //this.setState({ isChoosen: "actone" });
-    //     break;
-    //   case "龜吼漁港":
-    //     this.setState({ isChoosen: !this.state.isChoosen });
-    //     //this.setState({ isChoosen: "acttwo" });
-    //     break;
-    //   case "深澳漁港":
-    //     this.setState({ isChoosen: !this.state.isChoosen });
-    //     //this.setState({ isChoosen: "actthree" });
-    //     break;
-    //   case "龍洞":
-    //     this.setState({ isChoosen: !this.state.isChoosen });
-    //     //this.setState({ isChoosen: "actfour" });
-    //     break;
-    //   case "基隆":
-    //     this.setState({ isChoosen: !this.state.isChoosen });
-    //     //this.setState({ isChoosen: "actfive" });
-    //     break;
-    // }
-    //console.log(e.target.innerHTML, this.state.isChoosen);
+  handleClick = (num) => {
+    this.setState({
+      menuNum: num,
+    });
   };
   render() {
     let chooserClass = this.state.isChoosen ? "" : "actacitve";
@@ -153,8 +133,8 @@ class SignUp extends Component {
             <li>
               <a
                 href="#"
-                //onClick={this.handleClick}
-                className={`actone ${chooserClass}`}
+                onClick={() => this.handleClick(1)}
+                className={this.state.menuNum === 1 ? "btn btn-choose " : "btn"}
                 style={{ borderRadius: "20px 0 0 0" }}
               >
                 正濱漁港
@@ -163,8 +143,8 @@ class SignUp extends Component {
             <li>
               <a
                 href="#"
-                className={`acttwo ${chooserClass}`}
-                //onClick={this.handleClick}
+                className={this.state.menuNum === 2 ? "btn btn-choose " : "btn"}
+                onClick={() => this.handleClick(2)}
               >
                 龜吼漁港
               </a>
@@ -172,8 +152,8 @@ class SignUp extends Component {
             <li>
               <a
                 href="#"
-                className={`actthree ${chooserClass}`}
-                //onClick={this.handleClick}
+                className={this.state.menuNum === 3 ? "btn btn-choose " : "btn"}
+                onClick={() => this.handleClick(3)}
               >
                 深澳漁港
               </a>
@@ -181,8 +161,8 @@ class SignUp extends Component {
             <li>
               <a
                 href="#"
-                className={`actfour ${chooserClass}`}
-                //onClick={this.handleClick}
+                className={this.state.menuNum === 4 ? "btn btn-choose " : "btn"}
+                onClick={() => this.handleClick(4)}
               >
                 龍洞
               </a>
@@ -190,8 +170,8 @@ class SignUp extends Component {
             <li>
               <a
                 href="#"
-                className={`actfive ${chooserClass}`}
-                //onClick={this.handleClick}
+                className={this.state.menuNum === 5 ? "btn btn-choose " : "btn"}
+                onClick={() => this.handleClick(5)}
                 style={{ borderRadius: "0 20px 0 0" }}
               >
                 基隆
@@ -220,10 +200,6 @@ class SignUp extends Component {
               <li>日期:{this.state.apply}</li>
               <li>魚種:{this.state.schedule}</li>
             </ul>
-            <p style={{ margin: "0" }}>
-              現在點選日期{this.state.clickDate}現在點選ID{this.state.id}
-            </p>
-            <StarRating />
             <div className="d-flex">
               <ul>
                 <li>
@@ -238,18 +214,16 @@ class SignUp extends Component {
                 <li>TWD{this.state.cost_children}/每人</li>
               </ul>
             </div>
-            <div style={{ color: " #1d3557" }}>
-              <p>
-                目前已有{this.state.current_apply}位報名 ， 最後剩下
-                {this.state.limit_num}個名額
-              </p>
-            </div>
+            <StarRating />
+
+            <p style={{ color: " #1d3557", fontSize: "15px" }}>
+              目前已有{this.state.current_apply}位報名 ， 最後剩下
+              {this.state.limit_num}個名額
+            </p>
+
             <Link to={`/order/activity/${this.state.id}/first`}>
               <Button className="sign-up-btn">立即報名</Button>
             </Link>
-            <Button className="member-sign-up-btn" href="#">
-              會員報名
-            </Button>
           </SignUpPrice>
         </SignUpDetail>
       </>
