@@ -67,13 +67,16 @@ function WaveFcst(props) {
   useEffect(() => {
     const GET = async () => {
       try {
-        const response = await axios.get('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-A0021-001?Authorization=CWB-8C45EDAC-AB0F-4F1C-9C5B-C1BE8D5360EA&limit=7&offset=0&format=JSON&locationName=%E5%9F%BA%E9%9A%86%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E8%90%AC%E9%87%8C%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E8%B2%A2%E5%AF%AE%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E7%91%9E%E8%8A%B3%E5%8D%80&elementName=1%E6%97%A5%E6%BD%AE%E6%B1%90&sort=validTime', {transformRequest: (data, headers) => {
-            delete headers.common['Authorization'];
+
+        const response = await axios.get(
+          "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-A0021-001?Authorization=CWB-8C45EDAC-AB0F-4F1C-9C5B-C1BE8D5360EA&limit=7&offset=0&format=JSON&locationName=%E5%9F%BA%E9%9A%86%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E8%90%AC%E9%87%8C%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E8%B2%A2%E5%AF%AE%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E7%91%9E%E8%8A%B3%E5%8D%80&elementName=1%E6%97%A5%E6%BD%AE%E6%B1%90&sort=validTime",
+          {
+            transformRequest: (data, headers) => {
+              delete headers.common["Authorization"];
+            },
           }
-        });
-        // const response = await axios.get(
-        //   "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-A0021-001?Authorization=CWB-8C45EDAC-AB0F-4F1C-9C5B-C1BE8D5360EA&limit=7&offset=0&format=JSON&locationName=%E5%9F%BA%E9%9A%86%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E8%90%AC%E9%87%8C%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E8%B2%A2%E5%AF%AE%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E7%91%9E%E8%8A%B3%E5%8D%80&elementName=1%E6%97%A5%E6%BD%AE%E6%B1%90&sort=validTime"
-        // );
+        );
+
         console.log(props.locationName, "wavepage");
         let location = await response.data.records.location[3];
         switch (props.locationName) {

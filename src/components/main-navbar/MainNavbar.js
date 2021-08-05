@@ -4,6 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import IndexPage from "../../pages/IndexPage";
 import ActivityPage from "../../pages/ActivityPage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
+import TravelNotesShow from "../../components/travel-notes/travel-note-show/TravelNotesShow";
 import AuthPage from "../../pages/AuthPage";
 import ProductsListPage from "../../pages/ProductsListPage";
 import memberPage from "../../pages/MemberPage";
@@ -31,7 +32,7 @@ import {
 } from "../../redux/actions/memberLogin";
 import { axiosGetShoppingCartList } from "../../redux/actions/shoppingCart";
 import { axiosWeather, axiosWeatherInfo } from "../../redux/actions/weather";
-
+import { axiosGetProductLike } from "../../redux/actions/productLike";
 //axios
 import axios from "axios";
 
@@ -45,6 +46,7 @@ class MainNavbar extends Component {
       //axios
       this.props.checkToken(token);
       this.props.handleGetCartItemsList(token);
+      this.props.axiosProductLike();
     } else {
       this.props.handleLogout();
     }
@@ -90,7 +92,11 @@ class MainNavbar extends Component {
                 <LinkContainer to="/travelNotes" className="mx-2">
                   <Nav.Link>札記分享</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/products" className="mx-2">
+                <LinkContainer
+                  onClick={() => this.props.axiosProductLike()}
+                  to="/products"
+                  className="mx-2"
+                >
                   <Nav.Link>生鮮水產</Nav.Link>
                 </LinkContainer>
                 <LinkContainer
@@ -210,6 +216,7 @@ class MainNavbar extends Component {
               component={ActivityOrder}
             />
             <Route path="/travelNotes" component={TravelNotesPage} />
+            <Route path="/travelNotesShow" component={TravelNotesShow} />
             <Route path="/member" component={memberPage} />
             <Route path="/auth" component={AuthPage} />
             <Route path="/products/order" component={Cart} />
@@ -249,6 +256,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleGetCartItemsList(token) {
       const action = axiosGetShoppingCartList(token);
+      dispatch(action);
+    },
+    axiosProductLike() {
+      const action = axiosGetProductLike();
       dispatch(action);
     },
   };

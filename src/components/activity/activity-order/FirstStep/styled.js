@@ -20,7 +20,8 @@ export const ProgressBar = styled.div`
     padding-right: 40px;
   }
   li {
-    font-size: 24px;
+    margin-top: 20px;
+    font-size: 20px;
   }
 `;
 

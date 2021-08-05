@@ -63,6 +63,34 @@ function FirstOrder(props) {
     <Wrapper className="justify-content-center mt-5">
       <Bg_blue>
         <ProgressBar>
+          <div className="line">
+            <svg
+              className="circle circle1"
+              style={{
+                background: "#AB20FD",
+                boxShadow: "0 0 20px #AB20FD",
+              }}
+            >
+              <circle cx="20" cy="20" r="15" />
+            </svg>
+            <hr className="progress-line" />
+            <svg
+              className="circle"
+              style={{
+                background: "#1D3557",
+              }}
+            >
+              <circle cx="20" cy="20" r="15" />
+            </svg>
+            <svg
+              className="circle"
+              style={{
+                background: "#1D3557",
+              }}
+            >
+              <circle cx="20" cy="20" r="15" />
+            </svg>
+          </div>
           <ul>
             <li>活動確認</li>
             <li>資料填寫</li>

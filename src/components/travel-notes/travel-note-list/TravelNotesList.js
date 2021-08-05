@@ -12,8 +12,6 @@ function ListPage() {
   return (
     <>
       <nav style={{ height: "65px"}}></nav>
-      
-      
         <WebPageTop className="d-flex justify-content-between">
         <Slide />
         <TopRank />
@@ -26,9 +24,6 @@ function ListPage() {
               <TNWriteBtn />
             </div>
             <TravelNotesList className="pb-5">
-              <TNBlock />
-              <TNBlock />
-              <TNBlock />
               <TNBlock />
               <TNBlock />
               <TNBlock />

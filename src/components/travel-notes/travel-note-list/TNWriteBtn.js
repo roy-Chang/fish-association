@@ -1,14 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { BsPencilSquare } from "react-icons/bs";
+import {Button} from "react-bootstrap";
+
 
 
 export default function TNWriteBtn() {
   return (
     <>
-       <div className="TN-write-btn">
-            <BsPencilSquare className="mr-1" />
+      <Button className="TN-write-btn">
+        <BsPencilSquare className="mr-1" />
               發表文章
-            </div>
+      </Button>
+       
     </>
   );
 }

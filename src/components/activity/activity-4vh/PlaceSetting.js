@@ -14,7 +14,7 @@ function PlaceSetting({ setLocationName }) {
       id="dropdown-basic-button"
       title={locationValue}
       className="d-inline-block  position-absolute"
-      style={{ top: "150px", right: "50px" }}
+      style={{ top: "150px", right: "50px", fontSize: "20px" }}
     >
       {locations.map((location, index) => (
         <Dropdown.Item
