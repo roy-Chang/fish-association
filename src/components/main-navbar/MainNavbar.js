@@ -4,6 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import IndexPage from "../../pages/IndexPage";
 import ActivityPage from "../../pages/ActivityPage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
+import TravelNotesShow from "../../components/travel-notes/travel-note-show/TravelNotesShow"
 import AuthPage from "../../pages/AuthPage";
 import ProductsListPage from "../../pages/ProductsListPage";
 import memberPage from "../../pages/MemberPage";
@@ -207,7 +208,8 @@ class MainNavbar extends Component {
               component={ActivityOrder}
             />
             <Route path="/travelNotes" component={TravelNotesPage} />
-            <Route path="/member" component={memberPage} />
+            <Route path="/travelNotesShow" component={TravelNotesShow} />
+            <Route path="/member" component={memberPage}/>
             <Route path="/auth" component={AuthPage} />
             <Route path="/products/order" component={Cart} />
             <Route path="/products" component={ProductsListPage} />
