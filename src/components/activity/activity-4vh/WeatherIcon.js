@@ -18,7 +18,7 @@ import { ReactComponent as NightSnowing } from "../../../assets/img/weather-svg/
 const IconContainer = styled.div`
   flex-basis: 20%;
   svg {
-    width: 100px;
+    width: 80px;
     height: 80px;
   }
 `;

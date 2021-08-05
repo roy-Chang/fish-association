@@ -13,15 +13,15 @@ const IconPm = styled.div``;
 // right: 0;
 const YellowSlashline = styled.div`
   border-right: #fff579 solid 3px;
-  height: 110px;
-  padding: 5px;
-  transform: rotate(45deg);
+  height: 80px;
+  padding: 0px;
+  transform: rotate(43deg);
 `;
 const YellowLine = styled.div`
   height: 60px;
-  margin-left: 70px;
+  margin-left: 50px;
   padding: 28px;
-  border-left: #fff579 solid 8px;
+  border-left: #fff579 solid 5px;
 `;
 const Weekdate = styled.p``;
 const RainRate = styled.p``;

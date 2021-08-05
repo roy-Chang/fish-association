@@ -15,7 +15,7 @@ function Forthpage() {
               <h3>
                 未來一週天氣
                 <br />
-                <span style={{ fontSize: "24px", color: "orange" }}>
+                <span style={{ fontSize: "20px", color: "orange" }}>
                   {locationName}
                 </span>
               </h3>
@@ -28,14 +28,14 @@ function Forthpage() {
                 <h3 className="mt-3 mb-3">七日潮浪預測</h3>
                 <WaveFcst
                   locationName={locationName}
-                  style={{ weidth: "800px" }}
+                  style={{ weidth: "800px", margin: "50px" }}
                 />
               </div>
             </WeatherInfo>
           </BgSea>
         </Wrapper>
       </div>
-      <div style={{ height: "700px" }}></div>
+      <div style={{ height: "500px" }}></div>
     </>
   );
 }

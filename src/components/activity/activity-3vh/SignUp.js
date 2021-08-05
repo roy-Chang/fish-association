@@ -200,7 +200,6 @@ class SignUp extends Component {
               <li>日期:{this.state.apply}</li>
               <li>魚種:{this.state.schedule}</li>
             </ul>
-            <StarRating />
             <div className="d-flex">
               <ul>
                 <li>
@@ -215,12 +214,13 @@ class SignUp extends Component {
                 <li>TWD{this.state.cost_children}/每人</li>
               </ul>
             </div>
-            <div style={{ color: " #1d3557" }}>
-              <p>
-                目前已有{this.state.current_apply}位報名 ， 最後剩下
-                {this.state.limit_num}個名額
-              </p>
-            </div>
+            <StarRating />
+
+            <p style={{ color: " #1d3557", fontSize: "15px" }}>
+              目前已有{this.state.current_apply}位報名 ， 最後剩下
+              {this.state.limit_num}個名額
+            </p>
+
             <Link to={`/order/activity/${this.state.id}/first`}>
               <Button className="sign-up-btn">立即報名</Button>
             </Link>
