@@ -8,10 +8,11 @@ import {Button} from "react-bootstrap";
 export default function TNWriteBtn() {
   return (
     <>
-      <Button className="TN-write-btn">
-        <BsPencilSquare className="mr-1" />
-              發表文章
-      </Button>
+      <Link to="/travelNotesEditor">
+        <Button className="TN-write-btn">
+          <BsPencilSquare className="mr-1" />發表文章
+        </Button>
+      </Link>
        
     </>
   );
