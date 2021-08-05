@@ -4,14 +4,14 @@ import { Card } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsHeartFill } from "react-icons/bs";
 //like product filter
-import { likeProducts } from '../../../../utils/handleFilterItemData';
+import allProducts from '../../../../utils/products.json'
 //link
 import { Link } from "react-router-dom";
 //connect store
 import { connect } from 'react-redux'
 //action creator
 import { addShoppingCartItems } from '../../../../redux/actions/shoppingCart';
-
+import { axiosAddProductLike } from '../../../../redux/actions/productLike';
 
 class ShrimpItems extends Component {
   addCart(id) {
@@ -24,8 +24,7 @@ class ShrimpItems extends Component {
   render() {
     return (
       <>
-      {console.log(likeProducts(this.props.like, 'shrimpProducts'))}
-        {likeProducts(this.props.like, 'shrimpProducts').map((item) => {
+        {allProducts.shrimpProducts.map((item) => {
           return (
             <div key={item.id}>
               <Card className="P-product-card my-3" style={{marginRight: '20px'}}>
@@ -36,6 +35,7 @@ class ShrimpItems extends Component {
                   <BsHeartFill
                     style={{ width: "25px", height: "25px", color: `${item.like === true ? 'red' : ''}` }}
                     className="mx-2 heart"
+                    onClick={() => {this.props.productLike(item.id)}}
                   />
                   <FaShoppingCart
                     style={{ width: "25px", height: "25px" }}
@@ -64,8 +64,7 @@ class ShrimpItems extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    shoppingCartContent: state.shoppingCartContent,
-    like: state.like
+    shoppingCartContent: state.shoppingCartContent
   };
 };
 
@@ -74,6 +73,10 @@ const mapDispatchToProps = (dispatch) => {
     addShoppingCart(item) {
       const action = addShoppingCartItems(item)
       dispatch(action);
+    },
+    productLike(id) {
+      const action = axiosAddProductLike(id)
+      dispatch(action)
     }
   }
 }
