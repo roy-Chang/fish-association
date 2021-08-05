@@ -26,17 +26,17 @@ function ThirdOrder() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  console.log(
-    "3page-paymentWay",
-    location.state.payment,
-    "3page-報名資料",
-    location.state.data,
-    "3page-大人人頭",
-    location.state.normalNum,
-    "3page-小孩人頭",
-    location.state.childlNum
-  );
+  //檢查上一頁帶的值
+  // console.log(
+  //   "3page-paymentWay",
+  //   location.state.payment,
+  //   "3page-報名資料",
+  //   location.state.data,
+  //   "3page-大人人頭",
+  //   location.state.normalNum,
+  //   "3page-小孩人頭",
+  //   location.state.childlNum
+  // );
 
   function handleSubmit() {
     location.state.data.map((element) => {
@@ -49,6 +49,7 @@ function ThirdOrder() {
         remit: location.state.payment,
       });
     });
+    //把資料統整後送回資料庫
     try {
       axios.post(url, insertData).then((response) => {
         console.log(response.data);
@@ -60,6 +61,7 @@ function ThirdOrder() {
     }
   }
   useEffect(() => {
+    //獲取所選擇的活動訊息
     axios
       .get(`http://localhost:3000/api/activity/${name}`)
       .then((res) => {

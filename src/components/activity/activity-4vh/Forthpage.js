@@ -19,6 +19,7 @@ function Forthpage() {
                   {locationName}
                 </span>
               </h3>
+              {/*給子層setLocationName的可變更state*/}
               <PlaceSetting setLocationName={setLocationName}></PlaceSetting>
               <WeatherFcst
                 className="p-4"

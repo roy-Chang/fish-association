@@ -15,12 +15,12 @@ import banner01 from "../../../assets/img/Activity/banner01.jpg";
 import banner02 from "../../../assets/img/Activity/banner02.jpeg";
 import banner03 from "../../../assets/img/Activity/banner03.jpeg";
 import banner04 from "../../../assets/img/Activity/banner04.jpeg";
-
+//Swiper的設定檔
 export default function Banner() {
   SwiperCore.use([Pagination]);
   SwiperCore.use([Autoplay]);
   const pagination = {
-    clickable: true,
+    clickable: true, //控制Swiper切換
     renderBullet: function (index, className) {
       return '<span class="' + className + '">' + (index + 1) + "</span>";
     },
@@ -28,9 +28,9 @@ export default function Banner() {
   return (
     <>
       <Swiper
-        pagination={pagination}
-        autoplay={{ delay: 8000 }}
-        className="mySwiper"
+        pagination={pagination} //分頁物件
+        autoplay={{ delay: 8000 }} //停留時間設定
+        className="mySwiper" //連結css樣式
       >
         <SwiperSlide>
           <img src={banner01} alt="正濱漁港banner" 正濱漁港 />

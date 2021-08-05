@@ -31,8 +31,9 @@ class Secondpage extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
+  //點選landmark時變化活動資訊功能
   handleClick(e) {
-    console.log(e.target.id);
+    //console.log(e.target.id);
     switch (e.target.id) {
       case "1":
         this.setState({
@@ -130,6 +131,7 @@ class Secondpage extends Component {
                 <img src={ChenPin2} alt="Chen-Pin-Port" />
               </RightLoc>
               <ButtonLoc>
+                {/* landmark的svg */}
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -215,6 +217,8 @@ class Secondpage extends Component {
                     d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
                   ></path>
                 </svg>
+                {/* landmark的svg */}
+                {/* 北台灣地圖 */}
                 <img src={TaiwanMap} alt="taiwanMap" width="450" />
               </ButtonLoc>
             </InfoContent>

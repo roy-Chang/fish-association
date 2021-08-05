@@ -29,7 +29,7 @@ const Temperature = styled.div``;
 const HighTemperature = styled.p``;
 const LowTemperature = styled.p``;
 function WeatherFcst(props) {
-  console.log("props.locationName", props.locationName);
+  //console.log("props.locationName", props.locationName);
   const [currentWeather, setWeather] = useState({
     locationName: "基隆中正區",
     weekdate: ["2021-07-09"],
@@ -40,6 +40,7 @@ function WeatherFcst(props) {
     phenomenonPM: ["多雲時晴"],
     today: new Date(),
   });
+  //讀取天氣api
   const fetchData = async () => {
     const url =
       "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-093?Authorization=CWB-8C45EDAC-AB0F-4F1C-9C5B-C1BE8D5360EA&locationId=F-D0047-071,F-D0047-051";
@@ -50,6 +51,7 @@ function WeatherFcst(props) {
         })
         .then(function (myJson) {
           //console.log(myJson);
+          //若當下拉式選單有變更時變更地區資料時，所取用的資料地點也不同
           let queryLocation = "";
           if (props.locationName == currentWeather.locationName) {
             queryLocation = myJson.records.locations[1].location[1];
@@ -67,16 +69,13 @@ function WeatherFcst(props) {
               queryLocation = myJson.records.locations[1].location[5];
             }
           }
-          console.log("queryLocation", queryLocation);
-          // const ruifang = myJson.records.locations[0].location[0];
-          // const wanli = myJson.records.locations[0].location[7];
-          // const gongliao = myJson.records.locations[0].location[10];
-          // const keelung = myJson.records.locations[1];
+          //console.log("queryLocation", queryLocation);
           let maxArray = [];
           let minArray = [];
           let popArray = [];
           let wxArray = [];
           let timeArray = [];
+          //一天兩次資料，並分別找出最高溫、最低溫、濕度和體感敘述，將相對應的資料塞入陣列
           for (let i = 0; i < 14; i++) {
             let MaxAT = queryLocation.weatherElement.find(
               (el) => el.elementName === "MaxAT"
@@ -106,6 +105,8 @@ function WeatherFcst(props) {
           }
           //weekAM:[0,2,4,6,8,10,12],
           //weekPM:[1,3,5,7,9,11,13],
+          //因為若登入網站時間是上午，則當天會有兩筆資料，若登入網站時間是下午，則當天只有一筆資料
+          //所以需要去判斷現在時間
           const wxArrayAM = [];
           const wxArrayPM = [];
           if (
@@ -148,9 +149,9 @@ function WeatherFcst(props) {
               return index % 2 === 1;
             });
           }
-
+          //將資料設定回state當中
           setWeather((prevState) => {
-            console.log(timeArray, wxArray, wxArrayAM, wxArrayPM);
+            //console.log(timeArray, wxArray, wxArrayAM, wxArrayPM);
             return {
               ...prevState,
               locationName: queryLocation.locationName,

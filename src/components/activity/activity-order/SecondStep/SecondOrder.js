@@ -20,6 +20,7 @@ function SecondOrder(props) {
   ]);
   const [massage, setMassage] = useState(null);
   const [check, setCheck] = useState(true);
+  //要給下一頁的資料，包括表單資料和付款方式和大人和小孩數量
   const nextPage = {
     pathname: `/order/activity/${name}/third`,
     state: {
@@ -73,15 +74,15 @@ function SecondOrder(props) {
       if (result !== false) {
         count = count + 1;
         if (count == inputFields.length) {
-          console.log(result);
-          console.log(count);
+          //console.log(result);
+          //console.log(count);
           setCheck(false);
           history.push(nextPage);
         }
       }
     }
-    console.log("2page-handleSubmit", inputFields);
-    console.log("2page-paymentWay", paymentWay);
+    //console.log("2page-handleSubmit", inputFields);
+    //console.log("2page-paymentWay", paymentWay);
   };
 
   //讀取動態表單value
