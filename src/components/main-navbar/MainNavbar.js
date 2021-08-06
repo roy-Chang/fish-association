@@ -5,11 +5,12 @@ import IndexPage from "../../pages/IndexPage";
 import ActivityPage from "../../pages/ActivityPage";
 import TravelNotesPage from "../../pages/TravelNotesPage";
 import TravelNotesShow from "../../components/travel-notes/travel-note-show/TravelNotesShow"
+import TravelNotesEditor from "../../components/travel-notes/travel-note-editor/TravelNotesEditor"
 import AuthPage from "../../pages/AuthPage";
 import ProductsListPage from "../../pages/ProductsListPage";
 import memberPage from "../../pages/MemberPage";
 import ActivityOrder from "../../pages/ActivityOrder";
-import Cart from "../order-item/Cart";
+import Cart from "../order-item/cart";
 import { Component } from "react";
 /* css import */
 import "../../assets/css/styled.css";
@@ -208,6 +209,7 @@ class MainNavbar extends Component {
             />
             <Route path="/travelNotes" component={TravelNotesPage} />
             <Route path="/travelNotesShow" component={TravelNotesShow} />
+            <Route path="/travelNotesEditor" component={TravelNotesEditor} />
             <Route path="/member" component={memberPage}/>
             <Route path="/auth" component={AuthPage} />
             <Route path="/products/order" component={Cart} />
