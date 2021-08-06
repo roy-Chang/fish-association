@@ -9,7 +9,7 @@ export default class FiveFloor extends PureComponent {
             <div>
                 <Wrapper>
                     <FifthBackground>
-                            <h1>已有 <Number/> 人註冊</h1>
+                              <h1>已有 <Number/> 人註冊</h1>
                                 <RegisterBtn>
                                     <Link to="/auth">加入會員</Link>
                                 </RegisterBtn>

@@ -12,18 +12,18 @@ export default class HotSell extends PureComponent {
         return (
             <Container>
                 <Left>              
-                    <Unit color="#FFCC5B"/>
-                    <Unit color="#C9C4BB"/>
-                    <Unit color="#F18634"/>
-                    <Unit />
-                    <Unit />
+                    <Unit color="#FFCC5B" text="生蠔"/>
+                    <Unit color="#C9C4BB" text="扇貝"/>
+                    <Unit color="#F18634" text="章魚"/>
+                    <Unit text="鮭魚"/>
+                    <Unit text="櫻花蝦"/>
                 </Left>
                 <Right>
-                    <Unit/>
-                    <Unit/>
-                    <Unit/>
-                    <Unit/>
-                    <Unit/>
+                    <Unit text="生蠔"/>
+                    <Unit text="蒲燒鰻"/>
+                    <Unit text="秋刀魚"/>
+                    <Unit text="龍蝦"/>
+                    <Unit text="草蝦"/>
                 </Right>
             </Container>
         )

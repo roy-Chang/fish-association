@@ -8,7 +8,7 @@ export default class Unit extends PureComponent {
         return (
             <Shap color={this.props.color}>
                 <p>1</p>
-                <div>石斑魚</div>
+                <div>{this.props.text}</div>
             </Shap>
         )
     }

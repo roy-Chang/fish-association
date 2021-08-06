@@ -15,7 +15,9 @@ import { connect } from "react-redux";
 //action creator
 import { addShoppingCartItems } from '../../../../redux/actions/shoppingCart';
 import { axiosAddProductLike } from '../../../../redux/actions/productLike';
-//newArr = likeProducts([2, 5], fishProducts)
+
+
+
 
 class FishItems extends Component {
 
@@ -38,7 +40,6 @@ class FishItems extends Component {
                   <img src={require(`../../../../assets/img/products/fish/${item.image}.jpg`).default} alt="" />
                 </figure>
                 <div className="d-flex justify-content-end align-items-center mr-3">
-                  
                   <BsHeartFill
                     onClick={() => {this.props.productLike(item.id)}}
                     style={{
@@ -85,6 +86,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(action);
     },
     productLike(id) {
+      console.log(id)
       const action = axiosAddProductLike(id)
       dispatch(action)
     }
