@@ -335,13 +335,16 @@ function General(props) {
         <div className="MAmemberAccountInformation">
           <Container className="MAaccountInformation">
             <Form.Group className="MAaccount">
-              <div className="MAlistTitle">使用者帳號</div>
-              <div className="MAcontent">{data.account}</div>
+              <div className="MAlistTitle">使用者等級</div>
               <div className="MAmember">一般會員</div>
               <a className="MAchange MAsmallChange" href="/#">
                 白金會員
                 <img src={GoldenMember} alt="" />
               </a>
+            </Form.Group>
+            <Form.Group className="MAaccount">
+              <div className="MAlistTitle">使用者帳號</div>
+              <div className="MAcontent">{data.account}</div>
             </Form.Group>
             <Form.Group className="MAaccount">
               <div className="MAlistTitle">密碼</div>
@@ -391,11 +394,7 @@ function General(props) {
                   alt=""
                 />
               </div>
-              <form
-              // method="POST"
-              // action="http://localhost:3000/api/profile/image"
-              // enctype="multipart/form-data"
-              >
+              <form>
                 <label htmlFor="name">
                   <input
                     type="file"

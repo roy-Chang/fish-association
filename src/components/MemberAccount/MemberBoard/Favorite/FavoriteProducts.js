@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import "./MemberFavoritesProducts.css";
 import productsAll from "../../../../utils/likeProducts";
 import { Link } from "react-router-dom";
+import {
+  animated,
+  useChain,
+  useSpring,
+  useSpringRef,
+  useTransition,
+} from "react-spring";
 const products = productsAll.myProducts;
 
 function FavoriteProducts(props) {
@@ -14,6 +20,35 @@ function FavoriteProducts(props) {
 
   const [favoriteP, setFavoriteP] = useState([]);
   const token = localStorage.getItem("token");
+
+  //
+  const transtions = useTransition(favoriteP, {
+    trail: 300,
+    from: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+    },
+    leave: {
+      opacity: 0,
+    },
+  });
+
+  //
+  // const listShrinkRef = useSpringRef();
+  // const listShrink = useSpring({
+  //   ref: listShrinkRef,
+  //   from: {
+  //     width: "0%",
+  //     height: "0%",
+  //   },
+  //   to: {
+  //     width: "100%",
+  //     height: "30%",
+  //   },
+  // });
+  // useChain([listShrinkRef]);
 
   React.useEffect(() => {
     axios
@@ -27,84 +62,52 @@ function FavoriteProducts(props) {
       });
   }, []);
 
-  // const handleDelete = (id) => {
-  //   const newFavProducts = [...favoriteP];
-  //   // const index = newFavProducts.filter((v, i) => {
-  //   //   return v.product_id === product_id;
-  //   // });
-  //   for (let i = 0; i < newFavProducts.length; i++) {
-  //     if (newFavProducts[i].product_id === id) {
-  //       delete newFavProducts[i];
-  //       return;
-  //     }
-  //     return;
-  //   }
-
-  //   const newProducts = favoriteP.filter((v, i) => {
-  //     // return v.product_id !== product_id;
-  //     // if()
-  //   });
-  //   console.log(newFavProducts[0].product_id);
-  //   setFavoriteP(newFavProducts);
-  //   // console.log(favoriteP.product_id);
-  //   // console.log(id);
-  //   // console.log(newFavProducts);
-  // };
-
   return (
     <>
       <div className="MFPcommodityFavorites">
-        {favoriteP.map((likeProducts) => {
+        {/* {淡入淡出} */}
+        {transtions((style, likeProducts) => {
           const findProduct = products.find((product) => {
             return product.id === likeProducts.product_id;
           });
           return (
-            <div>
-              <div className="MFPcommodityFavoritesList">
-                <img
-                  className="MFPcommodityPicture"
-                  src={findProduct.image}
-                  alt=""
-                />
-                <Link
-                  to={`/detail/${findProduct.catalogName}/${findProduct.name}/${findProduct.id}`}
-                >
-                  {findProduct.name}
-                </Link>
-                <Button
-                  className="MFPbtn"
-                  onClick={() => {
-                    const newFavProducts = favoriteP.filter((v, i) => {
-                      return v.product_id !== likeProducts.product_id;
-                    });
-                    setFavoriteP(newFavProducts);
-                    axios.delete(
-                      `http://localhost:3000/api/profile/productLike/${findProduct.id}`,
-                      {
-                        headers: { Authorization: `Bearer ${token}` },
-                      }
-                    );
-
-                    console.log(findProduct.id);
-                    // handleDelete(findProduct.id);
-                  }}
-                >
-                  刪除
-                </Button>
+            <animated.div style={style}>
+              <div>
+                <div className="MFPcommodityFavoritesList">
+                  <img
+                    className="MFPcommodityPicture"
+                    src={findProduct.image}
+                    alt=""
+                  />
+                  <Link
+                    to={`/detail/${findProduct.catalogName}/${findProduct.name}/${findProduct.id}`}
+                  >
+                    {findProduct.name}
+                  </Link>
+                  <Button
+                    className="MFPbtn"
+                    onClick={() => {
+                      const newFavProducts = favoriteP.filter((v, i) => {
+                        return v.product_id !== likeProducts.product_id;
+                      });
+                      setFavoriteP(newFavProducts);
+                      axios.delete(
+                        `http://localhost:3000/api/profile/productLike/${findProduct.id}`,
+                        {
+                          headers: { Authorization: `Bearer ${token}` },
+                        }
+                      );
+                      // console.log(findProduct.id);
+                    }}
+                  >
+                    刪除
+                  </Button>
+                </div>
+                <hr />
               </div>
-              <hr />
-            </div>
+            </animated.div>
           );
         })}
-
-        {/* <div>
-          <div className="MFPcommodityFavoritesList">
-            <img className="MFPcommodityPicture" src={fish} alt="" />
-            <a href="">鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚鯊魚</a>
-            <Button className="MFPbtn">刪除</Button>
-          </div>
-          <hr />
-        </div> */}
       </div>
     </>
   );
