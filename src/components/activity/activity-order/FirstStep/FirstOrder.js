@@ -19,12 +19,12 @@ function FirstOrder(props) {
   const [clickValue, setclickValue] = useState(true);
   //讀取前台選取的活動ID，並導入react-router-dom的useParams
   const { name } = useParams();
-
+  //從資料庫讀出點擊日期的活動資訊
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/activity/${name}`)
       .then((res) => {
-        console.log(res.data.ret[0]);
+        //console.log(res.data.ret[0]);
         setData(res.data.ret[0]);
         setorderName(res.data.ret[0].activity_name);
         setPlace(res.data.ret[0].place);
@@ -37,6 +37,7 @@ function FirstOrder(props) {
       });
   }, []);
   // {id: 1, activity_name: "海釣活動", place: "正濱漁港", schedule: "白帶魚、紅目鰱、鎖管", start_time: "2021-08-01", …}
+  //設定總人數，小孩，大人的人數state
   const [normalNum, setNormalNum] = useState(1);
   const [childlNum, setChildNum] = useState(1);
   const [totalNum, setTotalNum] = useState(0);
@@ -44,6 +45,7 @@ function FirstOrder(props) {
     pathname: `/order/activity/${name}/second`,
     state: { id: totalNum, normalNum: normalNum, childlNum: childlNum },
   };
+  //設定給下一頁的值，包括總人數，小孩，大人數量
   let history = useHistory();
   const handleNormalSelect = (e) => {
     setNormalNum(Number(e));
@@ -54,11 +56,12 @@ function FirstOrder(props) {
   const handleClickValue = (e) => {
     setclickValue(!clickValue);
   };
+  //做總人數的計算
   useEffect(async () => {
     let total = await Number(normalNum + childlNum);
     await setTotalNum(total);
   }, [normalNum, childlNum]);
-  console.log(totalNum);
+  //console.log(totalNum);
   return (
     <Wrapper className="justify-content-center mt-5">
       <Bg_blue>

@@ -1,14 +1,3 @@
-//response.data.records.location [0]貢寮gongliao [1]萬里wanli  [2]瑞芳 [3]中山
-//console.log(response.data.records.location[3].validTime); //32->一個月32天->抓七天
-//console.log(response.data.records.location[3].validTime[0].endTime); //開始和結束的日期2021-07-15
-// console.log(
-//   response.data.records.location[3].validTime[0].weatherElement[0].time
-// ); //[1][2][3][4]->一天4次
-// console.log(
-//   response.data.records.location[3].validTime[0].weatherElement[0].time[1]
-//     .parameter[3].parameterValue
-// ); //133cm
-
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 const axios = require("axios");
@@ -65,9 +54,9 @@ function WaveFcst(props) {
   };
 
   useEffect(() => {
+    //讀潮浪api，因為會帶token所以需要刪掉認證
     const GET = async () => {
       try {
-
         const response = await axios.get(
           "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-A0021-001?Authorization=CWB-8C45EDAC-AB0F-4F1C-9C5B-C1BE8D5360EA&limit=7&offset=0&format=JSON&locationName=%E5%9F%BA%E9%9A%86%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E8%90%AC%E9%87%8C%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E8%B2%A2%E5%AF%AE%E5%8D%80,%E6%96%B0%E5%8C%97%E5%B8%82%E7%91%9E%E8%8A%B3%E5%8D%80&elementName=1%E6%97%A5%E6%BD%AE%E6%B1%90&sort=validTime",
           {
@@ -77,7 +66,8 @@ function WaveFcst(props) {
           }
         );
 
-        console.log(props.locationName, "wavepage");
+        //console.log(props.locationName, "wavepage");
+        //先依據地點設定資料
         let location = await response.data.records.location[3];
         switch (props.locationName) {
           case "新北瑞芳區":
@@ -93,7 +83,8 @@ function WaveFcst(props) {
             location = response.data.records.location[1];
             break;
         }
-        console.log("潮浪", location);
+        //console.log("潮浪", location);
+        //跑回圈取資料，一週七天，一天三筆資料，並塞入陣列且設定回state
         const labelArray = [];
         const valueArray = [];
         for (let i = 0; i < 7; i++) {
@@ -124,3 +115,14 @@ function WaveFcst(props) {
   );
 }
 export default WaveFcst;
+
+//response.data.records.location [0]貢寮gongliao [1]萬里wanli  [2]瑞芳 [3]中山
+//console.log(response.data.records.location[3].validTime); //32->一個月32天->抓七天
+//console.log(response.data.records.location[3].validTime[0].endTime); //開始和結束的日期2021-07-15
+// console.log(
+//   response.data.records.location[3].validTime[0].weatherElement[0].time
+// ); //[1][2][3][4]->一天4次
+// console.log(
+//   response.data.records.location[3].validTime[0].weatherElement[0].time[1]
+//     .parameter[3].parameterValue
+// ); //133cm

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
+//當星星被點擊時，在黃色和灰色做切換
 const Star = ({ selected = false, onSelect = (f) => f }) => (
   <FaStar color={selected ? "yellow" : "grey"} onClick={onSelect} />
 );
-
+//定義星星數量
 const createArray = (length) => [...Array(length)];
 
 export default function StarRating({ totalStars = 5 }) {

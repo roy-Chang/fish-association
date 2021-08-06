@@ -3,8 +3,10 @@ import { DropdownButton, Dropdown } from "react-bootstrap";
 const locations = ["新北瑞芳區", "新北萬里區", "新北貢寮區", "基隆中正區"];
 
 function PlaceSetting({ setLocationName }) {
+  //子層自定義的state狀態，來控制下拉選單的值
   const [locationValue, setLocationValue] = useState("請選擇地點");
   const handleChange = (e) => {
+    //當點選時會重新設定狀態，並傳回父層
     setLocationName(e.target.id);
     setLocationValue(e.target.id);
   };
@@ -18,6 +20,7 @@ function PlaceSetting({ setLocationName }) {
     >
       {locations.map((location, index) => (
         <Dropdown.Item
+          key={index}
           value={location}
           href="#"
           id={location}

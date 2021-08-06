@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 import moment from "moment";
+import "react-calendar/dist/Calendar.css";
 
 const CalendarStyle = styled.div`
   padding: 40px;
@@ -22,14 +22,16 @@ class Calendardate extends Component {
     this.state = { value: "" };
     this.clickDate = this.clickDate.bind(this);
   }
+  //點選日期時處理時間格並傳回父層
   clickDate(newDate) {
     const year = newDate.getFullYear();
     const month = ("0" + (newDate.getMonth() + 1)).slice(-2);
     const day = ("0" + newDate.getDate()).slice(-2);
     this.props.onChange([year, month, day].join("-"));
     const result = [day, month, year].join(".");
-    //this.setState({ value: result });
   }
+
+  //把父層讀來的地區陣列資料，轉換成react-calendar資料格式DD-MM-YYYY
   componentDidUpdate(prevProps, prevState) {
     //console.log(prevProps, prevState, this.props);
     if (prevProps.zhengbinArray !== this.props.zhengbinArray) {
@@ -63,6 +65,7 @@ class Calendardate extends Component {
     // console.log(this.props.longdongArray, listFour);
     // console.log(this.props.keelungArray, listFive);
   }
+  //不同地點在日曆上有不同的樣式，用className來調整
   setClass = (date) => {
     let a;
     listOne.forEach((element) => {

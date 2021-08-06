@@ -5,7 +5,7 @@ export const BgSea = styled.div`
   margin: 0 auto;
   background-size: 100%;
   background-position: top;
-  width: 1024px;
+  width: 1012px;
   height: 300px;
   margin: 0 auto;
   position: relative;
@@ -34,11 +34,4 @@ export const BlogList = styled.div`
 export const Wrapper = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-`;
-export const BlogUserPic = styled.img`
-  max-width: 90%;
-  background-color: orange;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
 `;

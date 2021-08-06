@@ -34,8 +34,8 @@ class SignUp extends Component {
   }
 
   history = createBrowserHistory();
-
   componentDidMount() {
+    //從資料庫獲取活動產品資訊
     axios({
       method: "get",
       baseURL: "http://localhost:3000",
@@ -44,12 +44,13 @@ class SignUp extends Component {
     })
       .then((result) => {
         this.setState({ dataArry: result.data.ret });
-        console.log(this.state.dataArry);
+        //console.log(this.state.dataArry);
         let zhengbinArray = [];
         let wanliArray = [];
         let ruifangArray = [];
         let longdongArray = [];
         let keelungArray = [];
+        //轉換不同地點的資料進陣列
         result.data.ret.forEach((item, index) => {
           if (item.place === "正濱漁港") {
             zhengbinArray.push(item);
@@ -67,6 +68,7 @@ class SignUp extends Component {
             keelungArray.push(item);
           }
         });
+        //設定在state當中，並給子層的日曆使用
         this.setState({ zhengbinArray: zhengbinArray });
         this.setState({ wanliArray: wanliArray });
         this.setState({ ruifangArray: ruifangArray });
@@ -77,6 +79,7 @@ class SignUp extends Component {
         console.log(err);
       });
   }
+  //若當點選的日期有變換，將會呈現不同的活動資訊
   componentDidUpdate(prevProps, prevState) {
     if (prevState.clickDate !== this.state.clickDate) {
       this.state.dataArry.forEach((item) => {
@@ -94,6 +97,7 @@ class SignUp extends Component {
             apply: item.apply,
             msg: null,
           });
+          //當活動地點不同，相對應的menu nav樣式也不同
           switch (item.place) {
             case "正濱漁港":
               this.setState({ menuNum: 1 });
@@ -115,9 +119,11 @@ class SignUp extends Component {
       });
     }
   }
+  //將點選的日期存入state當中
   chooseDate = (e) => {
     this.setState({ clickDate: e });
   };
+  //將點選的地點設定樣式
   handleClick = (num) => {
     this.setState({
       menuNum: num,
@@ -125,7 +131,7 @@ class SignUp extends Component {
   };
   render() {
     let chooserClass = this.state.isChoosen ? "" : "actacitve";
-    console.log(chooserClass);
+    //console.log(chooserClass);
     return (
       <>
         <SignUpArea>
