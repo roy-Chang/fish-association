@@ -28,8 +28,6 @@
   padding: 0;
 }
 
-
-
 .AheaderTitle {
   display: none;
 }
@@ -50,6 +48,7 @@
 
 .Aanimation {
   position: relative;
+  width: 100%;
 }
 
 .AloginItem {
