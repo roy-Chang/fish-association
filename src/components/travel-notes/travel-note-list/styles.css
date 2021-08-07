@@ -33,7 +33,7 @@
 
 .TopRankBlock a {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
 }
 .TopRankBlock a:link {
   text-decoration: none;
@@ -71,6 +71,7 @@
   color: var(--main-color);
   margin-top: 100px;
   border-radius: 10px;
+  padding-bottom: 50px;
 }
 
 .list-top {
@@ -105,6 +106,7 @@
   filter: drop-shadow(-10px 10px 15px rgba(0, 0, 0, 0.7));
 }
 .article-content {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,6 +129,7 @@
 /* TNblock  */
 
 .TN-block-link {
+  margin-top: 0;
   font-size: 30px;
   text-decoration: none;
 }
@@ -141,4 +144,10 @@
 .TN-block-link :hover {
   text-decoration: none;
   color: var(--second-color);
+}
+
+.TN-content-limit {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

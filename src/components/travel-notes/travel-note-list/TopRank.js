@@ -1,33 +1,45 @@
-import React from "react";
+import React, { Component, useState,useEffect } from 'react';
 import { TopRankBlock } from "./styled";
-
+import axios from "axios";
 import "./styles.css";
+import { Link } from 'react-router-dom';
 
 export default function TopRank() {
+
+    const [notes,setNotes] = useState([])
+    useEffect(() => {
+        // const token = localStorage.getItem("token");
+        axios
+          .get("http://localhost:3000/api/travelNotes/top")
+          .then((serverResponse) => {
+            
+            const notesRes = serverResponse.data.notes;
+            // console.log(notesRes); 
+            setNotes(notesRes)
+            console.log(notes);
+            
+          });
+          
+      }, []);
+    
   return (
     <>
         <TopRankBlock className="TopRankBlock">
-        <h1>推薦札記 Top 5</h1>
+        <h1 style={{margin:"30px auto"}}>推薦札記 Top 5</h1>
         <ul>
+        
+        {notes.map((notes,index) => {
+        return(
+            <>
             <li>
-                <a href="">1. GO！化身美人魚的台灣秘境–龍洞浮潛＆絕美小峽谷攀岩</a>
+                <Link to={`/travelNotes/${notes.id}`}>{index+1}. {notes.note_name}</Link>
             </li>
             <hr></hr>
-            <li>
-                <a href="">2. 東北角潛水浮潛玩水吃吃喝喝一日遊</a>
-            </li>
-            <hr></hr>
-            <li>
-                <a href="">3. 新北市貢寮-龍洞灣海洋公園浮潛，划獨木舟找海星 </a>
-            </li>
-            <hr></hr>
-            <li>
-                <a href="">4. 出門走走‧看台灣 龍洞岬懶人浮潛初體驗</a>
-            </li>
-            <hr></hr>
-            <li>
-                <a href="">5. 龍洞灣海洋公園-天然的海泳池</a>
-            </li>
+            </>
+        )
+        }
+        )}
+            
         </ul>
             
         </TopRankBlock>
