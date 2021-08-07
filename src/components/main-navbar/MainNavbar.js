@@ -211,7 +211,7 @@ class MainNavbar extends Component {
               component={ActivityOrder}
             />
             <Route path="/travelNotes" component={TravelNotesPage} />
-            <Route path="/travelNotesShow" component={TravelNotesShow} />
+            <Route path="/travelNotes/:noteId" component={TravelNotesShow} />
             <Route path="/travelNotesEditor" component={TravelNotesEditor} />
             <Route path="/member" component={memberPage}/>
             <Route path="/auth" component={AuthPage} />

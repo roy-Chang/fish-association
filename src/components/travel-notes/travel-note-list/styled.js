@@ -9,11 +9,12 @@ export const WebPageTop = styled.div`
 `;
 
 export const TopRankBlock = styled.div`
-  max-width: 400px;
+  min-width: 400px;
   background: var(--third-color);
   border-radius: 10px;
   color: var(--main-color);
   margin-left: 70px;
+  padding: 0 15px;
 `;
 
 

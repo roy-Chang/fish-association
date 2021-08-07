@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState,useEffect } from 'react';
 // import { CKEditor } from '@ckeditor/ckeditor5-react';
 import CKEditor from "./CKEditor"
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -8,8 +8,9 @@ import MainFooter from "../../footer/MainFooter";
 
 import "./styles.css"
 
-class NoteEditor extends Component {
-    render() {
+function TravelNotesEditor(props) {
+
+    
         return (
             <div className="activity-wrapper">
                 <nav style={{ height: "65px"}}></nav>
@@ -33,7 +34,7 @@ class NoteEditor extends Component {
                 </Container>
                 <MainFooter />
             </div>
-        );
-    }
+        
+    )
 }
-export default NoteEditor;
+export default TravelNotesEditor;
