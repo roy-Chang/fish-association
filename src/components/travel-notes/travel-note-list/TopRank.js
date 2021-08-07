@@ -32,7 +32,7 @@ export default function TopRank() {
         return(
             <>
             <li>
-                <Link to={`/travelNotes/${notes.id}`}>{index+1}. {notes.note_name}</Link>
+                <Link to={`/travelNotesShow/${notes.id}`}>{index+1}. {notes.note_name}</Link>
             </li>
             <hr></hr>
             </>
