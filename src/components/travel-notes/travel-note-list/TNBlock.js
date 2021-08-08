@@ -24,7 +24,7 @@ export default function TNBlock(props) {
               </div>
               <h1 className="TN-block-link"><Link to={`/travelNotesShow/${notesListData.id}`}>{notesListData.note_name}</Link></h1>
               <p>作者：{notesListData.members_model.name}</p>
-              <p className="TN-content-limit">{notesListData.note_content}</p>
+              <p dangerouslySetInnerHTML={{ __html: `${notesListData.note_content}` }}  className="TN-content-limit"></p>
           </div>
         </div>
         )
