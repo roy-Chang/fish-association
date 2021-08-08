@@ -5,6 +5,7 @@ import StarRating from "./StarRating";
 import { SignUpArea, SignUpDetail, SignUpPrice } from "./styled";
 import { Button } from "react-bootstrap";
 import { createBrowserHistory } from "history";
+
 const axios = require("axios");
 
 class SignUp extends Component {
@@ -185,7 +186,7 @@ class SignUp extends Component {
             </li>
           </ul>
         </SignUpArea>
-        <SignUpDetail className="d-flex">
+        <SignUpDetail>
           <Calendardate
             onChange={this.chooseDate}
             className="calendar"

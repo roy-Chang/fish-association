@@ -10,6 +10,13 @@ const CalendarStyle = styled.div`
   background: #efead2;
   color: #1d3557;
   border-radius: 20px 0 0 20px;
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 14px;
+  }
+  @media (max-width: 576px) {
+    border-radius: 0px;
+  }
 `;
 const listOne = [];
 const listTwo = [];

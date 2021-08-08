@@ -20,6 +20,9 @@ const IconContainer = styled.div`
   svg {
     width: 80px;
     height: 80px;
+    @media (max-width: 576px) {
+      width: 50px;
+    }
   }
 `;
 const weatherTypes = {

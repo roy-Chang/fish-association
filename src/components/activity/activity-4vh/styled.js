@@ -8,6 +8,10 @@ export const BgSea = styled.div`
   background-position: top;
   height: 1300px;
   position: relative;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    height: 500px;
+  }
 `;
 export const WeatherInfo = styled.div`
   width: 85%;
@@ -18,6 +22,14 @@ export const WeatherInfo = styled.div`
   border: #fff579 solid 3px;
   box-shadow: 0 0 0 76px #1d3557;
   z-index: 999;
+  @media (max-width: 768px) {
+    width: 100%;
+    top: 270px;
+    left: 0px;
+  }
+  @media (max-width: 576px) {
+    top: 850px;
+  }
   h2 {
     font-size: 48px;
     border-bottom: 3px solid #fff579;
