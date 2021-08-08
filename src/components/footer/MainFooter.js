@@ -30,7 +30,7 @@ function MainFooter(props) {
                                     <p>營業時間: 上午八點至下午五點</p>
                                     <p>營業地點:  新北勢三重區力行路一段6號</p>
                                     <p>聯絡方式: 0955123123</p>
-                                    <hr />
+                                    <hr style={{opacity:"0.6"}} />
                                 </div>
                                 <div className="contact-link">
                                     <FaFacebook className="link-icon" />
@@ -45,16 +45,6 @@ function MainFooter(props) {
                                 <hr />
                             </div>
                             <div className="members-list d-flex justify-content-around mt-5">
-                                <div className="members-card">
-                                    <img className="members-pic" src={memberPic} alt=""  />
-                                    <p>組長</p>
-                                    <p>草尼馬</p>
-                                </div>
-                                <div className="members-card">
-                                    <img className="members-pic" src={memberPic} alt=""  />
-                                    <p>組長</p>
-                                    <p>草尼馬</p>
-                                </div>
                                 <div className="members-card">
                                     <img className="members-pic" src={memberPic} alt=""  />
                                     <p>組長</p>
