@@ -13,6 +13,12 @@ function MyCustomUploadAdapterPlugin( editor ) {
 
 class DefaultCKEditor extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+        content:''
+    }
+}
   componentDidMount() {
     this.init();
   }
