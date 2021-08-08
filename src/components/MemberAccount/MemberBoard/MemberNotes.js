@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./MemberCSS/MemberNotes.css";
 
@@ -37,8 +38,13 @@ function MemberNotes() {
                   <div className="MNnotesList">
                     <div className="MNarticle-block">
                       <div className="MNarticle-content">
-                        <a href="">{note.note_name}</a>
-                        <p style={{ opacity: "0.5" }}>
+                        <Link to={`/travelNotesShow/${note.id}`}>
+                          {note.note_name}
+                        </Link>
+                        <p
+                          className="MNarticle-date"
+                          style={{ opacity: "0.5" }}
+                        >
                           發表日期:
                           {moment(note.note_update_time).format(
                             "YYYY-MM-DD HH:mm:ss"
