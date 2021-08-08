@@ -24,7 +24,7 @@ export const WeatherInfo = styled.div`
   z-index: 999;
   @media (max-width: 768px) {
     width: 100%;
-    top: 270px;
+    top: 570px;
     left: 0px;
   }
   @media (max-width: 576px) {

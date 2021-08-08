@@ -31,7 +31,7 @@ export const BlogList = styled.div`
   text-align: center;
   @media (max-width: 768px) {
     max-width: 100%;
-    margin-top: 900px;
+    margin-top: 950px;
   }
   @media (max-width: 576px) {
     margin-top: 1100px;
