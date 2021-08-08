@@ -2,12 +2,21 @@ import React, { Component, useState,useEffect } from 'react';
 import axios from 'axios';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import MyUploadAdapter from './MyUploadAdapter'
+
 
 import {Container,Form,Button} from "react-bootstrap";
 import MainFooter from "../../footer/MainFooter";
 
 import "./styles.css"
 
+
+function MyCustomUploadAdapterPlugin( editor ) {
+    editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
+      // 第二个参数设置上传图片的地址
+      return new MyUploadAdapter( loader, 'http://localhost:3000/api/travelNotes/upload' );
+    };
+  }
 export default class TravelNotesEditor extends Component {
     
     state = {
@@ -70,6 +79,12 @@ export default class TravelNotesEditor extends Component {
                                     <Form.Label style={{color:"white"}}>文章內容</Form.Label>
                                     <CKEditor
                                         editor={ ClassicEditor }
+                                        config={
+                                            {
+                                                ckfinder: {uploadUrl: `/ckfinder/connector?command=QuickUpload&type=Emails&responseType=json`},
+                                                // extraPlugins: [ MyCustomUploadAdapterPlugin]
+                                            } 
+                                        }
                                         // data="<p>Hello from CKEditor 5!</p>"
                                         onReady={ editor => {
                                             // You can store the "editor" and use when it is needed.

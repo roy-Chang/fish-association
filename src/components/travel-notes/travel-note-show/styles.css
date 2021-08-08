@@ -66,6 +66,9 @@
   object-fit: cover;
 }
 
+.TN-board-content {
+  width: 100%;
+}
 .TN-board-content p {
   margin: 0;
   padding: 0;
