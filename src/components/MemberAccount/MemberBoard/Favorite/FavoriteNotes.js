@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import likeNote from "../../../../utils/likeNote";
 import { animated, useTransition } from "react-spring";
 import "./MemberFavoriteNotes.css";
@@ -49,7 +50,9 @@ function FavoriteNotes() {
                 <div className="MFNcommodityFavoritesList">
                   <div className="MFNarticle-block">
                     <div className="MFNarticle-content">
-                      <a href="">{article.note_model.note_name}</a>
+                      <Link to={`/travelNotesShow/${article.note_id}`}>
+                        {article.note_model.note_name}
+                      </Link>
                       <p style={{ opacity: 0.5 }}>作者：{noteWriter.name}</p>
                     </div>
                   </div>
