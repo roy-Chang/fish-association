@@ -1,5 +1,6 @@
 import React, { Component, useState,useEffect } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import MyUploadAdapter from './MyUploadAdapter'
@@ -26,17 +27,19 @@ export default class TravelNotesEditor extends Component {
 
       
       onSubmit = () => {
-        console.log(this.state.title);
-        console.log(this.state.content);
-
         const token = localStorage.getItem("token");
         let header = {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
             Accept: "application/json",
           };
-         
-          axios
+      
+          if(this.state.title===""){
+            Swal.fire('請輸入文章標題')
+          }else if(this.state.content === ""){
+            Swal.fire('請輸入文章內容')
+          }else{
+            axios
             .post(
               "http://localhost:3000/api/travelNotes/upload",
                 {
@@ -46,7 +49,6 @@ export default class TravelNotesEditor extends Component {
                 {
                     headers:header,
                 }
-             
             )
             .then(()=>{
                 this.props.history.push("/travelNotes")
@@ -55,6 +57,8 @@ export default class TravelNotesEditor extends Component {
             .catch((error) => {
               throw error;
             });
+          }
+          
       };
    
 

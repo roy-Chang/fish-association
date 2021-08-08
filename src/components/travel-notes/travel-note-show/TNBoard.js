@@ -6,6 +6,7 @@ import TNBoardSingle from "./TNBoardSingle"
 import "./styles.css"
 import { Form,Button } from "react-bootstrap";
 import { useParams, withRouter } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 class BoardBlock extends Component {
 
@@ -17,28 +18,36 @@ class BoardBlock extends Component {
   
   componentDidMount() {
     const id = this.props.match.params.noteId;
-    this.state.noteId = id;
+    this.setState({noteId:id})
   }
 
 
 
-
     onSubmit = (e) => {
-      axios
+      e.preventDefault();
+      if(this.state.name===""){
+        Swal.fire('請輸入留言名稱')
+      }else if(this.state.content === ""){
+        Swal.fire('請輸入留言內容')
+      }else{
+        axios
         .post(
           `http://localhost:3000/api/travelNotes/boardUpload/${this.state.noteId}`,
             {
                 board_usename:this.state.name,
                 board_content:this.state.content,
             }
-         
         )
         .then(()=>{
+          window.location.reload()
         })
         
         .catch((error) => {
           throw error;
         });
+      }
+      
+      
   };
 
 
@@ -56,6 +65,7 @@ class BoardBlock extends Component {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                       <Form.Label>留言名稱</Form.Label>
                       <Form.Control type="text"
+                                    placeholder="無名氏"
                                     value={this.state.name}
                                     onChange={e => this.setState({ name: e.target.value })} />
                     </Form.Group>
