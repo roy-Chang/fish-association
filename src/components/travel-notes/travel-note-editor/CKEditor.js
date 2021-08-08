@@ -6,13 +6,19 @@ import MyUploadAdapter from './MyUploadAdapter'
 function MyCustomUploadAdapterPlugin( editor ) {
     editor.plugins.get( 'FileRepository' ).createUploadAdapter = ( loader ) => {
       // 第二个参数设置上传图片的地址
-      return new MyUploadAdapter( loader, 'http://example.com/image/upload/path' );
+      return new MyUploadAdapter( loader, 'http://localhost:3001/travelNotesEditor' );
     };
   }
 
 
 class DefaultCKEditor extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+        content:''
+    }
+}
   componentDidMount() {
     this.init();
   }
