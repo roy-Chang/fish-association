@@ -154,6 +154,7 @@ function ThirdOrder() {
               variant="primary"
               className="mt-3 ml-5"
               onClick={handleSubmit}
+              style={{ background: "#457b9d", border: "#457b9d" }}
             >
               送出訂單
             </Button>
