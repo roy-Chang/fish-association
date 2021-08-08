@@ -15,6 +15,7 @@ const moment = require("moment")
 function AuthorBlock(props) {
 
     const notesData = props.data;
+    
     // console.log(Array.isArray(notesData));
   return (
     <>

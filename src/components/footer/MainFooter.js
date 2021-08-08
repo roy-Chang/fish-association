@@ -11,7 +11,10 @@ import { FaInstagram } from "react-icons/fa";
 import "./styles.css";
 
 /* img import */
-import memberPic from "../../assets/img/footer/01.jpg";
+import roy from "../../assets/img/footer/01.jpg";
+import yuping from "../../assets/img/footer/02.jpg";
+import wei from "../../assets/img/footer/03.jpg";
+import alex from "../../assets/img/footer/04.jpg";
 
 
 function MainFooter(props) {
@@ -46,24 +49,24 @@ function MainFooter(props) {
                             </div>
                             <div className="members-list d-flex justify-content-around mt-5">
                                 <div className="members-card">
-                                    <img className="members-pic" src={memberPic} alt=""  />
+                                    <img className="members-pic" src={wei} alt=""  />
                                     <p>組長</p>
-                                    <p>草尼馬</p>
+                                    <p>高子薇</p>
                                 </div>
                                 <div className="members-card">
-                                    <img className="members-pic" src={memberPic} alt=""  />
-                                    <p>組長</p>
-                                    <p>草尼馬</p>
+                                    <img className="members-pic" src={yuping} alt=""  />
+                                    <p>美術長</p>
+                                    <p>黃郁萍</p>
                                 </div>
                                 <div className="members-card">
-                                    <img className="members-pic" src={memberPic} alt=""  />
-                                    <p>組長</p>
-                                    <p>草尼馬</p>
+                                    <img className="members-pic" src={alex} alt=""  />
+                                    <p>組員</p>
+                                    <p>林立唯</p>
                                 </div>
                                 <div className="members-card">
-                                    <img className="members-pic" src={memberPic} alt=""  />
-                                    <p>組長</p>
-                                    <p>草尼馬</p>
+                                    <img className="members-pic" src={roy} alt=""  />
+                                    <p>組員</p>
+                                    <p>張為俊</p>
                                 </div>
                             </div>
                         </Col>
