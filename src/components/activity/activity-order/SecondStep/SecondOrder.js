@@ -210,7 +210,12 @@ function SecondOrder(props) {
           </Form.Group>
           <div className="text-center mt-3">
             <p style={{ color: "red", height: "25px" }}>{massage}</p>
-            <Button type="submit" onClick={handleSubmit} disabled={check}>
+            <Button
+              type="submit"
+              onClick={handleSubmit}
+              disabled={check}
+              style={{ background: "#457b9d", border: "#457b9d" }}
+            >
               資料確認
             </Button>
           </div>

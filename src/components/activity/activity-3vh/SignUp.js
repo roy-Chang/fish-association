@@ -228,7 +228,12 @@ class SignUp extends Component {
             </p>
 
             <Link to={`/order/activity/${this.state.id}/first`}>
-              <Button className="sign-up-btn">立即報名</Button>
+              <Button
+                style={{ background: "#457b9d", border: "#457b9d" }}
+                className="sign-up-btn"
+              >
+                立即報名
+              </Button>
             </Link>
           </SignUpPrice>
         </SignUpDetail>
