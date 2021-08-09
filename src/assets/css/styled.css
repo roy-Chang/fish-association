@@ -131,6 +131,17 @@ a:hover {
   color: black;
 }
 
-.head-left-user a:hover {
-  text-decoration: none;
+.activity-blog-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  /* white-space: normal; */
+}
+.activity-blog-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  /* white-space: normal; */
 }

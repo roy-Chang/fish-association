@@ -14,7 +14,6 @@ function ListPage() {
         <Slide />
         <TopRank />
         </WebPageTop>
-
           <Container className="list-container">
             <TNListBlock className="pb-5" />
           </Container>

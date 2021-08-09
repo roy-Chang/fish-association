@@ -6,7 +6,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import MyUploadAdapter from './MyUploadAdapter'
 
 
-import {Container,Form,Button} from "react-bootstrap";
+import {Container,Form,Button,Modal} from "react-bootstrap";
 import MainFooter from "../../footer/MainFooter";
 
 import "./styles.css"
@@ -18,7 +18,7 @@ function MyCustomUploadAdapterPlugin( editor ) {
       return new MyUploadAdapter( loader, 'http://localhost:3000/api/travelNotes/upload' );
     };
   }
-export default class TravelNotesEditor extends Component {
+export default class TravelNotesUpload extends Component {
     
     state = {
         title: "",
@@ -97,7 +97,7 @@ export default class TravelNotesEditor extends Component {
                                         editor={ ClassicEditor }
                                         config={
                                             {
-                                                ckfinder: {uploadUrl: `/ckfinder/connector?command=QuickUpload&type=Emails&responseType=json`},
+                                                ckfinder: {uploadUrl: `./ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images`},
                                                 // extraPlugins: [ MyCustomUploadAdapterPlugin]
                                             } 
                                         }

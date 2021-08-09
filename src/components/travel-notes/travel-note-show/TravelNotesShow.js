@@ -13,7 +13,6 @@ import MainFooter from "../../footer/MainFooter";
 function NoteShow(props) {
 
   const [notes,setNotes] = useState([])
-  const [board,setBoard] = useState({})
   let { noteId } = useParams();
   
 
