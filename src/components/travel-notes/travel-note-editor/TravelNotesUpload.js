@@ -97,7 +97,7 @@ export default class TravelNotesUpload extends Component {
                                         editor={ ClassicEditor }
                                         config={
                                             {
-                                                ckfinder: {uploadUrl: `/ckfinder/connector?command=QuickUpload&type=Emails&responseType=json`},
+                                                ckfinder: {uploadUrl: `./ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images`},
                                                 // extraPlugins: [ MyCustomUploadAdapterPlugin]
                                             } 
                                         }
