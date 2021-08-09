@@ -30,23 +30,33 @@ class BoardBlock extends Component {
       }else if(this.state.content === ""){
         Swal.fire('請輸入留言內容')
       }else{
-        axios
-        .post(
-          `http://localhost:3000/api/travelNotes/boardUpload/${this.state.noteId}`,
-            {
-                board_usename:this.state.name,
-                board_content:this.state.content,
-            }
-        )
-        .then(()=>{
-          window.location.reload()
+        Swal.fire({
+          title: '確定送出?',
+          showCancelButton: true,
+          confirmButtonText: "確定",
+          cancelButtonText: `取消`,
         })
+        .then((result) => {
+          if (result.isConfirmed) {
+            axios
+            .post(
+              `http://localhost:3000/api/travelNotes/boardUpload/${this.state.noteId}`,
+                {
+                  board_usename:this.state.name,
+                  board_content:this.state.content,
+                }
+            )
+            .then(()=>{
+              window.location.reload()
+            })
         
-        .catch((error) => {
-          throw error;
-        });
-      }
-      
+            .catch((error) => {
+              throw error;
+            });
+          } 
+        })
+
+    }
       
   };
 
@@ -65,7 +75,6 @@ class BoardBlock extends Component {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                       <Form.Label>留言名稱</Form.Label>
                       <Form.Control type="text"
-                                    placeholder="無名氏"
                                     value={this.state.name}
                                     onChange={e => this.setState({ name: e.target.value })} />
                     </Form.Group>

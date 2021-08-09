@@ -39,24 +39,36 @@ export default class TravelNotesEditor extends Component {
           }else if(this.state.content === ""){
             Swal.fire('請輸入文章內容')
           }else{
-            axios
-            .post(
-              "http://localhost:3000/api/travelNotes/upload",
-                {
-                    note_name:this.state.title,
-                    note_content:this.state.content,
-                },
-                {
-                    headers:header,
-                }
-            )
-            .then(()=>{
-                this.props.history.push("/travelNotes")
-            })
+
+            Swal.fire({
+                title: '確定送出?',
+                showCancelButton: true,
+                confirmButtonText: "確定",
+                cancelButtonText: `取消`,
+              })
+              .then((result) => {
+                if (result.isConfirmed) {
+                    axios
+                    .post(
+                      "http://localhost:3000/api/travelNotes/upload",
+                        {
+                            note_name:this.state.title,
+                            note_content:this.state.content,
+                        },
+                        {
+                            headers:header,
+                        }
+                    )
+                    .then(()=>{
+                        this.props.history.push("/travelNotes")
+                    })
+                    
+                    .catch((error) => {
+                      throw error;
+                    });
+                } 
+              })
             
-            .catch((error) => {
-              throw error;
-            });
           }
           
       };
