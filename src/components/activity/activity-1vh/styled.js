@@ -15,9 +15,16 @@ export const Slogan = styled.div`
   color: #1d3557;
   z-index: 1000;
   text-align: left;
+  @media (max-width: 768px) {
+    max-width: 520px;
+    padding: 20px;
+  }
   h1 {
     font-size: 56px;
     color: #1d3557;
+    @media (max-width: 768px) {
+      font-size: 48px;
+    }
   }
   p {
     font-size: 32px;

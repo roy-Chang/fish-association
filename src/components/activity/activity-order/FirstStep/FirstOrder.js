@@ -115,6 +115,7 @@ function FirstOrder(props) {
                 className="format"
                 onSelect={handleNormalSelect}
                 required
+                variant="info"
               >
                 <Dropdown.Item eventKey="1">1</Dropdown.Item>
                 <Dropdown.Item eventKey="2">2</Dropdown.Item>
@@ -132,6 +133,7 @@ function FirstOrder(props) {
                 title={childlNum}
                 className="format"
                 onSelect={handleChildSelect}
+                variant="info"
                 required
               >
                 <Dropdown.Item eventKey="0">0</Dropdown.Item>
@@ -165,7 +167,11 @@ function FirstOrder(props) {
           </Form.Group>
         </Notice>
         <div className="text-center">
-          <Button className="mt-3" type="submit">
+          <Button
+            className="mt-3"
+            type="submit"
+            style={{ background: "#457b9d", border: "#457b9d" }}
+          >
             <Link to={`/activity`} style={{ color: "white" }}>
               上一步
             </Link>
@@ -175,6 +181,7 @@ function FirstOrder(props) {
             type="submit"
             onClick={() => history.push(location)}
             disabled={clickValue}
+            style={{ background: "#457b9d", border: "#457b9d" }}
           >
             下一步
           </Button>

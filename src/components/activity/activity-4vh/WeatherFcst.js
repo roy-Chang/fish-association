@@ -16,12 +16,19 @@ const YellowSlashline = styled.div`
   height: 80px;
   padding: 0px;
   transform: rotate(43deg);
+  @media (max-width: 576px) {
+    height: 50px;
+  }
 `;
 const YellowLine = styled.div`
   height: 60px;
   margin-left: 50px;
   padding: 28px;
   border-left: #fff579 solid 5px;
+  @media (max-width: 576px) {
+    padding: 20px;
+    margin-left: 30px;
+  }
 `;
 const Weekdate = styled.p``;
 const RainRate = styled.p``;

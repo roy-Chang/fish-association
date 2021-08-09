@@ -7,8 +7,10 @@ export const BgSea = styled.div`
   background-position: top;
   width: 1012px;
   height: 300px;
-  margin: 0 auto;
   position: relative;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 export const DivingPic = styled.img`
   width: 360px;
@@ -17,6 +19,9 @@ export const DivingPic = styled.img`
   position: absolute;
   left: 33%;
   top: 15%;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const BlogList = styled.div`
@@ -24,6 +29,13 @@ export const BlogList = styled.div`
   margin: 0 auto;
   padding: 30px;
   text-align: center;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-top: 950px;
+  }
+  @media (max-width: 576px) {
+    margin-top: 1100px;
+  }
   h2 {
     font-size: 48px;
     border-bottom: 3px solid #fff579;

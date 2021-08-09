@@ -3,6 +3,7 @@ import WeatherFcst from "./WeatherFcst";
 import { Wrapper, BgSea, WeatherInfo } from "./styled";
 import WaveFcst from "./WaveFcst";
 import PlaceSetting from "./PlaceSetting";
+
 function Forthpage() {
   const [locationName, setLocationName] = useState("基隆中正區");
   return (
@@ -36,7 +37,7 @@ function Forthpage() {
           </BgSea>
         </Wrapper>
       </div>
-      <div style={{ height: "500px" }}></div>
+      <div className="heightRWD" style={{ height: "500px" }}></div>
     </>
   );
 }
