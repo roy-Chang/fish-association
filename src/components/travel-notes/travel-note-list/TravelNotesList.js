@@ -19,8 +19,6 @@ function ListPage() {
             <TNListBlock className="pb-5" />
           </Container>
       
-      
-      
     </>
   );
 }

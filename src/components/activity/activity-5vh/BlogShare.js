@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { CardDeck, Card } from "react-bootstrap";
 import { AiFillHeart, AiOutlineShareAlt } from "react-icons/ai";
 import { IoPersonCircleSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
+
 
 function BlogShare() {
   const [blogData, setBlogData] = useState([]);
@@ -27,9 +29,9 @@ function BlogShare() {
                     style={{ maxWidth: "90%", width: "50px", height: "50px" }}
                   />
                   <div className="head-left-user" style={{ marginLeft: "8px" }}>
-                    <h5 className="card-title" style={{ marginTop: "10px" }}>
-                      {item.note_name}
-                    </h5>
+                    <Link to={`/travelNotesShow/${item.id}`}>
+                        <h5 className="card-title" style={{ marginTop: "10px" }}>{item.note_name}</h5>
+                    </Link>
                     <p className="date">
                       {item.note_update_time
                         .slice(0, 10)

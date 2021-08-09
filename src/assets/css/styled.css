@@ -126,3 +126,11 @@ a:hover {
 .btn-choose {
   background: #457b9d !important;
 }
+
+.head-left-user a {
+  color: black;
+}
+
+.head-left-user a:hover {
+  text-decoration: none;
+}
