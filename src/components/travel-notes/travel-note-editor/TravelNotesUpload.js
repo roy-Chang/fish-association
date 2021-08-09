@@ -6,7 +6,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import MyUploadAdapter from './MyUploadAdapter'
 
 
-import {Container,Form,Button} from "react-bootstrap";
+import {Container,Form,Button,Modal} from "react-bootstrap";
 import MainFooter from "../../footer/MainFooter";
 
 import "./styles.css"
