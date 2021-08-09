@@ -9,6 +9,7 @@ import { BiShareAlt } from "react-icons/bi";
 import arupaka from "../../../assets/img/footer/01.jpg"
 
 import "./styles.css"
+import { Link } from 'react-router-dom';
 
 const moment = require("moment")
 

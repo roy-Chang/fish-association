@@ -18,7 +18,7 @@ function MyCustomUploadAdapterPlugin( editor ) {
       return new MyUploadAdapter( loader, 'http://localhost:3000/api/travelNotes/upload' );
     };
   }
-export default class TravelNotesEditor extends Component {
+export default class TravelNotesUpload extends Component {
     
     state = {
         title: "",
