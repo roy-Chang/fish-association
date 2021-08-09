@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import likeNote from "../../../../utils/likeNote";
 import { animated, useTransition } from "react-spring";
+import Swal from "sweetalert2";
 import "./MemberFavoriteNotes.css";
 const writers = likeNote.noteMember;
 
@@ -32,7 +33,7 @@ function FavoriteNotes() {
       })
       .then((serverResponse) => {
         const noteLike = serverResponse.data;
-        console.log(noteLike);
+        // console.log(noteLike);
         setFavoriteN(noteLike);
       });
   }, []);
@@ -69,7 +70,10 @@ function FavoriteNotes() {
                           headers: { Authorization: `Bearer ${token}` },
                         }
                       );
-                      console.log(article.note_id);
+                      // console.log(article.note_id);
+                      Swal.fire(
+                        `您刪除了 ${article.note_model.note_name} 的札記收藏`
+                      );
                     }}
                   >
                     刪除

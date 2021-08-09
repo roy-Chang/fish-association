@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./MemberCSS/MemberNotes.css";
+import Swal from "sweetalert2";
 
 const moment = require("moment");
 function MemberNotes() {
@@ -74,6 +75,10 @@ function MemberNotes() {
                             console.log(err);
                           });
                         console.log(note.id);
+                        Swal.fire({
+                          title: "刪除札記",
+                          text: `您已經刪除了 ${note.note_name} 這篇札記，如要救回請聯絡負責人`,
+                        });
                       }}
                     >
                       刪除
