@@ -31,7 +31,7 @@ function BlogShare() {
                       style={{ maxWidth: "90%", width: "50px", height: "50px" }}
                     />
                     <div className="head-left-user" style={{ marginLeft: "8px" }}>
-                      <Link to={`/travelNotesShow/${item.id}`}>
+                      <Link style={{textDecoration:"none"}} to={`/travelNotesShow/${item.id}`}>
                           <h5 className="activity-blog-title" style={{ marginTop: "10px" }}>{item.note_name}</h5>
                       </Link>
                       <p className="date">
