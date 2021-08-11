@@ -170,7 +170,7 @@ function ThirdOrder() {
           <Button variant="secondary" onClick={handleClose}>
             關閉
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="info" onClick={handleClose}>
             確認
           </Button>
         </Modal.Footer>
